@@ -1,0 +1,47 @@
+---
+title: "video_1"
+output: html_document
+date: "2024-04-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R - Basic Concepts and applications 
+
+<-- logo image for R --> 
+**R (programming language)**
+
+Language and environment for statistical computing and graphics 
+
+<-- logo image for Rstudio --> 
+
+Rstudio is an integrated development environment(IDE) for R. 
+
+It includes a console, syntax-highlighting editor that supports direct code execution as well as tools for plotting history, debugging and workspace management. 
+RStudio - installation link <-link in the first 7 minutes->
+
+# Why R? 
+
+1. **Developed by Statisticians** - R is Excellent for Statistical Computing and Analysis 
+2. **Open-source (Free)** - R is an open-source programming language. Anyone can work with R without any license or fee. Due to this, R has a huge community that contributes to its environment. 
+3. **A Large Variety of Specialized Libraries** - These libraries support and enhance the R development environment.
+4. **R Studio** - A graphic user interface to R - easier to grasp and learn. 
+5. **Cross-platform Support** - R is machine-independent. It supports the cross-platform operation. Thus, it is usable on many different operating systems.
+6. **Can do Data Cleansing, Data Wrangling, and Web Scraping** - R can collect data from the internet through web scraping and other means. It can also perform data cleansing. R is also useful for data wrangling which is the process of converting raw data into the desired format for easier consumption. 
+7. **Powerful Graphics** - R has extensive libraries that can produce production quality graphs and visualizations. 
+8. **Compatible with other Programming Languages** - R is compatible with other languages like C, C++, and FORTRAN. Other languages like .NET, Java, Python can also directly manipulate objects.
+9. Compatible with high performance computing and Big Data Analytics. 
+
+# R - Look and Feel
+
+<-- R screenshot image from the terminal-->
+
+<-- default screenshot image for R Studio --> 
+explain each section/quadrant
+- text editor 
+- stand input/output (console/terminal/jobs)
+- all data and its properties quadrants 
+- plots and file directory structure
+
