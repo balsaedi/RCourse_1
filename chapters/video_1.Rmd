@@ -45,3 +45,48 @@ explain each section/quadrant
 - all data and its properties quadrants 
 - plots and file directory structure
 
+# R studio
+Outline the process of creating and running R script - a screenshot 
+## Basic Mathematics like operators 
+
+## Data types 
+- Numeric
+```{r}
+a=23.5
+class(a) #check the data type of a 
+```
+
+- Integers
+```{r}
+a=23L #add L to show it is an integer
+class(a)
+```
+
+- Characters
+```{r}
+a="DNA"
+class(a)
+```
+
+- Logical 
+```{r}
+a=TRUE #logical data types is either TRUE or FALSE only
+class(a)
+```
+
+- Complex, 
+```{r}
+a=2+3i # Complex data types have 'i' at the end of each number
+class(a)
+```
+
+- Raw
+```{r}
+a=charToRaw("DNA")
+print(a)
+class(a)
+
+# convert back to character 
+b=rawToChar(a)
+class(b)
+```
