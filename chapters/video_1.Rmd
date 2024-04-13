@@ -90,3 +90,49 @@ class(a)
 b=rawToChar(a)
 class(b)
 ```
+
+# Data Structure
+Organization of one or multiple data values in a specific structures 
+
+## Vector 
+vector as “a single entity consisting of a collection of things.” 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print(marks)
+marks
+
+# what are the data types therein
+class(marks)
+
+#check if its a vector 
+is.vector(marks)
+
+#vector has no dimensions
+dim(marks)
+
+# length is used to count number of elements in vectors
+length(marks)
+
+# index is the position of an element in a vector 
+# in R it starts at index 1 - lets say we find the third element by index 3
+marks[3]
+
+# access second to fourth values
+marks[2:4]
+
+# exclude value at specific index we use "-index" for instance 
+marks[-2] # excludes value at index 2
+
+# reverse the values of vector 
+rev(marks)
+
+# vector summary
+summary(marks) #finds the summary/descriptive statistics
+
+# ARITHMETIC WITH VECTORS 
+## Calculate the total marks 
+total_marks = sum(marks)
+print(paste("Total marks=",total_marks))
+```
+
+<--End of video 1-->
