@@ -1,0 +1,86 @@
+---
+title: "video_3"
+output: html_document
+date: "2024-04-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Dataframes
+is a two dimensional data structure, like a 2d array/matrix with rows and columns. 
+
+Lets convert a matrix into a dataframe 
+
+```{r}
+vector1 = c(1:12)
+matrix1 = matrix(vector1, ncol=4) #create a matrix from the vector 
+
+Students=c("Pragya", "Deepika", "Chandran")
+data = data.frame(Students, matrix1) 
+data
+
+headers=c("Students", "Geonomics", "Proteomics", "Microbiology", "Biostatistics")
+colnames(data)=headers #add column names 
+data
+
+# rowwise addition 
+## Add a new column with total marks obtained 
+data$total_marks=rowSums(data[, c(2, 3, 4, 5)]) #add from second to fifth column 
+data
+
+# Add a new column with average marks obtained 
+data$average_marks=rowMeans(data[, c(2, 3, 4, 5)])
+data
+```
+
+# Rloops
+is a sequence of instructions that are executed iterative until a condition is met 
+
+## for loops 
+```{r}
+for (n in 1:10)
+{
+  print(n*5)
+}
+```
+
+loop through a vector and print a square of each element
+
+```{r}
+num=c(1,2,3,8,10)
+for (n in 1:length(num))
+{
+  print(num[n]^2)
+}
+```
+
+Breaking of a loop 
+```{r}
+#Stop the loop if the n is greater than 7
+for (n in num)
+{
+  if (n > 7){
+    break
+  }
+  
+  print(n)
+  
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

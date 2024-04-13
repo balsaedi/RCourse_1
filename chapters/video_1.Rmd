@@ -223,10 +223,13 @@ series4
 marks=c(78,65, 98, 87, 89, NA)
 sum(is.na(marks)) #Count the null values in a vector 
 
+#sum(marks) #returns an error
+sum(marks, na.rm = TRUE) #remove null values before calculating the sum
+median(marks, na.rm = TRUE)
+summary(marks, na.rm = TRUE)
 
-
-
-
+# generate random numbers 
+sample(1:100, 3, replace=FALSE)
+series5=round(runif(10, min=1, max=50)) #generate random numbers then round off
+series5
 ```
-
-<--End of video 1-->

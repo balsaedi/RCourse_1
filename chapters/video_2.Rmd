@@ -52,7 +52,21 @@ row3 = data2[3,]
 row3
 is.vector(row3)
 
+# count the number of rows in a matrix 
+nrow(data2)
 
+# Matrix Addition 
+data1
+data3 = data1+2 #increase each value by 2
+data3
+
+# Matrix Subtraction 
+data4 = data1-1 #reduce each value by 1
+data4
+
+# Matrix Multiplication (scalar)
+data5 = data1*5
+data5
 ```
 
 
