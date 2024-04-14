@@ -70,9 +70,64 @@ for (n in num)
 }
 ```
 
+Working with files 
+<--check minute59 video 4 -- to set a working directory -->
+<-- add screenshots when working -->
 
+run the below command to install `readxl` library
+```{r}
+install.packages("readxl") #install using rstudio interface(packages)
+```
 
+invoke the library into the program 
+```{r}
+# Import the library
+library(readxl)
+```
 
+read the files from excel Excel sheet as a dataframe 
+```{r}
+hg = read_excel("Human_genome.xlsx")
+```
+
+viewing the data 
+```{r}
+View(hg)
+```
+
+```{r}
+class(hg)
+```
+
+find the nature of the data 
+```{r}
+str(hg)
+```
+
+checking the existence of null values
+```{r}
+sum(is.na(hg))
+```
+
+# Q1. Calculate the gene density - genes/megabase for each chromosome
+
+converting to megabases 
+```{r}
+base_Mb = hg$Base_Pairs/1000000
+base_Mb
+```
+
+# Calculate number of genes per megabase per chromosomes 
+```{r}
+genes_per_megabase = hg$Protein_Coding_genes/base_Mb
+genes_per_megabase
+```
+
+Adding a new column 
+```{r}
+hg["genes_per_Mb"]=genes_per_megabase
+str(hg)
+```
 
 
 
