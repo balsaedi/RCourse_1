@@ -76,7 +76,7 @@ Working with files
 
 run the below command to install `readxl` library
 ```{r}
-install.packages("readxl") #install using rstudio interface(packages)
+#install.packages("readxl") #install using rstudio interface(packages)
 ```
 
 invoke the library into the program 
@@ -117,9 +117,16 @@ base_Mb = hg$Base_Pairs/1000000
 base_Mb
 ```
 
+rounding off 
+```{r}
+rbase_Mb=round(base_Mb, digits = 2)
+rbase_Mb
+```
+
+
 # Calculate number of genes per megabase per chromosomes 
 ```{r}
-genes_per_megabase = hg$Protein_Coding_genes/base_Mb
+genes_per_megabase = round(hg$Protein_Coding_genes/base_Mb, digits = 2)
 genes_per_megabase
 ```
 
@@ -128,6 +135,49 @@ Adding a new column
 hg["genes_per_Mb"]=genes_per_megabase
 str(hg)
 ```
+
+Write the new table to a file locally
+```{r}
+write.table(hg, 
+            file="hg_modified", 
+            quote=FALSE, 
+            sep='\t', 
+            row.names=FALSE, 
+            col.names=TRUE)
+```
+The file will be saved by default on the working directly unless the file path is changed. 
+
+Checking if the new file is saved 
+```{r}
+file.show("hg_modified")
+```
+
+Removing the mitochondrial DNA data 
+```{r}
+hg_nuc <- subset(hg, Chromosome!="mtDNA")
+View(hg_nuc)
+```
+
+Sorting data as per a specific column 
+ascending order 
+```{r}
+hg_nuc_ascending = hg_nuc[order(hg_nuc$genes_per_Mb),]
+View(hg_nuc_ascending)
+```
+
+descending order
+```{r}
+hg_nuc_descending = hg_nuc[order(-hg_nuc$genes_per_Mb),]
+View(hg_nuc_descending)
+```
+
+Selecting specific columns of the data
+```{r}
+sub_hg=hg[,c(1,2)] #1and2 are the row numbers 
+sub_hg
+View(sub_hg)
+```
+
 
 
 
