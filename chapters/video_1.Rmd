@@ -90,3 +90,146 @@ class(a)
 b=rawToChar(a)
 class(b)
 ```
+
+# Data Structure
+Organization of one or multiple data values in a specific structures 
+
+## Vector 
+vector as “a single entity consisting of a collection of things.” 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print(marks)
+marks
+
+# what are the data types therein
+class(marks)
+
+#check if its a vector 
+is.vector(marks)
+
+#vector has no dimensions
+dim(marks)
+
+# length is used to count number of elements in vectors
+length(marks)
+
+# index is the position of an element in a vector 
+# in R it starts at index 1 - lets say we find the third element by index 3
+marks[3]
+
+# access second to fourth values
+marks[2:4]
+
+# exclude value at specific index we use "-index" for instance 
+marks[-2] # excludes value at index 2
+
+# reverse the values of vector 
+rev(marks)
+
+# vector summary
+summary(marks) #finds the summary/descriptive statistics
+
+# ARITHMETIC WITH VECTORS 
+## Calculate the total marks 
+total_marks = sum(marks)
+print(paste("Total marks=",total_marks))
+
+## vector multiplication
+double_marks =2 * marks 
+marks
+double_marks
+
+## vector division 
+half_marks = marks/2
+half_marks
+
+## multiply 2 vectors of equal lenght 
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+ab = a*b
+ab
+ba = b*a # is the same as ab
+ba
+
+## divide 2 vectors of equal length 
+abdiv=a/b
+abdiv
+
+badiv=b/a
+badiv
+
+## multiplying vectors of unequal length
+e=c(1,2,3,4,5)
+f=c(1,2)
+ef = e*f #it shows an error
+ef #shows results since f is replicated to match e as f=c(1,2,1,2,1)
+
+## Combining vectors 
+a
+b
+z=c(a,b,a) #concatenates the vectors 
+z
+
+# Character Vectors 
+my_name = c("My", "name", "is", "Vipin")
+my_name[5] = "Singh" #insert at the end 
+my_name
+class(my_name)
+summary(my_name)
+print(paste(my_name, collapse=" ")) #combine the vector into a single string 
+
+# Vectors with mixed data types
+## vectors with numeric and characters 
+numbers=c(1,"two", 3, "three")
+numbers
+
+class(numbers)
+
+num1=numbers[1]
+num1 
+
+class(num1)
+# num1+2 gives an error  
+as.integer(num1) + 2 #need to convert to integer
+
+## Named vectors
+named_vector=c(EcoR1="GAATTC", HindIII="AAGCTT", Pst1="CTGCAG")
+named_vector
+
+names(named_vector)
+
+named_vector["EcoR1"] # find the value of a vector by its name 
+
+# Generating the number series 
+series1=1:20
+series1
+
+series2=seq(1,30)
+series2
+series2[5] #access a value by index 
+sum(series2) 
+
+# generate numbers 0 to 10 incremented by 0.5
+series3=seq(0, 10, by=0.5)
+series3
+
+# generate 10 numbers from 0 to 6
+series4=seq(0, 6, length=10)
+series4
+
+# <--- add rep command for rep series---->
+
+# NA data (Not available or blank)
+marks=c(78,65, 98, 87, 89, NA)
+sum(is.na(marks)) #Count the null values in a vector 
+
+#sum(marks) #returns an error
+sum(marks, na.rm = TRUE) #remove null values before calculating the sum
+median(marks, na.rm = TRUE)
+summary(marks, na.rm = TRUE)
+
+# generate random numbers 
+sample(1:100, 3, replace=FALSE)
+series5=round(runif(10, min=1, max=50)) #generate random numbers then round off
+series5
+```

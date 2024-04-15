@@ -1,0 +1,62 @@
+---
+title: "video_4"
+output: html_document
+date: "2024-04-13"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+check minute 10+ on lecture 4 about DNA sequence 
+
+```{r}
+# generating a random DNA sequence 
+nucleotide=c("A", "T", "G", "C")
+
+dna = sample(nucleotide, 10, replace = TRUE)
+dna
+
+length1 = length(dna)
+print(length1)
+
+# Method 1 - Using for loop and checking individual positions
+# initializing counters
+a=0; t=0; g=0; c=0
+dna
+#Calculating A,T,G,C
+for (i in 1:length1)
+{
+  if(dna[i]=="A"){a=a+1}
+  if(dna[i]=="T"){t=t+1}
+  if(dna[i]=="G"){g=g+1}
+  if(dna[i]=="C"){c=c+1}
+}
+
+cat("A,T,G,C ", a,t,g,c)
+
+#Calculate the GC content 
+gc=((g+c)/length1)*100
+
+print(c("GC content =", gc))
+```
+
+Using libraries instead of loops 
+
+```{r}
+library(stringr)
+
+dna=paste(dna, collapse="")
+print(dna)
+
+a=str_count(dna, "A")
+t=str_count(dna, "T")
+g=str_count(dna, "G")
+c=str_count(dna, "C")
+
+cat("A, T, G, C",a, t, g, c)
+```
+
+
+
+
