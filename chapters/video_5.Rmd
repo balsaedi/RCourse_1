@@ -46,6 +46,48 @@ What are the inbuilt datasets in R
 data()
 ```
 
+or 
+```{r}
+ls("package:datasets")
+```
+
+
+data available in all packages 
+```{r}
+data(package=.packages(all.available = TRUE))
+```
+
+Example - working with iris dataset
+```{r}
+data("iris")
+View(iris)
+```
+
+summary statistics 
+```{r}
+summary(iris)
+```
+
+writing to a file 
+```{r}
+write.table(iris, "iris_dataset.txt", append = FALSE)
+file.show("iris_dataset.txt")
+```
+
+or to remove quotes next to values 
+```{r}
+write.table(iris, "iris_dataset.txt", append = FALSE, quote = FALSE)
+file.show("iris_dataset.txt")
+```
+
+or to remove quotes and row names <-- remember to add screenshots--> 
+```{r}
+write.table(iris, "iris_dataset.txt", append = FALSE, quote=FALSE, row.names = FALSE)
+file.show("iris_dataset.txt")
+```
+
+
+
 
 
 
