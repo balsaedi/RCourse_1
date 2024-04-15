@@ -182,9 +182,21 @@ graph=ggplot(iris_long, aes(x=Species,y=measurement))+
 print(graph)
 ```
 
+# R Markdown 
+Intoduce how to create R markdown file using screenshots 
 
+Lets try create a vector in a copde chunk 
+```{r}
+vector1=c(1,2,3,4,5)
+print(vector1)
+```
 
+Each chunk can be run separately in a single file, also the variable in one chunk can be reused by the next/later chunks 
 
+Anything added outside the chuck will not be execcuted in the program
+
+The R markdown can be knitted to a html, pdf, or word file 
+<--Include screenshots-->
 
 
 
