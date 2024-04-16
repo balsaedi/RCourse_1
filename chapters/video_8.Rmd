@@ -255,12 +255,8 @@ mean_score_for_each_position = rowMeans(scores, na.rm=TRUE)
 mean_score_for_each_position
 ```
 
-
-
-
-
-
-
-
-
+Plot a boxplot for the scores 
+```{r}
+boxplot(scores, xlab="Position", ylab="Phred score")
+```
 
