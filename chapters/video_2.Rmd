@@ -68,13 +68,3 @@ data4
 data5 = data1*5
 data5
 ```
-
-
-
-
-
-
-
-
-
-

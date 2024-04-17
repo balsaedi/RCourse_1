@@ -56,7 +56,3 @@ c=str_count(dna, "C")
 
 cat("A, T, G, C",a, t, g, c)
 ```
-
-
-
-
