@@ -177,15 +177,3 @@ sub_hg=hg[,c(1,2)] #1and2 are the row numbers
 sub_hg
 View(sub_hg)
 ```
-
-
-
-
-
-
-
-
-
-
-
-
