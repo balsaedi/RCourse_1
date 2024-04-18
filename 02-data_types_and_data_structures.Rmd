@@ -1,0 +1,86 @@
+# Data Types and Data Structures
+## Data types 
+<-- add more explanations to each data types --> 
+
+- Numeric
+```{r}
+a=23.5
+class(a) #check the data type of a 
+```
+
+- Integers
+```{r}
+a=23L #add L to show it is an integer
+class(a)
+```
+
+- Characters
+```{r}
+a="DNA"
+class(a)
+```
+
+- Logical 
+```{r}
+a=TRUE #logical data types is either TRUE or FALSE only
+class(a)
+```
+
+- Complex, 
+```{r}
+a=2+3i # Complex data types have 'i' at the end of each number
+class(a)
+```
+
+- Raw
+```{r}
+a=charToRaw("DNA")
+print(a)
+class(a)
+
+# convert back to character 
+b=rawToChar(a)
+class(b)
+```
+
+## Data Structures 
+This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;
+- Vector
+- Matrix
+- Data frame
+
+### Vector
+A vector is a single entity consisting of a collection of things. Here is an example of a vector.
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print(marks)
+```
+
+The `class` function is utilized to determine the data types present within vector data values.
+```{r}
+class(marks)
+```
+The vector "marks" consist of only numeric values 
+
+`is.vector` function is used to check if the variable is a vector 
+```{r}
+is.vector(marks)
+```
+
+unlike matrix and data frame, vector has no dimension 
+```{r}
+dim(marks)
+```
+
+`length()` function is used to count number of elements in vectors
+```{r}
+length(marks)
+```
+
+Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
+```{r}
+marks[3]
+```
+ value "98" is at index 3, or the third in the vector. 
+ 
+ 

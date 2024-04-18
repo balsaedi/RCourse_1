@@ -1,9 +1,8 @@
 --- 
-title: "YOUR TITLE HERE"
+title: "R Course"
 author: "YOUR NAME HERE"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-# Down the rabbit-hole
-
+<-- add R logo -->
