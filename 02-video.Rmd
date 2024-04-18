@@ -1,0 +1,61 @@
+# Video 2
+Check the version of R
+
+```{r}
+R.version.string# move to video 1
+```
+
+# Matrix 
+Is a two dimensional data type that contain a single class of data 
+
+```{r}
+vector1 = seq(1, 9)
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+data1
+
+## create by row 
+data2=matrix(vector1, ncol=3, byrow=TRUE)
+data2 # is a transpose of data1
+
+# dimension 
+dim(data1)
+
+#check if its a matrix 
+is.matrix(data1)
+
+# check if its a vector 
+is.vector(data2)
+
+class(data1) # matrix is recognized either as a matrix or array by R
+
+data1[3, 2] #access value 6 in data1
+
+# access the second column in data1 as a vector 
+col2 = data1[,2]
+col2
+is.vector(col2)
+
+# access the third row as a vector 
+row3 = data2[3,]
+row3
+is.vector(row3)
+
+# count the number of rows in a matrix 
+nrow(data2)
+
+# Matrix Addition 
+data1
+data3 = data1+2 #increase each value by 2
+data3
+
+# Matrix Subtraction 
+data4 = data1-1 #reduce each value by 1
+data4
+
+# Matrix Multiplication (scalar)
+data5 = data1*5
+data5
+```
