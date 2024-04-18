@@ -117,7 +117,7 @@ library(seqinr)
 Reading the fasta file 
 ```{r}
 proseq = read.fasta(file="data/spike_multifasta.txt", seqtype="AA")
-View(proseq)
+str(proseq)
 ```
 
 Count the number of sequences 
