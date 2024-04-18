@@ -81,6 +81,193 @@ Index is the position of an element in a vector, in R it starts at index 1 - let
 ```{r}
 marks[3]
 ```
- value "98" is at index 3, or the third in the vector. 
- 
+value "98" is at index 3, or the third in the vector. 
+
+Vectors can be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
+```{r}
+print(marks[2:4])
+is.vector(marks[2:4]) # confirm if the retrieved values are in a vector
+```
+
+An element at a specific index in a vector can be excluded by adding a `-` sign before the index value. 
+```{r}
+marks[-2] #exclude the element at index 2
+```
+
+`rev()` command is used to reverse the order of elements in a vector
+```{r}
+rev(marks)
+```
+
+#### Mathematical Operations in a vector 
+The summary/descriptive statistics are calculated by `summary()` command. 
+```{r}
+summary(marks)
+```
+
+`sum()`, `median()`, and `mean()` are used to calculate the total, median, average and the standard deviation of the values in a vector
+```{r}
+print("MARKS")
+print(paste("TOTAL: ", sum(marks)))
+print(paste("MEDIAN: ", median(marks)))
+print(paste("AVERAGE: ", mean(marks)))
+```
+
+vector multiplication
+```{r}
+double_marks =2 * marks 
+marks
+double_marks
+```
+
+Vector division - divide the marks by 2
+```{r}
+half_marks = marks/2
+half_marks
+```
+
+Multiply 2 vectors of equal length
+```{r}
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+ab = a*b
+ab
+ba = b*a # is the same as ab
+ba
+```
+
+Divide 2 vectors of equal length 
+```{r}
+# Divide vector a by b
+abdiv=a/b
+abdiv
+# Divide vector b by a
+badiv=b/a
+badiv
+```
+
+However, when multiplying vectors of unequal length the shorter one is replicated to match the longer vector. It will then return a warning
+```{r}
+e=c(1,2,3,4,5)
+f=c(1,2)
+ef = e*f #it shows an error
+ef #shows results since f is replicated to match e as f=c(1,2,1,2,1)
+```
+
+Multiple vectors can be concatenated/combined to come up with one giant vector 
+```{r}
+a
+b
+z=c(a,b,a) #concatenates the vectors 
+z
+```
+
+#### Character Vectors 
+Vectors can also contain character data types for instance 
+```{r}
+my_name = c("My", "name", "is", "Vipin")
+my_name[5] = "Singh" #insert at the end 
+my_name
+```
+
+Combining the vectors to a single string 
+```{r}
+print(paste(my_name, collapse=" "))
+```
+
+Calculate the summary/descriptive statistics of the vector by function `summary()`. It finds;
+- Count/length
+- Class (data type)
+- Mode 
+```{r}
+summary(my_name)
+```
+
+#### Vectors with mixed data types 
+A vector can also consist of characters values and numeric values for instance 
+```{r}
+numbers=c(1,"two", 3, "three")
+numbers
+```
+
+however the numeric elements in the vector are recognized by R as character data type. They can be converted to numeric by; 
+```{r}
+as.numeric(numbers[1]) + 2
+```
+
+the integers can be converted by;
+```{r}
+as.integer(numbers[1])
+```
+
+#### Named Vectors 
+Variable names can be assigned to vectors like;
+```{r}
+named_vector=c(EcoR1="GAATTC", HindIII="AAGCTT", Pst1="CTGCAG")
+named_vector
+```
+
+to access the names of the values is;
+```{r}
+names(named_vector)
+```
+
+A vector element can be accessed using its name
+```{r}
+named_vector["EcoR1"] # find the value of a vector by its name 
+```
+
+#### Generating  number series as vectors 
+The `seq` function in R is used to generate sequences of numbers. It takes several arguments, including `from`, `to`, `by`, and `length.out`, among others, to specify the range and increment of the sequence. Here's a brief overview of its usage:
+
+- `from`: The starting value of the sequence.
+- `to`: The end value of the sequence.
+```{r}
+# Generate a sequence from 1 to 10
+series = seq(from=1, to=20)
+series 
+
+# It can also be written as
+series = seq(1,20)
+series
+```
+
+```{r}
+class(series)
+```
+
+- `by`: The increment between consecutive values in the sequence.
+```{r}
+# generate numbers 0 to 10 incremented by 0.5
+series3=seq(0, 10, by=0.5)
+series3
+```
+
+- `length`: The desired length of the sequence.
+```{r}
+# generate 10 numbers from 0 to 6
+series4=seq(0, 6, length=10)
+series4
+seq(0, 6)
+```
+- `along.with`: An optional vector argument specifying the length and names of the output sequence.
+```{r}
+# Generate a sequence along with a vector
+seq(along.with = c("a", "b", "c"))
+```
+
+#### Null data points in vectors 
+NA data (Not available or blank) for instance 
+```{r}
+marks=c(78,65, 98, 87, 89, NA)
+sum(is.na(marks)) #Count the null values in a vector 
+```
+
+Other inbuilt functions for mathematical operations cannot be done if Null values exists in a vector unless they are removed/ignored 
+```{r}
+#sum(marks) #returns an error
+sum(marks, na.rm = TRUE) #remove null values before calculating the sum
+median(marks, na.rm = TRUE)
+summary(marks, na.rm = TRUE)
+```
  
