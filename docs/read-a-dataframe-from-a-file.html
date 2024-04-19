@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R Course</title>
-  <meta name="description" content="R Course" />
+  <title>Chapter 5 Read a dataframe from a file | R Course</title>
+  <meta name="description" content="Chapter 5 Read a dataframe from a file | R Course" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R Course" />
+  <meta property="og:title" content="Chapter 5 Read a dataframe from a file | R Course" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R Course" />
+  <meta name="twitter:title" content="Chapter 5 Read a dataframe from a file | R Course" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="loops.html"/>
 
-<link rel="next" href="r---introduction.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -188,14 +188,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R Course</h1>
-<p class="author"><em>YOUR NAME HERE</em></p>
-<p class="date"><em>2024-04-19</em></p>
-</div>
-<div id="r-course" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> R Course<a href="index.html#r-course" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><img src="images/R-logo.jpeg" /></p>
+<div id="read-a-dataframe-from-a-file" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Read a dataframe from a file<a href="read-a-dataframe-from-a-file.html#read-a-dataframe-from-a-file" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter explains how to read a file to a data frame using the <code>readxl</code> library. The <code>readxl</code> package can be installation from the console by <code>install.packages("readxl")</code> command.</p>
+<p>Lets begin by importing the library</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="read-a-dataframe-from-a-file.html#cb166-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
+<span id="cb166-2"><a href="read-a-dataframe-from-a-file.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<p>The <code>readxl</code> library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="read-a-dataframe-from-a-file.html#cb167-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
+<p>View the data</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="read-a-dataframe-from-a-file.html#cb168-1" tabindex="-1"></a><span class="fu">View</span>(hg)</span></code></pre></div>
 
 </div>
             </section>
@@ -203,8 +205,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
+<a href="loops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="r---introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -235,7 +237,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/balsaedi/RCourse/edit/main/index.Rmd",
+"link": "https://github.com/balsaedi/RCourse/edit/main/04-read_dataframe_from_file.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -243,7 +245,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/balsaedi/RCourse/blob/main/index.Rmd",
+"link": "https://github.com/balsaedi/RCourse/blob/main/04-read_dataframe_from_file.Rmd",
 "text": null
 },
 "download": null,

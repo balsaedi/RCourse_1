@@ -6,6 +6,7 @@ r-studio
 r---look-and-feel
 basic-mathematics-like-operators
 r-markdown
+installation-of-packages
 data-types-and-data-structures
 data-types
 data-structures
@@ -19,3 +20,7 @@ null-data-points-in-vectors
 matrix
 mathematical-operations-in-a-matrix
 data-frame
+loops
+for-loops
+while-loop
+read-a-dataframe-from-a-file

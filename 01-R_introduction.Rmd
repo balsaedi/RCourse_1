@@ -60,3 +60,5 @@ Anything added outside the chuck will not be executed in the program
 
 The R markdown can be knitted to a html, pdf, or word file 
 <--Include screenshots-->
+
+## Installation of packages
