@@ -270,4 +270,117 @@ sum(marks, na.rm = TRUE) #remove null values before calculating the sum
 median(marks, na.rm = TRUE)
 summary(marks, na.rm = TRUE)
 ```
- 
+
+### Matrix 
+A matrix is a two dimensional data type that contain a single class of data. The code below shows one can produce a matrix from a vector 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+data1
+```
+A vector of values 1 to 9 is being converted to a matrix where the values are being arranged columnwise by default. 
+
+A matrix has a multiple dimensions, the most common type of matrix is two dimesnional. 
+```{r}
+dim(data1)
+```
+
+`is.matrix()` function is used to confirm if a given variable is a matrix and it return a boolean value. 
+```{r}
+is.matrix(data1)
+```
+
+A matrix can also be created row-wise from a vector.
+```{r}
+## create by row 
+data2=matrix(vector1, ncol=3, byrow=TRUE)
+data2 # is a transpose of data1
+```
+
+Matrix is recognized either as a matrix or array by R
+```{r}
+class(data1) 
+```
+
+To access a specific data point in a matrix, the matrix is indexed by row then column for instance `matrix_data[row_index, column_index]`
+```{r}
+data1[3, 2]
+```
+
+To access a single row, in this case we find the second row which will be returned as a vector 
+```{r}
+data1
+row2 = data1[2,] # access row 2 
+is.vector(row2) #can be accessed by row 2
+```
+
+To access a single column 
+```{r}
+data1
+col3=data1[,3] # access column 3
+is.vector(col3) #can be accessed by column 3
+```
+
+Count the number of rows in a matrix 
+```{r}
+nrow(data1)
+```
+`data1` has 3 rows
+
+Count the number of columns in a matrix
+```{r}
+ncol(data1)
+```
+
+#### Mathematical Operations in a matrix 
+**Matrix Addition**
+```{r}
+data1
+data2 = data1 + 3
+data2
+```
+Adding value 3 to a matrix adds each value in the matrix by 3
+
+**Matrix Subtraction**
+```{r}
+data3 = data1-1 #reduce each value by 1
+data3
+```
+Subtracting 1 to `data1` subtract each value in the matrix by 1
+
+**Matrix Multiplication(scalar)**
+```{r}
+data4 = data1*5
+data4
+```
+
+**Matrix division**
+```{r}
+data5 = data1/2
+data5
+```
+
+
+### Data frame
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

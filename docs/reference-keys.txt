@@ -1,3 +1,4 @@
+r-course
 r---introduction
 r---basic-concepts-and-applications
 why-r
@@ -15,3 +16,6 @@ vectors-with-mixed-data-types
 named-vectors
 generating-number-series-as-vectors
 null-data-points-in-vectors
+matrix
+mathematical-operations-in-a-matrix
+data-frame

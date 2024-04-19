@@ -5,4 +5,5 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
 
-<-- add R logo -->
+# R Course
+![](images/R-logo.jpeg)
