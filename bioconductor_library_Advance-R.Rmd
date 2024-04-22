@@ -1,0 +1,260 @@
+# Bioconductor
+
+Bioconductor is a repository for high-quality, peer-reviewed software packages for the analysis and comprehension of high-throughput genomic data. Here's a guide on how to utilize some of its functionalities:
+
+## Installing BiocManager Package
+
+To get started with Bioconductor, you need to install the `BiocManager` package, which facilitates the installation and management of Bioconductor packages. You can find detailed installation instructions in the [official documentation](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html).
+
+Load the required libraries 
+```{r}
+library(Biostrings)
+```
+
+After loading the necessary libraries, you can read sequence data into R. For instance, if you have sequence data stored in a multifasta file named multifasta_seq.txt, you can use the readDNAStringSet() function.
+```{r}
+seq = readDNAStringSet("data/multifasta_seq.txt")
+seq
+```
+
+Each genomic sequence can be viewed separately by indexing 
+```{r}
+seq[[1]] #first genomic sequence
+seq[[2]] # second genomic sequence
+```
+
+Convert to character to inspect its content.
+```{r}
+as.character(seq[[1]]) 
+```
+
+The `length` function from base R is used to count the number of genomic sequences. 
+```{r}
+length(seq)
+```
+
+- Names of the sequences
+```{r}
+names(seq)
+```
+
+- view the first 6 sequences
+```{r}
+head(seq)
+```
+
+- Checking the reverse compliment of sequence 
+```{r}
+seq_rc = reverseComplement(seq[[1]])
+head(seq_rc)
+tail(seq_rc)
+as.character(seq_rc)
+```
+
+- Sequence composition -default - calculate the DNA composition
+```{r}
+composition=alphabetFrequency(seq)
+print(composition)
+```
+
+- Specific composition - lets say we wanna look for A, T, G, C and N
+```{r}
+composition1=letterFrequency(seq, letters=c("A","T", "G", "C", "N"))
+print(composition1)
+```
+
+Computing the GC Content 
+```{r}
+gc_content <- letterFrequency(seq, letters="GC", as.prob=TRUE)
+gc_content
+```
+
+Calculate the mean of Gc content 
+```{r}
+mean(gc_content)
+```
+
+- Standard deviation 
+```{r}
+sd(gc_content)
+```
+
+
+```{r}
+range(gc_content)
+```
+
+- Which GC has the maximum content 
+```{r}
+seq[which(gc_content==max(gc_content))]
+```
+
+## Searching and Analyzing the strings
+A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;
+- Search for substrings- in this case we search for `"GAATTC"` substring.
+```{r}
+ECoR1=vcountPattern("GAATTC", seq)
+print(ECoR1)
+
+HindIII = vcountPattern("AAGTT", seq)
+print(HindIII)
+```
+
+-  Finding the position of substrings
+```{r}
+HindIII_pos=vmatchPattern("AAGCT", seq)
+print(HindIII_pos)
+```
+
+- Translate 
+```{r}
+# translate(seq[[2]])
+#Check functions available
+methods(class = "DNAStringSet")
+```
+
+## Using seqinr
+Another useful library in sequence analysis is `seqinr`. 
+After installing the library by invoking `install.packages("seqinr")` to the console, load it to the workspace 
+```{r}
+library(seqinr)
+```
+
+Reading the fasta file containing the protein sequence using the `read.fasta` function. 
+```{r}
+proseq = read.fasta(file="data/spike_multifasta.txt", seqtype="AA")
+str(proseq)
+```
+
+Count the number of sequences 
+```{r}
+num_seq = length(proseq)
+print(paste("Number of sequences = ", num_seq))
+```
+
+- Names of the sequences
+```{r}
+names=getName(proseq)
+names 
+```
+
+- Annotation of sequences 
+```{r}
+annotation <- getAnnot(proseq)
+annotation
+```
+
+- Length of individual sequences 
+```{r}
+len_seq = getLength(proseq)
+len_seq
+```
+
+- Protein statistics 
+```{r}
+print(AAstat(proseq[[1]]))
+```
+
+It gives the type of proteins 
+```{r}
+for (i in 1:num_seq)
+{
+  print(names[i])
+  print(AAstat(proseq[[i]]))
+}
+```
+
+- Show commands in seqinr
+```{r}
+lseqinr()
+```
+
+## Using Short Read
+This library can be installed by invoking the `BiocManager::install("ShortRead")` command to the console. 
+
+load the library 
+```{r}
+library(ShortRead)
+```
+
+- Reading the fastq sequences 
+```{r}
+fq = readFastq("data/file2.fastq")
+fq
+```
+
+- Preview of first 3 sequences
+```{r}
+fq[1:3]
+```
+
+- Sequence information
+```{r}
+sread(fq)
+```
+
+Subset the sequence from second to fifth
+```{r}
+sread(fq[2:5])
+```
+
+Inspect the quality of the sequence 
+```{r}
+quality(fq)
+```
+
+- Number of sequence in the file 
+```{r}
+length(fq)
+```
+
+- Length of reads 
+```{r}
+readLength = width(fq)
+readLength
+```
+
+- generating the summary of fasta sequences 
+```{r}
+fq_reads = sread(fq)
+
+id_of_reads=id(fq)
+id_of_reads[1:5]
+fq_reads
+```
+
+- Seq length - we can generate the sequence lenght by converting it to a dataframe
+```{r}
+seq_length = as.data.frame(fq_reads@ranges@width)
+seq_length
+```
+
+- Quality scores 
+```{r}
+quality_scores=quality(fq)
+quality_scores[1:5]
+```
+
+Convert the scores to matrix and see as real numbers 
+```{r}
+scores=as(quality_scores, "matrix")
+scores
+```
+
+- Mean score for each sequence 
+```{r}
+mean_score_for_each_sequence = rowMeans(scores, na.rm=TRUE)
+mean_score_for_each_sequence
+```
+
+- Mean score for each position 
+```{r}
+mean_score_for_each_position = rowMeans(scores, na.rm=TRUE)
+mean_score_for_each_position
+```
+
+Plot a boxplot for the scores 
+```{r}
+boxplot(scores, xlab="Position", ylab="Phred score")
+```
+

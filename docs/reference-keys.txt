@@ -28,3 +28,15 @@ reading-a-file-from-a-dataframe
 write-a-new-table-to-a-file-locally
 dpyr-library
 application-of-dplyr-on-microbiology
+ggplot
+five-key-steps-to-ggplot
+biology-behind-the-data-we-are-using
+prepare-the-data-for-plotting---data-assessment
+plotting
+base-set-up
+working-with-inbuilt-iris-data
+bioconductor
+installing-biocmanager-package
+searching-and-analyzing-the-strings
+using-seqinr
+using-short-read
