@@ -1,0 +1,64 @@
+# R - Introduction
+## R - Basic Concepts and applications 
+**R (programming language)** is a language and environment for statistical computing and graphics 
+
+<-- logo image for Rstudio --> 
+
+## Why R? 
+
+1. **Developed by Statisticians** - R is Excellent for Statistical Computing and Analysis 
+2. **Open-source (Free)** - R is an open-source programming language. Anyone can work with R without any license or fee. Due to this, R has a huge community that contributes to its environment. 
+3. **A Large Variety of Specialized Libraries** - These libraries support and enhance the R development environment.
+4. **R Studio** - A graphic user interface to R - easier to grasp and learn. 
+5. **Cross-platform Support** - R is machine-independent. It supports the cross-platform operation. Thus, it is usable on many different operating systems.
+6. **Can do Data Cleansing, Data Wrangling, and Web Scraping** - R can collect data from the internet through web scraping and other means. It can also perform data cleansing. R is also useful for data wrangling which is the process of converting raw data into the desired format for easier consumption. 
+7. **Powerful Graphics** - R has extensive libraries that can produce production quality graphs and visualizations. 
+8. **Compatible with other Programming Languages** - R is compatible with other languages like C, C++, and FORTRAN. Other languages like .NET, Java, Python can also directly manipulate objects.
+9. Compatible with high performance computing and Big Data Analytics. 
+
+## R studio
+**Rstudio** is an integrated development environment(IDE) for R. 
+
+It includes a console, syntax-highlighting editor that supports direct code execution as well as tools for plotting history, debugging and work space management. 
+RStudio - installation link <-link in the first 7 minutes->
+
+Outline the process of creating and running R script - a screenshot 
+<--Check R Version --> 
+
+### R - Look and Feel
+
+<-- R screenshot image from the terminal-->
+
+<-- default screenshot image for R Studio --> 
+explain each section/quadrant
+- text editor 
+- stand input/output (console/terminal/jobs)
+- all data and its properties quadrants 
+- plots and file directory structure
+
+## Basic Mathematics like operators 
+Addition - the `+` operator is used to add two or more values 
+```{r}
+2+3
+```
+
+Subtraction - the `-` operator is used to subtract two numerical values 
+```{r}
+6-2
+```
+
+<-- add more content for operators-->
+
+## R Markdown 
+<-- Definition of R Markdown -->
+<--Introduce how to create R markdown file using screenshots --> 
+
+
+Each chunk can be run separately in a single file, also the variable in one chunk can be reused by the next/later chunks 
+
+Anything added outside the chuck will not be executed in the program
+
+The R markdown can be knitted to a html, pdf, or word file 
+<--Include screenshots-->
+
+## Installation of packages

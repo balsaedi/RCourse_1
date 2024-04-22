@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Dpyr library | R Course</title>
+  <meta name="description" content="Chapter 6 Dpyr library | R Course" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Dpyr library | R Course" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Dpyr library | R Course" />
+  
+  
+  
+
+<meta name="author" content="YOUR NAME HERE" />
+
+
+<meta name="date" content="2024-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="working-with-files.html"/>
+<link rel="next" href="ggplot.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SHORT TITLE HERE</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R Course</a></li>
+<li class="chapter" data-level="2" data-path="r---introduction.html"><a href="r---introduction.html"><i class="fa fa-check"></i><b>2</b> R - Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r---introduction.html"><a href="r---introduction.html#r---basic-concepts-and-applications"><i class="fa fa-check"></i><b>2.1</b> R - Basic Concepts and applications</a></li>
+<li class="chapter" data-level="2.2" data-path="r---introduction.html"><a href="r---introduction.html#why-r"><i class="fa fa-check"></i><b>2.2</b> Why R?</a></li>
+<li class="chapter" data-level="2.3" data-path="r---introduction.html"><a href="r---introduction.html#r-studio"><i class="fa fa-check"></i><b>2.3</b> R studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="r---introduction.html"><a href="r---introduction.html#r---look-and-feel"><i class="fa fa-check"></i><b>2.3.1</b> R - Look and Feel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a></li>
+<li class="chapter" data-level="2.5" data-path="r---introduction.html"><a href="r---introduction.html#r-markdown"><i class="fa fa-check"></i><b>2.5</b> R Markdown</a></li>
+<li class="chapter" data-level="2.6" data-path="r---introduction.html"><a href="r---introduction.html#installation-of-packages"><i class="fa fa-check"></i><b>2.6</b> Installation of packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Types and Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector"><i class="fa fa-check"></i><b>3.2.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2.2</b> Matrix</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-frame"><i class="fa fa-check"></i><b>3.2.3</b> Data frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>4</b> Loops</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>4.1</b> For loops</a></li>
+<li class="chapter" data-level="4.2" data-path="loops.html"><a href="loops.html#while-loop"><i class="fa fa-check"></i><b>4.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-with-files.html"><a href="working-with-files.html"><i class="fa fa-check"></i><b>5</b> Working with files</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dpyr-library.html"><a href="dpyr-library.html#application-of-dplyr-on-microbiology"><i class="fa fa-check"></i><b>6.1</b> Application of Dplyr on Microbiology</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> GGPLOT</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#five-key-steps-to-ggplot"><i class="fa fa-check"></i><b>7.1</b> Five key steps to ggplot</a></li>
+<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#biology-behind-the-data-we-are-using"><i class="fa fa-check"></i><b>7.2</b> Biology behind the data we are using</a></li>
+<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#prepare-the-data-for-plotting---data-assessment"><i class="fa fa-check"></i><b>7.3</b> Prepare the data for plotting - Data Assessment</a></li>
+<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#plotting"><i class="fa fa-check"></i><b>7.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ggplot.html"><a href="ggplot.html#base-set-up"><i class="fa fa-check"></i><b>7.4.1</b> Base set up</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#working-with-inbuilt-iris-data"><i class="fa fa-check"></i><b>7.5</b> Working with inbuilt iris data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bioconductor.html"><a href="bioconductor.html"><i class="fa fa-check"></i><b>8</b> Bioconductor</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bioconductor.html"><a href="bioconductor.html#installing-biocmanager-package"><i class="fa fa-check"></i><b>8.1</b> Installing BiocManager Package</a></li>
+<li class="chapter" data-level="8.2" data-path="bioconductor.html"><a href="bioconductor.html#searching-and-analyzing-the-strings"><i class="fa fa-check"></i><b>8.2</b> Searching and Analyzing the strings</a></li>
+<li class="chapter" data-level="8.3" data-path="bioconductor.html"><a href="bioconductor.html#using-seqinr"><i class="fa fa-check"></i><b>8.3</b> Using seqinr</a></li>
+<li class="chapter" data-level="8.4" data-path="bioconductor.html"><a href="bioconductor.html#using-short-read"><i class="fa fa-check"></i><b>8.4</b> Using Short Read</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Course</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dpyr-library" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Dpyr library<a href="dpyr-library.html#dpyr-library" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><code>readxl</code> library has been used to read excel table into R and manipulate the data using R basic functions, now <code>dplyr</code> library will be used. This, <code>dplyr</code> library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some opf the examples of dplyr verbs;
+- select
+- filter
+- arrange
+- mutate
+- group by
+- summarise</p>
+<p>&lt;–EXPLAIN THE PROCESS OF dplyr INSTALLATION USING RSTUDIO –&gt;</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="dpyr-library.html#cb191-1" tabindex="-1"></a><span class="co">#uncomment the below line to install dplyr</span></span>
+<span id="cb191-2"><a href="dpyr-library.html#cb191-2" tabindex="-1"></a><span class="co">#install.packages(&quot;dplyr&quot;)</span></span></code></pre></div>
+<p>Load the required libraries</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="dpyr-library.html#cb192-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="dpyr-library.html#cb196-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<p>Before working on the data, the <code>readxl</code> package will be used to read the excel table. Then manipulate the data withn<code>dplyr</code>.</p>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="dpyr-library.html#cb197-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span>
+<span id="cb197-2"><a href="dpyr-library.html#cb197-2" tabindex="-1"></a><span class="fu">tail</span>(hg) <span class="co">#display the last 6 records of the data</span></span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 20           64444167                  544         249                     384
+## 2 21           46709983                  234         185                     305
+## 3 22           50818468                  488         324                     357
+## 4 X           156040895                  842         874                     271
+## 5 Y            57227415                   71         388                      71
+## 6 mtDNA           16569                   13           0                       0
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>Apart from data retrieved from excel tables, there are some inbuilt freeely available datasets in R that a student can use for practice. <code>data()</code> function can be used to view some of the freely available datasets in R.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="dpyr-library.html#cb199-1" tabindex="-1"></a><span class="fu">data</span>()</span></code></pre></div>
+<p>or</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="dpyr-library.html#cb200-1" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:datasets&quot;</span>)</span></code></pre></div>
+<pre><code>##   [1] &quot;ability.cov&quot;           &quot;airmiles&quot;              &quot;AirPassengers&quot;        
+##   [4] &quot;airquality&quot;            &quot;anscombe&quot;              &quot;attenu&quot;               
+##   [7] &quot;attitude&quot;              &quot;austres&quot;               &quot;beaver1&quot;              
+##  [10] &quot;beaver2&quot;               &quot;BJsales&quot;               &quot;BJsales.lead&quot;         
+##  [13] &quot;BOD&quot;                   &quot;cars&quot;                  &quot;ChickWeight&quot;          
+##  [16] &quot;chickwts&quot;              &quot;co2&quot;                   &quot;CO2&quot;                  
+##  [19] &quot;crimtab&quot;               &quot;discoveries&quot;           &quot;DNase&quot;                
+##  [22] &quot;esoph&quot;                 &quot;euro&quot;                  &quot;euro.cross&quot;           
+##  [25] &quot;eurodist&quot;              &quot;EuStockMarkets&quot;        &quot;faithful&quot;             
+##  [28] &quot;fdeaths&quot;               &quot;Formaldehyde&quot;          &quot;freeny&quot;               
+##  [31] &quot;freeny.x&quot;              &quot;freeny.y&quot;              &quot;HairEyeColor&quot;         
+##  [34] &quot;Harman23.cor&quot;          &quot;Harman74.cor&quot;          &quot;Indometh&quot;             
+##  [37] &quot;infert&quot;                &quot;InsectSprays&quot;          &quot;iris&quot;                 
+##  [40] &quot;iris3&quot;                 &quot;islands&quot;               &quot;JohnsonJohnson&quot;       
+##  [43] &quot;LakeHuron&quot;             &quot;ldeaths&quot;               &quot;lh&quot;                   
+##  [46] &quot;LifeCycleSavings&quot;      &quot;Loblolly&quot;              &quot;longley&quot;              
+##  [49] &quot;lynx&quot;                  &quot;mdeaths&quot;               &quot;morley&quot;               
+##  [52] &quot;mtcars&quot;                &quot;nhtemp&quot;                &quot;Nile&quot;                 
+##  [55] &quot;nottem&quot;                &quot;npk&quot;                   &quot;occupationalStatus&quot;   
+##  [58] &quot;Orange&quot;                &quot;OrchardSprays&quot;         &quot;PlantGrowth&quot;          
+##  [61] &quot;precip&quot;                &quot;presidents&quot;            &quot;pressure&quot;             
+##  [64] &quot;Puromycin&quot;             &quot;quakes&quot;                &quot;randu&quot;                
+##  [67] &quot;rivers&quot;                &quot;rock&quot;                  &quot;Seatbelts&quot;            
+##  [70] &quot;sleep&quot;                 &quot;stack.loss&quot;            &quot;stack.x&quot;              
+##  [73] &quot;stackloss&quot;             &quot;state.abb&quot;             &quot;state.area&quot;           
+##  [76] &quot;state.center&quot;          &quot;state.division&quot;        &quot;state.name&quot;           
+##  [79] &quot;state.region&quot;          &quot;state.x77&quot;             &quot;sunspot.month&quot;        
+##  [82] &quot;sunspot.year&quot;          &quot;sunspots&quot;              &quot;swiss&quot;                
+##  [85] &quot;Theoph&quot;                &quot;Titanic&quot;               &quot;ToothGrowth&quot;          
+##  [88] &quot;treering&quot;              &quot;trees&quot;                 &quot;UCBAdmissions&quot;        
+##  [91] &quot;UKDriverDeaths&quot;        &quot;UKgas&quot;                 &quot;USAccDeaths&quot;          
+##  [94] &quot;USArrests&quot;             &quot;UScitiesD&quot;             &quot;USJudgeRatings&quot;       
+##  [97] &quot;USPersonalExpenditure&quot; &quot;uspop&quot;                 &quot;VADeaths&quot;             
+## [100] &quot;volcano&quot;               &quot;warpbreaks&quot;            &quot;women&quot;                
+## [103] &quot;WorldPhones&quot;           &quot;WWWusage&quot;</code></pre>
+<p>The above datasets are available in base R however some of the packages come with the newly installed packages. The data from all the packages can be viewd by</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="dpyr-library.html#cb202-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="fu">.packages</span>(<span class="at">all.available =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<p>A good example is the famous iris dataset that will be used in this course. The data will be invoked to R before assessment and wrangling.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="dpyr-library.html#cb203-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb203-2"><a href="dpyr-library.html#cb203-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+<p>Calculating the summary statistics</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="dpyr-library.html#cb205-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+<p>Lets write this dataset locally to a file.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="dpyr-library.html#cb207-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb207-2"><a href="dpyr-library.html#cb207-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<p>or to remove quotes next to values</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="dpyr-library.html#cb208-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb208-2"><a href="dpyr-library.html#cb208-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<p>or to remove quotes and row names &lt;– remember to add screenshots–&gt;</p>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="dpyr-library.html#cb209-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb209-2"><a href="dpyr-library.html#cb209-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<p><strong>Chaining</strong></p>
+<p>Chaining is the process of combining several operations together using the <code>%&gt;%</code> or forward pipe operator. The chained workflow succeeds each other until the whole process is done.</p>
+<div id="application-of-dplyr-on-microbiology" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Application of Dplyr on Microbiology<a href="dpyr-library.html#application-of-dplyr-on-microbiology" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Genetics composition of an organism can be analyzed using <code>dplyr</code>, in this course unit it will be used to analyze the human genetics data.</p>
+<ul>
+<li>Read the dataset from a file into a dataframe</li>
+</ul>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="dpyr-library.html#cb210-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span>
+<span id="cb210-2"><a href="dpyr-library.html#cb210-2" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p>review the first six records of the dataset</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="dpyr-library.html#cb212-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 1           248956422                 2058        1220                    1200
+## 2 2           242193529                 1309        1023                    1037
+## 3 3           198295559                 1078         763                     711
+## 4 4           190214555                  752         727                     657
+## 5 5           181538259                  876         721                     844
+## 6 6           170805979                 1048         801                     639
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>the last six records of the dataset</p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="dpyr-library.html#cb214-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 20           64444167                  544         249                     384
+## 2 21           46709983                  234         185                     305
+## 3 22           50818468                  488         324                     357
+## 4 X           156040895                  842         874                     271
+## 5 Y            57227415                   71         388                      71
+## 6 mtDNA           16569                   13           0                       0
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p><code>sample_n()</code> command is used to randomly sample fixed number of rows from the data frame. Lets sample five rows randomly</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="dpyr-library.html#cb216-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 21           46709983                  234         185                     305
+## 2 mtDNA           16569                   13           0                       0
+## 3 6           170805979                 1048         801                     639
+## 4 18           80373285                  270         247                     453
+## 5 Y            57227415                   71         388                      71
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p><code>sample_fra()</code> command can also be used to extract a percent of rows randomly. Lets samople 25% of the rows</p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="dpyr-library.html#cb218-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_frac</span>(<span class="fl">0.25</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 3           198295559                 1078         763                     711
+## 2 5           181538259                  876         721                     844
+## 3 21           46709983                  234         185                     305
+## 4 14          107043718                  830         523                     533
+## 5 17           83257441                 1197         531                     834
+## 6 8           145138636                  677         613                     735
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>The <code>replace</code> argument allows repetition of rows when sampling when set <code>TRUE</code> and vice versa. The essence of <code>dplyr</code> in microbiology data can be explained better by questions.</p>
+<p><strong>Q1. Which chromosomes has maximum size</strong></p>
+<p>The functions used here are; select, arrange, slice</p>
+<ol style="list-style-type: decimal">
+<li>The required columns will be selected i.e Chromosomes and Base_Pairs(size)</li>
+<li>The data will ordered according to Base_Pairs in descending order by the <code>arrange</code> command.<br />
+</li>
+<li>the data will be “sliced” to select the first row</li>
+</ol>
+<p>All these processes will be chained to run progressively from process 1 to 3.</p>
+<p>All the above steps should be piped</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="dpyr-library.html#cb220-1" tabindex="-1"></a>hg1 <span class="ot">=</span> hg <span class="sc">%&gt;%</span> <span class="co">#transfer the data to a new variable</span></span>
+<span id="cb220-2"><a href="dpyr-library.html#cb220-2" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Base_Pairs) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
+<span id="cb220-3"><a href="dpyr-library.html#cb220-3" tabindex="-1"></a>           <span class="fu">arrange</span>(<span class="fu">desc</span>(Base_Pairs)) <span class="sc">%&gt;%</span> <span class="co">#order in descending order</span></span>
+<span id="cb220-4"><a href="dpyr-library.html#cb220-4" tabindex="-1"></a>           <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb220-5"><a href="dpyr-library.html#cb220-5" tabindex="-1"></a></span>
+<span id="cb220-6"><a href="dpyr-library.html#cb220-6" tabindex="-1"></a>hg1</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   Chromosome Base_Pairs
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 1           248956422</code></pre>
+<p><strong>Q2. List of Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes</strong></p>
+<p>The human genome data frame will be filtered to find the Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes.
+<code>&amp;</code> condition is used in the filter</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="dpyr-library.html#cb222-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg<span class="sc">%&gt;%</span></span>
+<span id="cb222-2"><a href="dpyr-library.html#cb222-2" tabindex="-1"></a>  <span class="fu">filter</span>(Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span> <span class="sc">&amp;</span> Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>)</span>
+<span id="cb222-3"><a href="dpyr-library.html#cb222-3" tabindex="-1"></a>hg2</span></code></pre></div>
+<pre><code>## # A tibble: 8 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 1           248956422                 2058        1220                    1200
+## 2 2           242193529                 1309        1023                    1037
+## 3 3           198295559                 1078         763                     711
+## 4 6           170805979                 1048         801                     639
+## 5 11          135086622                 1298         821                     710
+## 6 12          133275309                 1034         617                     848
+## 7 17           83257441                 1197         531                     834
+## 8 19           58617616                 1472         512                     628
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p><strong>Q3. List of Chromosomes with more tha 500 pseudogenes or more than 1000 protein coding genes and miRNA more than 100</strong></p>
+<p>a frame will be filtered to find the Chromosomes with more than 500 pseudogenes
+The human genome dator more than 1000 protein coding genes and mtRNA more than 100.</p>
+<p>The <code>&amp;</code> and <code>|</code> conditions will be used in place of “and” and “or” respectively.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="dpyr-library.html#cb224-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg <span class="sc">%&gt;%</span> </span>
+<span id="cb224-2"><a href="dpyr-library.html#cb224-2" tabindex="-1"></a>  <span class="fu">filter</span>((Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span><span class="sc">|</span>Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>) <span class="sc">&amp;</span> miRNA<span class="sc">&gt;</span><span class="dv">100</span>)</span>
+<span id="cb224-3"><a href="dpyr-library.html#cb224-3" tabindex="-1"></a>hg2</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 1           248956422                 2058        1220                    1200
+## 2 2           242193529                 1309        1023                    1037
+## 3 19           58617616                 1472         512                     628
+## 4 X           156040895                  842         874                     271
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p><strong>Q4. Which 10 Chromosomes have the highest protein gene density (Genes per megabase)</strong></p>
+<ul>
+<li>Mutate -&gt; is a command to create a new column</li>
+</ul>
+<p>Lets create a column of genes per megabase where a megabase is 1000000 base pairs</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="dpyr-library.html#cb226-1" tabindex="-1"></a>hg3<span class="ot">=</span>hg <span class="sc">%&gt;%</span></span>
+<span id="cb226-2"><a href="dpyr-library.html#cb226-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Genes_per_Mb=</span><span class="fu">round</span>((Protein_Coding_genes<span class="sc">/</span>(Base_Pairs<span class="sc">/</span><span class="dv">100000</span>)),</span>
+<span id="cb226-3"><a href="dpyr-library.html#cb226-3" tabindex="-1"></a>                            <span class="at">digit=</span><span class="dv">2</span>))</span>
+<span id="cb226-4"><a href="dpyr-library.html#cb226-4" tabindex="-1"></a>hg3</span></code></pre></div>
+<pre><code>## # A tibble: 25 × 9
+##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
+##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+##  1 1           248956422                 2058        1220                   1200
+##  2 2           242193529                 1309        1023                   1037
+##  3 3           198295559                 1078         763                    711
+##  4 4           190214555                  752         727                    657
+##  5 5           181538259                  876         721                    844
+##  6 6           170805979                 1048         801                    639
+##  7 7           159345973                  989         885                    605
+##  8 8           145138636                  677         613                    735
+##  9 9           138394717                  786         661                    491
+## 10 10          133797422                  733         568                    579
+## # ℹ 15 more rows
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 4 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;,
+## #   Genes_per_Mb &lt;dbl&gt;</code></pre>
+<p>then order the data according to genes per megabse column (<code>Genes_per_mb</code>) in descending order and select the first 10 rows using <code>arrange</code> and <code>select</code> commands.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="dpyr-library.html#cb228-1" tabindex="-1"></a>hg4<span class="ot">=</span>hg3 <span class="sc">%&gt;%</span></span>
+<span id="cb228-2"><a href="dpyr-library.html#cb228-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Genes_per_Mb)) <span class="sc">%&gt;%</span> <span class="co"># order in descending order </span></span>
+<span id="cb228-3"><a href="dpyr-library.html#cb228-3" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Genes_per_Mb) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
+<span id="cb228-4"><a href="dpyr-library.html#cb228-4" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># select the top 10</span></span>
+<span id="cb228-5"><a href="dpyr-library.html#cb228-5" tabindex="-1"></a></span>
+<span id="cb228-6"><a href="dpyr-library.html#cb228-6" tabindex="-1"></a>hg4</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##    Chromosome Genes_per_Mb
+##    &lt;chr&gt;             &lt;dbl&gt;
+##  1 mtDNA             78.5 
+##  2 19                 2.51
+##  3 17                 1.44
+##  4 16                 0.97
+##  5 11                 0.96
+##  6 22                 0.96
+##  7 20                 0.84
+##  8 1                  0.83
+##  9 12                 0.78
+## 10 14                 0.78</code></pre>
+<p><strong>Q5. Calculate the mean of gene density for autosomes, sex chromosomes and mitochondrial genes</strong></p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="dpyr-library.html#cb230-1" tabindex="-1"></a>autosomes<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">22</span>) <span class="co">#create a vector with 22 As</span></span>
+<span id="cb230-2"><a href="dpyr-library.html#cb230-2" tabindex="-1"></a><span class="fu">print</span>(autosomes)</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;
+## [20] &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="dpyr-library.html#cb232-1" tabindex="-1"></a>chr_class<span class="ot">=</span><span class="fu">c</span>(autosomes, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb232-2"><a href="dpyr-library.html#cb232-2" tabindex="-1"></a>chr_class</span></code></pre></div>
+<pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;
+## [20] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;S&quot; &quot;S&quot; &quot;M&quot;</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="dpyr-library.html#cb234-1" tabindex="-1"></a>hg5<span class="ot">=</span> hg3 <span class="sc">%&gt;%</span></span>
+<span id="cb234-2"><a href="dpyr-library.html#cb234-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Type=</span>chr_class)</span>
+<span id="cb234-3"><a href="dpyr-library.html#cb234-3" tabindex="-1"></a></span>
+<span id="cb234-4"><a href="dpyr-library.html#cb234-4" tabindex="-1"></a>hg5 <span class="co"># confirm the new column &quot;Type&quot; is added</span></span></code></pre></div>
+<pre><code>## # A tibble: 25 × 10
+##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
+##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+##  1 1           248956422                 2058        1220                   1200
+##  2 2           242193529                 1309        1023                   1037
+##  3 3           198295559                 1078         763                    711
+##  4 4           190214555                  752         727                    657
+##  5 5           181538259                  876         721                    844
+##  6 6           170805979                 1048         801                    639
+##  7 7           159345973                  989         885                    605
+##  8 8           145138636                  677         613                    735
+##  9 9           138394717                  786         661                    491
+## 10 10          133797422                  733         568                    579
+## # ℹ 15 more rows
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 5 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;,
+## #   Genes_per_Mb &lt;dbl&gt;, Type &lt;chr&gt;</code></pre>
+<p>Group by chromosomes and calculate the mean density</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="dpyr-library.html#cb236-1" tabindex="-1"></a>hg6<span class="ot">=</span>hg5 <span class="sc">%&gt;%</span> </span>
+<span id="cb236-2"><a href="dpyr-library.html#cb236-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Type) <span class="sc">%&gt;%</span></span>
+<span id="cb236-3"><a href="dpyr-library.html#cb236-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gene_density=</span><span class="fu">mean</span>(Genes_per_Mb))</span>
+<span id="cb236-4"><a href="dpyr-library.html#cb236-4" tabindex="-1"></a>hg6</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   Type  gene_density
+##   &lt;chr&gt;        &lt;dbl&gt;
+## 1 A            0.754
+## 2 M           78.5  
+## 3 S            0.33</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="working-with-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ggplot.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/balsaedi/RCourse/edit/main/05-dplyr_library-advance-R.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/balsaedi/RCourse/blob/main/05-dplyr_library-advance-R.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

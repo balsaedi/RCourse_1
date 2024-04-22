@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Working with files | R Course</title>
+  <meta name="description" content="Chapter 5 Working with files | R Course" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Working with files | R Course" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Working with files | R Course" />
+  
+  
+  
+
+<meta name="author" content="YOUR NAME HERE" />
+
+
+<meta name="date" content="2024-04-22" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="loops.html"/>
+<link rel="next" href="dpyr-library.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SHORT TITLE HERE</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> R Course</a></li>
+<li class="chapter" data-level="2" data-path="r---introduction.html"><a href="r---introduction.html"><i class="fa fa-check"></i><b>2</b> R - Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r---introduction.html"><a href="r---introduction.html#r---basic-concepts-and-applications"><i class="fa fa-check"></i><b>2.1</b> R - Basic Concepts and applications</a></li>
+<li class="chapter" data-level="2.2" data-path="r---introduction.html"><a href="r---introduction.html#why-r"><i class="fa fa-check"></i><b>2.2</b> Why R?</a></li>
+<li class="chapter" data-level="2.3" data-path="r---introduction.html"><a href="r---introduction.html#r-studio"><i class="fa fa-check"></i><b>2.3</b> R studio</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="r---introduction.html"><a href="r---introduction.html#r---look-and-feel"><i class="fa fa-check"></i><b>2.3.1</b> R - Look and Feel</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a></li>
+<li class="chapter" data-level="2.5" data-path="r---introduction.html"><a href="r---introduction.html#r-markdown"><i class="fa fa-check"></i><b>2.5</b> R Markdown</a></li>
+<li class="chapter" data-level="2.6" data-path="r---introduction.html"><a href="r---introduction.html#installation-of-packages"><i class="fa fa-check"></i><b>2.6</b> Installation of packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html"><i class="fa fa-check"></i><b>3</b> Data Types and Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-types"><i class="fa fa-check"></i><b>3.1</b> Data types</a></li>
+<li class="chapter" data-level="3.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-structures"><i class="fa fa-check"></i><b>3.2</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#vector"><i class="fa fa-check"></i><b>3.2.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2.2</b> Matrix</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-types-and-data-structures.html"><a href="data-types-and-data-structures.html#data-frame"><i class="fa fa-check"></i><b>3.2.3</b> Data frame</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>4</b> Loops</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>4.1</b> For loops</a></li>
+<li class="chapter" data-level="4.2" data-path="loops.html"><a href="loops.html#while-loop"><i class="fa fa-check"></i><b>4.2</b> While loop</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="working-with-files.html"><a href="working-with-files.html"><i class="fa fa-check"></i><b>5</b> Working with files</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dpyr-library.html"><a href="dpyr-library.html#application-of-dplyr-on-microbiology"><i class="fa fa-check"></i><b>6.1</b> Application of Dplyr on Microbiology</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>7</b> GGPLOT</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="ggplot.html"><a href="ggplot.html#five-key-steps-to-ggplot"><i class="fa fa-check"></i><b>7.1</b> Five key steps to ggplot</a></li>
+<li class="chapter" data-level="7.2" data-path="ggplot.html"><a href="ggplot.html#biology-behind-the-data-we-are-using"><i class="fa fa-check"></i><b>7.2</b> Biology behind the data we are using</a></li>
+<li class="chapter" data-level="7.3" data-path="ggplot.html"><a href="ggplot.html#prepare-the-data-for-plotting---data-assessment"><i class="fa fa-check"></i><b>7.3</b> Prepare the data for plotting - Data Assessment</a></li>
+<li class="chapter" data-level="7.4" data-path="ggplot.html"><a href="ggplot.html#plotting"><i class="fa fa-check"></i><b>7.4</b> Plotting</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="ggplot.html"><a href="ggplot.html#base-set-up"><i class="fa fa-check"></i><b>7.4.1</b> Base set up</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="ggplot.html"><a href="ggplot.html#working-with-inbuilt-iris-data"><i class="fa fa-check"></i><b>7.5</b> Working with inbuilt iris data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="bioconductor.html"><a href="bioconductor.html"><i class="fa fa-check"></i><b>8</b> Bioconductor</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="bioconductor.html"><a href="bioconductor.html#installing-biocmanager-package"><i class="fa fa-check"></i><b>8.1</b> Installing BiocManager Package</a></li>
+<li class="chapter" data-level="8.2" data-path="bioconductor.html"><a href="bioconductor.html#searching-and-analyzing-the-strings"><i class="fa fa-check"></i><b>8.2</b> Searching and Analyzing the strings</a></li>
+<li class="chapter" data-level="8.3" data-path="bioconductor.html"><a href="bioconductor.html#using-seqinr"><i class="fa fa-check"></i><b>8.3</b> Using seqinr</a></li>
+<li class="chapter" data-level="8.4" data-path="bioconductor.html"><a href="bioconductor.html#using-short-read"><i class="fa fa-check"></i><b>8.4</b> Using Short Read</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Course</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="working-with-files" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Working with files<a href="working-with-files.html#working-with-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="reading-a-file-from-a-dataframe" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Reading a file from a dataframe<a href="working-with-files.html#reading-a-file-from-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This chapter explains how to read a file to a data frame using the <code>readxl</code> library. The <code>readxl</code> package can be installed from the console by <code>install.packages("readxl")</code> command.</p>
+<p>Lets begin by importing the library</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="working-with-files.html#cb166-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
+<span id="cb166-2"><a href="working-with-files.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<p>The <code>readxl</code> library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read.</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="working-with-files.html#cb167-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
+<p>View the data</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="working-with-files.html#cb168-1" tabindex="-1"></a><span class="fu">View</span>(hg)</span></code></pre></div>
+<p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.</p>
+<p>Here’s how you can use them for this case;</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="working-with-files.html#cb169-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 1           248956422                 2058        1220                    1200
+## 2 2           242193529                 1309        1023                    1037
+## 3 3           198295559                 1078         763                     711
+## 4 4           190214555                  752         727                     657
+## 5 5           181538259                  876         721                     844
+## 6 6           170805979                 1048         801                     639
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>The <code>head()</code> function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the <code>n</code> argument.</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="working-with-files.html#cb171-1" tabindex="-1"></a><span class="fu">head</span>(hg, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 8
+##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
+##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
+##  1 1           248956422                 2058        1220                   1200
+##  2 2           242193529                 1309        1023                   1037
+##  3 3           198295559                 1078         763                    711
+##  4 4           190214555                  752         727                    657
+##  5 5           181538259                  876         721                    844
+##  6 6           170805979                 1048         801                    639
+##  7 7           159345973                  989         885                    605
+##  8 8           145138636                  677         613                    735
+##  9 9           138394717                  786         661                    491
+## 10 10          133797422                  733         568                    579
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>The tail argument can be used as;</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="working-with-files.html#cb173-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
+##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
+## 1 20           64444167                  544         249                     384
+## 2 21           46709983                  234         185                     305
+## 3 22           50818468                  488         324                     357
+## 4 X           156040895                  842         874                     271
+## 5 Y            57227415                   71         388                      71
+## 6 mtDNA           16569                   13           0                       0
+## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
+## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
+<p>to show the last 6 records while specifying <code>n</code> value will show the specified number of rows.</p>
+<p>R identifies this type of data as table or data frame.</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="working-with-files.html#cb175-1" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<p><code>str()</code> is used to find the nature of data such as column data types, number of rows and columns, column names , and first records in the dataframe</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="working-with-files.html#cb177-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<pre><code>## tibble [25 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
+##  $ Protein_Coding_genes     : num [1:25] 2058 1309 1078 752 876 ...
+##  $ Pseudogenes              : num [1:25] 1220 1023 763 727 721 ...
+##  $ Total_long_non_coding_RNA: num [1:25] 1200 1037 711 657 844 ...
+##  $ Total_small_nc_RA        : num [1:25] 496 375 298 228 235 234 208 214 190 204 ...
+##  $ miRNA                    : num [1:25] 134 115 99 92 83 81 90 80 69 64 ...
+##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...</code></pre>
+<p><code>is.na()</code> is used to check if there is null/blank values in the dataset. If there is it returns TRUE in place of the null point while it return FALSE in place of the value.</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="working-with-files.html#cb179-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(hg))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>The “hg” data frame has no null values.</p>
+<p>Lets dive into biology to solve some of the questions about genetics</p>
+<p><strong>Q1. Calculate the gene densityfor each chromosome</strong></p>
+<p>The gene density is calculated in terms of genes per megabase</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="working-with-files.html#cb181-1" tabindex="-1"></a>base_Mb <span class="ot">=</span> hg<span class="sc">$</span>Base_Pairs<span class="sc">/</span><span class="dv">1000000</span></span>
+<span id="cb181-2"><a href="working-with-files.html#cb181-2" tabindex="-1"></a>base_Mb</span></code></pre></div>
+<pre><code>##  [1] 248.956422 242.193529 198.295559 190.214555 181.538259 170.805979
+##  [7] 159.345973 145.138636 138.394717 133.797422 135.086622 133.275309
+## [13] 114.364328 107.043718 101.991189  90.338345  83.257441  80.373285
+## [19]  58.617616  64.444167  46.709983  50.818468 156.040895  57.227415
+## [25]   0.016569</code></pre>
+<p>To make the values more clear, the results can be rounded off to two decimal place.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="working-with-files.html#cb183-1" tabindex="-1"></a>rbase_Mb<span class="ot">=</span><span class="fu">round</span>(base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb183-2"><a href="working-with-files.html#cb183-2" tabindex="-1"></a>rbase_Mb</span></code></pre></div>
+<pre><code>##  [1] 248.96 242.19 198.30 190.21 181.54 170.81 159.35 145.14 138.39 133.80
+## [11] 135.09 133.28 114.36 107.04 101.99  90.34  83.26  80.37  58.62  64.44
+## [21]  46.71  50.82 156.04  57.23   0.02</code></pre>
+<p><strong>Q2. Calculate number of genes per megabase per chromosomes</strong></p>
+<p>The protein coding genes are divided to the gene density.</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="working-with-files.html#cb185-1" tabindex="-1"></a>genes_per_megabase <span class="ot">=</span> <span class="fu">round</span>(hg<span class="sc">$</span>Protein_Coding_genes<span class="sc">/</span>base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb185-2"><a href="working-with-files.html#cb185-2" tabindex="-1"></a>genes_per_megabase</span></code></pre></div>
+<pre><code>##  [1]   8.27   5.40   5.44   3.95   4.83   6.14   6.21   4.66   5.68   5.48
+## [11]   9.61   7.76   2.86   7.75   6.01   9.66  14.38   3.36  25.11   8.44
+## [21]   5.01   9.60   5.40   1.24 784.60</code></pre>
+<p>Lets create a new column to the dataframe to the dataset</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="working-with-files.html#cb187-1" tabindex="-1"></a>hg[<span class="st">&quot;genes_per_Mb&quot;</span>]<span class="ot">=</span>genes_per_megabase</span>
+<span id="cb187-2"><a href="working-with-files.html#cb187-2" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<pre><code>## tibble [25 × 9] (S3: tbl_df/tbl/data.frame)
+##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
+##  $ Protein_Coding_genes     : num [1:25] 2058 1309 1078 752 876 ...
+##  $ Pseudogenes              : num [1:25] 1220 1023 763 727 721 ...
+##  $ Total_long_non_coding_RNA: num [1:25] 1200 1037 711 657 844 ...
+##  $ Total_small_nc_RA        : num [1:25] 496 375 298 228 235 234 208 214 190 204 ...
+##  $ miRNA                    : num [1:25] 134 115 99 92 83 81 90 80 69 64 ...
+##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...
+##  $ genes_per_Mb             : num [1:25] 8.27 5.4 5.44 3.95 4.83 6.14 6.21 4.66 5.68 5.48 ...</code></pre>
+</div>
+<div id="write-a-new-table-to-a-file-locally" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="working-with-files.html#cb189-1" tabindex="-1"></a><span class="fu">write.table</span>(hg, </span>
+<span id="cb189-2"><a href="working-with-files.html#cb189-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;data/hg_modified&quot;</span>, </span>
+<span id="cb189-3"><a href="working-with-files.html#cb189-3" tabindex="-1"></a>            <span class="at">quote=</span><span class="cn">FALSE</span>, </span>
+<span id="cb189-4"><a href="working-with-files.html#cb189-4" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, </span>
+<span id="cb189-5"><a href="working-with-files.html#cb189-5" tabindex="-1"></a>            <span class="at">row.names=</span><span class="cn">FALSE</span>, </span>
+<span id="cb189-6"><a href="working-with-files.html#cb189-6" tabindex="-1"></a>            <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>This file will be saved by default on the working directory unless the file path is changed.</p>
+<p>Checking if the new file is saved.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="working-with-files.html#cb190-1" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/hg_modified&quot;</span>)</span></code></pre></div>
+<p>&lt;— Come back later —&gt;</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="loops.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dpyr-library.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/balsaedi/RCourse/edit/main/04-read_dataframe_from_file.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/balsaedi/RCourse/blob/main/04-read_dataframe_from_file.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

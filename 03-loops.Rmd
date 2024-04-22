@@ -1,0 +1,66 @@
+# Loops
+A loop is a sequence of instructions that are executed iterative until a condition is met. They are two types of loops in R, they are;
+- for loops
+- while loops 
+
+## For loops 
+This is a type of a loop that iterate over a sequence of elements, such as a vector, list, or sequence of numbers, executing a block of code for each element in the sequence. The loop iterates over each element of the sequence, one at a time, and executes the specified code block for each iteration.
+Here is the syntax of a for loop 
+```
+for (variable in sequence) {
+  # Code block to be executed for each iteration
+}
+```
+When a condition is met the execution/iteration stops 
+Below is an example of R loop over a range of numbers 1 to 10
+```{r}
+for (n in 1:10)
+{
+  print(n*5)
+}
+```
+
+The loop can also iterate over a vector and perform the preset condition. For instance in the code below, the loops through a vector and prints a square of each element in the vector.
+```{r}
+num=c(1,2,3,8,10)
+for (n in 1:length(num))
+{
+  print(num[n]^2)
+}
+```
+
+Breaking of a loop - a program stops once something happens for instance the below loops executes by incrementing n and breaks when n is greater than 7
+```{r}
+#Stop the loop if the n is greater than 7
+for (n in num)
+{
+  if (n > 7){
+    break
+  }
+  
+  print(n)
+  
+}
+```
+
+## While loop
+A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition is true. The loop continues to execute until the condition becomes false.
+
+The below program executes as long as n is less than or equal to m. 
+
+```{r}
+m=4
+n=-9
+while(n<=m)
+{
+  print(n)
+  n=n+1
+}
+```
+
+
+
+
+
+
+
