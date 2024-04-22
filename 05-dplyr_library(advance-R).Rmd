@@ -1,0 +1,198 @@
+# Video 5
+
+# Dpyr library
+`readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some opf the examples of dplyr verbs;
+- select
+- filter
+- arrange 
+- mutate
+- group by 
+- summarise
+
+<--EXPLAIN THE PROCESS OF dplyr INSTALLATION USING RSTUDIO -->
+
+```{r}
+#uncomment the below line to install dplyr
+#install.packages("dplyr")
+```
+
+Load the required libraries 
+```{r}
+library(dplyr)
+library(readxl)
+```
+
+Before working on the data, the `readxl` package will be used to read the excel table. Then manipulate the data withn`dplyr`.
+
+```{r}
+hg = read_excel("data/Human_genome.xlsx")
+tail(hg) #display the last 6 records of the data
+```
+
+Apart from data retrieved from excel tables, there are some inbuilt freeely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
+```{r}
+data()
+```
+
+or 
+```{r}
+ls("package:datasets")
+```
+
+The above datasets are available in base R however some of the packages come with the newly installed packages. The data from all the packages can be viewd by
+```{r}
+data(package=.packages(all.available = TRUE))
+```
+
+A good example is the famous iris dataset that will be used in this course. The data will be invoked to R before assessment and wrangling. 
+```{r}
+data("iris")
+head(iris)
+```
+
+Calculating the summary statistics
+```{r}
+summary(iris)
+```
+
+Lets write this dataset locally to a file. 
+```{r}
+write.table(iris, "data/iris_dataset.txt", append = FALSE)
+file.show("data/iris_dataset.txt")
+```
+
+or to remove quotes next to values 
+```{r}
+write.table(iris, "data/iris_dataset.txt", append = FALSE, quote = FALSE)
+file.show("data/iris_dataset.txt")
+```
+
+or to remove quotes and row names <-- remember to add screenshots--> 
+```{r}
+write.table(iris, "data/iris_dataset.txt", append = FALSE, quote=FALSE, row.names = FALSE)
+file.show("data/iris_dataset.txt")
+```
+
+
+
+**Chaining**
+
+Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. 
+
+## Application of Dplyr on Microbiology
+Genetics composition of an organism can be analyzed using `dplyr`, in this course unit it will be used to analyze the human genetics data. 
+
+- Read the dataset from a file into a dataframe
+```{r}
+hg = read_excel("data/Human_genome.xlsx")
+class(hg)
+```
+
+review the first six records of the dataset 
+```{r}
+head(hg)
+```
+ 
+ the last six records of the dataset
+```{r}
+tail(hg)
+```
+ 
+`sample_n()` command is used to randomly sample fixed number of rows from the data frame. Lets sample five rows randomly
+```{r}
+hg %>% sample_n(5)
+```
+ 
+`sample_fra()` command can also be used to extract a percent of rows randomly. Lets samople 25% of the rows 
+```{r}
+hg %>% sample_frac(0.25, replace = FALSE)
+```
+
+The `replace` argument allows repetition of rows when sampling when set `TRUE` and vice versa. The essence of `dplyr` in microbiology data can be explained better by questions.
+
+**Q1. Which chromosomes has maximum size**
+
+The functions used here are; select, arrange, slice 
+
+1. The required columns will be selected i.e Chromosomes and Base_Pairs(size)
+2. The data will ordered according to Base_Pairs in descending order by the `arrange` command.  
+3. the data will be "sliced" to select the first row 
+
+All these processes will be chained to run progressively from process 1 to 3. 
+
+All the above steps should be piped
+```{r}
+hg1 = hg %>% #transfer the data to a new variable
+  select(Chromosome, Base_Pairs) %>% # select the required columns 
+           arrange(desc(Base_Pairs)) %>% #order in descending order
+           slice(1)
+
+hg1
+```
+
+**Q2. List of Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes**
+
+The human genome data frame will be filtered to find the Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes.
+`&` condition is used in the filter 
+
+```{r}
+hg2=hg%>%
+  filter(Pseudogenes>500 & Protein_Coding_genes>1000)
+hg2
+```
+
+**Q3. List of Chromosomes with more tha 500 pseudogenes or more than 1000 protein coding genes and miRNA more than 100**
+
+a frame will be filtered to find the Chromosomes with more than 500 pseudogenes 
+The human genome dator more than 1000 protein coding genes and mtRNA more than 100.
+
+The `&` and `|` conditions will be used in place of "and" and "or" respectively.
+```{r}
+hg2=hg %>% 
+  filter((Pseudogenes>500|Protein_Coding_genes>1000) & miRNA>100)
+hg2
+```
+
+**Q4. Which 10 Chromosomes have the highest protein gene density (Genes per megabase)**
+
+- Mutate -> is a command to create a new column 
+
+Lets create a column of genes per megabase where a megabase is 1000000 base pairs
+```{r}
+hg3=hg %>%
+  mutate(Genes_per_Mb=round((Protein_Coding_genes/(Base_Pairs/100000)),
+                            digit=2))
+hg3
+```
+
+then order the data according to genes per megabse column (`Genes_per_mb`) in descending order and select the first 10 rows using `arrange` and `select` commands. 
+```{r}
+hg4=hg3 %>%
+  arrange(desc(Genes_per_Mb)) %>% # order in descending order 
+  select(Chromosome, Genes_per_Mb) %>% # select the required columns 
+  slice(1:10) # select the top 10
+
+hg4
+```
+
+**Q5. Calculate the mean of gene density for autosomes, sex chromosomes and mitochondrial genes**
+
+```{r}
+autosomes=rep("A", 22) #create a vector with 22 As
+print(autosomes)
+chr_class=c(autosomes, "S", "S", "M")
+chr_class
+hg5= hg3 %>%
+  mutate(Type=chr_class)
+
+hg5 # confirm the new column "Type" is added
+```
+
+Group by chromosomes and calculate the mean density 
+```{r}
+hg6=hg5 %>% 
+  group_by(Type) %>%
+  summarise(gene_density=mean(Genes_per_Mb))
+hg6
+```
+
