@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Read a dataframe from a file | R Course</title>
-  <meta name="description" content="Chapter 5 Read a dataframe from a file | R Course" />
+  <title>Chapter 5 Working with files | R Course</title>
+  <meta name="description" content="Chapter 5 Working with files | R Course" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Read a dataframe from a file | R Course" />
+  <meta property="og:title" content="Chapter 5 Working with files | R Course" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Read a dataframe from a file | R Course" />
+  <meta name="twitter:title" content="Chapter 5 Working with files | R Course" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-04-19" />
+<meta name="date" content="2024-04-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -168,7 +168,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1" data-path="loops.html"><a href="loops.html#for-loops"><i class="fa fa-check"></i><b>4.1</b> For loops</a></li>
 <li class="chapter" data-level="4.2" data-path="loops.html"><a href="loops.html#while-loop"><i class="fa fa-check"></i><b>4.2</b> While loop</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="read-a-dataframe-from-a-file.html"><a href="read-a-dataframe-from-a-file.html"><i class="fa fa-check"></i><b>5</b> Read a dataframe from a file</a></li>
+<li class="chapter" data-level="5" data-path="working-with-files.html"><a href="working-with-files.html"><i class="fa fa-check"></i><b>5</b> Working with files</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
+<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -188,19 +192,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="read-a-dataframe-from-a-file" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Read a dataframe from a file<a href="read-a-dataframe-from-a-file.html#read-a-dataframe-from-a-file" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="working-with-files" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Working with files<a href="working-with-files.html#working-with-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="reading-a-file-from-a-dataframe" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Reading a file from a dataframe<a href="working-with-files.html#reading-a-file-from-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This chapter explains how to read a file to a data frame using the <code>readxl</code> library. The <code>readxl</code> package can be installed from the console by <code>install.packages("readxl")</code> command.</p>
 <p>Lets begin by importing the library</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="read-a-dataframe-from-a-file.html#cb166-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
-<span id="cb166-2"><a href="read-a-dataframe-from-a-file.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="working-with-files.html#cb166-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
+<span id="cb166-2"><a href="working-with-files.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
 <p>The <code>readxl</code> library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="read-a-dataframe-from-a-file.html#cb167-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="working-with-files.html#cb167-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
 <p>View the data</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="read-a-dataframe-from-a-file.html#cb168-1" tabindex="-1"></a><span class="fu">View</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="working-with-files.html#cb168-1" tabindex="-1"></a><span class="fu">View</span>(hg)</span></code></pre></div>
 <p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.</p>
 <p>Here’s how you can use them for this case;</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="read-a-dataframe-from-a-file.html#cb169-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="working-with-files.html#cb169-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -213,7 +219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>The <code>head()</code> function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the <code>n</code> argument.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="read-a-dataframe-from-a-file.html#cb171-1" tabindex="-1"></a><span class="fu">head</span>(hg, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="working-with-files.html#cb171-1" tabindex="-1"></a><span class="fu">head</span>(hg, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 8
 ##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
 ##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
@@ -230,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>The tail argument can be used as;</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="read-a-dataframe-from-a-file.html#cb173-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="working-with-files.html#cb173-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -244,10 +250,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>to show the last 6 records while specifying <code>n</code> value will show the specified number of rows.</p>
 <p>R identifies this type of data as table or data frame.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="read-a-dataframe-from-a-file.html#cb175-1" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="working-with-files.html#cb175-1" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p><code>str()</code> is used to find the nature of data such as column data types, number of rows and columns, column names , and first records in the dataframe</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="read-a-dataframe-from-a-file.html#cb177-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="working-with-files.html#cb177-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
 <pre><code>## tibble [25 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
@@ -258,35 +264,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ miRNA                    : num [1:25] 134 115 99 92 83 81 90 80 69 64 ...
 ##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...</code></pre>
 <p><code>is.na()</code> is used to check if there is null/blank values in the dataset. If there is it returns TRUE in place of the null point while it return FALSE in place of the value.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="read-a-dataframe-from-a-file.html#cb179-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(hg))</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="working-with-files.html#cb179-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(hg))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>The “hg” data frame has no null values.</p>
 <p>Lets dive into biology to solve some of the questions about genetics</p>
 <p><strong>Q1. Calculate the gene densityfor each chromosome</strong></p>
 <p>The gene density is calculated in terms of genes per megabase</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="read-a-dataframe-from-a-file.html#cb181-1" tabindex="-1"></a>base_Mb <span class="ot">=</span> hg<span class="sc">$</span>Base_Pairs<span class="sc">/</span><span class="dv">1000000</span></span>
-<span id="cb181-2"><a href="read-a-dataframe-from-a-file.html#cb181-2" tabindex="-1"></a>base_Mb</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="working-with-files.html#cb181-1" tabindex="-1"></a>base_Mb <span class="ot">=</span> hg<span class="sc">$</span>Base_Pairs<span class="sc">/</span><span class="dv">1000000</span></span>
+<span id="cb181-2"><a href="working-with-files.html#cb181-2" tabindex="-1"></a>base_Mb</span></code></pre></div>
 <pre><code>##  [1] 248.956422 242.193529 198.295559 190.214555 181.538259 170.805979
 ##  [7] 159.345973 145.138636 138.394717 133.797422 135.086622 133.275309
 ## [13] 114.364328 107.043718 101.991189  90.338345  83.257441  80.373285
 ## [19]  58.617616  64.444167  46.709983  50.818468 156.040895  57.227415
 ## [25]   0.016569</code></pre>
 <p>To make the values more clear, the results can be rounded off to two decimal place.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="read-a-dataframe-from-a-file.html#cb183-1" tabindex="-1"></a>rbase_Mb<span class="ot">=</span><span class="fu">round</span>(base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb183-2"><a href="read-a-dataframe-from-a-file.html#cb183-2" tabindex="-1"></a>rbase_Mb</span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="working-with-files.html#cb183-1" tabindex="-1"></a>rbase_Mb<span class="ot">=</span><span class="fu">round</span>(base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb183-2"><a href="working-with-files.html#cb183-2" tabindex="-1"></a>rbase_Mb</span></code></pre></div>
 <pre><code>##  [1] 248.96 242.19 198.30 190.21 181.54 170.81 159.35 145.14 138.39 133.80
 ## [11] 135.09 133.28 114.36 107.04 101.99  90.34  83.26  80.37  58.62  64.44
 ## [21]  46.71  50.82 156.04  57.23   0.02</code></pre>
 <p><strong>Q2. Calculate number of genes per megabase per chromosomes</strong></p>
 <p>The protein coding genes are divided to the gene density.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="read-a-dataframe-from-a-file.html#cb185-1" tabindex="-1"></a>genes_per_megabase <span class="ot">=</span> <span class="fu">round</span>(hg<span class="sc">$</span>Protein_Coding_genes<span class="sc">/</span>base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb185-2"><a href="read-a-dataframe-from-a-file.html#cb185-2" tabindex="-1"></a>genes_per_megabase</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="working-with-files.html#cb185-1" tabindex="-1"></a>genes_per_megabase <span class="ot">=</span> <span class="fu">round</span>(hg<span class="sc">$</span>Protein_Coding_genes<span class="sc">/</span>base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb185-2"><a href="working-with-files.html#cb185-2" tabindex="-1"></a>genes_per_megabase</span></code></pre></div>
 <pre><code>##  [1]   8.27   5.40   5.44   3.95   4.83   6.14   6.21   4.66   5.68   5.48
 ## [11]   9.61   7.76   2.86   7.75   6.01   9.66  14.38   3.36  25.11   8.44
 ## [21]   5.01   9.60   5.40   1.24 784.60</code></pre>
 <p>Lets create a new column to the dataframe to the dataset</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="read-a-dataframe-from-a-file.html#cb187-1" tabindex="-1"></a>hg[<span class="st">&quot;genes_per_Mb&quot;</span>]<span class="ot">=</span>genes_per_megabase</span>
-<span id="cb187-2"><a href="read-a-dataframe-from-a-file.html#cb187-2" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="working-with-files.html#cb187-1" tabindex="-1"></a>hg[<span class="st">&quot;genes_per_Mb&quot;</span>]<span class="ot">=</span>genes_per_megabase</span>
+<span id="cb187-2"><a href="working-with-files.html#cb187-2" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
 <pre><code>## tibble [25 × 9] (S3: tbl_df/tbl/data.frame)
 ##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
@@ -297,7 +303,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ miRNA                    : num [1:25] 134 115 99 92 83 81 90 80 69 64 ...
 ##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...
 ##  $ genes_per_Mb             : num [1:25] 8.27 5.4 5.44 3.95 4.83 6.14 6.21 4.66 5.68 5.48 ...</code></pre>
+</div>
+<div id="write-a-new-table-to-a-file-locally" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.</p>
 
+</div>
 </div>
             </section>
 

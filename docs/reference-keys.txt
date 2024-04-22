@@ -23,4 +23,6 @@ data-frame
 loops
 for-loops
 while-loop
-read-a-dataframe-from-a-file
+working-with-files
+reading-a-file-from-a-dataframe
+write-a-new-table-to-a-file-locally

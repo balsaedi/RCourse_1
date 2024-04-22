@@ -1,4 +1,6 @@
-# Read a dataframe from a file
+# Working with files
+## Reading a file from a dataframe 
+
 This chapter explains how to read a file to a data frame using the `readxl` library. The `readxl` package can be installed from the console by `install.packages("readxl")` command.
 
 Lets begin by importing the library
@@ -17,17 +19,85 @@ View the data
 View(hg)
 ```
 
+In R, `head()` and `tail()` are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.
 
+Here's how you can use them for this case;
+```{r}
+head(hg)
+```
 
+The `head()` function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the `n` argument.
+```{r}
+head(hg, n=10)
+```
+The tail argument can be used as;
+```{r}
+tail(hg)
+```
+to show the last 6 records while specifying `n` value will show the specified number of rows. 
 
+R identifies this type of data as table or data frame. 
+```{r}
+class(hg)
+```
 
+`str()` is used to find the nature of data such as column data types, number of rows and columns, column names , and first records in the dataframe
+```{r}
+str(hg)
+```
 
+`is.na()` is used to check if there is null/blank values in the dataset. If there is it returns TRUE in place of the null point while it return FALSE in place of the value. 
+```{r}
+sum(is.na(hg))
+```
+The "hg" data frame has no null values. 
 
+Lets dive into biology to solve some of the questions about genetics 
 
+**Q1. Calculate the gene densityfor each chromosome**
 
+The gene density is calculated in terms of genes per megabase
+```{r}
+base_Mb = hg$Base_Pairs/1000000
+base_Mb
+```
 
+To make the values more clear, the results can be rounded off to two decimal place. 
+```{r}
+rbase_Mb=round(base_Mb, digits = 2)
+rbase_Mb
+```
 
+**Q2. Calculate number of genes per megabase per chromosomes**
 
+The protein coding genes are divided to the gene density. 
+```{r}
+genes_per_megabase = round(hg$Protein_Coding_genes/base_Mb, digits = 2)
+genes_per_megabase
+```
 
+Lets create a new column to the dataframe to the dataset 
+```{r}
+hg["genes_per_Mb"]=genes_per_megabase
+str(hg)
+```
 
+## Write a new table to a file locally
+The `write.table()` function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified. 
+```{r}
+write.table(hg, 
+            file="data/hg_modified", 
+            quote=FALSE, 
+            sep='\t', 
+            row.names=FALSE, 
+            col.names=TRUE)
+```
 
+This file will be saved by default on the working directory unless the file path is changed. 
+
+Checking if the new file is saved. 
+```{r}
+file.show("data/hg_modified")
+```
+
+<--- Come back later ---> 
