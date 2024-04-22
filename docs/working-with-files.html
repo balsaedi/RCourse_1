@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="loops.html"/>
-
+<link rel="next" href="dpyr-library.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -173,6 +173,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
 <li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="dpyr-library.html"><a href="dpyr-library.html#application-of-dplyr-on-microbiology"><i class="fa fa-check"></i><b>6.1</b> Application of Dplyr on Microbiology</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -307,6 +311,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="write-a-new-table-to-a-file-locally" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="working-with-files.html#cb189-1" tabindex="-1"></a><span class="fu">write.table</span>(hg, </span>
+<span id="cb189-2"><a href="working-with-files.html#cb189-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;data/hg_modified&quot;</span>, </span>
+<span id="cb189-3"><a href="working-with-files.html#cb189-3" tabindex="-1"></a>            <span class="at">quote=</span><span class="cn">FALSE</span>, </span>
+<span id="cb189-4"><a href="working-with-files.html#cb189-4" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, </span>
+<span id="cb189-5"><a href="working-with-files.html#cb189-5" tabindex="-1"></a>            <span class="at">row.names=</span><span class="cn">FALSE</span>, </span>
+<span id="cb189-6"><a href="working-with-files.html#cb189-6" tabindex="-1"></a>            <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p>This file will be saved by default on the working directory unless the file path is changed.</p>
+<p>Checking if the new file is saved.</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="working-with-files.html#cb190-1" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/hg_modified&quot;</span>)</span></code></pre></div>
+<p>&lt;— Come back later —&gt;</p>
 
 </div>
 </div>
@@ -315,8 +329,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="loops.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="loops.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dpyr-library.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

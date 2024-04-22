@@ -26,3 +26,5 @@ while-loop
 working-with-files
 reading-a-file-from-a-dataframe
 write-a-new-table-to-a-file-locally
+dpyr-library
+application-of-dplyr-on-microbiology
