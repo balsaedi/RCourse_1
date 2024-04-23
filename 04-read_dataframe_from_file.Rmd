@@ -99,5 +99,3 @@ Checking if the new file is saved.
 ```{r}
 file.show("data/hg_modified")
 ```
-
-<--- Come back later ---> 

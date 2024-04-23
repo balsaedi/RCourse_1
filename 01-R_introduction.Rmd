@@ -2,8 +2,6 @@
 ## R - Basic Concepts and applications 
 **R (programming language)** is a language and environment for statistical computing and graphics 
 
-<-- logo image for Rstudio --> 
-
 ## Why R? 
 
 1. **Developed by Statisticians** - R is Excellent for Statistical Computing and Analysis 
@@ -27,14 +25,23 @@ Outline the process of creating and running R script - a screenshot
 
 ### R - Look and Feel
 
-<-- R screenshot image from the terminal-->
+![](images/r-look-and-feel.png)
 
-<-- default screenshot image for R Studio --> 
-explain each section/quadrant
+The image above is for R code in R Studio. Each quadrant has its own function. 
 - text editor 
+
+serves as the primary interface for writing and editing R scripts, Markdown documents, and other text-based files
+
 - stand input/output (console/terminal/jobs)
+
+It is the bottom left quadrant in R Studio that serves as a command-line interface where you can directly interact with R such as code execution and output display.
+
 - all data and its properties quadrants 
+It is the top right quadrant in Rstudio that is typically the "Environment" pane, which provides information and tools for managing your R environment such as data importation, display of variables. 
+
+
 - plots and file directory structure
+The bottom right quadrant in RStudio typically houses the "Files", "Plots", "Packages", "Help", and "Viewer" tabs. 
 
 ## Basic Mathematics like operators 
 Addition - the `+` operator is used to add two or more values 
@@ -47,18 +54,18 @@ Subtraction - the `-` operator is used to subtract two numerical values
 6-2
 ```
 
-<-- add more content for operators-->
-
 ## R Markdown 
-<-- Definition of R Markdown -->
-<--Introduce how to create R markdown file using screenshots --> 
+R Markdown is a versatile markup language that allows you to create dynamic documents that integrate text, code, and output. It is widely used in data analysis, scientific research, and reporting
 
+The figure shows how markdown looks like 
+![](images/rmarkdown.png)
 
 Each chunk can be run separately in a single file, also the variable in one chunk can be reused by the next/later chunks 
 
 Anything added outside the chuck will not be executed in the program
 
-The R markdown can be knitted to a html, pdf, or word file 
-<--Include screenshots-->
+The R markdown can be knitted to a html, pdf, or word file and presented to the audience
 
 ## Installation of packages
+R libraries/packages can be installed by invoking `install.packages("package_name")` to the console. The figure below shows how to install `expn` library.  
+![](images/r-packages-installation.png)
