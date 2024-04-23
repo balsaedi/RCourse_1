@@ -219,7 +219,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r---basic-concepts-and-applications" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> R - Basic Concepts and applications<a href="r---introduction.html#r---basic-concepts-and-applications" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>R (programming language)</strong> is a language and environment for statistical computing and graphics</p>
-<p>&lt;– logo image for Rstudio –&gt;</p>
 </div>
 <div id="why-r" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Why R?<a href="r---introduction.html#why-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -244,13 +243,20 @@ RStudio - installation link &lt;-link in the first 7 minutes-&gt;</p>
 &lt;–Check R Version –&gt;</p>
 <div id="r---look-and-feel" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> R - Look and Feel<a href="r---introduction.html#r---look-and-feel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>&lt;– R screenshot image from the terminal–&gt;</p>
-<p>&lt;– default screenshot image for R Studio –&gt;
-explain each section/quadrant
-- text editor
-- stand input/output (console/terminal/jobs)
-- all data and its properties quadrants
-- plots and file directory structure</p>
+<p><img src="images/r-look-and-feel.png" /></p>
+<p>The image above is for R code in R Studio. Each quadrant has its own function.
+- text editor</p>
+<p>serves as the primary interface for writing and editing R scripts, Markdown documents, and other text-based files</p>
+<ul>
+<li>stand input/output (console/terminal/jobs)</li>
+</ul>
+<p>It is the bottom left quadrant in R Studio that serves as a command-line interface where you can directly interact with R such as code execution and output display.</p>
+<ul>
+<li><p>all data and its properties quadrants
+It is the top right quadrant in Rstudio that is typically the “Environment” pane, which provides information and tools for managing your R environment such as data importation, display of variables.</p></li>
+<li><p>plots and file directory structure
+The bottom right quadrant in RStudio typically houses the “Files”, “Plots”, “Packages”, “Help”, and “Viewer” tabs.</p></li>
+</ul>
 </div>
 </div>
 <div id="basic-mathematics-like-operators" class="section level2 hasAnchor" number="2.4">
@@ -261,19 +267,20 @@ explain each section/quadrant
 <p>Subtraction - the <code>-</code> operator is used to subtract two numerical values</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r---introduction.html#cb3-1" tabindex="-1"></a><span class="dv">6-2</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<p>&lt;– add more content for operators–&gt;</p>
 </div>
 <div id="r-markdown" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> R Markdown<a href="r---introduction.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>&lt;– Definition of R Markdown –&gt;
-&lt;–Introduce how to create R markdown file using screenshots –&gt;</p>
+<p>R Markdown is a versatile markup language that allows you to create dynamic documents that integrate text, code, and output. It is widely used in data analysis, scientific research, and reporting</p>
+<p>The figure shows how markdown looks like
+<img src="images/rmarkdown.png" /></p>
 <p>Each chunk can be run separately in a single file, also the variable in one chunk can be reused by the next/later chunks</p>
 <p>Anything added outside the chuck will not be executed in the program</p>
-<p>The R markdown can be knitted to a html, pdf, or word file
-&lt;–Include screenshots–&gt;</p>
+<p>The R markdown can be knitted to a html, pdf, or word file and presented to the audience</p>
 </div>
 <div id="installation-of-packages" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Installation of packages<a href="r---introduction.html#installation-of-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R libraries/packages can be installed by invoking <code>install.packages("package_name")</code> to the console. The figure below shows how to install <code>expn</code> library.<br />
+<img src="images/r-packages-installation.png" /></p>
 
 </div>
 </div>
