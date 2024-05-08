@@ -1,38 +1,135 @@
 # Data Types and Data Structures
 ## Data types 
-<-- add more explanations to each data types --> 
+There are different kinds of values in R that can be manipulated in variables in R. `class()`function is used to check the data type of a value or a variable. Different data types include;
 
 - Numeric
+
+These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. Example:
 ```{r}
 a=23.5
 class(a) #check the data type of a 
 ```
 
+a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. 
+```{r}
+class(45)
+```
+
+```{r}
+class(8)
+```
+
+```{r}
+class(0)
+```
+
+```{r}
+class(73)
+```
+
 - Integers
+
+They represent whole numbers without any any decimals and are a subclass of numeric. `L` is added at the end of a whole number to indicate that it is an integer. 
 ```{r}
 a=23L #add L to show it is an integer
 class(a)
 ```
 
+Lets store age as an integer
+```{r}
+age = 27L
+class(age)
+```
+
 - Characters
+
+They represent text strings such as names, sentences and labels. They are enclosed in " or '. 
 ```{r}
 a="DNA"
 class(a)
 ```
 
+Lets use name as a character 
+```{r}
+name = "Pragya"
+class(name)
+```
+
+for an object
+```{r}
+item = "car" # "car" is stored in a variable item
+class(item)
+```
+
+Character data types can have empty spaces in between, for instance;
+
+```{r}
+fullname = "Salman Khan"
+class(fullname)
+```
+
 - Logical 
+
+They represent boolean values which has only distinct value; `TRUE` or `FALSE`.
+
 ```{r}
 a=TRUE #logical data types is either TRUE or FALSE only
 class(a)
 ```
 
-- Complex, 
+changing it to `FALSE`
+```{r}
+b = FALSE
+class(b)
+```
+
+- Complex
+
+They represent complex numbers with real and imaginary parts
 ```{r}
 a=2+3i # Complex data types have 'i' at the end of each number
 class(a)
 ```
+`2` is the real part while `3i` is the imaginary part. Also, complex numbers can be created by `complex()` function with `real` and `imaginary` as the arguments. 
+```{r}
+z = complex(real = 3, imaginary = 7)
+print(z) #show the comlex value
+class(z) #confirm that it is a complex number 
+```
+
+Lets try another values to fit to the complex data type
+
+1. `2+5i`
+```{r}
+z = complex(real=2, imaginary = 5)
+print(z)
+class(z)
+```
+
+2. `7 + 6i`
+```{r}
+m=complex(real=7, imaginary = 6)
+print(m)
+class(m)
+```
+
+3. `4i - 1`
+```{r}
+b = 4i-1
+print(b)
+class(b)
+```
+
+Complex data types can include the imaginary part only without real number, R will assume the real part to be `0`(zero). For instance;
+```{r}
+h = 3i
+print(h)
+class(h)
+```
 
 - Raw
+They represent a vector of bytes in their natural form. They are used in storing binary data. Example;
+
 ```{r}
 a=charToRaw("DNA")
 print(a)
@@ -41,6 +138,20 @@ class(a)
 # convert back to character 
 b=rawToChar(a)
 class(b)
+```
+
+"Hello world" can be represented as 
+```{r}
+binary_data = charToRaw("Hello World")
+print(binary_data)
+class(binary_data)
+```
+
+Numeric can also be represented as raw vectors;
+```{r}
+age=as.raw(27)
+print(age)
+class(age)
 ```
 
 ## Data Structures 
