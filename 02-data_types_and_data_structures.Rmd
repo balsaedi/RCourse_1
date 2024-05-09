@@ -161,7 +161,7 @@ This is the organization of data into one or multiple data values in specific st
 - Data frame
 
 ### Vector
-A vector is a single entity consisting of a collection of things. Here is an example of a vector.
+A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a `c()` function, here is an example of a vector.
 ```{r}
 marks = c(23, 67, 98, 34, 98, 21)
 print(marks)
@@ -392,7 +392,7 @@ vector1 = seq(1, 9)
 data1=matrix(vector1, ncol=3)
 data1
 ```
-A vector of values 1 to 9 is being converted to a matrix where the values are being arranged columnwise by default. 
+A vector of values 1 to 9 is being converted to a matrix where the values are being arranged column wise by default. 
 
 A matrix has a multiple dimensions, the most common type of matrix is two dimesnional. 
 ```{r}

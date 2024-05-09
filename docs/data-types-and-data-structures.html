@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-08" />
+<meta name="date" content="2024-05-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -239,11 +239,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Integers</li>
 </ul>
 <p>They represent whole numbers without any any decimals and are a subclass of numeric. <code>L</code> is added at the end of a whole number to indicate that it is an integer.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-types-and-data-structures.html#cb15-1" tabindex="-1"></a>a<span class="ot">=</span>23L <span class="co">#add L to show it is an integer</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-types-and-data-structures.html#cb15-1" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">23</span><span class="dt">L</span> <span class="co">#add L to show it is an integer</span></span>
 <span id="cb15-2"><a href="data-types-and-data-structures.html#cb15-2" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <p>Lets store age as an integer</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-types-and-data-structures.html#cb17-1" tabindex="-1"></a>age <span class="ot">=</span> 27L</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-types-and-data-structures.html#cb17-1" tabindex="-1"></a>age <span class="ot">=</span> <span class="dv">27</span><span class="dt">L</span></span>
 <span id="cb17-2"><a href="data-types-and-data-structures.html#cb17-2" tabindex="-1"></a><span class="fu">class</span>(age)</span></code></pre></div>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
 <ul>
@@ -280,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Complex</li>
 </ul>
 <p>They represent complex numbers with real and imaginary parts</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-types-and-data-structures.html#cb31-1" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">2</span><span class="sc">+</span>3i <span class="co"># Complex data types have &#39;i&#39; at the end of each number</span></span>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="data-types-and-data-structures.html#cb31-1" tabindex="-1"></a>a<span class="ot">=</span><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span><span class="dt">i</span> <span class="co"># Complex data types have &#39;i&#39; at the end of each number</span></span>
 <span id="cb31-2"><a href="data-types-and-data-structures.html#cb31-2" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
 <p><code>2</code> is the real part while <code>3i</code> is the imaginary part. Also, complex numbers can be created by <code>complex()</code> function with <code>real</code> and <code>imaginary</code> as the arguments.</p>
@@ -309,13 +309,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" style="list-style-type: decimal">
 <li><code>4i - 1</code></li>
 </ol>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-types-and-data-structures.html#cb45-1" tabindex="-1"></a>b <span class="ot">=</span> 4i<span class="dv">-1</span></span>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="data-types-and-data-structures.html#cb45-1" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">4</span><span class="dt">i</span><span class="dv">-1</span></span>
 <span id="cb45-2"><a href="data-types-and-data-structures.html#cb45-2" tabindex="-1"></a><span class="fu">print</span>(b)</span></code></pre></div>
 <pre><code>## [1] -1+4i</code></pre>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="data-types-and-data-structures.html#cb47-1" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
 <pre><code>## [1] &quot;complex&quot;</code></pre>
 <p>Complex data types can include the imaginary part only without real number, R will assume the real part to be <code>0</code>(zero). For instance;</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-types-and-data-structures.html#cb49-1" tabindex="-1"></a>h <span class="ot">=</span> 3i</span>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="data-types-and-data-structures.html#cb49-1" tabindex="-1"></a>h <span class="ot">=</span> <span class="dv">3</span><span class="dt">i</span></span>
 <span id="cb49-2"><a href="data-types-and-data-structures.html#cb49-2" tabindex="-1"></a><span class="fu">print</span>(h)</span></code></pre></div>
 <pre><code>## [1] 0+3i</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="data-types-and-data-structures.html#cb51-1" tabindex="-1"></a><span class="fu">class</span>(h)</span></code></pre></div>
@@ -354,7 +354,7 @@ They represent a vector of bytes in their natural form. They are used in storing
 - Data frame</p>
 <div id="vector" class="section level3 hasAnchor" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Vector<a href="data-types-and-data-structures.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>A vector is a single entity consisting of a collection of things. Here is an example of a vector.</p>
+<p>A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a <code>c()</code> function, here is an example of a vector.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="data-types-and-data-structures.html#cb67-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
 <span id="cb67-2"><a href="data-types-and-data-structures.html#cb67-2" tabindex="-1"></a><span class="fu">print</span>(marks)</span></code></pre></div>
 <pre><code>## [1] 23 67 98 34 98 21</code></pre>
@@ -564,7 +564,7 @@ They represent a vector of bytes in their natural form. They are used in storing
 ## [1,]    1    4    7
 ## [2,]    2    5    8
 ## [3,]    3    6    9</code></pre>
-<p>A vector of values 1 to 9 is being converted to a matrix where the values are being arranged columnwise by default.</p>
+<p>A vector of values 1 to 9 is being converted to a matrix where the values are being arranged column wise by default.</p>
 <p>A matrix has a multiple dimensions, the most common type of matrix is two dimesnional.</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="data-types-and-data-structures.html#cb163-1" tabindex="-1"></a><span class="fu">dim</span>(data1)</span></code></pre></div>
 <pre><code>## [1] 3 3</code></pre>
