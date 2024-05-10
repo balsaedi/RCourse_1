@@ -20,6 +20,69 @@ for (n in 1:10)
 }
 ```
 
+Not only can for loops go through a set of numeric values but also they can loop through a vector of characters. For instance;
+```{r}
+# This will loop through a set of fruits
+fruits <- c("apples", "bananas", "oranges")
+for (fruit in fruits) {
+  print(paste("I like", fruit))
+}
+```
+
+A for loop can run within another for loop, this is referred to as a "Nested for loop". The code below shows how nested for loops work
+```{r}
+for (i in 1:3) {
+  for (j in 1:2) {
+    print(paste("i:", i, ", j:", j))
+  }
+}
+```
+
+These nested for loops are very useful when working with multidimensional data structures like matrices. Like matrix by matrix multiplication;
+
+- Example 1
+```{r}
+# Matrix multiplication
+matrix1 <- matrix(1:4, nrow = 2)
+matrix1
+matrix2 <- matrix(5:8, nrow = 2)
+matrix2
+
+# Matrices are multiplied row(of matrix1) by column(of matrix2)
+result <- matrix(0, nrow = nrow(matrix1), ncol = ncol(matrix2))
+for (i in 1:nrow(matrix1)) {
+  for (j in 1:ncol(matrix2)) {
+    for (k in 1:ncol(matrix1)) {
+      result[i, j] <- result[i, j] + matrix1[i, k] * matrix2[k, j]
+    }
+  }
+}
+print(result)
+```
+
+- Example 2
+```{r}
+# Define two matrices
+matrix1 <- matrix(1:9, nrow = 3)
+matrix1
+matrix2 <- matrix(9:1, nrow = 3)
+matrix2
+
+# Initialize result matrix
+result <- matrix(0, nrow = nrow(matrix1), ncol = ncol(matrix2))
+
+# Perform matrix multiplication using nested for loops
+for (i in 1:nrow(matrix1)) {
+  for (j in 1:ncol(matrix2)) {
+    for (k in 1:ncol(matrix1)) {
+      result[i, j] <- result[i, j] + matrix1[i, k] * matrix2[k, j]
+    }
+  }
+}
+
+result
+```
+
 The loop can also iterate over a vector and perform the preset condition. For instance in the code below, the loops through a vector and prints a square of each element in the vector.
 ```{r}
 num=c(1,2,3,8,10)
@@ -39,12 +102,22 @@ for (n in num)
   }
   
   print(n)
-  
+
 }
 ```
 
 ## While loop
-A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition is true. The loop continues to execute until the condition becomes false.
+A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition is true.
+After executing the code block, the program returns at the beginning the condition, if its is TRUE the code block is executed again. 
+
+The loop continues to execute until the condition becomes false.
+```
+while (condition) {
+  # Code block to be executed
+}
+```
+
+- Example 1
 
 The below program executes as long as n is less than or equal to m. 
 
@@ -58,9 +131,76 @@ while(n<=m)
 }
 ```
 
+The condition of the above code is that the program will executes as long as `n` is less than or equal to `m`. The value of `n` is incremented by 1 and printed out until as long its less than or equal to `m`. 
 
+- Example 2
 
+```{r}
+i = 10
+while (i >= 5) {
+  print(i)
+  i = i - 1
+}
+```
 
+This while loop prints the values of `i` from 10 to 5. It starts with ``i` equal to 10 and continues iterating as long as i is more than or equal to 5. Inside the loop, each value of `i` is printed, and `i` is reduced by 1 in each iteration.
 
+- **Infinite Loop**:
 
+If the condition in a while loop always evaluates to TRUE, the loop becomes an infinite loop, which continuously executes the code block without stopping. Infinite loops should be avoided, as they can cause the program to hang or become unresponsive.
+
+There are different use cases in R while loops. These are a few examples of use cases;
+
+1. Calculating factorial
+```{r}
+# Function to calculate factorial
+factorial = function(n) {
+  result = 1
+  i = 1
+  while (i <= n) {
+    result = result * i
+    i = i + 1
+  }
+  return(result)
+}
+
+# Calculate factorial of 5
+factorial_5 = factorial(5)
+print(factorial_5)  # Output: 120
+```
+
+2. Use input validation
+```{r}
+# Prompt user to enter a number until a valid numeric value is provided
+num = NA
+while (is.na(num)) {
+  input = 3
+  num = as.numeric(input)
+  if (is.na(num)) {
+    cat("Invalid input. Please enter a numeric value.\n")
+  }
+}
+print(paste("You entered:", num))
+```
+
+3. Generating a fibonacci series
+```{r}
+# Generate Fibonacci series up to n terms
+fibonacci = function(n) {
+  a = 0
+  b = 1
+  i = 1
+  while (i <= n) {
+    cat(a, " ")
+    next_term = a + b
+    a = b
+    b = next_term
+    i = i + 1
+  }
+  cat("\n")
+}
+
+# Generate Fibonacci series with 10 terms
+fibonacci(10)  # Output: 0  1  1  2  3  5  8  13  21  34
+```
 

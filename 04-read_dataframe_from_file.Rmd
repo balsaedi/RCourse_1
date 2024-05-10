@@ -1,10 +1,11 @@
 # Working with files
-## Reading a file from a dataframe 
+## .XLSX, XLS files
+### Reading a file to a dataframe 
 
 This chapter explains how to read a file to a data frame using the `readxl` library. The `readxl` package can be installed from the console by `install.packages("readxl")` command.
 
 Lets begin by importing the library
-```{r}
+```{r echo=TRUE, include=TRUE}
 # Import the library
 library(readxl)
 ```
@@ -14,9 +15,9 @@ The `readxl` library can read .xlsx, xls files to a data frame. For this case, H
 hg = read_excel("data/Human_genome.xlsx")
 ```
 
-View the data 
+View the dataset 
 ```{r}
-View(hg)
+str(hg)
 ```
 
 In R, `head()` and `tail()` are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.
@@ -82,7 +83,7 @@ hg["genes_per_Mb"]=genes_per_megabase
 str(hg)
 ```
 
-## Write a new table to a file locally
+### Write a new table to a file locally
 The `write.table()` function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified. 
 ```{r}
 write.table(hg, 
@@ -96,6 +97,154 @@ write.table(hg,
 This file will be saved by default on the working directory unless the file path is changed. 
 
 Checking if the new file is saved. 
-```{r}
+```
 file.show("data/hg_modified")
 ```
+## .CSV files 
+CSV stands for "Comma Separated Values". This is a plain text file that contains data in a tabular format for example the data below that represents athletes' statistics. 
+```
+Name, Age, Weight
+Salman, 30, 75
+Pragya, 35, 72
+Vidyat, 25, 68
+```
+
+Each line in a CSV file represents a row while each field in a row is separated by a comma ",". These files are often used in data manipulations since they are lightweight, simple and widely supported. In this course we shall briefly go through two csv files and do brief analyses. 
+
+### Titanic dataset
+The titanic data is a famous data set in data analysis. It contains information about passengers that boarded the ship Titan(not actual true) including their age, ticket class, fare and others. 
+
+#### Reading the csv file
+
+The `read.csv()` function is used to read a csv file to a data frame.
+```{r}
+# Read data from a CSV file into a data frame
+titanic_df = read.csv("data/titanic_dataset.csv")
+```
+
+#### Data Assessment
+
+- Structure of the dataset
+```{r}
+str(titanic_df)
+```
+
+- Show the first 6 records of the data set.
+```{r}
+head(titanic_df)
+```
+
+- Count the null values in the data
+```{r}
+sum(is.na(titanic_df))
+```
+
+The are 87 fields in the data that are null(empty)
+
+- Calculate the descriptive statistics
+```{r}
+summary(titanic_df)
+```
+
+#### Data Analysis 
+The answers to the two questions will give a brief understanding of titanic passengers.
+
+- **What is the survival rate by gender?**
+```{r}
+# Survival rate by gender
+table(titanic_df$Sex, titanic_df$Survived)
+```
+
+From the table above, all males drowned but all females survived. 
+
+- **What is the survival rate by ticket class?**
+```{r}
+# Survival rate by ticket class
+table(titanic_df$Pclass, titanic_df$Survived)
+```
+
+Most passengers from ticket class 0 survived. 
+
+### IBM Employee Attrition data 
+This is a common data set used for HR analytics. It contains information about all IBM employees, who are still in the company and the ones who left. Analyzing this attrition data set will provide meaningful insights on employees' behavior and their engagement. HR can also find employee retention techniques with organizations. In this course section, we will briefly go through basic analysis after assessing the data. 
+
+#### Reading the csv file 
+```{r}
+attrition_df = read.csv("data/HR-Employee-Attrition.csv")
+```
+
+#### Data Assessment
+- Structure of the data 
+```{r}
+str(attrition_df)
+```
+
+Most columns have character and integer values. 
+
+- Shape of the data set 
+```{r}
+dim(attrition_df)
+```
+
+There are 1470 rows and 35 variables in the data set. Lets now show the first few rows of the data to get the idea of how the data looks like.
+```{r}
+head(attrition_df)
+```
+
+It is also important when analyzing data to find the existence of null fields and duplicated records. 
+
+- Are there any null values?
+```{r}
+sum(is.na(attrition_df))
+```
+
+The data is complete with no null values. 
+
+- Are there any duplicated rows?
+```{r}
+sum(duplicated(attrition_df))
+```
+
+Also, all the rows are unique and there is no duplicated row in the data. 
+
+#### Data Analysis
+The following questions will enable us to get a brief overview of the company;
+
+- **What are the unique departments in the company?**
+```{r}
+unique(attrition_df$Department)
+```
+
+There are three distinct departments in the company data; Human Resources, Sales, and Research & Development. 
+
+- **Is there a difference in attrition rates between genders?**
+```{r}
+# Table of attrition by gender
+table(attrition_df$Gender, attrition_df$Attrition)
+```
+
+From the table, we can see the number of males and females who have left the company (Attrition=Yes) and those who are still employed (Attrition=No)
+
+- **What is the attrition rate among employees in different job roles?**
+```{r}
+# Table of attrition by job role
+table(attrition_df$JobRole, attrition_df$Attrition)
+```
+
+From the table above there is a high attrition rate among Laboratory technicians(62) and Sales Executives(57) while lowest attrition rate among Research directors(2) and Managers(5). 
+
+- **Does age impact attrition rate?**
+
+To find a clear answer to this, the ages will be summarized into different groups and create a table comparing the attrition and retention rates among different age groups. 
+```{r}
+# Table of attrition by age group
+attrition_df$AgeGroup <- cut(attrition_df$Age, breaks = c(0, 30, 40, 50, 60, 70), labels = c("0-30", "31-40", "41-50", "51-60", "61-70"))
+
+# Create a table
+table(attrition_df$AgeGroup, attrition_df$Attrition)
+```
+
+Young employees below 30 years tend to leave the company than elder employees of above 40 years who are mostly retained by the company. 
+
+
+

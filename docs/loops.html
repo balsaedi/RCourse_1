@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-04-23" />
+<meta name="date" content="2024-05-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -56,7 +56,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -170,8 +170,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-files.html"><a href="working-with-files.html"><i class="fa fa-check"></i><b>5</b> Working with files</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
-<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
+<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#xlsx-xls-files"><i class="fa fa-check"></i><b>5.1</b> .XLSX, XLS files</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-to-a-dataframe"><i class="fa fa-check"></i><b>5.1.1</b> Reading a file to a dataframe</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.1.2</b> Write a new table to a file locally</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#csv-files"><i class="fa fa-check"></i><b>5.2</b> .CSV files</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-with-files.html"><a href="working-with-files.html#titanic-dataset"><i class="fa fa-check"></i><b>5.2.1</b> Titanic dataset</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-with-files.html"><a href="working-with-files.html#ibm-employee-attrition-data"><i class="fa fa-check"></i><b>5.2.2</b> IBM Employee Attrition data</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
 <ul>
@@ -228,10 +236,10 @@ Here is the syntax of a for loop</p>
 }</code></pre>
 <p>When a condition is met the execution/iteration stops
 Below is an example of R loop over a range of numbers 1 to 10</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="loops.html#cb158-1" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb158-2"><a href="loops.html#cb158-2" tabindex="-1"></a>{</span>
-<span id="cb158-3"><a href="loops.html#cb158-3" tabindex="-1"></a>  <span class="fu">print</span>(n<span class="sc">*</span><span class="dv">5</span>)</span>
-<span id="cb158-4"><a href="loops.html#cb158-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="loops.html#cb204-1" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb204-2"><a href="loops.html#cb204-2" tabindex="-1"></a>{</span>
+<span id="cb204-3"><a href="loops.html#cb204-3" tabindex="-1"></a>  <span class="fu">print</span>(n<span class="sc">*</span><span class="dv">5</span>)</span>
+<span id="cb204-4"><a href="loops.html#cb204-4" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 5
 ## [1] 10
 ## [1] 15
@@ -242,43 +250,133 @@ Below is an example of R loop over a range of numbers 1 to 10</p>
 ## [1] 40
 ## [1] 45
 ## [1] 50</code></pre>
+<p>Not only can for loops go through a set of numeric values but also they can loop through a vector of characters. For instance;</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="loops.html#cb206-1" tabindex="-1"></a><span class="co"># This will loop through a set of fruits</span></span>
+<span id="cb206-2"><a href="loops.html#cb206-2" tabindex="-1"></a>fruits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apples&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;oranges&quot;</span>)</span>
+<span id="cb206-3"><a href="loops.html#cb206-3" tabindex="-1"></a><span class="cf">for</span> (fruit <span class="cf">in</span> fruits) {</span>
+<span id="cb206-4"><a href="loops.html#cb206-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;I like&quot;</span>, fruit))</span>
+<span id="cb206-5"><a href="loops.html#cb206-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;I like apples&quot;
+## [1] &quot;I like bananas&quot;
+## [1] &quot;I like oranges&quot;</code></pre>
+<p>A for loop can run within another for loop, this is referred to as a “Nested for loop”. The code below shows how nested for loops work</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="loops.html#cb208-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb208-2"><a href="loops.html#cb208-2" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>) {</span>
+<span id="cb208-3"><a href="loops.html#cb208-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;i:&quot;</span>, i, <span class="st">&quot;, j:&quot;</span>, j))</span>
+<span id="cb208-4"><a href="loops.html#cb208-4" tabindex="-1"></a>  }</span>
+<span id="cb208-5"><a href="loops.html#cb208-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;i: 1 , j: 1&quot;
+## [1] &quot;i: 1 , j: 2&quot;
+## [1] &quot;i: 2 , j: 1&quot;
+## [1] &quot;i: 2 , j: 2&quot;
+## [1] &quot;i: 3 , j: 1&quot;
+## [1] &quot;i: 3 , j: 2&quot;</code></pre>
+<p>These nested for loops are very useful when working with multidimensional data structures like matrices. Like matrix by matrix multiplication;</p>
+<ul>
+<li>Example 1</li>
+</ul>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="loops.html#cb210-1" tabindex="-1"></a><span class="co"># Matrix multiplication</span></span>
+<span id="cb210-2"><a href="loops.html#cb210-2" tabindex="-1"></a>matrix1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb210-3"><a href="loops.html#cb210-3" tabindex="-1"></a>matrix1</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    3
+## [2,]    2    4</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="loops.html#cb212-1" tabindex="-1"></a>matrix2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb212-2"><a href="loops.html#cb212-2" tabindex="-1"></a>matrix2</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    5    7
+## [2,]    6    8</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="loops.html#cb214-1" tabindex="-1"></a><span class="co"># Matrices are multiplied row(of matrix1) by column(of matrix2)</span></span>
+<span id="cb214-2"><a href="loops.html#cb214-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(matrix1), <span class="at">ncol =</span> <span class="fu">ncol</span>(matrix2))</span>
+<span id="cb214-3"><a href="loops.html#cb214-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(matrix1)) {</span>
+<span id="cb214-4"><a href="loops.html#cb214-4" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(matrix2)) {</span>
+<span id="cb214-5"><a href="loops.html#cb214-5" tabindex="-1"></a>    <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(matrix1)) {</span>
+<span id="cb214-6"><a href="loops.html#cb214-6" tabindex="-1"></a>      result[i, j] <span class="ot">&lt;-</span> result[i, j] <span class="sc">+</span> matrix1[i, k] <span class="sc">*</span> matrix2[k, j]</span>
+<span id="cb214-7"><a href="loops.html#cb214-7" tabindex="-1"></a>    }</span>
+<span id="cb214-8"><a href="loops.html#cb214-8" tabindex="-1"></a>  }</span>
+<span id="cb214-9"><a href="loops.html#cb214-9" tabindex="-1"></a>}</span>
+<span id="cb214-10"><a href="loops.html#cb214-10" tabindex="-1"></a><span class="fu">print</span>(result)</span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]   23   31
+## [2,]   34   46</code></pre>
+<ul>
+<li>Example 2</li>
+</ul>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="loops.html#cb216-1" tabindex="-1"></a><span class="co"># Define two matrices</span></span>
+<span id="cb216-2"><a href="loops.html#cb216-2" tabindex="-1"></a>matrix1 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb216-3"><a href="loops.html#cb216-3" tabindex="-1"></a>matrix1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="loops.html#cb218-1" tabindex="-1"></a>matrix2 <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">9</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb218-2"><a href="loops.html#cb218-2" tabindex="-1"></a>matrix2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9    6    3
+## [2,]    8    5    2
+## [3,]    7    4    1</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="loops.html#cb220-1" tabindex="-1"></a><span class="co"># Initialize result matrix</span></span>
+<span id="cb220-2"><a href="loops.html#cb220-2" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(matrix1), <span class="at">ncol =</span> <span class="fu">ncol</span>(matrix2))</span>
+<span id="cb220-3"><a href="loops.html#cb220-3" tabindex="-1"></a></span>
+<span id="cb220-4"><a href="loops.html#cb220-4" tabindex="-1"></a><span class="co"># Perform matrix multiplication using nested for loops</span></span>
+<span id="cb220-5"><a href="loops.html#cb220-5" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(matrix1)) {</span>
+<span id="cb220-6"><a href="loops.html#cb220-6" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(matrix2)) {</span>
+<span id="cb220-7"><a href="loops.html#cb220-7" tabindex="-1"></a>    <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(matrix1)) {</span>
+<span id="cb220-8"><a href="loops.html#cb220-8" tabindex="-1"></a>      result[i, j] <span class="ot">&lt;-</span> result[i, j] <span class="sc">+</span> matrix1[i, k] <span class="sc">*</span> matrix2[k, j]</span>
+<span id="cb220-9"><a href="loops.html#cb220-9" tabindex="-1"></a>    }</span>
+<span id="cb220-10"><a href="loops.html#cb220-10" tabindex="-1"></a>  }</span>
+<span id="cb220-11"><a href="loops.html#cb220-11" tabindex="-1"></a>}</span>
+<span id="cb220-12"><a href="loops.html#cb220-12" tabindex="-1"></a></span>
+<span id="cb220-13"><a href="loops.html#cb220-13" tabindex="-1"></a>result</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   90   54   18
+## [2,]  114   69   24
+## [3,]  138   84   30</code></pre>
 <p>The loop can also iterate over a vector and perform the preset condition. For instance in the code below, the loops through a vector and prints a square of each element in the vector.</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="loops.html#cb160-1" tabindex="-1"></a>num<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">10</span>)</span>
-<span id="cb160-2"><a href="loops.html#cb160-2" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(num))</span>
-<span id="cb160-3"><a href="loops.html#cb160-3" tabindex="-1"></a>{</span>
-<span id="cb160-4"><a href="loops.html#cb160-4" tabindex="-1"></a>  <span class="fu">print</span>(num[n]<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb160-5"><a href="loops.html#cb160-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="loops.html#cb222-1" tabindex="-1"></a>num<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">8</span>,<span class="dv">10</span>)</span>
+<span id="cb222-2"><a href="loops.html#cb222-2" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(num))</span>
+<span id="cb222-3"><a href="loops.html#cb222-3" tabindex="-1"></a>{</span>
+<span id="cb222-4"><a href="loops.html#cb222-4" tabindex="-1"></a>  <span class="fu">print</span>(num[n]<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb222-5"><a href="loops.html#cb222-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 4
 ## [1] 9
 ## [1] 64
 ## [1] 100</code></pre>
 <p>Breaking of a loop - a program stops once something happens for instance the below loops executes by incrementing n and breaks when n is greater than 7</p>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="loops.html#cb162-1" tabindex="-1"></a><span class="co">#Stop the loop if the n is greater than 7</span></span>
-<span id="cb162-2"><a href="loops.html#cb162-2" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> num)</span>
-<span id="cb162-3"><a href="loops.html#cb162-3" tabindex="-1"></a>{</span>
-<span id="cb162-4"><a href="loops.html#cb162-4" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&gt;</span> <span class="dv">7</span>){</span>
-<span id="cb162-5"><a href="loops.html#cb162-5" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb162-6"><a href="loops.html#cb162-6" tabindex="-1"></a>  }</span>
-<span id="cb162-7"><a href="loops.html#cb162-7" tabindex="-1"></a>  </span>
-<span id="cb162-8"><a href="loops.html#cb162-8" tabindex="-1"></a>  <span class="fu">print</span>(n)</span>
-<span id="cb162-9"><a href="loops.html#cb162-9" tabindex="-1"></a>  </span>
-<span id="cb162-10"><a href="loops.html#cb162-10" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="loops.html#cb224-1" tabindex="-1"></a><span class="co">#Stop the loop if the n is greater than 7</span></span>
+<span id="cb224-2"><a href="loops.html#cb224-2" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> num)</span>
+<span id="cb224-3"><a href="loops.html#cb224-3" tabindex="-1"></a>{</span>
+<span id="cb224-4"><a href="loops.html#cb224-4" tabindex="-1"></a>  <span class="cf">if</span> (n <span class="sc">&gt;</span> <span class="dv">7</span>){</span>
+<span id="cb224-5"><a href="loops.html#cb224-5" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb224-6"><a href="loops.html#cb224-6" tabindex="-1"></a>  }</span>
+<span id="cb224-7"><a href="loops.html#cb224-7" tabindex="-1"></a>  </span>
+<span id="cb224-8"><a href="loops.html#cb224-8" tabindex="-1"></a>  <span class="fu">print</span>(n)</span>
+<span id="cb224-9"><a href="loops.html#cb224-9" tabindex="-1"></a></span>
+<span id="cb224-10"><a href="loops.html#cb224-10" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 1
 ## [1] 2
 ## [1] 3</code></pre>
 </div>
 <div id="while-loop" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> While loop<a href="loops.html#while-loop" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition is true. The loop continues to execute until the condition becomes false.</p>
+<p>A while loop is a control flow statement in programming that repeatedly executes a block of code as long as a specified condition is true.
+After executing the code block, the program returns at the beginning the condition, if its is TRUE the code block is executed again.</p>
+<p>The loop continues to execute until the condition becomes false.</p>
+<pre><code>while (condition) {
+  # Code block to be executed
+}</code></pre>
+<ul>
+<li>Example 1</li>
+</ul>
 <p>The below program executes as long as n is less than or equal to m.</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="loops.html#cb164-1" tabindex="-1"></a>m<span class="ot">=</span><span class="dv">4</span></span>
-<span id="cb164-2"><a href="loops.html#cb164-2" tabindex="-1"></a>n<span class="ot">=</span><span class="sc">-</span><span class="dv">9</span></span>
-<span id="cb164-3"><a href="loops.html#cb164-3" tabindex="-1"></a><span class="cf">while</span>(n<span class="sc">&lt;=</span>m)</span>
-<span id="cb164-4"><a href="loops.html#cb164-4" tabindex="-1"></a>{</span>
-<span id="cb164-5"><a href="loops.html#cb164-5" tabindex="-1"></a>  <span class="fu">print</span>(n)</span>
-<span id="cb164-6"><a href="loops.html#cb164-6" tabindex="-1"></a>  n<span class="ot">=</span>n<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb164-7"><a href="loops.html#cb164-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="loops.html#cb227-1" tabindex="-1"></a>m<span class="ot">=</span><span class="dv">4</span></span>
+<span id="cb227-2"><a href="loops.html#cb227-2" tabindex="-1"></a>n<span class="ot">=</span><span class="sc">-</span><span class="dv">9</span></span>
+<span id="cb227-3"><a href="loops.html#cb227-3" tabindex="-1"></a><span class="cf">while</span>(n<span class="sc">&lt;=</span>m)</span>
+<span id="cb227-4"><a href="loops.html#cb227-4" tabindex="-1"></a>{</span>
+<span id="cb227-5"><a href="loops.html#cb227-5" tabindex="-1"></a>  <span class="fu">print</span>(n)</span>
+<span id="cb227-6"><a href="loops.html#cb227-6" tabindex="-1"></a>  n<span class="ot">=</span>n<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb227-7"><a href="loops.html#cb227-7" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] -9
 ## [1] -8
 ## [1] -7
@@ -293,6 +391,80 @@ Below is an example of R loop over a range of numbers 1 to 10</p>
 ## [1] 2
 ## [1] 3
 ## [1] 4</code></pre>
+<p>The condition of the above code is that the program will executes as long as <code>n</code> is less than or equal to <code>m</code>. The value of <code>n</code> is incremented by 1 and printed out until as long its less than or equal to <code>m</code>.</p>
+<ul>
+<li>Example 2</li>
+</ul>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="loops.html#cb229-1" tabindex="-1"></a>i <span class="ot">=</span> <span class="dv">10</span></span>
+<span id="cb229-2"><a href="loops.html#cb229-2" tabindex="-1"></a><span class="cf">while</span> (i <span class="sc">&gt;=</span> <span class="dv">5</span>) {</span>
+<span id="cb229-3"><a href="loops.html#cb229-3" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb229-4"><a href="loops.html#cb229-4" tabindex="-1"></a>  i <span class="ot">=</span> i <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb229-5"><a href="loops.html#cb229-5" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] 10
+## [1] 9
+## [1] 8
+## [1] 7
+## [1] 6
+## [1] 5</code></pre>
+<p>This while loop prints the values of <code>i</code> from 10 to 5. It starts with `<code>i</code> equal to 10 and continues iterating as long as i is more than or equal to 5. Inside the loop, each value of <code>i</code> is printed, and <code>i</code> is reduced by 1 in each iteration.</p>
+<ul>
+<li><strong>Infinite Loop</strong>:</li>
+</ul>
+<p>If the condition in a while loop always evaluates to TRUE, the loop becomes an infinite loop, which continuously executes the code block without stopping. Infinite loops should be avoided, as they can cause the program to hang or become unresponsive.</p>
+<p>There are different use cases in R while loops. These are a few examples of use cases;</p>
+<ol style="list-style-type: decimal">
+<li>Calculating factorial</li>
+</ol>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="loops.html#cb231-1" tabindex="-1"></a><span class="co"># Function to calculate factorial</span></span>
+<span id="cb231-2"><a href="loops.html#cb231-2" tabindex="-1"></a>factorial <span class="ot">=</span> <span class="cf">function</span>(n) {</span>
+<span id="cb231-3"><a href="loops.html#cb231-3" tabindex="-1"></a>  result <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb231-4"><a href="loops.html#cb231-4" tabindex="-1"></a>  i <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb231-5"><a href="loops.html#cb231-5" tabindex="-1"></a>  <span class="cf">while</span> (i <span class="sc">&lt;=</span> n) {</span>
+<span id="cb231-6"><a href="loops.html#cb231-6" tabindex="-1"></a>    result <span class="ot">=</span> result <span class="sc">*</span> i</span>
+<span id="cb231-7"><a href="loops.html#cb231-7" tabindex="-1"></a>    i <span class="ot">=</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb231-8"><a href="loops.html#cb231-8" tabindex="-1"></a>  }</span>
+<span id="cb231-9"><a href="loops.html#cb231-9" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb231-10"><a href="loops.html#cb231-10" tabindex="-1"></a>}</span>
+<span id="cb231-11"><a href="loops.html#cb231-11" tabindex="-1"></a></span>
+<span id="cb231-12"><a href="loops.html#cb231-12" tabindex="-1"></a><span class="co"># Calculate factorial of 5</span></span>
+<span id="cb231-13"><a href="loops.html#cb231-13" tabindex="-1"></a>factorial_5 <span class="ot">=</span> <span class="fu">factorial</span>(<span class="dv">5</span>)</span>
+<span id="cb231-14"><a href="loops.html#cb231-14" tabindex="-1"></a><span class="fu">print</span>(factorial_5)  <span class="co"># Output: 120</span></span></code></pre></div>
+<pre><code>## [1] 120</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use input validation</li>
+</ol>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="loops.html#cb233-1" tabindex="-1"></a><span class="co"># Prompt user to enter a number until a valid numeric value is provided</span></span>
+<span id="cb233-2"><a href="loops.html#cb233-2" tabindex="-1"></a>num <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb233-3"><a href="loops.html#cb233-3" tabindex="-1"></a><span class="cf">while</span> (<span class="fu">is.na</span>(num)) {</span>
+<span id="cb233-4"><a href="loops.html#cb233-4" tabindex="-1"></a>  input <span class="ot">=</span> <span class="dv">3</span></span>
+<span id="cb233-5"><a href="loops.html#cb233-5" tabindex="-1"></a>  num <span class="ot">=</span> <span class="fu">as.numeric</span>(input)</span>
+<span id="cb233-6"><a href="loops.html#cb233-6" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(num)) {</span>
+<span id="cb233-7"><a href="loops.html#cb233-7" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">&quot;Invalid input. Please enter a numeric value.</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb233-8"><a href="loops.html#cb233-8" tabindex="-1"></a>  }</span>
+<span id="cb233-9"><a href="loops.html#cb233-9" tabindex="-1"></a>}</span>
+<span id="cb233-10"><a href="loops.html#cb233-10" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;You entered:&quot;</span>, num))</span></code></pre></div>
+<pre><code>## [1] &quot;You entered: 3&quot;</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Generating a fibonacci series</li>
+</ol>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="loops.html#cb235-1" tabindex="-1"></a><span class="co"># Generate Fibonacci series up to n terms</span></span>
+<span id="cb235-2"><a href="loops.html#cb235-2" tabindex="-1"></a>fibonacci <span class="ot">=</span> <span class="cf">function</span>(n) {</span>
+<span id="cb235-3"><a href="loops.html#cb235-3" tabindex="-1"></a>  a <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb235-4"><a href="loops.html#cb235-4" tabindex="-1"></a>  b <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb235-5"><a href="loops.html#cb235-5" tabindex="-1"></a>  i <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb235-6"><a href="loops.html#cb235-6" tabindex="-1"></a>  <span class="cf">while</span> (i <span class="sc">&lt;=</span> n) {</span>
+<span id="cb235-7"><a href="loops.html#cb235-7" tabindex="-1"></a>    <span class="fu">cat</span>(a, <span class="st">&quot; &quot;</span>)</span>
+<span id="cb235-8"><a href="loops.html#cb235-8" tabindex="-1"></a>    next_term <span class="ot">=</span> a <span class="sc">+</span> b</span>
+<span id="cb235-9"><a href="loops.html#cb235-9" tabindex="-1"></a>    a <span class="ot">=</span> b</span>
+<span id="cb235-10"><a href="loops.html#cb235-10" tabindex="-1"></a>    b <span class="ot">=</span> next_term</span>
+<span id="cb235-11"><a href="loops.html#cb235-11" tabindex="-1"></a>    i <span class="ot">=</span> i <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb235-12"><a href="loops.html#cb235-12" tabindex="-1"></a>  }</span>
+<span id="cb235-13"><a href="loops.html#cb235-13" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb235-14"><a href="loops.html#cb235-14" tabindex="-1"></a>}</span>
+<span id="cb235-15"><a href="loops.html#cb235-15" tabindex="-1"></a></span>
+<span id="cb235-16"><a href="loops.html#cb235-16" tabindex="-1"></a><span class="co"># Generate Fibonacci series with 10 terms</span></span>
+<span id="cb235-17"><a href="loops.html#cb235-17" tabindex="-1"></a><span class="fu">fibonacci</span>(<span class="dv">10</span>)  <span class="co"># Output: 0  1  1  2  3  5  8  13  21  34</span></span></code></pre></div>
+<pre><code>## 0  1  1  2  3  5  8  13  21  34</code></pre>
 
 </div>
 </div>
