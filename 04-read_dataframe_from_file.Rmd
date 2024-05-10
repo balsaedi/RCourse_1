@@ -4,7 +4,7 @@
 This chapter explains how to read a file to a data frame using the `readxl` library. The `readxl` package can be installed from the console by `install.packages("readxl")` command.
 
 Lets begin by importing the library
-```{r}
+```{r echo=TRUE, include=TRUE}
 # Import the library
 library(readxl)
 ```
@@ -14,9 +14,9 @@ The `readxl` library can read .xlsx, xls files to a data frame. For this case, H
 hg = read_excel("data/Human_genome.xlsx")
 ```
 
-View the data 
+View the dataset 
 ```{r}
-View(hg)
+str(hg)
 ```
 
 In R, `head()` and `tail()` are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.
