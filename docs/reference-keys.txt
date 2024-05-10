@@ -32,6 +32,10 @@ titanic-dataset
 reading-the-csv-file
 data-assessment
 data-analysis
+ibm-employee-attrition-data
+reading-the-csv-file-1
+data-assessment-1
+data-analysis-1
 dpyr-library
 application-of-dplyr-on-microbiology
 ggplot

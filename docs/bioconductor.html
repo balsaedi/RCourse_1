@@ -178,6 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#csv-files"><i class="fa fa-check"></i><b>5.2</b> .CSV files</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="working-with-files.html"><a href="working-with-files.html#titanic-dataset"><i class="fa fa-check"></i><b>5.2.1</b> Titanic dataset</a></li>
+<li class="chapter" data-level="5.2.2" data-path="working-with-files.html"><a href="working-with-files.html#ibm-employee-attrition-data"><i class="fa fa-check"></i><b>5.2.2</b> IBM Employee Attrition data</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
@@ -228,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.1</span> Installing BiocManager Package<a href="bioconductor.html#installing-biocmanager-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To get started with Bioconductor, you need to install the <code>BiocManager</code> package, which facilitates the installation and management of Bioconductor packages. You can find detailed installation instructions in the <a href="https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html">official documentation</a>.</p>
 <p>Load the required libraries</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="bioconductor.html#cb355-1" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="bioconductor.html#cb374-1" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span></code></pre></div>
 <pre><code>## Loading required package: BiocGenerics</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;BiocGenerics&#39;</code></pre>
@@ -279,11 +280,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 
 ##     strsplit</code></pre>
 <p>After loading the necessary libraries, you can read sequence data into R. For instance, if you have sequence data stored in a multifasta file named multifasta_seq.txt, you can use the readDNAStringSet() function.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="bioconductor.html#cb376-1" tabindex="-1"></a>seq <span class="ot">=</span> <span class="fu">readDNAStringSet</span>(<span class="st">&quot;data/multifasta_seq.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb395-1"><a href="bioconductor.html#cb395-1" tabindex="-1"></a>seq <span class="ot">=</span> <span class="fu">readDNAStringSet</span>(<span class="st">&quot;data/multifasta_seq.txt&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning in .Call2(&quot;fasta_index&quot;, filexp_list, nrec, skip, seek.first.rec, :
 ## reading FASTA file data/multifasta_seq.txt: ignored 2545 invalid one-letter
 ## sequence codes</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="bioconductor.html#cb378-1" tabindex="-1"></a>seq</span></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb397-1"><a href="bioconductor.html#cb397-1" tabindex="-1"></a>seq</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 6:
 ##     width seq                                               names               
 ## [1]   844 MVVVSSCVNTTRTAYTNSTRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV2_2019
@@ -293,29 +294,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [5]   846 MHAVNSCVNTGRAASTNSSRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...
 ## [6]   835 MKVVATVSSYTKCDDDRTANTSS...KGACSCGSCCKDDDSVKGVKHYT Spike_WIV1_Bat_Co...</code></pre>
 <p>Each genomic sequence can be viewed separately by indexing</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="bioconductor.html#cb380-1" tabindex="-1"></a>seq[[<span class="dv">1</span>]] <span class="co">#first genomic sequence</span></span></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb399-1"><a href="bioconductor.html#cb399-1" tabindex="-1"></a>seq[[<span class="dv">1</span>]] <span class="co">#first genomic sequence</span></span></code></pre></div>
 <pre><code>## 844-letter DNAString object
 ## seq: MVVVSSCVNTTRTAYTNSTRGVYYDKVRSSVHSTDS...MVTMCCMTSCCSCKGCCSCGSCCKDDDSVKGVKHYT</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="bioconductor.html#cb382-1" tabindex="-1"></a>seq[[<span class="dv">2</span>]] <span class="co"># second genomic sequence</span></span></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb401-1"><a href="bioconductor.html#cb401-1" tabindex="-1"></a>seq[[<span class="dv">2</span>]] <span class="co"># second genomic sequence</span></span></code></pre></div>
 <pre><code>## 842-letter DNAString object
 ## seq: MTTSGSDDRCTTDDVANYTHTSSMRGVYYDRSDTYT...VMVTCCMTSCCSCKGACSCGSCCKDDDSVKGVKHYT</code></pre>
 <p>Convert to character to inspect its content.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="bioconductor.html#cb384-1" tabindex="-1"></a><span class="fu">as.character</span>(seq[[<span class="dv">1</span>]]) </span></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb403-1"><a href="bioconductor.html#cb403-1" tabindex="-1"></a><span class="fu">as.character</span>(seq[[<span class="dv">1</span>]]) </span></code></pre></div>
 <pre><code>## [1] &quot;MVVVSSCVNTTRTAYTNSTRGVYYDKVRSSVHSTDSNVTWHAHVSGTNGTKRDNVNDGVYASTKSNRGWGTTDSKTSVNNATNVVKVCCNDGVYYHKNNKSWMSRVYSSANNCTYVSMDGKGNKNRVKNDGYKYSKHTNVRDGSAVDGNTRTAHRSYTGDSSSGWTAGAAAYYVGYRTKYNNGTTDAVDCADSTKCTKSTVKGYTSNRVTSVRNTNCGVNATRASVYAWNRKRSNCVADYSVYNSASSTKCYGVSTKNDCTNVYADSVRGDVRAGTGKADYNYKDDTGCVAWNSNNDSKVGGNYNYYRRKSNKRDSTYAGSTCNGVGNCYSYGTNGVGYYRVVVSHAATVCGKKSTNVKNKCVNNNGTGTGVTSNKKGRDADTTDAVRDTDTCSGGVSVTGTNTSNVAVYDVNCTVVAHADTTWRVYSTGSNVTRAGCGAHVNNSYCDGAGCASYTTNSRRARSVASSAYTMSGANSVAYSNNSATNTSVTTVSMTKTSVDCTMYCGDSTCSNYGSCTNRATGAVDKNTVAVKYKTKDGGNSDSKSKRSDNKVTADAGKYGDCGDAARDCAKNGTVTDMAYTSAAGTTSGWTGAGAAAMMAYRNGGVTNVYNKANNSAGKDSSSTASAGKDVVNNAANTVKSSNGASSVNDSRDKVAVDRTGRSTYVTRAARASANAATKMSCVGSKRVDCGKGYHMSSAHGVVHVTYVAKNTTAACHDGKAHRGVVSNGTHWVTRNYTTDNTVSGNCDVVGVNNTVYDDSKDKYKNHTSDVDGDSGNASVVNKDRNVAKNNSDGKYYKWWYWGAGAVMVTMCCMTSCCSCKGCCSCGSCCKDDDSVKGVKHYT&quot;</code></pre>
 <p>The <code>length</code> function from base R is used to count the number of genomic sequences.</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="bioconductor.html#cb386-1" tabindex="-1"></a><span class="fu">length</span>(seq)</span></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb405-1"><a href="bioconductor.html#cb405-1" tabindex="-1"></a><span class="fu">length</span>(seq)</span></code></pre></div>
 <pre><code>## [1] 6</code></pre>
 <ul>
 <li>Names of the sequences</li>
 </ul>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="bioconductor.html#cb388-1" tabindex="-1"></a><span class="fu">names</span>(seq)</span></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb407-1"><a href="bioconductor.html#cb407-1" tabindex="-1"></a><span class="fu">names</span>(seq)</span></code></pre></div>
 <pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;          &quot;Spike_SARS_CoV&quot;               
 ## [3] &quot;Spike_Bat_coronavirus_RaTG13&quot;  &quot;Spike_Pangolin_coronavirus_GX&quot;
 ## [5] &quot;Spike_Pangolin_coronavirus_GD&quot; &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
 <ul>
 <li>view the first 6 sequences</li>
 </ul>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="bioconductor.html#cb390-1" tabindex="-1"></a><span class="fu">head</span>(seq)</span></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="bioconductor.html#cb409-1" tabindex="-1"></a><span class="fu">head</span>(seq)</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 6:
 ##     width seq                                               names               
 ## [1]   844 MVVVSSCVNTTRTAYTNSTRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV2_2019
@@ -327,20 +328,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Checking the reverse compliment of sequence</li>
 </ul>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="bioconductor.html#cb392-1" tabindex="-1"></a>seq_rc <span class="ot">=</span> <span class="fu">reverseComplement</span>(seq[[<span class="dv">1</span>]])</span>
-<span id="cb392-2"><a href="bioconductor.html#cb392-2" tabindex="-1"></a><span class="fu">head</span>(seq_rc)</span></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb411-1"><a href="bioconductor.html#cb411-1" tabindex="-1"></a>seq_rc <span class="ot">=</span> <span class="fu">reverseComplement</span>(seq[[<span class="dv">1</span>]])</span>
+<span id="cb411-2"><a href="bioconductor.html#cb411-2" tabindex="-1"></a><span class="fu">head</span>(seq_rc)</span></code></pre></div>
 <pre><code>## 6-letter DNAString object
 ## seq: ARDMBC</code></pre>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="bioconductor.html#cb394-1" tabindex="-1"></a><span class="fu">tail</span>(seq_rc)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb413-1"><a href="bioconductor.html#cb413-1" tabindex="-1"></a><span class="fu">tail</span>(seq_rc)</span></code></pre></div>
 <pre><code>## 6-letter DNAString object
 ## seq: SSBBBK</code></pre>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="bioconductor.html#cb396-1" tabindex="-1"></a><span class="fu">as.character</span>(seq_rc)</span></code></pre></div>
+<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb415-1"><a href="bioconductor.html#cb415-1" tabindex="-1"></a><span class="fu">as.character</span>(seq_rc)</span></code></pre></div>
 <pre><code>## [1] &quot;ARDMBCMBSHHHMGGSCGSGGCMGSGGSAKGGKABKBTCTCWRWWMRRMCHSNNMTBNYHMNBBSTNCSHCHBHSADNMRMHMSHHRBANNBCBBHGNCSBANHAARNYABWDACNSBBCYDTMCHDGTTAANMTBRABDBBCDTSSKDRCMCGHBYMSCBGSKMATTNTSTYTTYABRASYCAYHBTBMHYSHNBSSTCNSSMBANTTNNBBHMCTSTASSSHMCTSNNTMNRBNABCCNYRTKKTTTCTCAWCSAACTTSARTKHABACNMTGHYTTHCGHCRMCTHTABMNHSYMSMSHSNCCHMAMRMBTBANMHBTCATYNAGSCRNSGASHCGRKAGHBSAMAKSBAABSANATSNNSRTBSNTCSKARTSSTBSYTYYSNAARSTGCTCHGRSNNBDTCGCTYABNSCASRBYWAAHTDTBBAGNBHRBTBNSANACABSBCCSGAHAHYBTHAAHTHYCMMNSABCACACNNNBGMNMBNASMMCGBATTDSBBBYRRCBCNACRSRGNCBCNGASCTRASHYMNSMYYRRNRNCCBMSHNNSNWTBGCAHHMRNRHTMCACTYBHCYBSHTRBNAGHNMASBCRGMASSTSNRBSRHTBGNSYMYNWTRBSTYATNBCGNANYBSABYNSARCMBASMAGMASHTGHBTHAACNNRMAYRCBRRTTTCTAWCSSSHCARSYDTAYANCHBTSCHYBNADMSRMRCHNMBYNMNCMCHKSBRAGNNTSSRBYSKWSMNNMDRRBCHNGGBMBBNATNNBSAMSHAACWCYNSMASTRBCHNBNHYMACNACSBDTDWABNSHASDBSSYBMHRRBCYASNARTAYAANBGSSBBBK&quot;</code></pre>
 <ul>
 <li>Sequence composition -default - calculate the DNA composition</li>
 </ul>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="bioconductor.html#cb398-1" tabindex="-1"></a>composition<span class="ot">=</span><span class="fu">alphabetFrequency</span>(seq)</span>
-<span id="cb398-2"><a href="bioconductor.html#cb398-2" tabindex="-1"></a><span class="fu">print</span>(composition)</span></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="bioconductor.html#cb417-1" tabindex="-1"></a>composition<span class="ot">=</span><span class="fu">alphabetFrequency</span>(seq)</span>
+<span id="cb417-2"><a href="bioconductor.html#cb417-2" tabindex="-1"></a><span class="fu">print</span>(composition)</span></code></pre></div>
 <pre><code>##       A  C  G   T  M  R  W   S  Y  K  V  H  D B  N - + .
 ## [1,] 79 40 82  97 14 42 12  99 54 61 97 17 62 0 88 0 0 0
 ## [2,] 84 39 78 100 20 39 11  96 54 60 91 15 74 0 81 0 0 0
@@ -351,8 +352,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Specific composition - lets say we wanna look for A, T, G, C and N</li>
 </ul>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="bioconductor.html#cb400-1" tabindex="-1"></a>composition1<span class="ot">=</span><span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;N&quot;</span>))</span>
-<span id="cb400-2"><a href="bioconductor.html#cb400-2" tabindex="-1"></a><span class="fu">print</span>(composition1)</span></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="bioconductor.html#cb419-1" tabindex="-1"></a>composition1<span class="ot">=</span><span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;N&quot;</span>))</span>
+<span id="cb419-2"><a href="bioconductor.html#cb419-2" tabindex="-1"></a><span class="fu">print</span>(composition1)</span></code></pre></div>
 <pre><code>##       A   T  G  C  N
 ## [1,] 79  97 82 40 88
 ## [2,] 84 100 78 39 81
@@ -361,8 +362,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [5,] 82  99 81 40 90
 ## [6,] 82  93 77 39 86</code></pre>
 <p>Computing the GC Content</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="bioconductor.html#cb402-1" tabindex="-1"></a>gc_content <span class="ot">&lt;-</span> <span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="st">&quot;GC&quot;</span>, <span class="at">as.prob=</span><span class="cn">TRUE</span>)</span>
-<span id="cb402-2"><a href="bioconductor.html#cb402-2" tabindex="-1"></a>gc_content</span></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="bioconductor.html#cb421-1" tabindex="-1"></a>gc_content <span class="ot">&lt;-</span> <span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="st">&quot;GC&quot;</span>, <span class="at">as.prob=</span><span class="cn">TRUE</span>)</span>
+<span id="cb421-2"><a href="bioconductor.html#cb421-2" tabindex="-1"></a>gc_content</span></code></pre></div>
 <pre><code>##            G|C
 ## [1,] 0.1445498
 ## [2,] 0.1389549
@@ -371,19 +372,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [5,] 0.1430260
 ## [6,] 0.1389222</code></pre>
 <p>Calculate the mean of Gc content</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="bioconductor.html#cb404-1" tabindex="-1"></a><span class="fu">mean</span>(gc_content)</span></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="bioconductor.html#cb423-1" tabindex="-1"></a><span class="fu">mean</span>(gc_content)</span></code></pre></div>
 <pre><code>## [1] 0.1433997</code></pre>
 <ul>
 <li>Standard deviation</li>
 </ul>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="bioconductor.html#cb406-1" tabindex="-1"></a><span class="fu">sd</span>(gc_content)</span></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="bioconductor.html#cb425-1" tabindex="-1"></a><span class="fu">sd</span>(gc_content)</span></code></pre></div>
 <pre><code>## [1] 0.004148188</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="bioconductor.html#cb408-1" tabindex="-1"></a><span class="fu">range</span>(gc_content)</span></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="bioconductor.html#cb427-1" tabindex="-1"></a><span class="fu">range</span>(gc_content)</span></code></pre></div>
 <pre><code>## [1] 0.1389222 0.1498801</code></pre>
 <ul>
 <li>Which GC has the maximum content</li>
 </ul>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="bioconductor.html#cb410-1" tabindex="-1"></a>seq[<span class="fu">which</span>(gc_content<span class="sc">==</span><span class="fu">max</span>(gc_content))]</span></code></pre></div>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="bioconductor.html#cb429-1" tabindex="-1"></a>seq[<span class="fu">which</span>(gc_content<span class="sc">==</span><span class="fu">max</span>(gc_content))]</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 1:
 ##     width seq                                               names               
 ## [1]   834 MVVVSSCVNTTRTGGYTNSSTRG...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...</code></pre>
@@ -392,17 +393,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.2</span> Searching and Analyzing the strings<a href="bioconductor.html#searching-and-analyzing-the-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;
 - Search for substrings- in this case we search for <code>"GAATTC"</code> substring.</p>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="bioconductor.html#cb412-1" tabindex="-1"></a>ECoR1<span class="ot">=</span><span class="fu">vcountPattern</span>(<span class="st">&quot;GAATTC&quot;</span>, seq)</span>
-<span id="cb412-2"><a href="bioconductor.html#cb412-2" tabindex="-1"></a><span class="fu">print</span>(ECoR1)</span></code></pre></div>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="bioconductor.html#cb431-1" tabindex="-1"></a>ECoR1<span class="ot">=</span><span class="fu">vcountPattern</span>(<span class="st">&quot;GAATTC&quot;</span>, seq)</span>
+<span id="cb431-2"><a href="bioconductor.html#cb431-2" tabindex="-1"></a><span class="fu">print</span>(ECoR1)</span></code></pre></div>
 <pre><code>## [1] 0 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="bioconductor.html#cb414-1" tabindex="-1"></a>HindIII <span class="ot">=</span> <span class="fu">vcountPattern</span>(<span class="st">&quot;AAGTT&quot;</span>, seq)</span>
-<span id="cb414-2"><a href="bioconductor.html#cb414-2" tabindex="-1"></a><span class="fu">print</span>(HindIII)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="bioconductor.html#cb433-1" tabindex="-1"></a>HindIII <span class="ot">=</span> <span class="fu">vcountPattern</span>(<span class="st">&quot;AAGTT&quot;</span>, seq)</span>
+<span id="cb433-2"><a href="bioconductor.html#cb433-2" tabindex="-1"></a><span class="fu">print</span>(HindIII)</span></code></pre></div>
 <pre><code>## [1] 1 0 1 1 1 0</code></pre>
 <ul>
 <li>Finding the position of substrings</li>
 </ul>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="bioconductor.html#cb416-1" tabindex="-1"></a>HindIII_pos<span class="ot">=</span><span class="fu">vmatchPattern</span>(<span class="st">&quot;AAGCT&quot;</span>, seq)</span>
-<span id="cb416-2"><a href="bioconductor.html#cb416-2" tabindex="-1"></a><span class="fu">print</span>(HindIII_pos)</span></code></pre></div>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="bioconductor.html#cb435-1" tabindex="-1"></a>HindIII_pos<span class="ot">=</span><span class="fu">vmatchPattern</span>(<span class="st">&quot;AAGCT&quot;</span>, seq)</span>
+<span id="cb435-2"><a href="bioconductor.html#cb435-2" tabindex="-1"></a><span class="fu">print</span>(HindIII_pos)</span></code></pre></div>
 <pre><code>## MIndex object of length 6
 ## $Spike_SARS_CoV2_2019
 ## IRanges object with 0 ranges and 0 metadata columns:
@@ -424,9 +425,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Translate</li>
 </ul>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="bioconductor.html#cb418-1" tabindex="-1"></a><span class="co"># translate(seq[[2]])</span></span>
-<span id="cb418-2"><a href="bioconductor.html#cb418-2" tabindex="-1"></a><span class="co">#Check functions available</span></span>
-<span id="cb418-3"><a href="bioconductor.html#cb418-3" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class =</span> <span class="st">&quot;DNAStringSet&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="bioconductor.html#cb437-1" tabindex="-1"></a><span class="co"># translate(seq[[2]])</span></span>
+<span id="cb437-2"><a href="bioconductor.html#cb437-2" tabindex="-1"></a><span class="co">#Check functions available</span></span>
+<span id="cb437-3"><a href="bioconductor.html#cb437-3" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class =</span> <span class="st">&quot;DNAStringSet&quot;</span>)</span></code></pre></div>
 <pre><code>##   [1] !                                     
 ##   [2] !=                                    
 ##   [3] [                                     
@@ -613,7 +614,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.3</span> Using seqinr<a href="bioconductor.html#using-seqinr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Another useful library in sequence analysis is <code>seqinr</code>.
 After installing the library by invoking <code>install.packages("seqinr")</code> to the console, load it to the workspace</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="bioconductor.html#cb420-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="bioconductor.html#cb439-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;seqinr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:Biostrings&#39;:
@@ -623,8 +624,8 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## 
 ##     count</code></pre>
 <p>Reading the fasta file containing the protein sequence using the <code>read.fasta</code> function.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="bioconductor.html#cb424-1" tabindex="-1"></a>proseq <span class="ot">=</span> <span class="fu">read.fasta</span>(<span class="at">file=</span><span class="st">&quot;data/spike_multifasta.txt&quot;</span>, <span class="at">seqtype=</span><span class="st">&quot;AA&quot;</span>)</span>
-<span id="cb424-2"><a href="bioconductor.html#cb424-2" tabindex="-1"></a><span class="fu">str</span>(proseq)</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="bioconductor.html#cb443-1" tabindex="-1"></a>proseq <span class="ot">=</span> <span class="fu">read.fasta</span>(<span class="at">file=</span><span class="st">&quot;data/spike_multifasta.txt&quot;</span>, <span class="at">seqtype=</span><span class="st">&quot;AA&quot;</span>)</span>
+<span id="cb443-2"><a href="bioconductor.html#cb443-2" tabindex="-1"></a><span class="fu">str</span>(proseq)</span></code></pre></div>
 <pre><code>## List of 6
 ##  $ Spike_SARS_CoV2_2019         : &#39;SeqFastaAA&#39; chr [1:1273] &quot;M&quot; &quot;F&quot; &quot;V&quot; &quot;F&quot; ...
 ##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_SARS_CoV2_2019&quot;
@@ -645,22 +646,22 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_WIV1_Bat_Coronovirus&quot;
 ##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
 <p>Count the number of sequences</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="bioconductor.html#cb426-1" tabindex="-1"></a>num_seq <span class="ot">=</span> <span class="fu">length</span>(proseq)</span>
-<span id="cb426-2"><a href="bioconductor.html#cb426-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of sequences = &quot;</span>, num_seq))</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="bioconductor.html#cb445-1" tabindex="-1"></a>num_seq <span class="ot">=</span> <span class="fu">length</span>(proseq)</span>
+<span id="cb445-2"><a href="bioconductor.html#cb445-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of sequences = &quot;</span>, num_seq))</span></code></pre></div>
 <pre><code>## [1] &quot;Number of sequences =  6&quot;</code></pre>
 <ul>
 <li>Names of the sequences</li>
 </ul>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="bioconductor.html#cb428-1" tabindex="-1"></a>names<span class="ot">=</span><span class="fu">getName</span>(proseq)</span>
-<span id="cb428-2"><a href="bioconductor.html#cb428-2" tabindex="-1"></a>names </span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="bioconductor.html#cb447-1" tabindex="-1"></a>names<span class="ot">=</span><span class="fu">getName</span>(proseq)</span>
+<span id="cb447-2"><a href="bioconductor.html#cb447-2" tabindex="-1"></a>names </span></code></pre></div>
 <pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;          &quot;Spike_SARS_CoV&quot;               
 ## [3] &quot;Spike_Bat_coronavirus_RaTG13&quot;  &quot;Spike_Pangolin_coronavirus_GX&quot;
 ## [5] &quot;Spike_Pangolin_coronavirus_GD&quot; &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
 <ul>
 <li>Annotation of sequences</li>
 </ul>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="bioconductor.html#cb430-1" tabindex="-1"></a>annotation <span class="ot">&lt;-</span> <span class="fu">getAnnot</span>(proseq)</span>
-<span id="cb430-2"><a href="bioconductor.html#cb430-2" tabindex="-1"></a>annotation</span></code></pre></div>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="bioconductor.html#cb449-1" tabindex="-1"></a>annotation <span class="ot">&lt;-</span> <span class="fu">getAnnot</span>(proseq)</span>
+<span id="cb449-2"><a href="bioconductor.html#cb449-2" tabindex="-1"></a>annotation</span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;&gt;Spike_SARS_CoV2_2019&quot;
 ## 
@@ -681,14 +682,14 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Length of individual sequences</li>
 </ul>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="bioconductor.html#cb432-1" tabindex="-1"></a>len_seq <span class="ot">=</span> <span class="fu">getLength</span>(proseq)</span>
-<span id="cb432-2"><a href="bioconductor.html#cb432-2" tabindex="-1"></a>len_seq</span></code></pre></div>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="bioconductor.html#cb451-1" tabindex="-1"></a>len_seq <span class="ot">=</span> <span class="fu">getLength</span>(proseq)</span>
+<span id="cb451-2"><a href="bioconductor.html#cb451-2" tabindex="-1"></a>len_seq</span></code></pre></div>
 <pre><code>## [1] 1273 1255 1269 1269 1265 1256</code></pre>
 <ul>
 <li>Protein statistics</li>
 </ul>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="bioconductor.html#cb434-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[<span class="dv">1</span>]]))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="bioconductor.html#cb453-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[<span class="dv">1</span>]]))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -728,13 +729,13 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## $Pi
 ## [1] 6.236478</code></pre>
 <p>It gives the type of proteins</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="bioconductor.html#cb436-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_seq)</span>
-<span id="cb436-2"><a href="bioconductor.html#cb436-2" tabindex="-1"></a>{</span>
-<span id="cb436-3"><a href="bioconductor.html#cb436-3" tabindex="-1"></a>  <span class="fu">print</span>(names[i])</span>
-<span id="cb436-4"><a href="bioconductor.html#cb436-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[i]]))</span>
-<span id="cb436-5"><a href="bioconductor.html#cb436-5" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="bioconductor.html#cb455-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_seq)</span>
+<span id="cb455-2"><a href="bioconductor.html#cb455-2" tabindex="-1"></a>{</span>
+<span id="cb455-3"><a href="bioconductor.html#cb455-3" tabindex="-1"></a>  <span class="fu">print</span>(names[i])</span>
+<span id="cb455-4"><a href="bioconductor.html#cb455-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[i]]))</span>
+<span id="cb455-5"><a href="bioconductor.html#cb455-5" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -775,7 +776,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [1] 6.236478
 ## 
 ## [1] &quot;Spike_SARS_CoV&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-2.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-2.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -816,7 +817,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [1] 5.510607
 ## 
 ## [1] &quot;Spike_Bat_coronavirus_RaTG13&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-3.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-3.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -857,7 +858,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [1] 6.11311
 ## 
 ## [1] &quot;Spike_Pangolin_coronavirus_GX&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-4.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-4.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -898,7 +899,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [1] 6.235931
 ## 
 ## [1] &quot;Spike_Pangolin_coronavirus_GD&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-5.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-5.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -939,7 +940,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [1] 5.900948
 ## 
 ## [1] &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-6.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-6.png" width="672" /></p>
 <pre><code>## $Compo
 ## 
 ##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
@@ -981,7 +982,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Show commands in seqinr</li>
 </ul>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="bioconductor.html#cb444-1" tabindex="-1"></a><span class="fu">lseqinr</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="bioconductor.html#cb463-1" tabindex="-1"></a><span class="fu">lseqinr</span>()</span></code></pre></div>
 <pre><code>##   [1] &quot;a&quot;                       &quot;aaa&quot;                    
 ##   [3] &quot;AAstat&quot;                  &quot;acnucclose&quot;             
 ##   [5] &quot;acnucopen&quot;               &quot;al2bp&quot;                  
@@ -1089,7 +1090,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <h2><span class="header-section-number">8.4</span> Using Short Read<a href="bioconductor.html#using-short-read" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This library can be installed by invoking the <code>BiocManager::install("ShortRead")</code> command to the console.</p>
 <p>load the library</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="bioconductor.html#cb446-1" tabindex="-1"></a><span class="fu">library</span>(ShortRead)</span></code></pre></div>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="bioconductor.html#cb465-1" tabindex="-1"></a><span class="fu">library</span>(ShortRead)</span></code></pre></div>
 <pre><code>## Loading required package: BiocParallel</code></pre>
 <pre><code>## Loading required package: Rsamtools</code></pre>
 <pre><code>## Loading required package: GenomicRanges</code></pre>
@@ -1157,20 +1158,20 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Reading the fastq sequences</li>
 </ul>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="bioconductor.html#cb470-1" tabindex="-1"></a>fq <span class="ot">=</span> <span class="fu">readFastq</span>(<span class="st">&quot;data/file2.fastq&quot;</span>)</span>
-<span id="cb470-2"><a href="bioconductor.html#cb470-2" tabindex="-1"></a>fq</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="bioconductor.html#cb489-1" tabindex="-1"></a>fq <span class="ot">=</span> <span class="fu">readFastq</span>(<span class="st">&quot;data/file2.fastq&quot;</span>)</span>
+<span id="cb489-2"><a href="bioconductor.html#cb489-2" tabindex="-1"></a>fq</span></code></pre></div>
 <pre><code>## class: ShortReadQ
 ## length: 5 reads; width: 149..166 cycles</code></pre>
 <ul>
 <li>Preview of first 3 sequences</li>
 </ul>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="bioconductor.html#cb472-1" tabindex="-1"></a>fq[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="bioconductor.html#cb491-1" tabindex="-1"></a>fq[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## class: ShortReadQ
 ## length: 3 reads; width: 149 161 cycles</code></pre>
 <ul>
 <li>Sequence information</li>
 </ul>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="bioconductor.html#cb474-1" tabindex="-1"></a><span class="fu">sread</span>(fq)</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="bioconductor.html#cb493-1" tabindex="-1"></a><span class="fu">sread</span>(fq)</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 5:
 ##     width seq
 ## [1]   149 CGCAAGCGAGTTAAGCAGTCTGTCCAAAGCATGT...TTATCCACATCTGTCATGACGATTTCGTTTGAT
@@ -1179,7 +1180,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [4]   166 GACCCCTTCTCATCAGGAAGGGTTAATCTTTAAA...TGGATTCGCCCTTTAGTAGCTGAAGAAGTAGAG
 ## [5]   166 CCCCTTCTCATCAGGAAGGGTTAATCTTTAAATG...GATTCGCCCTTTAGTAGCTGAAGAAGTAGAGGG</code></pre>
 <p>Subset the sequence from second to fifth</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="bioconductor.html#cb476-1" tabindex="-1"></a><span class="fu">sread</span>(fq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="bioconductor.html#cb495-1" tabindex="-1"></a><span class="fu">sread</span>(fq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 4:
 ##     width seq
 ## [1]   161 CGTTATCAGAGAGCTCTTGTCGCAAGCGAGTTAA...CTACCAAGTTATCCACATCTGTCATGACGATTT
@@ -1187,7 +1188,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [3]   166 GACCCCTTCTCATCAGGAAGGGTTAATCTTTAAA...TGGATTCGCCCTTTAGTAGCTGAAGAAGTAGAG
 ## [4]   166 CCCCTTCTCATCAGGAAGGGTTAATCTTTAAATG...GATTCGCCCTTTAGTAGCTGAAGAAGTAGAGGG</code></pre>
 <p>Inspect the quality of the sequence</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="bioconductor.html#cb478-1" tabindex="-1"></a><span class="fu">quality</span>(fq)</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="bioconductor.html#cb497-1" tabindex="-1"></a><span class="fu">quality</span>(fq)</span></code></pre></div>
 <pre><code>## class: FastqQuality
 ## quality:
 ## BStringSet object of length 5:
@@ -1200,21 +1201,21 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Number of sequence in the file</li>
 </ul>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="bioconductor.html#cb480-1" tabindex="-1"></a><span class="fu">length</span>(fq)</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="bioconductor.html#cb499-1" tabindex="-1"></a><span class="fu">length</span>(fq)</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <ul>
 <li>Length of reads</li>
 </ul>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="bioconductor.html#cb482-1" tabindex="-1"></a>readLength <span class="ot">=</span> <span class="fu">width</span>(fq)</span>
-<span id="cb482-2"><a href="bioconductor.html#cb482-2" tabindex="-1"></a>readLength</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="bioconductor.html#cb501-1" tabindex="-1"></a>readLength <span class="ot">=</span> <span class="fu">width</span>(fq)</span>
+<span id="cb501-2"><a href="bioconductor.html#cb501-2" tabindex="-1"></a>readLength</span></code></pre></div>
 <pre><code>## [1] 149 161 161 166 166</code></pre>
 <ul>
 <li>generating the summary of fasta sequences</li>
 </ul>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="bioconductor.html#cb484-1" tabindex="-1"></a>fq_reads <span class="ot">=</span> <span class="fu">sread</span>(fq)</span>
-<span id="cb484-2"><a href="bioconductor.html#cb484-2" tabindex="-1"></a></span>
-<span id="cb484-3"><a href="bioconductor.html#cb484-3" tabindex="-1"></a>id_of_reads<span class="ot">=</span><span class="fu">id</span>(fq)</span>
-<span id="cb484-4"><a href="bioconductor.html#cb484-4" tabindex="-1"></a>id_of_reads[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="bioconductor.html#cb503-1" tabindex="-1"></a>fq_reads <span class="ot">=</span> <span class="fu">sread</span>(fq)</span>
+<span id="cb503-2"><a href="bioconductor.html#cb503-2" tabindex="-1"></a></span>
+<span id="cb503-3"><a href="bioconductor.html#cb503-3" tabindex="-1"></a>id_of_reads<span class="ot">=</span><span class="fu">id</span>(fq)</span>
+<span id="cb503-4"><a href="bioconductor.html#cb503-4" tabindex="-1"></a>id_of_reads[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## BStringSet object of length 5:
 ##     width seq
 ## [1]    17 OLVOG:01110:02677
@@ -1222,7 +1223,7 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [3]    17 OLVOG:01240:02825
 ## [4]    17 OLVOG:02464:02160
 ## [5]    17 OLVOG:02703:02334</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="bioconductor.html#cb486-1" tabindex="-1"></a>fq_reads</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="bioconductor.html#cb505-1" tabindex="-1"></a>fq_reads</span></code></pre></div>
 <pre><code>## DNAStringSet object of length 5:
 ##     width seq
 ## [1]   149 CGCAAGCGAGTTAAGCAGTCTGTCCAAAGCATGT...TTATCCACATCTGTCATGACGATTTCGTTTGAT
@@ -1233,8 +1234,8 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Seq length - we can generate the sequence lenght by converting it to a dataframe</li>
 </ul>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="bioconductor.html#cb488-1" tabindex="-1"></a>seq_length <span class="ot">=</span> <span class="fu">as.data.frame</span>(fq_reads<span class="sc">@</span>ranges<span class="sc">@</span>width)</span>
-<span id="cb488-2"><a href="bioconductor.html#cb488-2" tabindex="-1"></a>seq_length</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="bioconductor.html#cb507-1" tabindex="-1"></a>seq_length <span class="ot">=</span> <span class="fu">as.data.frame</span>(fq_reads<span class="sc">@</span>ranges<span class="sc">@</span>width)</span>
+<span id="cb507-2"><a href="bioconductor.html#cb507-2" tabindex="-1"></a>seq_length</span></code></pre></div>
 <pre><code>##   fq_reads@ranges@width
 ## 1                   149
 ## 2                   161
@@ -1244,8 +1245,8 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Quality scores</li>
 </ul>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="bioconductor.html#cb490-1" tabindex="-1"></a>quality_scores<span class="ot">=</span><span class="fu">quality</span>(fq)</span>
-<span id="cb490-2"><a href="bioconductor.html#cb490-2" tabindex="-1"></a>quality_scores[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="bioconductor.html#cb509-1" tabindex="-1"></a>quality_scores<span class="ot">=</span><span class="fu">quality</span>(fq)</span>
+<span id="cb509-2"><a href="bioconductor.html#cb509-2" tabindex="-1"></a>quality_scores[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## class: FastqQuality
 ## quality:
 ## BStringSet object of length 5:
@@ -1256,8 +1257,8 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 ## [4]   166 CCCLL;E@DE&gt;&gt;=DDDAE@EEBE@@?CCEE?EE?...BB@DDAD8884;C&lt;CFGGE?@?C?CC=BDEEEA
 ## [5]   166 666/6:::=BBCCBACADD6@:D@DDEE&gt;DD&gt;DE...&gt;BDAC58;6:D&gt;DDDDGEEBB&lt;CD@DDDEEED&gt;</code></pre>
 <p>Convert the scores to matrix and see as real numbers</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="bioconductor.html#cb492-1" tabindex="-1"></a>scores<span class="ot">=</span><span class="fu">as</span>(quality_scores, <span class="st">&quot;matrix&quot;</span>)</span>
-<span id="cb492-2"><a href="bioconductor.html#cb492-2" tabindex="-1"></a>scores</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="bioconductor.html#cb511-1" tabindex="-1"></a>scores<span class="ot">=</span><span class="fu">as</span>(quality_scores, <span class="st">&quot;matrix&quot;</span>)</span>
+<span id="cb511-2"><a href="bioconductor.html#cb511-2" tabindex="-1"></a>scores</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
 ## [1,]   34   34   34   34   29   34   39   35   33    33    34    27    28    23
 ## [2,]   27   34   36   25   31   34   28   27   27    28    35    35    35    34
@@ -1351,18 +1352,18 @@ After installing the library by invoking <code>install.packages("seqinr")</code>
 <ul>
 <li>Mean score for each sequence</li>
 </ul>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="bioconductor.html#cb494-1" tabindex="-1"></a>mean_score_for_each_sequence <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb494-2"><a href="bioconductor.html#cb494-2" tabindex="-1"></a>mean_score_for_each_sequence</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="bioconductor.html#cb513-1" tabindex="-1"></a>mean_score_for_each_sequence <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb513-2"><a href="bioconductor.html#cb513-2" tabindex="-1"></a>mean_score_for_each_sequence</span></code></pre></div>
 <pre><code>## [1] 32.00000 29.18012 26.57764 32.99398 32.71084</code></pre>
 <ul>
 <li>Mean score for each position</li>
 </ul>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="bioconductor.html#cb496-1" tabindex="-1"></a>mean_score_for_each_position <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb496-2"><a href="bioconductor.html#cb496-2" tabindex="-1"></a>mean_score_for_each_position</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="bioconductor.html#cb515-1" tabindex="-1"></a>mean_score_for_each_position <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb515-2"><a href="bioconductor.html#cb515-2" tabindex="-1"></a>mean_score_for_each_position</span></code></pre></div>
 <pre><code>## [1] 32.00000 29.18012 26.57764 32.99398 32.71084</code></pre>
 <p>Plot a boxplot for the scores</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="bioconductor.html#cb498-1" tabindex="-1"></a><span class="fu">boxplot</span>(scores, <span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Phred score&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="bioconductor.html#cb517-1" tabindex="-1"></a><span class="fu">boxplot</span>(scores, <span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Phred score&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
 
 </div>
 </div>
