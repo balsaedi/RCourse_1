@@ -24,8 +24,14 @@ loops
 for-loops
 while-loop
 working-with-files
-reading-a-file-from-a-dataframe
+xlsx-xls-files
+reading-a-file-to-a-dataframe
 write-a-new-table-to-a-file-locally
+csv-files
+titanic-dataset
+reading-the-csv-file
+data-assessment
+data-analysis
 dpyr-library
 application-of-dplyr-on-microbiology
 ggplot

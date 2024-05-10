@@ -170,8 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="working-with-files.html"><a href="working-with-files.html"><i class="fa fa-check"></i><b>5</b> Working with files</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-from-a-dataframe"><i class="fa fa-check"></i><b>5.1</b> Reading a file from a dataframe</a></li>
-<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.2</b> Write a new table to a file locally</a></li>
+<li class="chapter" data-level="5.1" data-path="working-with-files.html"><a href="working-with-files.html#xlsx-xls-files"><i class="fa fa-check"></i><b>5.1</b> .XLSX, XLS files</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="working-with-files.html"><a href="working-with-files.html#reading-a-file-to-a-dataframe"><i class="fa fa-check"></i><b>5.1.1</b> Reading a file to a dataframe</a></li>
+<li class="chapter" data-level="5.1.2" data-path="working-with-files.html"><a href="working-with-files.html#write-a-new-table-to-a-file-locally"><i class="fa fa-check"></i><b>5.1.2</b> Write a new table to a file locally</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="working-with-files.html"><a href="working-with-files.html#csv-files"><i class="fa fa-check"></i><b>5.2</b> .CSV files</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="working-with-files.html"><a href="working-with-files.html#titanic-dataset"><i class="fa fa-check"></i><b>5.2.1</b> Titanic dataset</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="dpyr-library.html"><a href="dpyr-library.html"><i class="fa fa-check"></i><b>6</b> Dpyr library</a>
 <ul>
@@ -216,8 +223,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="working-with-files" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Working with files<a href="working-with-files.html#working-with-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="reading-a-file-from-a-dataframe" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Reading a file from a dataframe<a href="working-with-files.html#reading-a-file-from-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="xlsx-xls-files" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> .XLSX, XLS files<a href="working-with-files.html#xlsx-xls-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reading-a-file-to-a-dataframe" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Reading a file to a dataframe<a href="working-with-files.html#reading-a-file-to-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This chapter explains how to read a file to a data frame using the <code>readxl</code> library. The <code>readxl</code> package can be installed from the console by <code>install.packages("readxl")</code> command.</p>
 <p>Lets begin by importing the library</p>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="working-with-files.html#cb237-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
@@ -335,8 +344,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...
 ##  $ genes_per_Mb             : num [1:25] 8.27 5.4 5.44 3.95 4.83 6.14 6.21 4.66 5.68 5.48 ...</code></pre>
 </div>
-<div id="write-a-new-table-to-a-file-locally" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="write-a-new-table-to-a-file-locally" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.</p>
 <div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="working-with-files.html#cb261-1" tabindex="-1"></a><span class="fu">write.table</span>(hg, </span>
 <span id="cb261-2"><a href="working-with-files.html#cb261-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;data/hg_modified&quot;</span>, </span>
@@ -347,7 +356,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This file will be saved by default on the working directory unless the file path is changed.</p>
 <p>Checking if the new file is saved.</p>
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="working-with-files.html#cb262-1" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/hg_modified&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="csv-files" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> .CSV files<a href="working-with-files.html#csv-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>CSV stands for “Comma Separated Values”. This is a plain text file that contains data in a tabular format for example the data below that represents athletes’ statistics.</p>
+<pre><code>Name, Age, Weight
+Salman, 30, 75
+Pragya, 35, 72
+Vidyat, 25, 68</code></pre>
+<p>Each line in a CSV file represents a row while each field in a row is separated by a comma “,”. These files are often used in data manipulations since they are lightweight, simple and widely supported. In this course we shall briefly go through two csv files and do brief analyses.</p>
+<div id="titanic-dataset" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Titanic dataset<a href="working-with-files.html#titanic-dataset" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The titanic data is a famous data set in data analysis. It contains information about passengers that boarded the ship Titan(not actual true) including their age, ticket class, fare and others.</p>
+<div id="reading-the-csv-file" class="section level4 hasAnchor" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> Reading the csv file<a href="working-with-files.html#reading-the-csv-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>read.csv()</code> function is used to read a cav file to a data frame.</p>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="working-with-files.html#cb264-1" tabindex="-1"></a><span class="co"># Read data from a CSV file into a data frame</span></span>
+<span id="cb264-2"><a href="working-with-files.html#cb264-2" tabindex="-1"></a>titanic_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/titanic_dataset.csv&quot;</span>)</span></code></pre></div>
+</div>
+<div id="data-assessment" class="section level4 hasAnchor" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> Data Assessment<a href="working-with-files.html#data-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<ul>
+<li>Structure of the dataset</li>
+</ul>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="working-with-files.html#cb265-1" tabindex="-1"></a><span class="fu">str</span>(titanic_df)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    418 obs. of  12 variables:
+##  $ PassengerId: int  892 893 894 895 896 897 898 899 900 901 ...
+##  $ Survived   : int  0 1 0 0 1 0 1 0 1 0 ...
+##  $ Pclass     : int  3 3 2 3 3 3 3 2 3 3 ...
+##  $ Name       : chr  &quot;Kelly, Mr. James&quot; &quot;Wilkes, Mrs. James (Ellen Needs)&quot; &quot;Myles, Mr. Thomas Francis&quot; &quot;Wirz, Mr. Albert&quot; ...
+##  $ Sex        : chr  &quot;male&quot; &quot;female&quot; &quot;male&quot; &quot;male&quot; ...
+##  $ Age        : num  34.5 47 62 27 22 14 30 26 18 21 ...
+##  $ SibSp      : int  0 1 0 0 1 0 0 1 0 2 ...
+##  $ Parch      : int  0 0 0 0 1 0 0 1 0 0 ...
+##  $ Ticket     : chr  &quot;330911&quot; &quot;363272&quot; &quot;240276&quot; &quot;315154&quot; ...
+##  $ Fare       : num  7.83 7 9.69 8.66 12.29 ...
+##  $ Cabin      : chr  &quot;&quot; &quot;&quot; &quot;&quot; &quot;&quot; ...
+##  $ Embarked   : chr  &quot;Q&quot; &quot;S&quot; &quot;Q&quot; &quot;S&quot; ...</code></pre>
+<ul>
+<li>Show the first 6 records of the data set.</li>
+</ul>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="working-with-files.html#cb267-1" tabindex="-1"></a><span class="fu">head</span>(titanic_df)</span></code></pre></div>
+<pre><code>##   PassengerId Survived Pclass                                         Name
+## 1         892        0      3                             Kelly, Mr. James
+## 2         893        1      3             Wilkes, Mrs. James (Ellen Needs)
+## 3         894        0      2                    Myles, Mr. Thomas Francis
+## 4         895        0      3                             Wirz, Mr. Albert
+## 5         896        1      3 Hirvonen, Mrs. Alexander (Helga E Lindqvist)
+## 6         897        0      3                   Svensson, Mr. Johan Cervin
+##      Sex  Age SibSp Parch  Ticket    Fare Cabin Embarked
+## 1   male 34.5     0     0  330911  7.8292              Q
+## 2 female 47.0     1     0  363272  7.0000              S
+## 3   male 62.0     0     0  240276  9.6875              Q
+## 4   male 27.0     0     0  315154  8.6625              S
+## 5 female 22.0     1     1 3101298 12.2875              S
+## 6   male 14.0     0     0    7538  9.2250              S</code></pre>
+<ul>
+<li>Count the null values in the data</li>
+</ul>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="working-with-files.html#cb269-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(titanic_df))</span></code></pre></div>
+<pre><code>## [1] 87</code></pre>
+<p>The are 87 fields in the data that are null(empty)</p>
+<ul>
+<li>Calculate the descriptive statistics</li>
+</ul>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="working-with-files.html#cb271-1" tabindex="-1"></a><span class="fu">summary</span>(titanic_df)</span></code></pre></div>
+<pre><code>##   PassengerId        Survived          Pclass          Name          
+##  Min.   : 892.0   Min.   :0.0000   Min.   :1.000   Length:418        
+##  1st Qu.: 996.2   1st Qu.:0.0000   1st Qu.:1.000   Class :character  
+##  Median :1100.5   Median :0.0000   Median :3.000   Mode  :character  
+##  Mean   :1100.5   Mean   :0.3636   Mean   :2.266                     
+##  3rd Qu.:1204.8   3rd Qu.:1.0000   3rd Qu.:3.000                     
+##  Max.   :1309.0   Max.   :1.0000   Max.   :3.000                     
+##                                                                      
+##      Sex                 Age            SibSp            Parch       
+##  Length:418         Min.   : 0.17   Min.   :0.0000   Min.   :0.0000  
+##  Class :character   1st Qu.:21.00   1st Qu.:0.0000   1st Qu.:0.0000  
+##  Mode  :character   Median :27.00   Median :0.0000   Median :0.0000  
+##                     Mean   :30.27   Mean   :0.4474   Mean   :0.3923  
+##                     3rd Qu.:39.00   3rd Qu.:1.0000   3rd Qu.:0.0000  
+##                     Max.   :76.00   Max.   :8.0000   Max.   :9.0000  
+##                     NA&#39;s   :86                                       
+##     Ticket               Fare            Cabin             Embarked        
+##  Length:418         Min.   :  0.000   Length:418         Length:418        
+##  Class :character   1st Qu.:  7.896   Class :character   Class :character  
+##  Mode  :character   Median : 14.454   Mode  :character   Mode  :character  
+##                     Mean   : 35.627                                        
+##                     3rd Qu.: 31.500                                        
+##                     Max.   :512.329                                        
+##                     NA&#39;s   :1</code></pre>
+</div>
+<div id="data-analysis" class="section level4 hasAnchor" number="5.2.1.3">
+<h4><span class="header-section-number">5.2.1.3</span> Data Analysis<a href="working-with-files.html#data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The answers to the two questions will give a brief understanding of titanic passengers.</p>
+<ul>
+<li><strong>What is the survival rate by gender</strong></li>
+</ul>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="working-with-files.html#cb273-1" tabindex="-1"></a><span class="co"># Survival rate by gender</span></span>
+<span id="cb273-2"><a href="working-with-files.html#cb273-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Sex, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
+<pre><code>##         
+##            0   1
+##   female   0 152
+##   male   266   0</code></pre>
+<p>From the table above, all males drowned but all females survived.</p>
+<ul>
+<li><strong>What is the survival rate by ticket class</strong></li>
+</ul>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="working-with-files.html#cb275-1" tabindex="-1"></a><span class="co"># Survival rate by ticket class</span></span>
+<span id="cb275-2"><a href="working-with-files.html#cb275-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Pclass, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
+<pre><code>##    
+##       0   1
+##   1  57  50
+##   2  63  30
+##   3 146  72</code></pre>
+<p>Most passengers from ticket class 0 survived.</p>
 
+</div>
+</div>
 </div>
 </div>
             </section>

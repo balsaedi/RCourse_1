@@ -1,5 +1,6 @@
 # Working with files
-## Reading a file from a dataframe 
+## .XLSX, XLS files
+### Reading a file to a dataframe 
 
 This chapter explains how to read a file to a data frame using the `readxl` library. The `readxl` package can be installed from the console by `install.packages("readxl")` command.
 
@@ -82,7 +83,7 @@ hg["genes_per_Mb"]=genes_per_megabase
 str(hg)
 ```
 
-## Write a new table to a file locally
+### Write a new table to a file locally
 The `write.table()` function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified. 
 ```{r}
 write.table(hg, 
@@ -99,3 +100,73 @@ Checking if the new file is saved.
 ```{r}
 file.show("data/hg_modified")
 ```
+## .CSV files 
+CSV stands for "Comma Separated Values". This is a plain text file that contains data in a tabular format for example the data below that represents athletes' statistics. 
+```
+Name, Age, Weight
+Salman, 30, 75
+Pragya, 35, 72
+Vidyat, 25, 68
+```
+
+Each line in a CSV file represents a row while each field in a row is separated by a comma ",". These files are often used in data manipulations since they are lightweight, simple and widely supported. In this course we shall briefly go through two csv files and do brief analyses. 
+
+### Titanic dataset
+The titanic data is a famous data set in data analysis. It contains information about passengers that boarded the ship Titan(not actual true) including their age, ticket class, fare and others. 
+
+#### Reading the csv file
+
+The `read.csv()` function is used to read a cav file to a data frame.
+```{r}
+# Read data from a CSV file into a data frame
+titanic_df = read.csv("data/titanic_dataset.csv")
+```
+
+#### Data Assessment
+
+- Structure of the dataset
+```{r}
+str(titanic_df)
+```
+
+- Show the first 6 records of the data set.
+```{r}
+head(titanic_df)
+```
+
+- Count the null values in the data
+```{r}
+sum(is.na(titanic_df))
+```
+
+The are 87 fields in the data that are null(empty)
+
+- Calculate the descriptive statistics
+```{r}
+summary(titanic_df)
+```
+
+#### Data Analysis 
+The answers to the two questions will give a brief understanding of titanic passengers.
+
+- **What is the survival rate by gender**
+```{r}
+# Survival rate by gender
+table(titanic_df$Sex, titanic_df$Survived)
+```
+
+From the table above, all males drowned but all females survived. 
+
+- **What is the survival rate by ticket class**
+```{r}
+# Survival rate by ticket class
+table(titanic_df$Pclass, titanic_df$Survived)
+```
+
+Most passengers from ticket class 0 survived. 
+
+
+
+
+
+
