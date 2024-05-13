@@ -14,7 +14,7 @@ install.packages("dplyr")
 Ensure your computer is connected to the internet when installing!
 
 To invoke the libraries to the program run;
-```{r echo=TRUE, include=TRUE}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(readxl)
 ```
@@ -169,7 +169,7 @@ by_petal_length = arrange(iris, # data frame
 head(by_petal_length)
 ```
 
-### Mutate
+### mutate
 `mutate()` is a dplyr verb used to modifying the existing variables or creating new variables in a data set. 
 In this case we can calculate the log off Sepal length in the iris data 
 ```{r}
@@ -217,11 +217,60 @@ mean_petal_widths
 ```
 
 ## Chaining
-Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. 
+Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. To understand chaining, the mtcars(Motor Trend cars) data set will be used. Mtcars is also a well-known data set containing several attributes of 32 different cars from 1974. Here's a brief explanation of the variables in the mtcars data set:
 
+1. mpg: Miles per gallon (fuel efficiency).
+2. cyl: Number of cylinders.
+3. disp: Displacement (cubic inches).
+4. hp: Horsepower.
+5. drat: Rear axle ratio.
+6. wt: Weight (in 1000 lbs).
+7. qsec: Quarter mile time (in seconds).
+8. vs: Engine type (0 = V-shaped, 1 = Straight).
+9. am: Transmission type (0 = Automatic, 1 = Manual).
+10. gear: Number of forward gears.
+11. carb: Number of carburetors.
 
-<--- Add few examples -->
+Lets start by loading the data into the program and view its first few records;
+```{r}
+data(mtcars)
+head(mtcars)
+```
 
+Lets `select` 6 most important columns in this analysis
+```{r}
+cars1 = mtcars %>% select(mpg, cyl, disp, hp, qsec, am)
+
+head(cars1)
+```
+
+Lets now `filter` to find vehicles with an automatic transmission type. The `filter` verb will be chained to `select` verb with `%>%`. 
+```{r}
+cars2 = mtcars %>%select(mpg, cyl, disp, hp, qsec, am) %>%
+  filter(am==0)
+head(cars2)
+```
+
+All these vehicles are of automatic transmission type, lets rank them according to the horsepower in descending order. 
+```{r}
+cars3= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
+  filter(am==0) %>%
+  arrange(desc(hp))
+
+head(cars3)
+```
+
+A new column of weight in 1000kgs (wt_1000kgs) can be created by diving weight in 1000lbs by 2.20462. `mutate` verb will be chained also.
+```{r}
+cars4= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
+  filter(am==0) %>%
+  arrange(desc(hp)) %>%
+  mutate(wt_1000kgs=wt/2.20462)
+
+head(cars4)
+```
+
+The above process has explained how chained works in `dplyr`. Many functions/processed can be chained together to manipulate data to the desired output. The next section will apply chaining to biology and be used to answer a few questions that will cement your understanding in R as a biologist. 
 
 ## Application of Dplyr on Microbiology
 Genetics composition of an organism can be analyzed using `dplyr`, in this course unit it will be used to analyze the human genetics data. 
@@ -237,7 +286,7 @@ review the first six records of the data set
 head(hg)
 ```
  
- the last six records of the dataset
+ the last six records of the data set
 ```{r}
 tail(hg)
 ```

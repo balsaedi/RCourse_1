@@ -14,20 +14,15 @@ There are 5 key steps in plotting in ggplot
 
 5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
 
-## Biology behind the data we are using 
-<--Review the slide on minute 3 video 7-->
-
-
-GGplot installation
-```{r}
-#uncomment the below line to install ggplot package
-#install.packages("ggplot2")
+To install `ggplot`, run the following command in the terminal 
+```
+install.packages("ggplot2")
 ```
 
 
 ## Prepare the data for plotting - Data Assessment
 Invoke the libraries 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(data.table)
 ```

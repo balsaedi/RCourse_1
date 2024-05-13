@@ -48,7 +48,6 @@ chaining
 application-of-dplyr-on-microbiology
 ggplot
 five-key-steps-to-ggplot
-biology-behind-the-data-we-are-using
 prepare-the-data-for-plotting---data-assessment
 plotting
 base-set-up

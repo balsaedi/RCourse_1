@@ -6,8 +6,8 @@ Bioconductor is a repository for high-quality, peer-reviewed software packages f
 
 To get started with Bioconductor, you need to install the `BiocManager` package, which facilitates the installation and management of Bioconductor packages. You can find detailed installation instructions in the [official documentation](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html).
 
-Load the required libraries 
-```{r}
+Load the required libraries
+```{r echo=TRUE, results='hide', error=FALSE, warning=FALSE, message=FALSE}
 library(Biostrings)
 ```
 
