@@ -37,6 +37,14 @@ reading-the-csv-file-1
 data-assessment-1
 data-analysis-1
 dpyr-library
+dplyr-verbs
+select
+filter
+arrange
+mutate
+group_by
+summarise
+chaining
 application-of-dplyr-on-microbiology
 ggplot
 five-key-steps-to-ggplot

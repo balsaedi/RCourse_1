@@ -37,9 +37,8 @@ Some libraries come with their own inbuilt data sets which can be explored by th
 data(package=.packages(all.available = TRUE))
 ```
 
-Good examples are the famous iris and mtcars data set that will be used in this course. The data will be invoked to R before assessment and wrangling;
-## Iris data 
-This a famous data set always used by beginners in data science. The data set contains measurements of various characteristics of iris flowers. These characteristics include sepal length, sepal width, petal length, and petal width. There are three species of iris flowers in the data set: setosa, versicolor, and virginica.
+Good example is the famous iris that will be used in this course. It is always used by beginners in data science. The data set contains measurements of various characteristics of iris flowers. These characteristics include sepal length, sepal width, petal length, and petal width. There are three species of iris flowers in the data set: setosa, versicolor, and virginica. 
+The data will be invoked to R before assessment and wrangling;
 
 Lets load the iris data and explore the first few records. 
 ```{r}
@@ -70,11 +69,152 @@ write.table(iris, "data/iris_dataset.txt", append = FALSE, quote=FALSE, row.name
 file.show("data/iris_dataset.txt")
 ```
 
-### Working with Dplyr verbs on iris data 
+## Dplyr Verbs
+### select
 
-## mtcars data 
+This dplyr verb is used when selecting or dropping specific columns. In this lesson we will find the iris column names and select two of them using `select`. 
+```{r}
+# Find the column names 
+colnames(iris)
+```
 
-### Working with dplyr verbs on mtcars data
+Remember the data frame to work on need to be specified in the arguments such that 
+
+```
+selected_data = select(data_frame, col1, col2, col3)
+```
+
+Therefore, we will select the columns; Species, Petal length and petal width. 
+
+```{r}
+selected_iris_data = select(iris,
+                       Petal.Length, Petal.Width, Species)
+
+# view the first few rows of the selected data
+head(selected_iris_data)
+```
+The three selected columns are displayed in the data frame above. 
+
+Specific columns can be dropped by putting `-` before the column name as
+```
+# Drop specified columns 
+remaining_data = select(data_frame, -col1_to_drop, -col2_to_drop)
+```
+In this lesson, we will drop petal length, petal width and Species columns;
+```{r}
+remaining_iris_data = select(iris,
+                       -Petal.Length, -Petal.Width, -Species)
+
+# view the first few rows of the selected data
+head(remaining_iris_data)
+```
+
+### filter
+Is a verb/function from `dplyr` used to filter records in a data frame based on a specific condition. It allows the analyst to retrieve the records he/she is interested in and work easier with the subset. 
+With `filter()`, the data frame and the condion are passed as a arguments;
+```
+# Filtering rows where a certain column meets a condition
+filtered_data = filter(data_frame, 
+column_name > 5 # This is the condition)
+```
+
+Lets select the species 'setosa' from the iris data set 
+```{r}
+setosa_iris = filter(iris, # the data frame
+                     Species == "setosa" # the condition
+                     )
+# First few records of setosa data
+head(setosa_iris)
+```
+
+Records with sepal width of more than 3.0 can be filtered. Here is how we achieve such a subset
+```{r}
+wide_sepal_iris = filter(iris, #the data frame
+                         Sepal.Width>3.0 # the condition
+                         )
+
+head(wide_sepal_iris)
+```
+
+### arrange 
+This is `dplyr` verb/function used for sorting rows by rearranging in a specific order. here is how to use `arrange()` function;
+```
+arranged_data = arrange(data_frame, column_name)
+```
+This allows the analyst to arrange the data in a default ascending order. To arrange in a descending order a `desc()` function is added as;
+```
+# Note the additional desc function
+arranged_data = arrange(data_frame, desc(column_name))
+```
+
+Now lets order the iris data in an ascending order based on Petal length and view the first 6 records with the shortest petal. 
+```{r}
+# Sort the data 
+by_petal_length = arrange(iris, # data frame 
+                          Petal.Length # order by column
+                          )
+
+# View the data 
+head(by_petal_length)
+```
+
+Lets repeat the same process but now we order the data in a descending order.
+```{r}
+# Sort the data 
+by_petal_length = arrange(iris, # data frame 
+                          desc(Petal.Length) # order by column
+                          )
+
+# View the data 
+head(by_petal_length)
+```
+
+### Mutate
+`mutate()` is a dplyr verb used to modifying the existing variables or creating new variables in a data set. 
+In this case we can calculate the log off Sepal length in the iris data 
+```{r}
+# modify Sepal.Length
+new_iris = mutate(iris, Sepal.Length=log(Sepal.Length))
+
+head(new_iris)
+```
+
+Additionally, we can create an entirely new variable by `mutate()`. In this case we will find the ratio between petal length and petal width. The new variable will be called "Petal.Length.Width.Ratio"
+```{r}
+new_iris = mutate(iris,
+                  Petal.Length.Width.Ratio = Petal.Length/Petal.Width)
+
+head(new_iris)
+```
+
+The "Petal.Length.Width.Ratio" is found by dividing the Petal.Length and the Petal.Width variables. 
+
+### group_by 
+The `group_by()` is a function used to group records in a data frame by one or more variables. It allows the analyst to create a group based on a certain criteria. 
+
+Lets group the iris data based on the Species variable;
+```{r}
+iris_groups = group_by(iris, Species)
+head(iris_groups)
+```
+
+This groupings allow the analyst to retrieve insights at more base level and uncover more insights that could not have been possible when analyzing the entire data set
+
+### Summarise
+To calculate summary statistics such as average, median and maximum the `summarise()` is used. This function collapses mutilple rows into a summary row. For instance calculating the mean Petal width;
+```{r}
+summarise(iris, 
+          mean_petal_width=mean(Petal.Width))
+```
+
+To find the mean petal width for each iris species;
+- the iris data will be grouped by species
+- a mean value for each group will be calculated
+```{r}
+grouped_iris = group_by(iris, Species)
+mean_petal_widths = summarise(grouped_iris, mean_value=mean(Petal.Width))
+mean_petal_widths
+```
 
 ## Chaining
 Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. 
@@ -86,13 +226,13 @@ Chaining is the process of combining several operations together using the `%>%`
 ## Application of Dplyr on Microbiology
 Genetics composition of an organism can be analyzed using `dplyr`, in this course unit it will be used to analyze the human genetics data. 
 
-- Read the dataset from a file into a dataframe
+- Read the data set from a file into a data frame
 ```{r}
 hg = read_excel("data/Human_genome.xlsx")
 class(hg)
 ```
 
-review the first six records of the dataset 
+review the first six records of the data set 
 ```{r}
 head(hg)
 ```
