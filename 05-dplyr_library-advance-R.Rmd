@@ -1,5 +1,5 @@
 # Dpyr library
-`readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some opf the examples of dplyr verbs;
+`readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some of the examples of dplyr verbs;
 - select
 - filter
 - arrange 
@@ -7,42 +7,41 @@
 - group by 
 - summarise
 
-<--EXPLAIN THE PROCESS OF dplyr INSTALLATION USING RSTUDIO -->
-
-```{r}
-#uncomment the below line to install dplyr
-#install.packages("dplyr")
+To install `dplyr`, run the below command on the console.
 ```
+install.packages("dplyr")
+```
+Ensure your computer is connected to the internet when installing!
 
-Load the required libraries 
-```{r}
+To invoke the libraries to the program run;
+```{r echo=TRUE, include=TRUE}
 library(dplyr)
 library(readxl)
 ```
 
-Before working on the data, the `readxl` package will be used to read the excel table. Then manipulate the data withn`dplyr`.
+Before working on the data, it need to imported first. The `readxl` library will be used. The data will then be manipulated by `dplyr`.
 
-```{r}
-hg = read_excel("data/Human_genome.xlsx")
-tail(hg) #display the last 6 records of the data
-```
 
-Apart from data retrieved from excel tables, there are some inbuilt freeely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
+Apart from data retrieved from excel tables, there are some inbuilt freely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
 ```{r}
 data()
 ```
 
-or 
+This will show all data sets including both the inbuilt and the previously imported ones. Alternatively the code below will show only the inbuilt R data sets.
 ```{r}
 ls("package:datasets")
 ```
 
-The above datasets are available in base R however some of the packages come with the newly installed packages. The data from all the packages can be viewd by
+Some libraries come with their own inbuilt data sets which can be explored by the command;
 ```{r}
 data(package=.packages(all.available = TRUE))
 ```
 
-A good example is the famous iris dataset that will be used in this course. The data will be invoked to R before assessment and wrangling. 
+Good examples are the famous iris and mtcars data set that will be used in this course. The data will be invoked to R before assessment and wrangling;
+## Iris data 
+This a famous data set always used by beginners in data science. The data set contains measurements of various characteristics of iris flowers. These characteristics include sepal length, sepal width, petal length, and petal width. There are three species of iris flowers in the data set: setosa, versicolor, and virginica.
+
+Lets load the iris data and explore the first few records. 
 ```{r}
 data("iris")
 head(iris)
@@ -53,7 +52,7 @@ Calculating the summary statistics
 summary(iris)
 ```
 
-Lets write this dataset locally to a file. 
+Lets write this data set locally to a file. 
 ```{r}
 write.table(iris, "data/iris_dataset.txt", append = FALSE)
 file.show("data/iris_dataset.txt")
@@ -65,17 +64,24 @@ write.table(iris, "data/iris_dataset.txt", append = FALSE, quote = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
-or to remove quotes and row names <-- remember to add screenshots--> 
+or to remove quotes and row names
 ```{r}
 write.table(iris, "data/iris_dataset.txt", append = FALSE, quote=FALSE, row.names = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
+### Working with Dplyr verbs on iris data 
 
+## mtcars data 
 
-**Chaining**
+### Working with dplyr verbs on mtcars data
 
+## Chaining
 Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. 
+
+
+<--- Add few examples -->
+
 
 ## Application of Dplyr on Microbiology
 Genetics composition of an organism can be analyzed using `dplyr`, in this course unit it will be used to analyze the human genetics data. 
