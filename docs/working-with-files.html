@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-13" />
+<meta name="date" content="2024-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="r---introduction.html"><a href="r---introduction.html#r---look-and-feel"><i class="fa fa-check"></i><b>2.3.1</b> R - Look and Feel</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a></li>
+<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="r---introduction.html"><a href="r---introduction.html#basics"><i class="fa fa-check"></i><b>2.4.1</b> Basics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="r---introduction.html"><a href="r---introduction.html#bodmas-rule"><i class="fa fa-check"></i><b>2.4.2</b> BODMAS rule</a></li>
+</ul></li>
 <li class="chapter" data-level="2.5" data-path="r---introduction.html"><a href="r---introduction.html#r-markdown"><i class="fa fa-check"></i><b>2.5</b> R Markdown</a></li>
 <li class="chapter" data-level="2.6" data-path="r---introduction.html"><a href="r---introduction.html#installation-of-packages"><i class="fa fa-check"></i><b>2.6</b> Installation of packages</a></li>
 </ul></li>
@@ -239,12 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.1</span> Reading a file to a dataframe<a href="working-with-files.html#reading-a-file-to-a-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This chapter explains how to read a file to a data frame using the <code>readxl</code> library. The <code>readxl</code> package can be installed from the console by <code>install.packages("readxl")</code> command.</p>
 <p>Lets begin by importing the library</p>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="working-with-files.html#cb237-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
-<span id="cb237-2"><a href="working-with-files.html#cb237-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="working-with-files.html#cb255-1" tabindex="-1"></a><span class="co"># Import the library</span></span>
+<span id="cb255-2"><a href="working-with-files.html#cb255-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
 <p>The <code>readxl</code> library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="working-with-files.html#cb238-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="working-with-files.html#cb256-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span></code></pre></div>
 <p>View the dataset</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="working-with-files.html#cb239-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="working-with-files.html#cb257-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
 <pre><code>## tibble [25 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
@@ -256,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...</code></pre>
 <p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.</p>
 <p>Here’s how you can use them for this case;</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="working-with-files.html#cb241-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="working-with-files.html#cb259-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -269,7 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>The <code>head()</code> function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the <code>n</code> argument.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="working-with-files.html#cb243-1" tabindex="-1"></a><span class="fu">head</span>(hg, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="working-with-files.html#cb261-1" tabindex="-1"></a><span class="fu">head</span>(hg, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 8
 ##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
 ##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
@@ -286,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>The tail argument can be used as;</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="working-with-files.html#cb245-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="working-with-files.html#cb263-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -300,10 +304,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>to show the last 6 records while specifying <code>n</code> value will show the specified number of rows.</p>
 <p>R identifies this type of data as table or data frame.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="working-with-files.html#cb247-1" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="working-with-files.html#cb265-1" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p><code>str()</code> is used to find the nature of data such as column data types, number of rows and columns, column names , and first records in the dataframe</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="working-with-files.html#cb249-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="working-with-files.html#cb267-1" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
 <pre><code>## tibble [25 × 8] (S3: tbl_df/tbl/data.frame)
 ##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
@@ -314,35 +318,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  $ miRNA                    : num [1:25] 134 115 99 92 83 81 90 80 69 64 ...
 ##  $ rRNA                     : num [1:25] 66 40 29 24 25 26 24 28 19 32 ...</code></pre>
 <p><code>is.na()</code> is used to check if there is null/blank values in the dataset. If there is it returns TRUE in place of the null point while it return FALSE in place of the value.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="working-with-files.html#cb251-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(hg))</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="working-with-files.html#cb269-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(hg))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>The “hg” data frame has no null values.</p>
 <p>Lets dive into biology to solve some of the questions about genetics</p>
 <p><strong>Q1. Calculate the gene densityfor each chromosome</strong></p>
 <p>The gene density is calculated in terms of genes per megabase</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="working-with-files.html#cb253-1" tabindex="-1"></a>base_Mb <span class="ot">=</span> hg<span class="sc">$</span>Base_Pairs<span class="sc">/</span><span class="dv">1000000</span></span>
-<span id="cb253-2"><a href="working-with-files.html#cb253-2" tabindex="-1"></a>base_Mb</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="working-with-files.html#cb271-1" tabindex="-1"></a>base_Mb <span class="ot">=</span> hg<span class="sc">$</span>Base_Pairs<span class="sc">/</span><span class="dv">1000000</span></span>
+<span id="cb271-2"><a href="working-with-files.html#cb271-2" tabindex="-1"></a>base_Mb</span></code></pre></div>
 <pre><code>##  [1] 248.956422 242.193529 198.295559 190.214555 181.538259 170.805979
 ##  [7] 159.345973 145.138636 138.394717 133.797422 135.086622 133.275309
 ## [13] 114.364328 107.043718 101.991189  90.338345  83.257441  80.373285
 ## [19]  58.617616  64.444167  46.709983  50.818468 156.040895  57.227415
 ## [25]   0.016569</code></pre>
 <p>To make the values more clear, the results can be rounded off to two decimal place.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="working-with-files.html#cb255-1" tabindex="-1"></a>rbase_Mb<span class="ot">=</span><span class="fu">round</span>(base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb255-2"><a href="working-with-files.html#cb255-2" tabindex="-1"></a>rbase_Mb</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="working-with-files.html#cb273-1" tabindex="-1"></a>rbase_Mb<span class="ot">=</span><span class="fu">round</span>(base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb273-2"><a href="working-with-files.html#cb273-2" tabindex="-1"></a>rbase_Mb</span></code></pre></div>
 <pre><code>##  [1] 248.96 242.19 198.30 190.21 181.54 170.81 159.35 145.14 138.39 133.80
 ## [11] 135.09 133.28 114.36 107.04 101.99  90.34  83.26  80.37  58.62  64.44
 ## [21]  46.71  50.82 156.04  57.23   0.02</code></pre>
 <p><strong>Q2. Calculate number of genes per megabase per chromosomes</strong></p>
 <p>The protein coding genes are divided to the gene density.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="working-with-files.html#cb257-1" tabindex="-1"></a>genes_per_megabase <span class="ot">=</span> <span class="fu">round</span>(hg<span class="sc">$</span>Protein_Coding_genes<span class="sc">/</span>base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
-<span id="cb257-2"><a href="working-with-files.html#cb257-2" tabindex="-1"></a>genes_per_megabase</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="working-with-files.html#cb275-1" tabindex="-1"></a>genes_per_megabase <span class="ot">=</span> <span class="fu">round</span>(hg<span class="sc">$</span>Protein_Coding_genes<span class="sc">/</span>base_Mb, <span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb275-2"><a href="working-with-files.html#cb275-2" tabindex="-1"></a>genes_per_megabase</span></code></pre></div>
 <pre><code>##  [1]   8.27   5.40   5.44   3.95   4.83   6.14   6.21   4.66   5.68   5.48
 ## [11]   9.61   7.76   2.86   7.75   6.01   9.66  14.38   3.36  25.11   8.44
 ## [21]   5.01   9.60   5.40   1.24 784.60</code></pre>
 <p>Lets create a new column to the dataframe to the dataset</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="working-with-files.html#cb259-1" tabindex="-1"></a>hg[<span class="st">&quot;genes_per_Mb&quot;</span>]<span class="ot">=</span>genes_per_megabase</span>
-<span id="cb259-2"><a href="working-with-files.html#cb259-2" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="working-with-files.html#cb277-1" tabindex="-1"></a>hg[<span class="st">&quot;genes_per_Mb&quot;</span>]<span class="ot">=</span>genes_per_megabase</span>
+<span id="cb277-2"><a href="working-with-files.html#cb277-2" tabindex="-1"></a><span class="fu">str</span>(hg)</span></code></pre></div>
 <pre><code>## tibble [25 × 9] (S3: tbl_df/tbl/data.frame)
 ##  $ Chromosome               : chr [1:25] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
 ##  $ Base_Pairs               : num [1:25] 2.49e+08 2.42e+08 1.98e+08 1.90e+08 1.82e+08 ...
@@ -357,12 +361,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="write-a-new-table-to-a-file-locally" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="working-with-files.html#cb261-1" tabindex="-1"></a><span class="fu">write.table</span>(hg, </span>
-<span id="cb261-2"><a href="working-with-files.html#cb261-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;data/hg_modified&quot;</span>, </span>
-<span id="cb261-3"><a href="working-with-files.html#cb261-3" tabindex="-1"></a>            <span class="at">quote=</span><span class="cn">FALSE</span>, </span>
-<span id="cb261-4"><a href="working-with-files.html#cb261-4" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, </span>
-<span id="cb261-5"><a href="working-with-files.html#cb261-5" tabindex="-1"></a>            <span class="at">row.names=</span><span class="cn">FALSE</span>, </span>
-<span id="cb261-6"><a href="working-with-files.html#cb261-6" tabindex="-1"></a>            <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="working-with-files.html#cb279-1" tabindex="-1"></a><span class="fu">write.table</span>(hg, </span>
+<span id="cb279-2"><a href="working-with-files.html#cb279-2" tabindex="-1"></a>            <span class="at">file=</span><span class="st">&quot;data/hg_modified&quot;</span>, </span>
+<span id="cb279-3"><a href="working-with-files.html#cb279-3" tabindex="-1"></a>            <span class="at">quote=</span><span class="cn">FALSE</span>, </span>
+<span id="cb279-4"><a href="working-with-files.html#cb279-4" tabindex="-1"></a>            <span class="at">sep=</span><span class="st">&#39;</span><span class="sc">\t</span><span class="st">&#39;</span>, </span>
+<span id="cb279-5"><a href="working-with-files.html#cb279-5" tabindex="-1"></a>            <span class="at">row.names=</span><span class="cn">FALSE</span>, </span>
+<span id="cb279-6"><a href="working-with-files.html#cb279-6" tabindex="-1"></a>            <span class="at">col.names=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <p>This file will be saved by default on the working directory unless the file path is changed.</p>
 <p>Checking if the new file is saved.</p>
 <pre><code>file.show(&quot;data/hg_modified&quot;)</code></pre>
@@ -382,15 +386,15 @@ Vidyat, 25, 68</code></pre>
 <div id="reading-the-csv-file" class="section level4 hasAnchor" number="5.2.1.1">
 <h4><span class="header-section-number">5.2.1.1</span> Reading the csv file<a href="working-with-files.html#reading-the-csv-file" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>read.csv()</code> function is used to read a csv file to a data frame.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="working-with-files.html#cb264-1" tabindex="-1"></a><span class="co"># Read data from a CSV file into a data frame</span></span>
-<span id="cb264-2"><a href="working-with-files.html#cb264-2" tabindex="-1"></a>titanic_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/titanic_dataset.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="working-with-files.html#cb282-1" tabindex="-1"></a><span class="co"># Read data from a CSV file into a data frame</span></span>
+<span id="cb282-2"><a href="working-with-files.html#cb282-2" tabindex="-1"></a>titanic_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/titanic_dataset.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-assessment" class="section level4 hasAnchor" number="5.2.1.2">
 <h4><span class="header-section-number">5.2.1.2</span> Data Assessment<a href="working-with-files.html#data-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Structure of the dataset</li>
 </ul>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="working-with-files.html#cb265-1" tabindex="-1"></a><span class="fu">str</span>(titanic_df)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="working-with-files.html#cb283-1" tabindex="-1"></a><span class="fu">str</span>(titanic_df)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    418 obs. of  12 variables:
 ##  $ PassengerId: int  892 893 894 895 896 897 898 899 900 901 ...
 ##  $ Survived   : int  0 1 0 0 1 0 1 0 1 0 ...
@@ -407,7 +411,7 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li>Show the first 6 records of the data set.</li>
 </ul>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="working-with-files.html#cb267-1" tabindex="-1"></a><span class="fu">head</span>(titanic_df)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="working-with-files.html#cb285-1" tabindex="-1"></a><span class="fu">head</span>(titanic_df)</span></code></pre></div>
 <pre><code>##   PassengerId Survived Pclass                                         Name
 ## 1         892        0      3                             Kelly, Mr. James
 ## 2         893        1      3             Wilkes, Mrs. James (Ellen Needs)
@@ -425,13 +429,13 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li>Count the null values in the data</li>
 </ul>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="working-with-files.html#cb269-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(titanic_df))</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="working-with-files.html#cb287-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(titanic_df))</span></code></pre></div>
 <pre><code>## [1] 87</code></pre>
 <p>The are 87 fields in the data that are null(empty)</p>
 <ul>
 <li>Calculate the descriptive statistics</li>
 </ul>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="working-with-files.html#cb271-1" tabindex="-1"></a><span class="fu">summary</span>(titanic_df)</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="working-with-files.html#cb289-1" tabindex="-1"></a><span class="fu">summary</span>(titanic_df)</span></code></pre></div>
 <pre><code>##   PassengerId        Survived          Pclass          Name          
 ##  Min.   : 892.0   Min.   :0.0000   Min.   :1.000   Length:418        
 ##  1st Qu.: 996.2   1st Qu.:0.0000   1st Qu.:1.000   Class :character  
@@ -463,8 +467,8 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li><strong>What is the survival rate by gender?</strong></li>
 </ul>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="working-with-files.html#cb273-1" tabindex="-1"></a><span class="co"># Survival rate by gender</span></span>
-<span id="cb273-2"><a href="working-with-files.html#cb273-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Sex, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="working-with-files.html#cb291-1" tabindex="-1"></a><span class="co"># Survival rate by gender</span></span>
+<span id="cb291-2"><a href="working-with-files.html#cb291-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Sex, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
 <pre><code>##         
 ##            0   1
 ##   female   0 152
@@ -473,8 +477,8 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li><strong>What is the survival rate by ticket class?</strong></li>
 </ul>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="working-with-files.html#cb275-1" tabindex="-1"></a><span class="co"># Survival rate by ticket class</span></span>
-<span id="cb275-2"><a href="working-with-files.html#cb275-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Pclass, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="working-with-files.html#cb293-1" tabindex="-1"></a><span class="co"># Survival rate by ticket class</span></span>
+<span id="cb293-2"><a href="working-with-files.html#cb293-2" tabindex="-1"></a><span class="fu">table</span>(titanic_df<span class="sc">$</span>Pclass, titanic_df<span class="sc">$</span>Survived)</span></code></pre></div>
 <pre><code>##    
 ##       0   1
 ##   1  57  50
@@ -488,14 +492,14 @@ Vidyat, 25, 68</code></pre>
 <p>This is a common data set used for HR analytics. It contains information about all IBM employees, who are still in the company and the ones who left. Analyzing this attrition data set will provide meaningful insights on employees’ behavior and their engagement. HR can also find employee retention techniques with organizations. In this course section, we will briefly go through basic analysis after assessing the data.</p>
 <div id="reading-the-csv-file-1" class="section level4 hasAnchor" number="5.2.2.1">
 <h4><span class="header-section-number">5.2.2.1</span> Reading the csv file<a href="working-with-files.html#reading-the-csv-file-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="working-with-files.html#cb277-1" tabindex="-1"></a>attrition_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/HR-Employee-Attrition.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="working-with-files.html#cb295-1" tabindex="-1"></a>attrition_df <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/HR-Employee-Attrition.csv&quot;</span>)</span></code></pre></div>
 </div>
 <div id="data-assessment-1" class="section level4 hasAnchor" number="5.2.2.2">
 <h4><span class="header-section-number">5.2.2.2</span> Data Assessment<a href="working-with-files.html#data-assessment-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
 <li>Structure of the data</li>
 </ul>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="working-with-files.html#cb278-1" tabindex="-1"></a><span class="fu">str</span>(attrition_df)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="working-with-files.html#cb296-1" tabindex="-1"></a><span class="fu">str</span>(attrition_df)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    1470 obs. of  35 variables:
 ##  $ Age                     : int  41 49 37 33 27 32 59 30 38 36 ...
 ##  $ Attrition               : chr  &quot;Yes&quot; &quot;No&quot; &quot;Yes&quot; &quot;No&quot; ...
@@ -536,10 +540,10 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li>Shape of the data set</li>
 </ul>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="working-with-files.html#cb280-1" tabindex="-1"></a><span class="fu">dim</span>(attrition_df)</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="working-with-files.html#cb298-1" tabindex="-1"></a><span class="fu">dim</span>(attrition_df)</span></code></pre></div>
 <pre><code>## [1] 1470   35</code></pre>
 <p>There are 1470 rows and 35 variables in the data set. Lets now show the first few rows of the data to get the idea of how the data looks like.</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="working-with-files.html#cb282-1" tabindex="-1"></a><span class="fu">head</span>(attrition_df)</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="working-with-files.html#cb300-1" tabindex="-1"></a><span class="fu">head</span>(attrition_df)</span></code></pre></div>
 <pre><code>##   Age Attrition    BusinessTravel DailyRate             Department
 ## 1  41       Yes     Travel_Rarely      1102                  Sales
 ## 2  49        No Travel_Frequently       279 Research &amp; Development
@@ -600,13 +604,13 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li>Are there any null values?</li>
 </ul>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="working-with-files.html#cb284-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(attrition_df))</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="working-with-files.html#cb302-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(attrition_df))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>The data is complete with no null values.</p>
 <ul>
 <li>Are there any duplicated rows?</li>
 </ul>
-<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="working-with-files.html#cb286-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(attrition_df))</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="working-with-files.html#cb304-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">duplicated</span>(attrition_df))</span></code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>Also, all the rows are unique and there is no duplicated row in the data.</p>
 </div>
@@ -616,14 +620,14 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li><strong>What are the unique departments in the company?</strong></li>
 </ul>
-<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="working-with-files.html#cb288-1" tabindex="-1"></a><span class="fu">unique</span>(attrition_df<span class="sc">$</span>Department)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="working-with-files.html#cb306-1" tabindex="-1"></a><span class="fu">unique</span>(attrition_df<span class="sc">$</span>Department)</span></code></pre></div>
 <pre><code>## [1] &quot;Sales&quot;                  &quot;Research &amp; Development&quot; &quot;Human Resources&quot;</code></pre>
 <p>There are three distinct departments in the company data; Human Resources, Sales, and Research &amp; Development.</p>
 <ul>
 <li><strong>Is there a difference in attrition rates between genders?</strong></li>
 </ul>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="working-with-files.html#cb290-1" tabindex="-1"></a><span class="co"># Table of attrition by gender</span></span>
-<span id="cb290-2"><a href="working-with-files.html#cb290-2" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>Gender, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="working-with-files.html#cb308-1" tabindex="-1"></a><span class="co"># Table of attrition by gender</span></span>
+<span id="cb308-2"><a href="working-with-files.html#cb308-2" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>Gender, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
 <pre><code>##         
 ##           No Yes
 ##   Female 501  87
@@ -632,8 +636,8 @@ Vidyat, 25, 68</code></pre>
 <ul>
 <li><strong>What is the attrition rate among employees in different job roles?</strong></li>
 </ul>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="working-with-files.html#cb292-1" tabindex="-1"></a><span class="co"># Table of attrition by job role</span></span>
-<span id="cb292-2"><a href="working-with-files.html#cb292-2" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>JobRole, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="working-with-files.html#cb310-1" tabindex="-1"></a><span class="co"># Table of attrition by job role</span></span>
+<span id="cb310-2"><a href="working-with-files.html#cb310-2" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>JobRole, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
 <pre><code>##                            
 ##                              No Yes
 ##   Healthcare Representative 122   9
@@ -650,11 +654,11 @@ Vidyat, 25, 68</code></pre>
 <li><strong>Does age impact attrition rate?</strong></li>
 </ul>
 <p>To find a clear answer to this, the ages will be summarized into different groups and create a table comparing the attrition and retention rates among different age groups.</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="working-with-files.html#cb294-1" tabindex="-1"></a><span class="co"># Table of attrition by age group</span></span>
-<span id="cb294-2"><a href="working-with-files.html#cb294-2" tabindex="-1"></a>attrition_df<span class="sc">$</span>AgeGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(attrition_df<span class="sc">$</span>Age, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-30&quot;</span>, <span class="st">&quot;31-40&quot;</span>, <span class="st">&quot;41-50&quot;</span>, <span class="st">&quot;51-60&quot;</span>, <span class="st">&quot;61-70&quot;</span>))</span>
-<span id="cb294-3"><a href="working-with-files.html#cb294-3" tabindex="-1"></a></span>
-<span id="cb294-4"><a href="working-with-files.html#cb294-4" tabindex="-1"></a><span class="co"># Create a table</span></span>
-<span id="cb294-5"><a href="working-with-files.html#cb294-5" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>AgeGroup, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="working-with-files.html#cb312-1" tabindex="-1"></a><span class="co"># Table of attrition by age group</span></span>
+<span id="cb312-2"><a href="working-with-files.html#cb312-2" tabindex="-1"></a>attrition_df<span class="sc">$</span>AgeGroup <span class="ot">&lt;-</span> <span class="fu">cut</span>(attrition_df<span class="sc">$</span>Age, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;0-30&quot;</span>, <span class="st">&quot;31-40&quot;</span>, <span class="st">&quot;41-50&quot;</span>, <span class="st">&quot;51-60&quot;</span>, <span class="st">&quot;61-70&quot;</span>))</span>
+<span id="cb312-3"><a href="working-with-files.html#cb312-3" tabindex="-1"></a></span>
+<span id="cb312-4"><a href="working-with-files.html#cb312-4" tabindex="-1"></a><span class="co"># Create a table</span></span>
+<span id="cb312-5"><a href="working-with-files.html#cb312-5" tabindex="-1"></a><span class="fu">table</span>(attrition_df<span class="sc">$</span>AgeGroup, attrition_df<span class="sc">$</span>Attrition)</span></code></pre></div>
 <pre><code>##        
 ##          No Yes
 ##   0-30  286 100

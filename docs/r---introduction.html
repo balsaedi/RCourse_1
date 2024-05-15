@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-13" />
+<meta name="date" content="2024-05-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -149,7 +149,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="r---introduction.html"><a href="r---introduction.html#r---look-and-feel"><i class="fa fa-check"></i><b>2.3.1</b> R - Look and Feel</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a></li>
+<li class="chapter" data-level="2.4" data-path="r---introduction.html"><a href="r---introduction.html#basic-mathematics-like-operators"><i class="fa fa-check"></i><b>2.4</b> Basic Mathematics like operators</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="r---introduction.html"><a href="r---introduction.html#basics"><i class="fa fa-check"></i><b>2.4.1</b> Basics</a></li>
+<li class="chapter" data-level="2.4.2" data-path="r---introduction.html"><a href="r---introduction.html#bodmas-rule"><i class="fa fa-check"></i><b>2.4.2</b> BODMAS rule</a></li>
+</ul></li>
 <li class="chapter" data-level="2.5" data-path="r---introduction.html"><a href="r---introduction.html#r-markdown"><i class="fa fa-check"></i><b>2.5</b> R Markdown</a></li>
 <li class="chapter" data-level="2.6" data-path="r---introduction.html"><a href="r---introduction.html#installation-of-packages"><i class="fa fa-check"></i><b>2.6</b> Installation of packages</a></li>
 </ul></li>
@@ -261,29 +265,117 @@ RStudio - installation link &lt;-link in the first 7 minutes-&gt;</p>
 <div id="r---look-and-feel" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> R - Look and Feel<a href="r---introduction.html#r---look-and-feel" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="images/r-look-and-feel.png" /></p>
-<p>The image above is for R code in R Studio. Each quadrant has its own function.
-- text editor</p>
+<p>The image above is for R code in R Studio. Each quadrant has its own function.</p>
+<ol style="list-style-type: decimal">
+<li><strong>text editor</strong></li>
+</ol>
 <p>serves as the primary interface for writing and editing R scripts, Markdown documents, and other text-based files</p>
-<ul>
-<li>stand input/output (console/terminal/jobs)</li>
-</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>stand input/output (console/terminal/jobs)</strong></li>
+</ol>
 <p>It is the bottom left quadrant in R Studio that serves as a command-line interface where you can directly interact with R such as code execution and output display.</p>
-<ul>
-<li><p>all data and its properties quadrants
-It is the top right quadrant in Rstudio that is typically the “Environment” pane, which provides information and tools for managing your R environment such as data importation, display of variables.</p></li>
-<li><p>plots and file directory structure
-The bottom right quadrant in RStudio typically houses the “Files”, “Plots”, “Packages”, “Help”, and “Viewer” tabs.</p></li>
-</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>all data and its properties quadrants</strong></li>
+</ol>
+<p>It is the top right quadrant in Rstudio that is typically the “Environment” pane, which provides information and tools for managing your R environment such as data importation, display of variables.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>plots and file directory structure</strong></li>
+</ol>
+<p>The bottom right quadrant in RStudio typically houses the “Files”, “Plots”, “Packages”, “Help”, and “Viewer” tabs.</p>
 </div>
 </div>
 <div id="basic-mathematics-like-operators" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Basic Mathematics like operators<a href="r---introduction.html#basic-mathematics-like-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Addition - the <code>+</code> operator is used to add two or more values</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r---introduction.html#cb1-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span></span></code></pre></div>
+<div id="basics" class="section level3 hasAnchor" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Basics<a href="r---introduction.html#basics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To do simple mathematical operations, the following operators are used;</p>
+<ol style="list-style-type: decimal">
+<li><p><code>+</code> for addition</p></li>
+<li><p><code>-</code> for subtraction</p></li>
+<li><p><code>/</code> for division</p></li>
+<li><p><code>*</code> for multiplication</p></li>
+</ol>
+<p>The following examples will illustrates how to do simple arithmetic in R.</p>
+<ul>
+<li><strong>Example 1</strong></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r---introduction.html#cb1-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span> <span class="co"># addition</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<p>Subtraction - the <code>-</code> operator is used to subtract two numerical values</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r---introduction.html#cb3-1" tabindex="-1"></a><span class="dv">6-2</span></span></code></pre></div>
+<ul>
+<li><strong>Example 2</strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r---introduction.html#cb3-1" tabindex="-1"></a><span class="dv">2398</span> <span class="sc">+</span> <span class="dv">4653</span> <span class="co">#addition</span></span></code></pre></div>
+<pre><code>## [1] 7051</code></pre>
+<ul>
+<li><strong>Example 3</strong></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r---introduction.html#cb5-1" tabindex="-1"></a><span class="dv">6-2</span> <span class="co">#subtraction</span></span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
+<ul>
+<li><strong>Example 4</strong></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r---introduction.html#cb7-1" tabindex="-1"></a><span class="dv">30-15</span><span class="co"># subtraction</span></span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<ul>
+<li><strong>Example 5</strong></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r---introduction.html#cb9-1" tabindex="-1"></a><span class="dv">10</span> <span class="sc">*</span> <span class="dv">3</span> <span class="co">#multiplication</span></span></code></pre></div>
+<pre><code>## [1] 30</code></pre>
+<ul>
+<li><strong>Example 6</strong></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r---introduction.html#cb11-1" tabindex="-1"></a><span class="dv">30</span><span class="sc">/</span><span class="dv">15</span> <span class="co"># division</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Variables can be used instead of hard coded values like</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r---introduction.html#cb13-1" tabindex="-1"></a>m <span class="ot">=</span> <span class="dv">15</span></span>
+<span id="cb13-2"><a href="r---introduction.html#cb13-2" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">30</span></span>
+<span id="cb13-3"><a href="r---introduction.html#cb13-3" tabindex="-1"></a>answer <span class="ot">=</span> m <span class="sc">-</span> n</span>
+<span id="cb13-4"><a href="r---introduction.html#cb13-4" tabindex="-1"></a>answer</span></code></pre></div>
+<pre><code>## [1] -15</code></pre>
+<p>or</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r---introduction.html#cb15-1" tabindex="-1"></a>m <span class="ot">=</span> <span class="sc">-</span><span class="dv">5</span></span>
+<span id="cb15-2"><a href="r---introduction.html#cb15-2" tabindex="-1"></a>n <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb15-3"><a href="r---introduction.html#cb15-3" tabindex="-1"></a>answer <span class="ot">=</span> m <span class="sc">+</span> n</span>
+<span id="cb15-4"><a href="r---introduction.html#cb15-4" tabindex="-1"></a>answer</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+</div>
+<div id="bodmas-rule" class="section level3 hasAnchor" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> BODMAS rule<a href="r---introduction.html#bodmas-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If there is are multiple different operators in a single expression then the BODMAS(Brackets, Orders (i.e., powers and square roots, etc.), Division and Multiplication, Addition and Subtraction) rule will apply when solving.</p>
+<p><strong>Basic BODMAS</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r---introduction.html#cb17-1" tabindex="-1"></a>answer <span class="ot">=</span> <span class="dv">5</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">10</span> <span class="sc">-</span> <span class="dv">4</span>)</span>
+<span id="cb17-2"><a href="r---introduction.html#cb17-2" tabindex="-1"></a>answer</span></code></pre></div>
+<pre><code>## [1] 17</code></pre>
+<p>The above expression is solved as follows;</p>
+<ul>
+<li><p>evaluate the brackets: <code>(10 - 4)</code> which is <code>6</code>,</p></li>
+<li><p>then, perform multiplication: <code>2 * 6</code> which is <code>12</code>,</p></li>
+<li><p>finally, addition: <code>5 + 12</code> which is <code>17</code>.</p></li>
+</ul>
+<p><strong>Including Exponentiation</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r---introduction.html#cb19-1" tabindex="-1"></a>answer <span class="ot">=</span> (<span class="dv">6</span> <span class="sc">+</span> <span class="dv">4</span>) <span class="sc">^</span> <span class="dv">2</span> <span class="sc">-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">5</span></span>
+<span id="cb19-2"><a href="r---introduction.html#cb19-2" tabindex="-1"></a>answer</span></code></pre></div>
+<pre><code>## [1] 85</code></pre>
+<p>The above equation is solved as follows;</p>
+<ul>
+<li><p>evaluate the brackets: <code>(6 + 4)</code> which is <code>10</code>.</p></li>
+<li><p>then, perform exponentiation: <code>10 ^ 2</code> which is <code>100</code>.</p></li>
+<li><p>then, perform multiplication: <code>3 * 5</code> which is <code>15</code>.</p></li>
+<li><p>finally, subtraction: <code>100 - 15</code> which is <code>85</code>.</p></li>
+</ul>
+<p><strong>More Complex and Interesting BODMAS</strong></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r---introduction.html#cb21-1" tabindex="-1"></a>answer <span class="ot">=</span> (<span class="dv">20</span> <span class="sc">/</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="dv">3</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb21-2"><a href="r---introduction.html#cb21-2" tabindex="-1"></a>answer</span></code></pre></div>
+<pre><code>## [1] 27</code></pre>
+<p>The above expression is solved as follows;</p>
+<ul>
+<li>evaluate the brackets: <code>(20 / 4)</code> which is <code>5</code> and <code>(2 + 1)</code> which is <code>3</code>.</li>
+<li>perform exponentiation: <code>3^2</code> which is <code>9</code>.</li>
+<li>perform multiplication: <code>9 * 3</code> which is <code>27</code>.</li>
+<li>addition and subtraction in order: <code>5 + 27</code> which is <code>32</code>, and <code>32 - 5</code> which is <code>27</code></li>
+</ul>
+<p>NOTE: <strong>These operators are only applicable for numerical variables.</strong></p>
+</div>
 </div>
 <div id="r-markdown" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> R Markdown<a href="r---introduction.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -296,7 +388,7 @@ The bottom right quadrant in RStudio typically houses the “Files”, “Plots�
 </div>
 <div id="installation-of-packages" class="section level2 hasAnchor" number="2.6">
 <h2><span class="header-section-number">2.6</span> Installation of packages<a href="r---introduction.html#installation-of-packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R libraries/packages can be installed by invoking <code>install.packages("package_name")</code> to the console. The figure below shows how to install <code>expn</code> library.<br />
+<p>R libraries/packages can be installed by invoking <code>install.packages("package_name")</code> to the console. The figure below shows how to install <code>expn</code> library. Alternatively, a package can be installed from the graphical user interface in R by clicking ‘tools’ tab then “install.packages”. A dialogue box will appear requesting you to enter the name of the package to be installed. Thereafter, click the ‘install’ button on the dialogue box to install the package.
 <img src="images/r-packages-installation.png" /></p>
 
 </div>

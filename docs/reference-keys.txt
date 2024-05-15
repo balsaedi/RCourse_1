@@ -5,6 +5,8 @@ why-r
 r-studio
 r---look-and-feel
 basic-mathematics-like-operators
+basics
+bodmas-rule
 r-markdown
 installation-of-packages
 data-types-and-data-structures
