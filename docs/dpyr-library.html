@@ -248,13 +248,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>install.packages(&quot;dplyr&quot;)</code></pre>
 <p>Ensure your computer is connected to the internet when installing!</p>
 <p>To invoke the libraries to the program run;</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="dpyr-library.html#cb315-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb315-2"><a href="dpyr-library.html#cb315-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="dpyr-library.html#cb333-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb333-2"><a href="dpyr-library.html#cb333-2" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
 <p>Before working on the data, it need to imported first. The <code>readxl</code> library will be used. The data will then be manipulated by <code>dplyr</code>.</p>
 <p>Apart from data retrieved from excel tables, there are some inbuilt freely available datasets in R that a student can use for practice. <code>data()</code> function can be used to view some of the freely available datasets in R.</p>
-<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="dpyr-library.html#cb316-1" tabindex="-1"></a><span class="fu">data</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="dpyr-library.html#cb334-1" tabindex="-1"></a><span class="fu">data</span>()</span></code></pre></div>
 <p>This will show all data sets including both the inbuilt and the previously imported ones. Alternatively the code below will show only the inbuilt R data sets.</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="dpyr-library.html#cb317-1" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:datasets&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="dpyr-library.html#cb335-1" tabindex="-1"></a><span class="fu">ls</span>(<span class="st">&quot;package:datasets&quot;</span>)</span></code></pre></div>
 <pre><code>##   [1] &quot;ability.cov&quot;           &quot;airmiles&quot;              &quot;AirPassengers&quot;        
 ##   [4] &quot;airquality&quot;            &quot;anscombe&quot;              &quot;attenu&quot;               
 ##   [7] &quot;attitude&quot;              &quot;austres&quot;               &quot;beaver1&quot;              
@@ -291,12 +291,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [100] &quot;volcano&quot;               &quot;warpbreaks&quot;            &quot;women&quot;                
 ## [103] &quot;WorldPhones&quot;           &quot;WWWusage&quot;</code></pre>
 <p>Some libraries come with their own inbuilt data sets which can be explored by the command;</p>
-<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="dpyr-library.html#cb319-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="fu">.packages</span>(<span class="at">all.available =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="dpyr-library.html#cb337-1" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package=</span><span class="fu">.packages</span>(<span class="at">all.available =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <p>Good example is the famous iris that will be used in this course. It is always used by beginners in data science. The data set contains measurements of various characteristics of iris flowers. These characteristics include sepal length, sepal width, petal length, and petal width. There are three species of iris flowers in the data set: setosa, versicolor, and virginica.
 The data will be invoked to R before assessment and wrangling;</p>
 <p>Lets load the iris data and explore the first few records.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="dpyr-library.html#cb320-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
-<span id="cb320-2"><a href="dpyr-library.html#cb320-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="dpyr-library.html#cb338-1" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;iris&quot;</span>)</span>
+<span id="cb338-2"><a href="dpyr-library.html#cb338-2" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -305,7 +305,7 @@ The data will be invoked to R before assessment and wrangling;</p>
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>Calculating the summary statistics</p>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="dpyr-library.html#cb322-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="dpyr-library.html#cb340-1" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
 ##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
 ##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
@@ -321,30 +321,30 @@ The data will be invoked to R before assessment and wrangling;</p>
 ##                 
 ## </code></pre>
 <p>Lets write this data set locally to a file.</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="dpyr-library.html#cb324-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb324-2"><a href="dpyr-library.html#cb324-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="dpyr-library.html#cb342-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb342-2"><a href="dpyr-library.html#cb342-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
 <p>or to remove quotes next to values</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="dpyr-library.html#cb325-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb325-2"><a href="dpyr-library.html#cb325-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="dpyr-library.html#cb343-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb343-2"><a href="dpyr-library.html#cb343-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
 <p>or to remove quotes and row names</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="dpyr-library.html#cb326-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb326-2"><a href="dpyr-library.html#cb326-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="dpyr-library.html#cb344-1" tabindex="-1"></a><span class="fu">write.table</span>(iris, <span class="st">&quot;data/iris_dataset.txt&quot;</span>, <span class="at">append =</span> <span class="cn">FALSE</span>, <span class="at">quote=</span><span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb344-2"><a href="dpyr-library.html#cb344-2" tabindex="-1"></a><span class="fu">file.show</span>(<span class="st">&quot;data/iris_dataset.txt&quot;</span>)</span></code></pre></div>
 <div id="dplyr-verbs" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Dplyr Verbs<a href="dpyr-library.html#dplyr-verbs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="select" class="section level3 hasAnchor" number="6.1.1">
 <h3><span class="header-section-number">6.1.1</span> select<a href="dpyr-library.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This dplyr verb is used when selecting or dropping specific columns. In this lesson we will find the iris column names and select two of them using <code>select</code>.</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="dpyr-library.html#cb327-1" tabindex="-1"></a><span class="co"># Find the column names </span></span>
-<span id="cb327-2"><a href="dpyr-library.html#cb327-2" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="dpyr-library.html#cb345-1" tabindex="-1"></a><span class="co"># Find the column names </span></span>
+<span id="cb345-2"><a href="dpyr-library.html#cb345-2" tabindex="-1"></a><span class="fu">colnames</span>(iris)</span></code></pre></div>
 <pre><code>## [1] &quot;Sepal.Length&quot; &quot;Sepal.Width&quot;  &quot;Petal.Length&quot; &quot;Petal.Width&quot;  &quot;Species&quot;</code></pre>
 <p>Remember the data frame to work on need to be specified in the arguments such that</p>
 <pre><code>selected_data = select(data_frame, col1, col2, col3)</code></pre>
 <p>Therefore, we will select the columns; Species, Petal length and petal width.</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="dpyr-library.html#cb330-1" tabindex="-1"></a>selected_iris_data <span class="ot">=</span> <span class="fu">select</span>(iris,</span>
-<span id="cb330-2"><a href="dpyr-library.html#cb330-2" tabindex="-1"></a>                       Petal.Length, Petal.Width, Species)</span>
-<span id="cb330-3"><a href="dpyr-library.html#cb330-3" tabindex="-1"></a></span>
-<span id="cb330-4"><a href="dpyr-library.html#cb330-4" tabindex="-1"></a><span class="co"># view the first few rows of the selected data</span></span>
-<span id="cb330-5"><a href="dpyr-library.html#cb330-5" tabindex="-1"></a><span class="fu">head</span>(selected_iris_data)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="dpyr-library.html#cb348-1" tabindex="-1"></a>selected_iris_data <span class="ot">=</span> <span class="fu">select</span>(iris,</span>
+<span id="cb348-2"><a href="dpyr-library.html#cb348-2" tabindex="-1"></a>                       Petal.Length, Petal.Width, Species)</span>
+<span id="cb348-3"><a href="dpyr-library.html#cb348-3" tabindex="-1"></a></span>
+<span id="cb348-4"><a href="dpyr-library.html#cb348-4" tabindex="-1"></a><span class="co"># view the first few rows of the selected data</span></span>
+<span id="cb348-5"><a href="dpyr-library.html#cb348-5" tabindex="-1"></a><span class="fu">head</span>(selected_iris_data)</span></code></pre></div>
 <pre><code>##   Petal.Length Petal.Width Species
 ## 1          1.4         0.2  setosa
 ## 2          1.4         0.2  setosa
@@ -357,11 +357,11 @@ The data will be invoked to R before assessment and wrangling;</p>
 <pre><code># Drop specified columns 
 remaining_data = select(data_frame, -col1_to_drop, -col2_to_drop)</code></pre>
 <p>In this lesson, we will drop petal length, petal width and Species columns;</p>
-<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="dpyr-library.html#cb333-1" tabindex="-1"></a>remaining_iris_data <span class="ot">=</span> <span class="fu">select</span>(iris,</span>
-<span id="cb333-2"><a href="dpyr-library.html#cb333-2" tabindex="-1"></a>                       <span class="sc">-</span>Petal.Length, <span class="sc">-</span>Petal.Width, <span class="sc">-</span>Species)</span>
-<span id="cb333-3"><a href="dpyr-library.html#cb333-3" tabindex="-1"></a></span>
-<span id="cb333-4"><a href="dpyr-library.html#cb333-4" tabindex="-1"></a><span class="co"># view the first few rows of the selected data</span></span>
-<span id="cb333-5"><a href="dpyr-library.html#cb333-5" tabindex="-1"></a><span class="fu">head</span>(remaining_iris_data)</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="dpyr-library.html#cb351-1" tabindex="-1"></a>remaining_iris_data <span class="ot">=</span> <span class="fu">select</span>(iris,</span>
+<span id="cb351-2"><a href="dpyr-library.html#cb351-2" tabindex="-1"></a>                       <span class="sc">-</span>Petal.Length, <span class="sc">-</span>Petal.Width, <span class="sc">-</span>Species)</span>
+<span id="cb351-3"><a href="dpyr-library.html#cb351-3" tabindex="-1"></a></span>
+<span id="cb351-4"><a href="dpyr-library.html#cb351-4" tabindex="-1"></a><span class="co"># view the first few rows of the selected data</span></span>
+<span id="cb351-5"><a href="dpyr-library.html#cb351-5" tabindex="-1"></a><span class="fu">head</span>(remaining_iris_data)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width
 ## 1          5.1         3.5
 ## 2          4.9         3.0
@@ -378,11 +378,11 @@ With <code>filter()</code>, the data frame and the condion are passed as a argum
 filtered_data = filter(data_frame, 
 column_name &gt; 5 # This is the condition)</code></pre>
 <p>Lets select the species ‘setosa’ from the iris data set</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="dpyr-library.html#cb336-1" tabindex="-1"></a>setosa_iris <span class="ot">=</span> <span class="fu">filter</span>(iris, <span class="co"># the data frame</span></span>
-<span id="cb336-2"><a href="dpyr-library.html#cb336-2" tabindex="-1"></a>                     Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span> <span class="co"># the condition</span></span>
-<span id="cb336-3"><a href="dpyr-library.html#cb336-3" tabindex="-1"></a>                     )</span>
-<span id="cb336-4"><a href="dpyr-library.html#cb336-4" tabindex="-1"></a><span class="co"># First few records of setosa data</span></span>
-<span id="cb336-5"><a href="dpyr-library.html#cb336-5" tabindex="-1"></a><span class="fu">head</span>(setosa_iris)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="dpyr-library.html#cb354-1" tabindex="-1"></a>setosa_iris <span class="ot">=</span> <span class="fu">filter</span>(iris, <span class="co"># the data frame</span></span>
+<span id="cb354-2"><a href="dpyr-library.html#cb354-2" tabindex="-1"></a>                     Species <span class="sc">==</span> <span class="st">&quot;setosa&quot;</span> <span class="co"># the condition</span></span>
+<span id="cb354-3"><a href="dpyr-library.html#cb354-3" tabindex="-1"></a>                     )</span>
+<span id="cb354-4"><a href="dpyr-library.html#cb354-4" tabindex="-1"></a><span class="co"># First few records of setosa data</span></span>
+<span id="cb354-5"><a href="dpyr-library.html#cb354-5" tabindex="-1"></a><span class="fu">head</span>(setosa_iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -391,11 +391,11 @@ column_name &gt; 5 # This is the condition)</code></pre>
 ## 5          5.0         3.6          1.4         0.2  setosa
 ## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <p>Records with sepal width of more than 3.0 can be filtered. Here is how we achieve such a subset</p>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="dpyr-library.html#cb338-1" tabindex="-1"></a>wide_sepal_iris <span class="ot">=</span> <span class="fu">filter</span>(iris, <span class="co">#the data frame</span></span>
-<span id="cb338-2"><a href="dpyr-library.html#cb338-2" tabindex="-1"></a>                         Sepal.Width<span class="sc">&gt;</span><span class="fl">3.0</span> <span class="co"># the condition</span></span>
-<span id="cb338-3"><a href="dpyr-library.html#cb338-3" tabindex="-1"></a>                         )</span>
-<span id="cb338-4"><a href="dpyr-library.html#cb338-4" tabindex="-1"></a></span>
-<span id="cb338-5"><a href="dpyr-library.html#cb338-5" tabindex="-1"></a><span class="fu">head</span>(wide_sepal_iris)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="dpyr-library.html#cb356-1" tabindex="-1"></a>wide_sepal_iris <span class="ot">=</span> <span class="fu">filter</span>(iris, <span class="co">#the data frame</span></span>
+<span id="cb356-2"><a href="dpyr-library.html#cb356-2" tabindex="-1"></a>                         Sepal.Width<span class="sc">&gt;</span><span class="fl">3.0</span> <span class="co"># the condition</span></span>
+<span id="cb356-3"><a href="dpyr-library.html#cb356-3" tabindex="-1"></a>                         )</span>
+<span id="cb356-4"><a href="dpyr-library.html#cb356-4" tabindex="-1"></a></span>
+<span id="cb356-5"><a href="dpyr-library.html#cb356-5" tabindex="-1"></a><span class="fu">head</span>(wide_sepal_iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.7         3.2          1.3         0.2  setosa
@@ -412,13 +412,13 @@ column_name &gt; 5 # This is the condition)</code></pre>
 <pre><code># Note the additional desc function
 arranged_data = arrange(data_frame, desc(column_name))</code></pre>
 <p>Now lets order the iris data in an ascending order based on Petal length and view the first 6 records with the shortest petal.</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="dpyr-library.html#cb342-1" tabindex="-1"></a><span class="co"># Sort the data </span></span>
-<span id="cb342-2"><a href="dpyr-library.html#cb342-2" tabindex="-1"></a>by_petal_length <span class="ot">=</span> <span class="fu">arrange</span>(iris, <span class="co"># data frame </span></span>
-<span id="cb342-3"><a href="dpyr-library.html#cb342-3" tabindex="-1"></a>                          Petal.Length <span class="co"># order by column</span></span>
-<span id="cb342-4"><a href="dpyr-library.html#cb342-4" tabindex="-1"></a>                          )</span>
-<span id="cb342-5"><a href="dpyr-library.html#cb342-5" tabindex="-1"></a></span>
-<span id="cb342-6"><a href="dpyr-library.html#cb342-6" tabindex="-1"></a><span class="co"># View the data </span></span>
-<span id="cb342-7"><a href="dpyr-library.html#cb342-7" tabindex="-1"></a><span class="fu">head</span>(by_petal_length)</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="dpyr-library.html#cb360-1" tabindex="-1"></a><span class="co"># Sort the data </span></span>
+<span id="cb360-2"><a href="dpyr-library.html#cb360-2" tabindex="-1"></a>by_petal_length <span class="ot">=</span> <span class="fu">arrange</span>(iris, <span class="co"># data frame </span></span>
+<span id="cb360-3"><a href="dpyr-library.html#cb360-3" tabindex="-1"></a>                          Petal.Length <span class="co"># order by column</span></span>
+<span id="cb360-4"><a href="dpyr-library.html#cb360-4" tabindex="-1"></a>                          )</span>
+<span id="cb360-5"><a href="dpyr-library.html#cb360-5" tabindex="-1"></a></span>
+<span id="cb360-6"><a href="dpyr-library.html#cb360-6" tabindex="-1"></a><span class="co"># View the data </span></span>
+<span id="cb360-7"><a href="dpyr-library.html#cb360-7" tabindex="-1"></a><span class="fu">head</span>(by_petal_length)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          4.6         3.6          1.0         0.2  setosa
 ## 2          4.3         3.0          1.1         0.1  setosa
@@ -427,13 +427,13 @@ arranged_data = arrange(data_frame, desc(column_name))</code></pre>
 ## 5          4.7         3.2          1.3         0.2  setosa
 ## 6          5.4         3.9          1.3         0.4  setosa</code></pre>
 <p>Lets repeat the same process but now we order the data in a descending order.</p>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="dpyr-library.html#cb344-1" tabindex="-1"></a><span class="co"># Sort the data </span></span>
-<span id="cb344-2"><a href="dpyr-library.html#cb344-2" tabindex="-1"></a>by_petal_length <span class="ot">=</span> <span class="fu">arrange</span>(iris, <span class="co"># data frame </span></span>
-<span id="cb344-3"><a href="dpyr-library.html#cb344-3" tabindex="-1"></a>                          <span class="fu">desc</span>(Petal.Length) <span class="co"># order by column</span></span>
-<span id="cb344-4"><a href="dpyr-library.html#cb344-4" tabindex="-1"></a>                          )</span>
-<span id="cb344-5"><a href="dpyr-library.html#cb344-5" tabindex="-1"></a></span>
-<span id="cb344-6"><a href="dpyr-library.html#cb344-6" tabindex="-1"></a><span class="co"># View the data </span></span>
-<span id="cb344-7"><a href="dpyr-library.html#cb344-7" tabindex="-1"></a><span class="fu">head</span>(by_petal_length)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="dpyr-library.html#cb362-1" tabindex="-1"></a><span class="co"># Sort the data </span></span>
+<span id="cb362-2"><a href="dpyr-library.html#cb362-2" tabindex="-1"></a>by_petal_length <span class="ot">=</span> <span class="fu">arrange</span>(iris, <span class="co"># data frame </span></span>
+<span id="cb362-3"><a href="dpyr-library.html#cb362-3" tabindex="-1"></a>                          <span class="fu">desc</span>(Petal.Length) <span class="co"># order by column</span></span>
+<span id="cb362-4"><a href="dpyr-library.html#cb362-4" tabindex="-1"></a>                          )</span>
+<span id="cb362-5"><a href="dpyr-library.html#cb362-5" tabindex="-1"></a></span>
+<span id="cb362-6"><a href="dpyr-library.html#cb362-6" tabindex="-1"></a><span class="co"># View the data </span></span>
+<span id="cb362-7"><a href="dpyr-library.html#cb362-7" tabindex="-1"></a><span class="fu">head</span>(by_petal_length)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width   Species
 ## 1          7.7         2.6          6.9         2.3 virginica
 ## 2          7.7         3.8          6.7         2.2 virginica
@@ -446,10 +446,10 @@ arranged_data = arrange(data_frame, desc(column_name))</code></pre>
 <h3><span class="header-section-number">6.1.4</span> mutate<a href="dpyr-library.html#mutate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><code>mutate()</code> is a dplyr verb used to modifying the existing variables or creating new variables in a data set.
 In this case we can calculate the log off Sepal length in the iris data</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="dpyr-library.html#cb346-1" tabindex="-1"></a><span class="co"># modify Sepal.Length</span></span>
-<span id="cb346-2"><a href="dpyr-library.html#cb346-2" tabindex="-1"></a>new_iris <span class="ot">=</span> <span class="fu">mutate</span>(iris, <span class="at">Sepal.Length=</span><span class="fu">log</span>(Sepal.Length))</span>
-<span id="cb346-3"><a href="dpyr-library.html#cb346-3" tabindex="-1"></a></span>
-<span id="cb346-4"><a href="dpyr-library.html#cb346-4" tabindex="-1"></a><span class="fu">head</span>(new_iris)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="dpyr-library.html#cb364-1" tabindex="-1"></a><span class="co"># modify Sepal.Length</span></span>
+<span id="cb364-2"><a href="dpyr-library.html#cb364-2" tabindex="-1"></a>new_iris <span class="ot">=</span> <span class="fu">mutate</span>(iris, <span class="at">Sepal.Length=</span><span class="fu">log</span>(Sepal.Length))</span>
+<span id="cb364-3"><a href="dpyr-library.html#cb364-3" tabindex="-1"></a></span>
+<span id="cb364-4"><a href="dpyr-library.html#cb364-4" tabindex="-1"></a><span class="fu">head</span>(new_iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1     1.629241         3.5          1.4         0.2  setosa
 ## 2     1.589235         3.0          1.4         0.2  setosa
@@ -458,10 +458,10 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## 5     1.609438         3.6          1.4         0.2  setosa
 ## 6     1.686399         3.9          1.7         0.4  setosa</code></pre>
 <p>Additionally, we can create an entirely new variable by <code>mutate()</code>. In this case we will find the ratio between petal length and petal width. The new variable will be called “Petal.Length.Width.Ratio”</p>
-<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="dpyr-library.html#cb348-1" tabindex="-1"></a>new_iris <span class="ot">=</span> <span class="fu">mutate</span>(iris,</span>
-<span id="cb348-2"><a href="dpyr-library.html#cb348-2" tabindex="-1"></a>                  <span class="at">Petal.Length.Width.Ratio =</span> Petal.Length<span class="sc">/</span>Petal.Width)</span>
-<span id="cb348-3"><a href="dpyr-library.html#cb348-3" tabindex="-1"></a></span>
-<span id="cb348-4"><a href="dpyr-library.html#cb348-4" tabindex="-1"></a><span class="fu">head</span>(new_iris)</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="dpyr-library.html#cb366-1" tabindex="-1"></a>new_iris <span class="ot">=</span> <span class="fu">mutate</span>(iris,</span>
+<span id="cb366-2"><a href="dpyr-library.html#cb366-2" tabindex="-1"></a>                  <span class="at">Petal.Length.Width.Ratio =</span> Petal.Length<span class="sc">/</span>Petal.Width)</span>
+<span id="cb366-3"><a href="dpyr-library.html#cb366-3" tabindex="-1"></a></span>
+<span id="cb366-4"><a href="dpyr-library.html#cb366-4" tabindex="-1"></a><span class="fu">head</span>(new_iris)</span></code></pre></div>
 <pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
@@ -482,8 +482,8 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <h3><span class="header-section-number">6.1.5</span> group_by<a href="dpyr-library.html#group_by" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>group_by()</code> is a function used to group records in a data frame by one or more variables. It allows the analyst to create a group based on a certain criteria.</p>
 <p>Lets group the iris data based on the Species variable;</p>
-<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="dpyr-library.html#cb350-1" tabindex="-1"></a>iris_groups <span class="ot">=</span> <span class="fu">group_by</span>(iris, Species)</span>
-<span id="cb350-2"><a href="dpyr-library.html#cb350-2" tabindex="-1"></a><span class="fu">head</span>(iris_groups)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="dpyr-library.html#cb368-1" tabindex="-1"></a>iris_groups <span class="ot">=</span> <span class="fu">group_by</span>(iris, Species)</span>
+<span id="cb368-2"><a href="dpyr-library.html#cb368-2" tabindex="-1"></a><span class="fu">head</span>(iris_groups)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ## # Groups:   Species [1]
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -499,16 +499,16 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <div id="summarise" class="section level3 hasAnchor" number="6.1.6">
 <h3><span class="header-section-number">6.1.6</span> Summarise<a href="dpyr-library.html#summarise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To calculate summary statistics such as average, median and maximum the <code>summarise()</code> is used. This function collapses mutilple rows into a summary row. For instance calculating the mean Petal width;</p>
-<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="dpyr-library.html#cb352-1" tabindex="-1"></a><span class="fu">summarise</span>(iris, </span>
-<span id="cb352-2"><a href="dpyr-library.html#cb352-2" tabindex="-1"></a>          <span class="at">mean_petal_width=</span><span class="fu">mean</span>(Petal.Width))</span></code></pre></div>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="dpyr-library.html#cb370-1" tabindex="-1"></a><span class="fu">summarise</span>(iris, </span>
+<span id="cb370-2"><a href="dpyr-library.html#cb370-2" tabindex="-1"></a>          <span class="at">mean_petal_width=</span><span class="fu">mean</span>(Petal.Width))</span></code></pre></div>
 <pre><code>##   mean_petal_width
 ## 1         1.199333</code></pre>
 <p>To find the mean petal width for each iris species;
 - the iris data will be grouped by species
 - a mean value for each group will be calculated</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="dpyr-library.html#cb354-1" tabindex="-1"></a>grouped_iris <span class="ot">=</span> <span class="fu">group_by</span>(iris, Species)</span>
-<span id="cb354-2"><a href="dpyr-library.html#cb354-2" tabindex="-1"></a>mean_petal_widths <span class="ot">=</span> <span class="fu">summarise</span>(grouped_iris, <span class="at">mean_value=</span><span class="fu">mean</span>(Petal.Width))</span>
-<span id="cb354-3"><a href="dpyr-library.html#cb354-3" tabindex="-1"></a>mean_petal_widths</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="dpyr-library.html#cb372-1" tabindex="-1"></a>grouped_iris <span class="ot">=</span> <span class="fu">group_by</span>(iris, Species)</span>
+<span id="cb372-2"><a href="dpyr-library.html#cb372-2" tabindex="-1"></a>mean_petal_widths <span class="ot">=</span> <span class="fu">summarise</span>(grouped_iris, <span class="at">mean_value=</span><span class="fu">mean</span>(Petal.Width))</span>
+<span id="cb372-3"><a href="dpyr-library.html#cb372-3" tabindex="-1"></a>mean_petal_widths</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   Species    mean_value
 ##   &lt;fct&gt;           &lt;dbl&gt;
@@ -534,8 +534,8 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <li>carb: Number of carburetors.</li>
 </ol>
 <p>Lets start by loading the data into the program and view its first few records;</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="dpyr-library.html#cb356-1" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb356-2"><a href="dpyr-library.html#cb356-2" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="dpyr-library.html#cb374-1" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb374-2"><a href="dpyr-library.html#cb374-2" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -544,9 +544,9 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 <p>Lets <code>select</code> 6 most important columns in this analysis</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="dpyr-library.html#cb358-1" tabindex="-1"></a>cars1 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am)</span>
-<span id="cb358-2"><a href="dpyr-library.html#cb358-2" tabindex="-1"></a></span>
-<span id="cb358-3"><a href="dpyr-library.html#cb358-3" tabindex="-1"></a><span class="fu">head</span>(cars1)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="dpyr-library.html#cb376-1" tabindex="-1"></a>cars1 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am)</span>
+<span id="cb376-2"><a href="dpyr-library.html#cb376-2" tabindex="-1"></a></span>
+<span id="cb376-3"><a href="dpyr-library.html#cb376-3" tabindex="-1"></a><span class="fu">head</span>(cars1)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp  qsec am
 ## Mazda RX4         21.0   6  160 110 16.46  1
 ## Mazda RX4 Wag     21.0   6  160 110 17.02  1
@@ -555,9 +555,9 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## Hornet Sportabout 18.7   8  360 175 17.02  0
 ## Valiant           18.1   6  225 105 20.22  0</code></pre>
 <p>Lets now <code>filter</code> to find vehicles with an automatic transmission type. The <code>filter</code> verb will be chained to <code>select</code> verb with <code>%&gt;%</code>.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="dpyr-library.html#cb360-1" tabindex="-1"></a>cars2 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am) <span class="sc">%&gt;%</span></span>
-<span id="cb360-2"><a href="dpyr-library.html#cb360-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>)</span>
-<span id="cb360-3"><a href="dpyr-library.html#cb360-3" tabindex="-1"></a><span class="fu">head</span>(cars2)</span></code></pre></div>
+<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="dpyr-library.html#cb378-1" tabindex="-1"></a>cars2 <span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am) <span class="sc">%&gt;%</span></span>
+<span id="cb378-2"><a href="dpyr-library.html#cb378-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>)</span>
+<span id="cb378-3"><a href="dpyr-library.html#cb378-3" tabindex="-1"></a><span class="fu">head</span>(cars2)</span></code></pre></div>
 <pre><code>##                    mpg cyl  disp  hp  qsec am
 ## Hornet 4 Drive    21.4   6 258.0 110 19.44  0
 ## Hornet Sportabout 18.7   8 360.0 175 17.02  0
@@ -566,11 +566,11 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## Merc 240D         24.4   4 146.7  62 20.00  0
 ## Merc 230          22.8   4 140.8  95 22.90  0</code></pre>
 <p>All these vehicles are of automatic transmission type, lets rank them according to the horsepower in descending order.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="dpyr-library.html#cb362-1" tabindex="-1"></a>cars3<span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am, wt) <span class="sc">%&gt;%</span></span>
-<span id="cb362-2"><a href="dpyr-library.html#cb362-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb362-3"><a href="dpyr-library.html#cb362-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hp))</span>
-<span id="cb362-4"><a href="dpyr-library.html#cb362-4" tabindex="-1"></a></span>
-<span id="cb362-5"><a href="dpyr-library.html#cb362-5" tabindex="-1"></a><span class="fu">head</span>(cars3)</span></code></pre></div>
+<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="dpyr-library.html#cb380-1" tabindex="-1"></a>cars3<span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am, wt) <span class="sc">%&gt;%</span></span>
+<span id="cb380-2"><a href="dpyr-library.html#cb380-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb380-3"><a href="dpyr-library.html#cb380-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hp))</span>
+<span id="cb380-4"><a href="dpyr-library.html#cb380-4" tabindex="-1"></a></span>
+<span id="cb380-5"><a href="dpyr-library.html#cb380-5" tabindex="-1"></a><span class="fu">head</span>(cars3)</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp  qsec am    wt
 ## Duster 360          14.3   8 360.0 245 15.84  0 3.570
 ## Camaro Z28          13.3   8 350.0 245 15.41  0 3.840
@@ -579,12 +579,12 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## Cadillac Fleetwood  10.4   8 472.0 205 17.98  0 5.250
 ## Merc 450SE          16.4   8 275.8 180 17.40  0 4.070</code></pre>
 <p>A new column of weight in 1000kgs (wt_1000kgs) can be created by diving weight in 1000lbs by 2.20462. <code>mutate</code> verb will be chained also.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="dpyr-library.html#cb364-1" tabindex="-1"></a>cars4<span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am, wt) <span class="sc">%&gt;%</span></span>
-<span id="cb364-2"><a href="dpyr-library.html#cb364-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb364-3"><a href="dpyr-library.html#cb364-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hp)) <span class="sc">%&gt;%</span></span>
-<span id="cb364-4"><a href="dpyr-library.html#cb364-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_1000kgs=</span>wt<span class="sc">/</span><span class="fl">2.20462</span>)</span>
-<span id="cb364-5"><a href="dpyr-library.html#cb364-5" tabindex="-1"></a></span>
-<span id="cb364-6"><a href="dpyr-library.html#cb364-6" tabindex="-1"></a><span class="fu">head</span>(cars4)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="dpyr-library.html#cb382-1" tabindex="-1"></a>cars4<span class="ot">=</span> mtcars <span class="sc">%&gt;%</span><span class="fu">select</span>(mpg, cyl, disp, hp, qsec, am, wt) <span class="sc">%&gt;%</span></span>
+<span id="cb382-2"><a href="dpyr-library.html#cb382-2" tabindex="-1"></a>  <span class="fu">filter</span>(am<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb382-3"><a href="dpyr-library.html#cb382-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(hp)) <span class="sc">%&gt;%</span></span>
+<span id="cb382-4"><a href="dpyr-library.html#cb382-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_1000kgs=</span>wt<span class="sc">/</span><span class="fl">2.20462</span>)</span>
+<span id="cb382-5"><a href="dpyr-library.html#cb382-5" tabindex="-1"></a></span>
+<span id="cb382-6"><a href="dpyr-library.html#cb382-6" tabindex="-1"></a><span class="fu">head</span>(cars4)</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp  qsec am    wt wt_1000kgs
 ## Duster 360          14.3   8 360.0 245 15.84  0 3.570   1.619327
 ## Camaro Z28          13.3   8 350.0 245 15.41  0 3.840   1.741797
@@ -600,11 +600,11 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <ul>
 <li>Read the data set from a file into a data frame</li>
 </ul>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="dpyr-library.html#cb366-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span>
-<span id="cb366-2"><a href="dpyr-library.html#cb366-2" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="dpyr-library.html#cb384-1" tabindex="-1"></a>hg <span class="ot">=</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/Human_genome.xlsx&quot;</span>)</span>
+<span id="cb384-2"><a href="dpyr-library.html#cb384-2" tabindex="-1"></a><span class="fu">class</span>(hg)</span></code></pre></div>
 <pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
 <p>review the first six records of the data set</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="dpyr-library.html#cb368-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="dpyr-library.html#cb386-1" tabindex="-1"></a><span class="fu">head</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -617,7 +617,7 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p>the last six records of the data set</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="dpyr-library.html#cb370-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="dpyr-library.html#cb388-1" tabindex="-1"></a><span class="fu">tail</span>(hg)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -630,7 +630,7 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p><code>sample_n()</code> command is used to randomly sample fixed number of rows from the data frame. Lets sample five rows randomly</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="dpyr-library.html#cb372-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="dpyr-library.html#cb390-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_n</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -642,7 +642,7 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 ## # ℹ abbreviated name: ¹​Total_long_non_coding_RNA
 ## # ℹ 3 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;</code></pre>
 <p><code>sample_fra()</code> command can also be used to extract a percent of rows randomly. Lets samople 25% of the rows</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="dpyr-library.html#cb374-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_frac</span>(<span class="fl">0.25</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="dpyr-library.html#cb392-1" tabindex="-1"></a>hg <span class="sc">%&gt;%</span> <span class="fu">sample_frac</span>(<span class="fl">0.25</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -665,12 +665,12 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 </ol>
 <p>All these processes will be chained to run progressively from process 1 to 3.</p>
 <p>All the above steps should be piped</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="dpyr-library.html#cb376-1" tabindex="-1"></a>hg1 <span class="ot">=</span> hg <span class="sc">%&gt;%</span> <span class="co">#transfer the data to a new variable</span></span>
-<span id="cb376-2"><a href="dpyr-library.html#cb376-2" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Base_Pairs) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
-<span id="cb376-3"><a href="dpyr-library.html#cb376-3" tabindex="-1"></a>           <span class="fu">arrange</span>(<span class="fu">desc</span>(Base_Pairs)) <span class="sc">%&gt;%</span> <span class="co">#order in descending order</span></span>
-<span id="cb376-4"><a href="dpyr-library.html#cb376-4" tabindex="-1"></a>           <span class="fu">slice</span>(<span class="dv">1</span>)</span>
-<span id="cb376-5"><a href="dpyr-library.html#cb376-5" tabindex="-1"></a></span>
-<span id="cb376-6"><a href="dpyr-library.html#cb376-6" tabindex="-1"></a>hg1</span></code></pre></div>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="dpyr-library.html#cb394-1" tabindex="-1"></a>hg1 <span class="ot">=</span> hg <span class="sc">%&gt;%</span> <span class="co">#transfer the data to a new variable</span></span>
+<span id="cb394-2"><a href="dpyr-library.html#cb394-2" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Base_Pairs) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
+<span id="cb394-3"><a href="dpyr-library.html#cb394-3" tabindex="-1"></a>           <span class="fu">arrange</span>(<span class="fu">desc</span>(Base_Pairs)) <span class="sc">%&gt;%</span> <span class="co">#order in descending order</span></span>
+<span id="cb394-4"><a href="dpyr-library.html#cb394-4" tabindex="-1"></a>           <span class="fu">slice</span>(<span class="dv">1</span>)</span>
+<span id="cb394-5"><a href="dpyr-library.html#cb394-5" tabindex="-1"></a></span>
+<span id="cb394-6"><a href="dpyr-library.html#cb394-6" tabindex="-1"></a>hg1</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   Chromosome Base_Pairs
 ##   &lt;chr&gt;           &lt;dbl&gt;
@@ -678,9 +678,9 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <p><strong>Q2. List of Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes</strong></p>
 <p>The human genome data frame will be filtered to find the Chromosomes with more than 500 pseudogenes and more than 1000 protein coding genes.
 <code>&amp;</code> condition is used in the filter</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="dpyr-library.html#cb378-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg<span class="sc">%&gt;%</span></span>
-<span id="cb378-2"><a href="dpyr-library.html#cb378-2" tabindex="-1"></a>  <span class="fu">filter</span>(Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span> <span class="sc">&amp;</span> Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>)</span>
-<span id="cb378-3"><a href="dpyr-library.html#cb378-3" tabindex="-1"></a>hg2</span></code></pre></div>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="dpyr-library.html#cb396-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg<span class="sc">%&gt;%</span></span>
+<span id="cb396-2"><a href="dpyr-library.html#cb396-2" tabindex="-1"></a>  <span class="fu">filter</span>(Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span> <span class="sc">&amp;</span> Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>)</span>
+<span id="cb396-3"><a href="dpyr-library.html#cb396-3" tabindex="-1"></a>hg2</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -698,9 +698,9 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <p>a frame will be filtered to find the Chromosomes with more than 500 pseudogenes
 The human genome dator more than 1000 protein coding genes and mtRNA more than 100.</p>
 <p>The <code>&amp;</code> and <code>|</code> conditions will be used in place of “and” and “or” respectively.</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="dpyr-library.html#cb380-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg <span class="sc">%&gt;%</span> </span>
-<span id="cb380-2"><a href="dpyr-library.html#cb380-2" tabindex="-1"></a>  <span class="fu">filter</span>((Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span><span class="sc">|</span>Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>) <span class="sc">&amp;</span> miRNA<span class="sc">&gt;</span><span class="dv">100</span>)</span>
-<span id="cb380-3"><a href="dpyr-library.html#cb380-3" tabindex="-1"></a>hg2</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="dpyr-library.html#cb398-1" tabindex="-1"></a>hg2<span class="ot">=</span>hg <span class="sc">%&gt;%</span> </span>
+<span id="cb398-2"><a href="dpyr-library.html#cb398-2" tabindex="-1"></a>  <span class="fu">filter</span>((Pseudogenes<span class="sc">&gt;</span><span class="dv">500</span><span class="sc">|</span>Protein_Coding_genes<span class="sc">&gt;</span><span class="dv">1000</span>) <span class="sc">&amp;</span> miRNA<span class="sc">&gt;</span><span class="dv">100</span>)</span>
+<span id="cb398-3"><a href="dpyr-library.html#cb398-3" tabindex="-1"></a>hg2</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 8
 ##   Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_coding…¹
 ##   &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                   &lt;dbl&gt;
@@ -715,10 +715,10 @@ The human genome dator more than 1000 protein coding genes and mtRNA more than 1
 <li>Mutate -&gt; is a command to create a new column</li>
 </ul>
 <p>Lets create a column of genes per megabase where a megabase is 1000000 base pairs</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="dpyr-library.html#cb382-1" tabindex="-1"></a>hg3<span class="ot">=</span>hg <span class="sc">%&gt;%</span></span>
-<span id="cb382-2"><a href="dpyr-library.html#cb382-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Genes_per_Mb=</span><span class="fu">round</span>((Protein_Coding_genes<span class="sc">/</span>(Base_Pairs<span class="sc">/</span><span class="dv">100000</span>)),</span>
-<span id="cb382-3"><a href="dpyr-library.html#cb382-3" tabindex="-1"></a>                            <span class="at">digit=</span><span class="dv">2</span>))</span>
-<span id="cb382-4"><a href="dpyr-library.html#cb382-4" tabindex="-1"></a>hg3</span></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="dpyr-library.html#cb400-1" tabindex="-1"></a>hg3<span class="ot">=</span>hg <span class="sc">%&gt;%</span></span>
+<span id="cb400-2"><a href="dpyr-library.html#cb400-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Genes_per_Mb=</span><span class="fu">round</span>((Protein_Coding_genes<span class="sc">/</span>(Base_Pairs<span class="sc">/</span><span class="dv">100000</span>)),</span>
+<span id="cb400-3"><a href="dpyr-library.html#cb400-3" tabindex="-1"></a>                            <span class="at">digit=</span><span class="dv">2</span>))</span>
+<span id="cb400-4"><a href="dpyr-library.html#cb400-4" tabindex="-1"></a>hg3</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 9
 ##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
 ##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
@@ -737,12 +737,12 @@ The human genome dator more than 1000 protein coding genes and mtRNA more than 1
 ## # ℹ 4 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;,
 ## #   Genes_per_Mb &lt;dbl&gt;</code></pre>
 <p>then order the data according to genes per megabse column (<code>Genes_per_mb</code>) in descending order and select the first 10 rows using <code>arrange</code> and <code>select</code> commands.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="dpyr-library.html#cb384-1" tabindex="-1"></a>hg4<span class="ot">=</span>hg3 <span class="sc">%&gt;%</span></span>
-<span id="cb384-2"><a href="dpyr-library.html#cb384-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Genes_per_Mb)) <span class="sc">%&gt;%</span> <span class="co"># order in descending order </span></span>
-<span id="cb384-3"><a href="dpyr-library.html#cb384-3" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Genes_per_Mb) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
-<span id="cb384-4"><a href="dpyr-library.html#cb384-4" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># select the top 10</span></span>
-<span id="cb384-5"><a href="dpyr-library.html#cb384-5" tabindex="-1"></a></span>
-<span id="cb384-6"><a href="dpyr-library.html#cb384-6" tabindex="-1"></a>hg4</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="dpyr-library.html#cb402-1" tabindex="-1"></a>hg4<span class="ot">=</span>hg3 <span class="sc">%&gt;%</span></span>
+<span id="cb402-2"><a href="dpyr-library.html#cb402-2" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Genes_per_Mb)) <span class="sc">%&gt;%</span> <span class="co"># order in descending order </span></span>
+<span id="cb402-3"><a href="dpyr-library.html#cb402-3" tabindex="-1"></a>  <span class="fu">select</span>(Chromosome, Genes_per_Mb) <span class="sc">%&gt;%</span> <span class="co"># select the required columns </span></span>
+<span id="cb402-4"><a href="dpyr-library.html#cb402-4" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="co"># select the top 10</span></span>
+<span id="cb402-5"><a href="dpyr-library.html#cb402-5" tabindex="-1"></a></span>
+<span id="cb402-6"><a href="dpyr-library.html#cb402-6" tabindex="-1"></a>hg4</span></code></pre></div>
 <pre><code>## # A tibble: 10 × 2
 ##    Chromosome Genes_per_Mb
 ##    &lt;chr&gt;             &lt;dbl&gt;
@@ -757,18 +757,18 @@ The human genome dator more than 1000 protein coding genes and mtRNA more than 1
 ##  9 12                 0.78
 ## 10 14                 0.78</code></pre>
 <p><strong>Q5. Calculate the mean of gene density for autosomes, sex chromosomes and mitochondrial genes</strong></p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="dpyr-library.html#cb386-1" tabindex="-1"></a>autosomes<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">22</span>) <span class="co">#create a vector with 22 As</span></span>
-<span id="cb386-2"><a href="dpyr-library.html#cb386-2" tabindex="-1"></a><span class="fu">print</span>(autosomes)</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="dpyr-library.html#cb404-1" tabindex="-1"></a>autosomes<span class="ot">=</span><span class="fu">rep</span>(<span class="st">&quot;A&quot;</span>, <span class="dv">22</span>) <span class="co">#create a vector with 22 As</span></span>
+<span id="cb404-2"><a href="dpyr-library.html#cb404-2" tabindex="-1"></a><span class="fu">print</span>(autosomes)</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;
 ## [20] &quot;A&quot; &quot;A&quot; &quot;A&quot;</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="dpyr-library.html#cb388-1" tabindex="-1"></a>chr_class<span class="ot">=</span><span class="fu">c</span>(autosomes, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
-<span id="cb388-2"><a href="dpyr-library.html#cb388-2" tabindex="-1"></a>chr_class</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="dpyr-library.html#cb406-1" tabindex="-1"></a>chr_class<span class="ot">=</span><span class="fu">c</span>(autosomes, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;S&quot;</span>, <span class="st">&quot;M&quot;</span>)</span>
+<span id="cb406-2"><a href="dpyr-library.html#cb406-2" tabindex="-1"></a>chr_class</span></code></pre></div>
 <pre><code>##  [1] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot;
 ## [20] &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;S&quot; &quot;S&quot; &quot;M&quot;</code></pre>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="dpyr-library.html#cb390-1" tabindex="-1"></a>hg5<span class="ot">=</span> hg3 <span class="sc">%&gt;%</span></span>
-<span id="cb390-2"><a href="dpyr-library.html#cb390-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Type=</span>chr_class)</span>
-<span id="cb390-3"><a href="dpyr-library.html#cb390-3" tabindex="-1"></a></span>
-<span id="cb390-4"><a href="dpyr-library.html#cb390-4" tabindex="-1"></a>hg5 <span class="co"># confirm the new column &quot;Type&quot; is added</span></span></code></pre></div>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="dpyr-library.html#cb408-1" tabindex="-1"></a>hg5<span class="ot">=</span> hg3 <span class="sc">%&gt;%</span></span>
+<span id="cb408-2"><a href="dpyr-library.html#cb408-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Type=</span>chr_class)</span>
+<span id="cb408-3"><a href="dpyr-library.html#cb408-3" tabindex="-1"></a></span>
+<span id="cb408-4"><a href="dpyr-library.html#cb408-4" tabindex="-1"></a>hg5 <span class="co"># confirm the new column &quot;Type&quot; is added</span></span></code></pre></div>
 <pre><code>## # A tibble: 25 × 10
 ##    Chromosome Base_Pairs Protein_Coding_genes Pseudogenes Total_long_non_codin…¹
 ##    &lt;chr&gt;           &lt;dbl&gt;                &lt;dbl&gt;       &lt;dbl&gt;                  &lt;dbl&gt;
@@ -787,10 +787,10 @@ The human genome dator more than 1000 protein coding genes and mtRNA more than 1
 ## # ℹ 5 more variables: Total_small_nc_RA &lt;dbl&gt;, miRNA &lt;dbl&gt;, rRNA &lt;dbl&gt;,
 ## #   Genes_per_Mb &lt;dbl&gt;, Type &lt;chr&gt;</code></pre>
 <p>Group by chromosomes and calculate the mean density</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="dpyr-library.html#cb392-1" tabindex="-1"></a>hg6<span class="ot">=</span>hg5 <span class="sc">%&gt;%</span> </span>
-<span id="cb392-2"><a href="dpyr-library.html#cb392-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Type) <span class="sc">%&gt;%</span></span>
-<span id="cb392-3"><a href="dpyr-library.html#cb392-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gene_density=</span><span class="fu">mean</span>(Genes_per_Mb))</span>
-<span id="cb392-4"><a href="dpyr-library.html#cb392-4" tabindex="-1"></a>hg6</span></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="dpyr-library.html#cb410-1" tabindex="-1"></a>hg6<span class="ot">=</span>hg5 <span class="sc">%&gt;%</span> </span>
+<span id="cb410-2"><a href="dpyr-library.html#cb410-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Type) <span class="sc">%&gt;%</span></span>
+<span id="cb410-3"><a href="dpyr-library.html#cb410-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">gene_density=</span><span class="fu">mean</span>(Genes_per_Mb))</span>
+<span id="cb410-4"><a href="dpyr-library.html#cb410-4" tabindex="-1"></a>hg6</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   Type  gene_density
 ##   &lt;chr&gt;        &lt;dbl&gt;

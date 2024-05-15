@@ -354,9 +354,9 @@ They represent a vector of bytes in their natural form. They are used in storing
 <span id="cb75-2"><a href="data-types-and-data-structures.html#cb75-2" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">rawToChar</span>(a)</span>
 <span id="cb75-3"><a href="data-types-and-data-structures.html#cb75-3" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<p>“Hello world” can be represented as</p>
+<p>“Hello world” can be represented as in the results below when converted to raw data type</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="data-types-and-data-structures.html#cb77-1" tabindex="-1"></a>binary_data <span class="ot">=</span> <span class="fu">charToRaw</span>(<span class="st">&quot;Hello World&quot;</span>)</span>
-<span id="cb77-2"><a href="data-types-and-data-structures.html#cb77-2" tabindex="-1"></a><span class="fu">print</span>(binary_data)</span></code></pre></div>
+<span id="cb77-2"><a href="data-types-and-data-structures.html#cb77-2" tabindex="-1"></a><span class="fu">print</span>(binary_data) </span></code></pre></div>
 <pre><code>##  [1] 48 65 6c 6c 6f 20 57 6f 72 6c 64</code></pre>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="data-types-and-data-structures.html#cb79-1" tabindex="-1"></a><span class="fu">class</span>(binary_data)</span></code></pre></div>
 <pre><code>## [1] &quot;raw&quot;</code></pre>
@@ -407,8 +407,8 @@ They represent a vector of bytes in their natural form. They are used in storing
 <p><code>rev()</code> command is used to reverse the order of elements in a vector</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="data-types-and-data-structures.html#cb103-1" tabindex="-1"></a><span class="fu">rev</span>(marks)</span></code></pre></div>
 <pre><code>## [1] 21 98 34 98 67 23</code></pre>
-<div id="mathematical-operations-in-a-vector" class="section level4 hasAnchor" number="3.2.1.1">
-<h4><span class="header-section-number">3.2.1.1</span> Mathematical Operations in a vector<a href="data-types-and-data-structures.html#mathematical-operations-in-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="statistical-operations-in-a-vector" class="section level4 hasAnchor" number="3.2.1.1">
+<h4><span class="header-section-number">3.2.1.1</span> Statistical Operations in a vector<a href="data-types-and-data-structures.html#statistical-operations-in-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The summary/descriptive statistics are calculated by <code>summary()</code> command.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="data-types-and-data-structures.html#cb105-1" tabindex="-1"></a><span class="fu">summary</span>(marks)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -633,7 +633,8 @@ They represent a vector of bytes in their natural form. They are used in storing
 <pre><code>## [1] 3</code></pre>
 <div id="mathematical-operations-in-a-matrix" class="section level4 hasAnchor" number="3.2.2.1">
 <h4><span class="header-section-number">3.2.2.1</span> Mathematical Operations in a matrix<a href="data-types-and-data-structures.html#mathematical-operations-in-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><strong>Matrix Addition</strong></p>
+<p><strong>Matrix Addition</strong>
+Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="data-types-and-data-structures.html#cb203-1" tabindex="-1"></a>data1</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
 ## [1,]    1    4    7
@@ -645,65 +646,119 @@ They represent a vector of bytes in their natural form. They are used in storing
 ## [1,]    4    7   10
 ## [2,]    5    8   11
 ## [3,]    6    9   12</code></pre>
-<p>Adding value 3 to a matrix adds each value in the matrix by 3</p>
-<p><strong>Matrix Subtraction</strong></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-types-and-data-structures.html#cb207-1" tabindex="-1"></a>data3 <span class="ot">=</span> data1<span class="dv">-1</span> <span class="co">#reduce each value by 1</span></span>
-<span id="cb207-2"><a href="data-types-and-data-structures.html#cb207-2" tabindex="-1"></a>data3</span></code></pre></div>
+<p>For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other.</p>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="data-types-and-data-structures.html#cb207-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb207-2"><a href="data-types-and-data-structures.html#cb207-2" tabindex="-1"></a><span class="fu">print</span>(data1)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
-## [1,]    0    3    6
-## [2,]    1    4    7
-## [3,]    2    5    8</code></pre>
-<p>Subtracting 1 to <code>data1</code> subtract each value in the matrix by 1</p>
-<p><strong>Matrix Multiplication(scalar)</strong></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data-types-and-data-structures.html#cb209-1" tabindex="-1"></a>data4 <span class="ot">=</span> data1<span class="sc">*</span><span class="dv">5</span></span>
-<span id="cb209-2"><a href="data-types-and-data-structures.html#cb209-2" tabindex="-1"></a>data4</span></code></pre></div>
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="data-types-and-data-structures.html#cb209-1" tabindex="-1"></a>data2 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">2</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb209-2"><a href="data-types-and-data-structures.html#cb209-2" tabindex="-1"></a><span class="fu">print</span>(data2)</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
-## [1,]    5   20   35
-## [2,]   10   25   40
-## [3,]   15   30   45</code></pre>
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-types-and-data-structures.html#cb211-1" tabindex="-1"></a><span class="co"># Add data1 to data2</span></span>
+<span id="cb211-2"><a href="data-types-and-data-structures.html#cb211-2" tabindex="-1"></a>resultant_matrix <span class="ot">=</span> data1 <span class="sc">+</span> data2</span>
+<span id="cb211-3"><a href="data-types-and-data-structures.html#cb211-3" tabindex="-1"></a>resultant_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    5    8
+## [2,]   11   14   17
+## [3,]   20   23   26</code></pre>
+<p><strong>Matrix Subtraction</strong>
+The same concept of matrix addition applies to matrix subtraction as well.</p>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-types-and-data-structures.html#cb213-1" tabindex="-1"></a>data3 <span class="ot">=</span> data1<span class="dv">-1</span> <span class="co">#reduce each value by 1</span></span>
+<span id="cb213-2"><a href="data-types-and-data-structures.html#cb213-2" tabindex="-1"></a>data3</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    1    2
+## [2,]    3    4    5
+## [3,]    6    7    8</code></pre>
+<p>Subtracting 1 to <code>data1</code> subtract each value in the matrix by 1. Lets now subtract data1 from data2.</p>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data-types-and-data-structures.html#cb215-1" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data-types-and-data-structures.html#cb217-1" tabindex="-1"></a>data2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-types-and-data-structures.html#cb219-1" tabindex="-1"></a>resultant_matrix <span class="ot">=</span> data2<span class="sc">-</span>data1</span>
+<span id="cb219-2"><a href="data-types-and-data-structures.html#cb219-2" tabindex="-1"></a>resultant_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    1    2
+## [2,]    3    4    5
+## [3,]    6    7    8</code></pre>
+<p><strong>Matrix Multiplication(scalar)</strong>
+A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="data-types-and-data-structures.html#cb221-1" tabindex="-1"></a>data4 <span class="ot">=</span> data1<span class="sc">*</span><span class="dv">5</span></span>
+<span id="cb221-2"><a href="data-types-and-data-structures.html#cb221-2" tabindex="-1"></a>data4</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    5   10   15
+## [2,]   20   25   30
+## [3,]   35   40   45</code></pre>
+<p>Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="data-types-and-data-structures.html#cb223-1" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="data-types-and-data-structures.html#cb225-1" tabindex="-1"></a>data2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="data-types-and-data-structures.html#cb227-1" tabindex="-1"></a>product_matrix <span class="ot">=</span> data1 <span class="sc">*</span> data2</span>
+<span id="cb227-2"><a href="data-types-and-data-structures.html#cb227-2" tabindex="-1"></a>product_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    6   15
+## [2,]   28   45   66
+## [3,]   91  120  153</code></pre>
 <p><strong>Matrix division</strong></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="data-types-and-data-structures.html#cb211-1" tabindex="-1"></a>data5 <span class="ot">=</span> data1<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb211-2"><a href="data-types-and-data-structures.html#cb211-2" tabindex="-1"></a>data5</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="data-types-and-data-structures.html#cb229-1" tabindex="-1"></a>data5 <span class="ot">=</span> data1<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb229-2"><a href="data-types-and-data-structures.html#cb229-2" tabindex="-1"></a>data5</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3]
-## [1,]  0.5  2.0  3.5
-## [2,]  1.0  2.5  4.0
-## [3,]  1.5  3.0  4.5</code></pre>
+## [1,]  0.5  1.0  1.5
+## [2,]  2.0  2.5  3.0
+## [3,]  3.5  4.0  4.5</code></pre>
 </div>
 </div>
 <div id="data-frame" class="section level3 hasAnchor" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> Data frame<a href="data-types-and-data-structures.html#data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>is a two dimensional data structure, like a 2d array/matrix with rows and columns.</p>
 <p>Lets convert a matrix into a dataframe</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="data-types-and-data-structures.html#cb213-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb213-2"><a href="data-types-and-data-structures.html#cb213-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
-<span id="cb213-3"><a href="data-types-and-data-structures.html#cb213-3" tabindex="-1"></a></span>
-<span id="cb213-4"><a href="data-types-and-data-structures.html#cb213-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
-<span id="cb213-5"><a href="data-types-and-data-structures.html#cb213-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
-<span id="cb213-6"><a href="data-types-and-data-structures.html#cb213-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
-<span id="cb213-7"><a href="data-types-and-data-structures.html#cb213-7" tabindex="-1"></a>data</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="data-types-and-data-structures.html#cb231-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb231-2"><a href="data-types-and-data-structures.html#cb231-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
+<span id="cb231-3"><a href="data-types-and-data-structures.html#cb231-3" tabindex="-1"></a></span>
+<span id="cb231-4"><a href="data-types-and-data-structures.html#cb231-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
+<span id="cb231-5"><a href="data-types-and-data-structures.html#cb231-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
+<span id="cb231-6"><a href="data-types-and-data-structures.html#cb231-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
+<span id="cb231-7"><a href="data-types-and-data-structures.html#cb231-7" tabindex="-1"></a>data</span></code></pre></div>
 <pre><code>##   Students X1 X2 X3 X4
 ## 1   Pragya  1  4  7 10
 ## 2  Deepika  2  5  8 11
 ## 3 Chandran  3  6  9 12</code></pre>
 <p>The above data shows scores of different students in different subjects. The column names are automatically generated by R, however, the column names can be added as below.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="data-types-and-data-structures.html#cb215-1" tabindex="-1"></a>headers<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Students&quot;</span>, <span class="st">&quot;Geonomics&quot;</span>, <span class="st">&quot;Proteomics&quot;</span>, <span class="st">&quot;Microbiology&quot;</span>, <span class="st">&quot;Biostatistics&quot;</span>)</span>
-<span id="cb215-2"><a href="data-types-and-data-structures.html#cb215-2" tabindex="-1"></a><span class="fu">colnames</span>(data)<span class="ot">=</span>headers <span class="co">#add column names </span></span>
-<span id="cb215-3"><a href="data-types-and-data-structures.html#cb215-3" tabindex="-1"></a>data</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="data-types-and-data-structures.html#cb233-1" tabindex="-1"></a>headers<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Students&quot;</span>, <span class="st">&quot;Geonomics&quot;</span>, <span class="st">&quot;Proteomics&quot;</span>, <span class="st">&quot;Microbiology&quot;</span>, <span class="st">&quot;Biostatistics&quot;</span>)</span>
+<span id="cb233-2"><a href="data-types-and-data-structures.html#cb233-2" tabindex="-1"></a><span class="fu">colnames</span>(data)<span class="ot">=</span>headers <span class="co">#add column names </span></span>
+<span id="cb233-3"><a href="data-types-and-data-structures.html#cb233-3" tabindex="-1"></a>data</span></code></pre></div>
 <pre><code>##   Students Geonomics Proteomics Microbiology Biostatistics
 ## 1   Pragya         1          4            7            10
 ## 2  Deepika         2          5            8            11
 ## 3 Chandran         3          6            9            12</code></pre>
 <p>A rowwise addition can be performed on a data frame to find the total scores for each student in the four units</p>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="data-types-and-data-structures.html#cb217-1" tabindex="-1"></a><span class="do">## Add a new column with total marks obtained </span></span>
-<span id="cb217-2"><a href="data-types-and-data-structures.html#cb217-2" tabindex="-1"></a>data<span class="sc">$</span>total_marks<span class="ot">=</span><span class="fu">rowSums</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)]) <span class="co">#add from second to fifth column </span></span>
-<span id="cb217-3"><a href="data-types-and-data-structures.html#cb217-3" tabindex="-1"></a>data</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="data-types-and-data-structures.html#cb235-1" tabindex="-1"></a><span class="do">## Add a new column with total marks obtained </span></span>
+<span id="cb235-2"><a href="data-types-and-data-structures.html#cb235-2" tabindex="-1"></a>data<span class="sc">$</span>total_marks<span class="ot">=</span><span class="fu">rowSums</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)]) <span class="co">#add from second to fifth column </span></span>
+<span id="cb235-3"><a href="data-types-and-data-structures.html#cb235-3" tabindex="-1"></a>data</span></code></pre></div>
 <pre><code>##   Students Geonomics Proteomics Microbiology Biostatistics total_marks
 ## 1   Pragya         1          4            7            10          22
 ## 2  Deepika         2          5            8            11          26
 ## 3 Chandran         3          6            9            12          30</code></pre>
 <p>Find the average score for each student.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="data-types-and-data-structures.html#cb219-1" tabindex="-1"></a>data<span class="sc">$</span>average_marks<span class="ot">=</span><span class="fu">rowMeans</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)])</span>
-<span id="cb219-2"><a href="data-types-and-data-structures.html#cb219-2" tabindex="-1"></a>data</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="data-types-and-data-structures.html#cb237-1" tabindex="-1"></a>data<span class="sc">$</span>average_marks<span class="ot">=</span><span class="fu">rowMeans</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)])</span>
+<span id="cb237-2"><a href="data-types-and-data-structures.html#cb237-2" tabindex="-1"></a>data</span></code></pre></div>
 <pre><code>##   Students Geonomics Proteomics Microbiology Biostatistics total_marks
 ## 1   Pragya         1          4            7            10          22
 ## 2  Deepika         2          5            8            11          26

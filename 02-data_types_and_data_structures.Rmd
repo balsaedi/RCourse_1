@@ -140,10 +140,10 @@ b=rawToChar(a)
 class(b)
 ```
 
-"Hello world" can be represented as 
+"Hello world" can be represented as in the results below when converted to raw data type
 ```{r}
 binary_data = charToRaw("Hello World")
-print(binary_data)
+print(binary_data) 
 class(binary_data)
 ```
 
@@ -210,7 +210,7 @@ marks[-2] #exclude the element at index 2
 rev(marks)
 ```
 
-#### Mathematical Operations in a vector 
+#### Statistical Operations in a vector 
 The summary/descriptive statistics are calculated by `summary()` command. 
 ```{r}
 summary(marks)
@@ -448,24 +448,52 @@ ncol(data1)
 
 #### Mathematical Operations in a matrix 
 **Matrix Addition**
+Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.
 ```{r}
 data1
 data2 = data1 + 3
 data2
 ```
-Adding value 3 to a matrix adds each value in the matrix by 3
+For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other. 
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+print(data1)
+data2 = matrix(seq(1, 18, 2), ncol=3, byrow=TRUE)
+print(data2)
+
+# Add data1 to data2
+resultant_matrix = data1 + data2
+resultant_matrix
+```
+
 
 **Matrix Subtraction**
+The same concept of matrix addition applies to matrix subtraction as well. 
 ```{r}
 data3 = data1-1 #reduce each value by 1
 data3
 ```
-Subtracting 1 to `data1` subtract each value in the matrix by 1
-
+Subtracting 1 to `data1` subtract each value in the matrix by 1. Lets now subtract data1 from data2.
+```{r}
+data1
+data2
+resultant_matrix = data2-data1
+resultant_matrix
+```
 **Matrix Multiplication(scalar)**
+A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix. 
 ```{r}
 data4 = data1*5
 data4
+```
+
+Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product. 
+
+```{r}
+data1
+data2
+product_matrix = data1 * data2
+product_matrix
 ```
 
 **Matrix division**
