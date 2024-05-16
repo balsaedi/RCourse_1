@@ -5,7 +5,7 @@
 This chapter explains how to read a file to a data frame using the `readxl` library. The `readxl` package can be installed from the console by `install.packages("readxl")` command.
 
 Lets begin by importing the library
-```{r echo=TRUE, include=TRUE}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 # Import the library
 library(readxl)
 ```
@@ -15,7 +15,7 @@ The `readxl` library can read .xlsx, xls files to a data frame. For this case, H
 hg = read_excel("data/Human_genome.xlsx")
 ```
 
-View the dataset 
+View the data set 
 ```{r}
 str(hg)
 ```

@@ -1,5 +1,5 @@
 # Dpyr library
-`readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some opf the examples of dplyr verbs;
+`readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some of the examples of dplyr verbs;
 - select
 - filter
 - arrange 
@@ -7,42 +7,40 @@
 - group by 
 - summarise
 
-<--EXPLAIN THE PROCESS OF dplyr INSTALLATION USING RSTUDIO -->
-
-```{r}
-#uncomment the below line to install dplyr
-#install.packages("dplyr")
+To install `dplyr`, run the below command on the console.
 ```
+install.packages("dplyr")
+```
+Ensure your computer is connected to the internet when installing!
 
-Load the required libraries 
-```{r}
+To invoke the libraries to the program run;
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(dplyr)
 library(readxl)
 ```
 
-Before working on the data, the `readxl` package will be used to read the excel table. Then manipulate the data withn`dplyr`.
+Before working on the data, it need to imported first. The `readxl` library will be used. The data will then be manipulated by `dplyr`.
 
-```{r}
-hg = read_excel("data/Human_genome.xlsx")
-tail(hg) #display the last 6 records of the data
-```
 
-Apart from data retrieved from excel tables, there are some inbuilt freeely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
+Apart from data retrieved from excel tables, there are some inbuilt freely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
 ```{r}
 data()
 ```
 
-or 
+This will show all data sets including both the inbuilt and the previously imported ones. Alternatively the code below will show only the inbuilt R data sets.
 ```{r}
 ls("package:datasets")
 ```
 
-The above datasets are available in base R however some of the packages come with the newly installed packages. The data from all the packages can be viewd by
+Some libraries come with their own inbuilt data sets which can be explored by the command;
 ```{r}
 data(package=.packages(all.available = TRUE))
 ```
 
-A good example is the famous iris dataset that will be used in this course. The data will be invoked to R before assessment and wrangling. 
+Good example is the famous iris that will be used in this course. It is always used by beginners in data science. The data set contains measurements of various characteristics of iris flowers. These characteristics include sepal length, sepal width, petal length, and petal width. There are three species of iris flowers in the data set: setosa, versicolor, and virginica. 
+The data will be invoked to R before assessment and wrangling;
+
+Lets load the iris data and explore the first few records. 
 ```{r}
 data("iris")
 head(iris)
@@ -53,7 +51,7 @@ Calculating the summary statistics
 summary(iris)
 ```
 
-Lets write this dataset locally to a file. 
+Lets write this data set locally to a file. 
 ```{r}
 write.table(iris, "data/iris_dataset.txt", append = FALSE)
 file.show("data/iris_dataset.txt")
@@ -65,33 +63,230 @@ write.table(iris, "data/iris_dataset.txt", append = FALSE, quote = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
-or to remove quotes and row names <-- remember to add screenshots--> 
+or to remove quotes and row names
 ```{r}
 write.table(iris, "data/iris_dataset.txt", append = FALSE, quote=FALSE, row.names = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
+## Dplyr Verbs
+### select
 
+This dplyr verb is used when selecting or dropping specific columns. In this lesson we will find the iris column names and select two of them using `select`. 
+```{r}
+# Find the column names 
+colnames(iris)
+```
 
-**Chaining**
+Remember the data frame to work on need to be specified in the arguments such that 
 
-Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. 
+```
+selected_data = select(data_frame, col1, col2, col3)
+```
+
+Therefore, we will select the columns; Species, Petal length and petal width. 
+
+```{r}
+selected_iris_data = select(iris,
+                       Petal.Length, Petal.Width, Species)
+
+# view the first few rows of the selected data
+head(selected_iris_data)
+```
+The three selected columns are displayed in the data frame above. 
+
+Specific columns can be dropped by putting `-` before the column name as
+```
+# Drop specified columns 
+remaining_data = select(data_frame, -col1_to_drop, -col2_to_drop)
+```
+In this lesson, we will drop petal length, petal width and Species columns;
+```{r}
+remaining_iris_data = select(iris,
+                       -Petal.Length, -Petal.Width, -Species)
+
+# view the first few rows of the selected data
+head(remaining_iris_data)
+```
+
+### filter
+Is a verb/function from `dplyr` used to filter records in a data frame based on a specific condition. It allows the analyst to retrieve the records he/she is interested in and work easier with the subset. 
+With `filter()`, the data frame and the condion are passed as a arguments;
+```
+# Filtering rows where a certain column meets a condition
+filtered_data = filter(data_frame, 
+column_name > 5 # This is the condition)
+```
+
+Lets select the species 'setosa' from the iris data set 
+```{r}
+setosa_iris = filter(iris, # the data frame
+                     Species == "setosa" # the condition
+                     )
+# First few records of setosa data
+head(setosa_iris)
+```
+
+Records with sepal width of more than 3.0 can be filtered. Here is how we achieve such a subset
+```{r}
+wide_sepal_iris = filter(iris, #the data frame
+                         Sepal.Width>3.0 # the condition
+                         )
+
+head(wide_sepal_iris)
+```
+
+### arrange 
+This is `dplyr` verb/function used for sorting rows by rearranging in a specific order. here is how to use `arrange()` function;
+```
+arranged_data = arrange(data_frame, column_name)
+```
+This allows the analyst to arrange the data in a default ascending order. To arrange in a descending order a `desc()` function is added as;
+```
+# Note the additional desc function
+arranged_data = arrange(data_frame, desc(column_name))
+```
+
+Now lets order the iris data in an ascending order based on Petal length and view the first 6 records with the shortest petal. 
+```{r}
+# Sort the data 
+by_petal_length = arrange(iris, # data frame 
+                          Petal.Length # order by column
+                          )
+
+# View the data 
+head(by_petal_length)
+```
+
+Lets repeat the same process but now we order the data in a descending order.
+```{r}
+# Sort the data 
+by_petal_length = arrange(iris, # data frame 
+                          desc(Petal.Length) # order by column
+                          )
+
+# View the data 
+head(by_petal_length)
+```
+
+### mutate
+`mutate()` is a dplyr verb used to modifying the existing variables or creating new variables in a data set. 
+In this case we can calculate the log off Sepal length in the iris data 
+```{r}
+# modify Sepal.Length
+new_iris = mutate(iris, Sepal.Length=log(Sepal.Length))
+
+head(new_iris)
+```
+
+Additionally, we can create an entirely new variable by `mutate()`. In this case we will find the ratio between petal length and petal width. The new variable will be called "Petal.Length.Width.Ratio"
+```{r}
+new_iris = mutate(iris,
+                  Petal.Length.Width.Ratio = Petal.Length/Petal.Width)
+
+head(new_iris)
+```
+
+The "Petal.Length.Width.Ratio" is found by dividing the Petal.Length and the Petal.Width variables. 
+
+### group_by 
+The `group_by()` is a function used to group records in a data frame by one or more variables. It allows the analyst to create a group based on a certain criteria. 
+
+Lets group the iris data based on the Species variable;
+```{r}
+iris_groups = group_by(iris, Species)
+head(iris_groups)
+```
+
+This groupings allow the analyst to retrieve insights at more base level and uncover more insights that could not have been possible when analyzing the entire data set
+
+### Summarise
+To calculate summary statistics such as average, median and maximum the `summarise()` is used. This function collapses mutilple rows into a summary row. For instance calculating the mean Petal width;
+```{r}
+summarise(iris, 
+          mean_petal_width=mean(Petal.Width))
+```
+
+To find the mean petal width for each iris species;
+- the iris data will be grouped by species
+- a mean value for each group will be calculated
+```{r}
+grouped_iris = group_by(iris, Species)
+mean_petal_widths = summarise(grouped_iris, mean_value=mean(Petal.Width))
+mean_petal_widths
+```
+
+## Chaining
+Chaining is the process of combining several operations together using the `%>%` or forward pipe operator. The chained workflow succeeds each other until the whole process is done. To understand chaining, the mtcars(Motor Trend cars) data set will be used. Mtcars is also a well-known data set containing several attributes of 32 different cars from 1974. Here's a brief explanation of the variables in the mtcars data set:
+
+1. mpg: Miles per gallon (fuel efficiency).
+2. cyl: Number of cylinders.
+3. disp: Displacement (cubic inches).
+4. hp: Horsepower.
+5. drat: Rear axle ratio.
+6. wt: Weight (in 1000 lbs).
+7. qsec: Quarter mile time (in seconds).
+8. vs: Engine type (0 = V-shaped, 1 = Straight).
+9. am: Transmission type (0 = Automatic, 1 = Manual).
+10. gear: Number of forward gears.
+11. carb: Number of carburetors.
+
+Lets start by loading the data into the program and view its first few records;
+```{r}
+data(mtcars)
+head(mtcars)
+```
+
+Lets `select` 6 most important columns in this analysis
+```{r}
+cars1 = mtcars %>% select(mpg, cyl, disp, hp, qsec, am)
+
+head(cars1)
+```
+
+Lets now `filter` to find vehicles with an automatic transmission type. The `filter` verb will be chained to `select` verb with `%>%`. 
+```{r}
+cars2 = mtcars %>%select(mpg, cyl, disp, hp, qsec, am) %>%
+  filter(am==0)
+head(cars2)
+```
+
+All these vehicles are of automatic transmission type, lets rank them according to the horsepower in descending order. 
+```{r}
+cars3= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
+  filter(am==0) %>%
+  arrange(desc(hp))
+
+head(cars3)
+```
+
+A new column of weight in 1000kgs (wt_1000kgs) can be created by diving weight in 1000lbs by 2.20462. `mutate` verb will be chained also.
+```{r}
+cars4= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
+  filter(am==0) %>%
+  arrange(desc(hp)) %>%
+  mutate(wt_1000kgs=wt/2.20462)
+
+head(cars4)
+```
+
+The above process has explained how chained works in `dplyr`. Many functions/processed can be chained together to manipulate data to the desired output. The next section will apply chaining to biology and be used to answer a few questions that will cement your understanding in R as a biologist. 
 
 ## Application of Dplyr on Microbiology
 Genetics composition of an organism can be analyzed using `dplyr`, in this course unit it will be used to analyze the human genetics data. 
 
-- Read the dataset from a file into a dataframe
+- Read the data set from a file into a data frame
 ```{r}
 hg = read_excel("data/Human_genome.xlsx")
 class(hg)
 ```
 
-review the first six records of the dataset 
+review the first six records of the data set 
 ```{r}
 head(hg)
 ```
  
- the last six records of the dataset
+ the last six records of the data set
 ```{r}
 tail(hg)
 ```

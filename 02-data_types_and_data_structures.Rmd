@@ -35,7 +35,7 @@ a=23L #add L to show it is an integer
 class(a)
 ```
 
-Lets store age as an integer
+Lets store age as an integer. **Note the 'L' after the number 27**
 ```{r}
 age = 27L
 class(age)
@@ -140,10 +140,10 @@ b=rawToChar(a)
 class(b)
 ```
 
-"Hello world" can be represented as 
+"Hello world" can be represented as in the results below when converted to raw data type
 ```{r}
 binary_data = charToRaw("Hello World")
-print(binary_data)
+print(binary_data) 
 class(binary_data)
 ```
 
@@ -156,8 +156,11 @@ class(age)
 
 ## Data Structures 
 This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;
+
 - Vector
+
 - Matrix
+
 - Data frame
 
 ### Vector
@@ -173,7 +176,7 @@ class(marks)
 ```
 The vector "marks" consist of only numeric values 
 
-`is.vector` function is used to check if the variable is a vector 
+`is.vector` function is used to check if the variable is a vector. It will return a Boolean value, `TRUE` if the variable in question is truly a vector while `FALSE` if otherwise. 
 ```{r}
 is.vector(marks)
 ```
@@ -183,7 +186,7 @@ unlike matrix and data frame, vector has no dimension
 dim(marks)
 ```
 
-`length()` function is used to count number of elements in vectors
+`length()` function is used to count number of elements in vectors. In our case vector marks, `marks = c(23, 67, 98, 34, 98, 21)` has six elements, therefore, `length()` command will return `6`. 
 ```{r}
 length(marks)
 ```
@@ -192,9 +195,13 @@ Index is the position of an element in a vector, in R it starts at index 1 - let
 ```{r}
 marks[3]
 ```
-value "98" is at index 3, or the third in the vector. 
+value "98" is at index 3, or the third in the vector. The first value/element of a vector is indexed `1`, for instance if we find the first value in the vector `marks`.
+```{r}
+marks[1] #returns the first value
+```
+The sequence goes on, the second, third, fourth, fifth ... values are indexed as , `2`, `3`, `4`, `5`... respectively. i.e the n^th value is indexed as `n`. 
 
-Vectors can be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
+Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
 ```{r}
 print(marks[2:4])
 is.vector(marks[2:4]) # confirm if the retrieved values are in a vector
@@ -224,20 +231,35 @@ print(paste("MEDIAN: ", median(marks)))
 print(paste("AVERAGE: ", mean(marks)))
 ```
 
-vector multiplication
+- **Vector multiplication and division** - vectors can be multiplied or divided by a scalar value of another vector of the same length and numeric data type. For instance, the vector `marks=c(23, 67, 98, 34, 98, 21)` is being multiplied by a scalar value `2`, that will multiply each element in a vector by two. 
 ```{r}
 double_marks =2 * marks 
 marks
 double_marks
 ```
 
-Vector division - divide the marks by 2
+The values in the vector `marks` can also be scaled down to a half when multiplied by a scalar value `0.5`. 
+```{r}
+half_marks =0.5 * marks 
+marks
+half_marks
+```
+
+Alternatively, instead of multiplying the vector by `0.5`, it can be divided by `2` a scalar value two. This is what is referred to as **vector division**.
 ```{r}
 half_marks = marks/2
 half_marks
 ```
 
-Multiply 2 vectors of equal length
+Two or more vectors of numeric values of the equal length can be multiplied or divided by each other. The example below demonstrates vector by vector multiplication. Each value is multiplied by a value of a corresponding index in the next vector such that;
+
+- `3` is multiplied by `7` to be `21`
+
+- `5` is multiplied by `3` to be `15`
+
+- `1` is multiplied by `9` to be `9`.
+
+The resultant vector is now `21 15 9`. 
 ```{r}
 a = c(3, 5, 1)
 b = c(7, 3, 9)
@@ -247,17 +269,45 @@ ba = b*a # is the same as ab
 ba
 ```
 
-Divide 2 vectors of equal length 
+The same vectors can also be divided by each other provided they are of the same length and all have numeric values. The order of vector division, for instance in the first case vector `a` is divided by vector `b` such that;
+
+- `3` is divided by `7` to be `0.4285714`
+
+- `5` is divided by `3` to be `1.6666667`
+
+- `1` is divided by `9` to be `0.1111111`.
+
+The resultant vector is now `0.4285714 1.6666667 0.1111111`. 
 ```{r}
+# First case
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+
 # Divide vector a by b
 abdiv=a/b
 abdiv
+```
+, and in the second case the order of vector division is reversed by vector `b` being divided by `a` such that;
+
+- `7` is divided by `3` to be `2.333333`
+
+- `3` is divided by `5` to be `0.600000`
+
+- `9` is divided by `1` to be `9.000000`.
+
+The resultant vector is now `2.333333 0.600000 9.000000`.
+```{r}
+# Second case
+a = c(3, 5, 1)
+b = c(7, 3, 9)
 # Divide vector b by a
 badiv=b/a
 badiv
 ```
 
-However, when multiplying vectors of unequal length the shorter one is replicated to match the longer vector. It will then return a warning
+However, when multiplying vectors of unequal length the shorter one is replicated to match the longer vector. It will then return a warning. The case below shows how vector `e=c(1,2,3,4,5)` and `f=c(1,2)` are multiplied.
+
+- vector `f=c(1,2)` will be replicated to match the length of vector `e`, therefore, vector `f` will be `f=c(1,2,1,2,1)`. The process of vector by vector multiplication will be followed. 
 ```{r}
 e=c(1,2,3,4,5)
 f=c(1,2)
@@ -281,14 +331,17 @@ my_name[5] = "Singh" #insert at the end
 my_name
 ```
 
-Combining the vectors to a single string 
+Combining the vectors to a single string. For instance the vector `my_name = c("My", "name", "is", "Vipin")` is combined to `"My name is Vipin"`. The `collapse` argument is used as below;
 ```{r}
 print(paste(my_name, collapse=" "))
 ```
 
 Calculate the summary/descriptive statistics of the vector by function `summary()`. It finds;
+
 - Count/length
+
 - Class (data type)
+
 - Mode 
 ```{r}
 summary(my_name)
@@ -448,24 +501,52 @@ ncol(data1)
 
 #### Mathematical Operations in a matrix 
 **Matrix Addition**
+Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.
 ```{r}
 data1
 data2 = data1 + 3
 data2
 ```
-Adding value 3 to a matrix adds each value in the matrix by 3
+For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other. 
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+print(data1)
+data2 = matrix(seq(1, 18, 2), ncol=3, byrow=TRUE)
+print(data2)
+
+# Add data1 to data2
+resultant_matrix = data1 + data2
+resultant_matrix
+```
+
 
 **Matrix Subtraction**
+The same concept of matrix addition applies to matrix subtraction as well. 
 ```{r}
 data3 = data1-1 #reduce each value by 1
 data3
 ```
-Subtracting 1 to `data1` subtract each value in the matrix by 1
-
+Subtracting 1 to `data1` subtract each value in the matrix by 1. Lets now subtract data1 from data2.
+```{r}
+data1
+data2
+resultant_matrix = data2-data1
+resultant_matrix
+```
 **Matrix Multiplication(scalar)**
+A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix. 
 ```{r}
 data4 = data1*5
 data4
+```
+
+Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product. 
+
+```{r}
+data1
+data2
+product_matrix = data1 * data2
+product_matrix
 ```
 
 **Matrix division**
@@ -478,7 +559,7 @@ data5
 ### Data frame
 is a two dimensional data structure, like a 2d array/matrix with rows and columns. 
 
-Lets convert a matrix into a dataframe 
+Lets convert a matrix into a data frame 
 
 ```{r}
 vector1 = c(1:12)
@@ -496,32 +577,16 @@ colnames(data)=headers #add column names
 data
 ```
 
-A rowwise addition can be performed on a data frame to find the total scores for each student in the four units
+A row wise addition can be performed on a data frame to find the total scores for each student in the four units
 ```{r}
 ## Add a new column with total marks obtained 
 data$total_marks=rowSums(data[, c(2, 3, 4, 5)]) #add from second to fifth column 
 data
 ```
 
-Find the average score for each student.
+Find the average score for each student.`rowMeans()` is used the average of each row/record.
 ```{r}
 data$average_marks=rowMeans(data[, c(2, 3, 4, 5)])
 data
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

@@ -6,8 +6,8 @@ Bioconductor is a repository for high-quality, peer-reviewed software packages f
 
 To get started with Bioconductor, you need to install the `BiocManager` package, which facilitates the installation and management of Bioconductor packages. You can find detailed installation instructions in the [official documentation](https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html).
 
-Load the required libraries 
-```{r}
+Load the required libraries
+```{r echo=TRUE, results='hide', error=FALSE, warning=FALSE, message=FALSE}
 library(Biostrings)
 ```
 
@@ -116,7 +116,7 @@ methods(class = "DNAStringSet")
 ## Using seqinr
 Another useful library in sequence analysis is `seqinr`. 
 After installing the library by invoking `install.packages("seqinr")` to the console, load it to the workspace 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(seqinr)
 ```
 
@@ -173,7 +173,7 @@ lseqinr()
 This library can be installed by invoking the `BiocManager::install("ShortRead")` command to the console. 
 
 load the library 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(ShortRead)
 ```
 

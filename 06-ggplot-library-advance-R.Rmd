@@ -4,30 +4,25 @@
 ## Five key steps to ggplot 
 There are 5 key steps in plotting in ggplot
 
-1.**The Setup** - Read the dataset, define x and y axis 
+1.**The Setup** - Read the data set, define x and y axis 
 
 2. **The Labels** - Title, X and Y axis labels 
 
-3. **The Theme** - Default, Black and White, coloured etc. 
+3. **The Theme** - Default, Black and White, colored etc. 
 
 4. **The Facets** - Individual Graphs for each group in data with exactly same range
 
 5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
 
-## Biology behind the data we are using 
-<--Review the slide on minute 3 video 7-->
-
-
-GGplot installation
-```{r}
-#uncomment the below line to install ggplot package
-#install.packages("ggplot2")
+To install `ggplot`, run the below command in the console.  
+```
+install.packages("ggplot2")
 ```
 
 
 ## Prepare the data for plotting - Data Assessment
 Invoke the libraries 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(ggplot2)
 library(data.table)
 ```
@@ -37,7 +32,7 @@ Read the data using the fread function
 methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
 ```
 
-View the first ficve records of the data 
+View the first five records of the data 
 ```{r}
 head(methylated_c)
 ```
@@ -46,7 +41,7 @@ Look at the nature of the data
 ```{r}
 str(methylated_c)
 ```
-In the dataset, there are numeric variables a well as character columns. There are 15 records in the dataset
+In the data set, there are numeric variables a well as character columns. There are 15 records in the data set
 
 Calculate the summary statistics 
 ```{r}
@@ -67,10 +62,14 @@ class(methylated_c)
 
 ## Plotting 
 ### Base set up
-Before plotting the data, you need to: 
-- Define the graph skeleton
-- Define the aesthetics
-- Define the labels
+Before plotting the data, you need to;
+
+- Define the graph skeleton. This is just an empty `ggplot()` function without additional arguments
+
+- Define the aesthetics. It defines how data should be mapped to visual properties like position, color, shape, and size
+
+- Define the labels. The labels make the visualizations informative and easy to understand for the user. 
+
 ```{r}
 graph=ggplot(methylated_c, 
              aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
@@ -79,39 +78,56 @@ graph=ggplot(methylated_c,
 print(graph)
 ```
 
-- Define the type of graph - geoms. For this case, the graph is a bar graph
+- Define the type of graph - geoms. For this case, the graph is a bar graph. `geoms()` stands for 'geometric objects'. In `ggplot`, there are different types of `geoms` to define which graph is to be plotted. Some of the examples include; 
+
+- `geom_point()` for scatter plot
+
+- `geom_line()` for a line chart 
+
+- `geom_density()` for a density plots
+
+- `geom_histogram()` for histograms
+
+- `geom_boxplot()` for box plots
+
+- `geom_col()` for bar chart
+
+- `geom_tile()` for heat maps
+
+In this course we shall explore a few of them but the concepts applies to all of them. Now lets make our plot a bar chart. `geom()` function will be added to a variable `graph` defined above to plot a bar chart. 
 ```{r}
 graph1 = graph + geom_col() #plot a bar chart
 print(graph1)
 ```
 
-- Add some depth to the chart - introduce the third variable "Context"
-Make it a stacked bar chart
+If you can remember our data, `methylated_c` has a column/variable "Context". In this step, the variable "Context" will be introduced to make a stacked bar chart, therefore, the C distribution in Chromosomes based on "Context" will be plotted to add some depth to the data. 
 ```{r}
 graph2=graph1+aes(fill=Context)
 print(graph2)
 ```
 
- The graphs can also be a **grouped bar chart** when the position is defined as "dodge" upon further modifications
+To make it a grouped bar chart, a `position` argument is introduced. 
+
 ```{r}
 graph3=graph+geom_col(position="dodge")+aes(fill=Context)
 print(graph3)
 ```
 
-- Faceting - Group the charts by context
 Faceted graphs - these are related data plotted separately on the same image/diagram.
+
+The `facet_grid()` function is added to the variable `graph3` to created faceted graphs based on the variable "Context". 
 ```{r}
 graph4=graph3+facet_grid(~Context)
 print(graph4)
 ```
 
-GGPlot randomly select colours to paint the graph but the biologist/statistician can use predefined colours as below.
+GGPlot randomly select colors to paint the graph but the biologist/statistician can use predefined colors as below.
 ```{r}
 graph5=graph4+scale_fill_manual(values=c("brown", "blue", "red"))
 print(graph5)
 ```
 
-- Modifying the background colour
+- The background color can be modified to ones aesthetic taste. The `theme()` function along with relevant arguments to make the background color of your choice, in this its light blue. 
 ```{r}
 graph5+theme_bw(base_size=9)+theme(panel.background = element_rect(fill="lightblue"))
 ```
@@ -131,21 +147,19 @@ print(graph_final)
 ```
 The `expression` is used to combine name italics and normal fonts - this helps biologists include botanical names in charts
 
-
-- The graphs can be exported as images or pdf. This can be done in RStudio
-<--Show screenshots if possible-->
-
 ## Working with inbuilt iris data 
-- plot a box plot to compare the sepal length in diferent iris species
+We have worked with iris data set before. In this topic we shall ask some questions and plot them on a box plot to cement our understanding in `ggplot`
+
+- **Plot a box plot to compare the sepal length in different iris species**
 ```{r}
-graph = ggplot(iris, aes(x=Species, y=Sepal.Length))+
-  geom_boxplot()+aes(fill=Species)
+graph = ggplot(iris, aes(x=Species, y=Sepal.Length))+ # the graph skeleton
+  geom_boxplot()+aes(fill=Species) # aesthetics
 
 print(graph)
 ```
 Virginica have higher sepal length however some virginica have less sepal length than versicolor
 
-Violin plot will show a better distribution than boxplot
+Violin plot will show a better distribution than box plot
 ```{r}
 graph = ggplot(iris, aes(x=Species, y=Sepal.Length))+
   geom_violin()+aes(fill=Species)
@@ -153,28 +167,28 @@ graph = ggplot(iris, aes(x=Species, y=Sepal.Length))+
 print(graph)
 ```
 
-**tidyr**
-
-this package is used to reshape data especially from a long format to a short format.
-```{r}
-# uncomment the below line to install the library 
-#install.packages("tidyr")
+Since some data cleaning and manipulation is required before diving deep into visualizations, a package **tidyr** is introduced. It can be installed by invoking the command below to the console.  
+```
+install.packages("tidyr")
 ```
 
+This package is a part of the tidyverse collection designed to make data cleaning and reshaping easy. It has multiple functions for instance `gather()`, `spread()`, `pivot_wider()`, `pivot_longer()`, `separate()`, `unite()` and `fill()`. In this section we shall not dive deep to explore tidyr package but we will borrow one of its important functions, `gather()` to manipulate iris data when plotting. This function, `gather()` is used to reshape data especially from a long format to a short format.
+
 Invoke the library
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(tidyr) # can be used to convert from short format to long format
 ```
 
 - Convert to a long format
-`gather` command is used to convert data into fewer columns. The columns from sepal length to petal width are to be merged to a single column called messearements
+
+`gather` command is used to convert data into fewer columns. The columns from sepal length to petal width are to be merged to a single column called measurements
 ```{r}
 #Gather from sepal length to petal width column into type and measurement column 
 iris_long = gather(iris, type, measurement, Sepal.Length:Petal.Width, factor_key = TRUE)
 tail(iris_long)
 ```
 
-Lets plot the data to a boxplot 
+Lets plot the data to a box plot 
 ```{r}
 graph=ggplot(iris_long, aes(x=Species,y=measurement))+
   labs(x="Species", y="Length in cm", title = "variation in Petals and Sepals of Iris Species")+
