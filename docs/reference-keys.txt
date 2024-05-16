@@ -1,4 +1,3 @@
-r-course
 r---introduction
 r---basic-concepts-and-applications
 why-r

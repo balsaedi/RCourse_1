@@ -1,4 +1,6 @@
 # R - Introduction
+![](images/R-logo.jpeg)
+
 ## R - Basic Concepts and applications 
 **R (programming language)** is a language and environment for statistical computing and graphics 
 

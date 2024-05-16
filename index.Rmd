@@ -4,6 +4,3 @@ author: "YOUR NAME HERE"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
-
-# R Course
-![](images/R-logo.jpeg)
