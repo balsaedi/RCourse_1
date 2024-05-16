@@ -3,7 +3,7 @@ r---introduction
 r---basic-concepts-and-applications
 why-r
 r-studio
-r---look-and-feel
+rstudio---look-and-feel
 basic-mathematics-like-operators
 basics
 bodmas-rule
@@ -13,7 +13,7 @@ data-types-and-data-structures
 data-types
 data-structures
 vector
-statistical-operations-in-a-vector
+mathematical-operations-in-a-vector
 character-vectors
 vectors-with-mixed-data-types
 named-vectors

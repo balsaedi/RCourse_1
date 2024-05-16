@@ -116,7 +116,7 @@ methods(class = "DNAStringSet")
 ## Using seqinr
 Another useful library in sequence analysis is `seqinr`. 
 After installing the library by invoking `install.packages("seqinr")` to the console, load it to the workspace 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(seqinr)
 ```
 
@@ -173,7 +173,7 @@ lseqinr()
 This library can be installed by invoking the `BiocManager::install("ShortRead")` command to the console. 
 
 load the library 
-```{r}
+```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
 library(ShortRead)
 ```
 

@@ -4,17 +4,17 @@
 ## Five key steps to ggplot 
 There are 5 key steps in plotting in ggplot
 
-1.**The Setup** - Read the dataset, define x and y axis 
+1.**The Setup** - Read the data set, define x and y axis 
 
 2. **The Labels** - Title, X and Y axis labels 
 
-3. **The Theme** - Default, Black and White, coloured etc. 
+3. **The Theme** - Default, Black and White, colored etc. 
 
 4. **The Facets** - Individual Graphs for each group in data with exactly same range
 
 5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
 
-To install `ggplot`, run the following command in the terminal 
+To install `ggplot`, run the following command in the console.  
 ```
 install.packages("ggplot2")
 ```

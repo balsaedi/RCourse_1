@@ -15,7 +15,7 @@ The `readxl` library can read .xlsx, xls files to a data frame. For this case, H
 hg = read_excel("data/Human_genome.xlsx")
 ```
 
-View the dataset 
+View the data set 
 ```{r}
 str(hg)
 ```

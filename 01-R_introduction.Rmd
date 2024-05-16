@@ -18,12 +18,10 @@
 **Rstudio** is an integrated development environment(IDE) for R. 
 
 It includes a console, syntax-highlighting editor that supports direct code execution as well as tools for plotting history, debugging and work space management. 
-RStudio - installation link <-link in the first 7 minutes->
 
-Outline the process of creating and running R script - a screenshot 
-<--Check R Version --> 
+R studio is an open source software from posit and can be freely be downloaded from https://posit.co/download/rstudio-desktop/. This link has all the installation files for Mac, Linux and Windows. You will download the installation file and install based on your computer operating system. 
 
-### R - Look and Feel
+### RStudio - Look and Feel
 
 ![](images/r-look-and-feel.png)
 
