@@ -1,6 +1,16 @@
 # Bioconductor
 
-Bioconductor is a repository for high-quality, peer-reviewed software packages for the analysis and comprehension of high-throughput genomic data. Here's a guide on how to utilize some of its functionalities:
+Bioconductor is a repository for high-quality, peer-reviewed software packages for the analysis and comprehension of high-throughput genomic data. It contained specific tools that handle, analyze and visualize data from high-throughput assays for instance ChIP-Seq, single-cell RNA-Seq and RNA-Seq. It provides data structures such as `ExpressionSet`,`SummarizedExperiment`, and `GenomicRanges`that store and manipulate large scale genomic data. It also consists over 2000 packages just for data pre-processing, normalization, data analysis and visualization. Here are some of the popular packages in `BioConductor` has to offer;
+
+- **`Biostrings`**: For efficient manipulation of large biological sequences.
+
+- **`DESeq2`**: For differential gene expression analysis based on count data.
+
+- **`GenomicRanges`**: For representing and manipulating genomic intervals and variables defined along a genome.
+
+- **`AnnotationDbi`**: For handling and querying biological annotation databases.
+
+- **`edgeR`**: Another popular package for differential expression analysis, particularly for RNA-Seq data.
 
 ## Installing BiocManager Package
 
