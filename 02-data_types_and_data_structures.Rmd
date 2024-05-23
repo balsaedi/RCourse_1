@@ -1,4 +1,15 @@
 # Data Types and Data Structures
+
+<script src="js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="js/dcl.js"></script>
+```{r include=FALSE}
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
 ## Data types 
 There are different kinds of values in R that can be manipulated in variables in R. `class()`function is used to check the data type of a value or a variable. Different data types include;
 

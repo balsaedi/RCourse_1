@@ -54,70 +54,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -247,1021 +183,203 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-biocmanager-package" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Installing BiocManager Package<a href="bioconductor.html#installing-biocmanager-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To get started with Bioconductor, you need to install the <code>BiocManager</code> package, which facilitates the installation and management of Bioconductor packages. You can find detailed installation instructions in the <a href="https://cran.r-project.org/web/packages/BiocManager/vignettes/BiocManager.html">official documentation</a>.</p>
-<p>Load the required libraries</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="bioconductor.html#cb447-1" tabindex="-1"></a><span class="fu">library</span>(Biostrings)</span></code></pre></div>
-<p>After loading the necessary libraries, you can read sequence data into R. For instance, if you have sequence data stored in a multifasta file named multifasta_seq.txt, you can use the readDNAStringSet() function.</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="bioconductor.html#cb448-1" tabindex="-1"></a>seq <span class="ot">=</span> <span class="fu">readDNAStringSet</span>(<span class="st">&quot;data/multifasta_seq.txt&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning in .Call2(&quot;fasta_index&quot;, filexp_list, nrec, skip, seek.first.rec, :
-## reading FASTA file data/multifasta_seq.txt: ignored 2545 invalid one-letter
-## sequence codes</code></pre>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="bioconductor.html#cb450-1" tabindex="-1"></a>seq</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 6:
-##     width seq                                               names               
-## [1]   844 MVVVSSCVNTTRTAYTNSTRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV2_2019
-## [2]   842 MTTSGSDDRCTTDDVANYTHTSS...KGACSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV
-## [3]   841 MVVVSSCVNTTRTAYTNSSTRGV...KGCCSCGSCCKDDDSVKGVKHYT Spike_Bat_coronav...
-## [4]   834 MVVVSSCVNTTRTGGYTNSSTRG...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...
-## [5]   846 MHAVNSCVNTGRAASTNSSRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...
-## [6]   835 MKVVATVSSYTKCDDDRTANTSS...KGACSCGSCCKDDDSVKGVKHYT Spike_WIV1_Bat_Co...</code></pre>
-<p>Each genomic sequence can be viewed separately by indexing</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="bioconductor.html#cb452-1" tabindex="-1"></a>seq[[<span class="dv">1</span>]] <span class="co">#first genomic sequence</span></span></code></pre></div>
-<pre><code>## 844-letter DNAString object
-## seq: MVVVSSCVNTTRTAYTNSTRGVYYDKVRSSVHSTDS...MVTMCCMTSCCSCKGCCSCGSCCKDDDSVKGVKHYT</code></pre>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="bioconductor.html#cb454-1" tabindex="-1"></a>seq[[<span class="dv">2</span>]] <span class="co"># second genomic sequence</span></span></code></pre></div>
-<pre><code>## 842-letter DNAString object
-## seq: MTTSGSDDRCTTDDVANYTHTSSMRGVYYDRSDTYT...VMVTCCMTSCCSCKGACSCGSCCKDDDSVKGVKHYT</code></pre>
-<p>Convert to character to inspect its content.</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="bioconductor.html#cb456-1" tabindex="-1"></a><span class="fu">as.character</span>(seq[[<span class="dv">1</span>]]) </span></code></pre></div>
-<pre><code>## [1] &quot;MVVVSSCVNTTRTAYTNSTRGVYYDKVRSSVHSTDSNVTWHAHVSGTNGTKRDNVNDGVYASTKSNRGWGTTDSKTSVNNATNVVKVCCNDGVYYHKNNKSWMSRVYSSANNCTYVSMDGKGNKNRVKNDGYKYSKHTNVRDGSAVDGNTRTAHRSYTGDSSSGWTAGAAAYYVGYRTKYNNGTTDAVDCADSTKCTKSTVKGYTSNRVTSVRNTNCGVNATRASVYAWNRKRSNCVADYSVYNSASSTKCYGVSTKNDCTNVYADSVRGDVRAGTGKADYNYKDDTGCVAWNSNNDSKVGGNYNYYRRKSNKRDSTYAGSTCNGVGNCYSYGTNGVGYYRVVVSHAATVCGKKSTNVKNKCVNNNGTGTGVTSNKKGRDADTTDAVRDTDTCSGGVSVTGTNTSNVAVYDVNCTVVAHADTTWRVYSTGSNVTRAGCGAHVNNSYCDGAGCASYTTNSRRARSVASSAYTMSGANSVAYSNNSATNTSVTTVSMTKTSVDCTMYCGDSTCSNYGSCTNRATGAVDKNTVAVKYKTKDGGNSDSKSKRSDNKVTADAGKYGDCGDAARDCAKNGTVTDMAYTSAAGTTSGWTGAGAAAMMAYRNGGVTNVYNKANNSAGKDSSSTASAGKDVVNNAANTVKSSNGASSVNDSRDKVAVDRTGRSTYVTRAARASANAATKMSCVGSKRVDCGKGYHMSSAHGVVHVTYVAKNTTAACHDGKAHRGVVSNGTHWVTRNYTTDNTVSGNCDVVGVNNTVYDDSKDKYKNHTSDVDGDSGNASVVNKDRNVAKNNSDGKYYKWWYWGAGAVMVTMCCMTSCCSCKGCCSCGSCCKDDDSVKGVKHYT&quot;</code></pre>
-<p>The <code>length</code> function from base R is used to count the number of genomic sequences.</p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="bioconductor.html#cb458-1" tabindex="-1"></a><span class="fu">length</span>(seq)</span></code></pre></div>
-<pre><code>## [1] 6</code></pre>
+Load the required libraries
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KEJpb3N0cmluZ3MpIn0=
+</div>
+After loading the necessary libraries, you can read sequence data into R. For instance, if you have sequence data stored in a multifasta file named multifasta_seq.txt, you can use the readDNAStringSet() function.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXEgPSByZWFkRE5BU3RyaW5nU2V0KFwiZGF0YS9tdWx0aWZhc3RhX3NlcS50eHRcIilcbnNlcSJ9
+</div>
+Each genomic sequence can be viewed separately by indexing
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXFbWzFdXSAjZmlyc3QgZ2Vub21pYyBzZXF1ZW5jZVxuc2VxW1syXV0gIyBzZWNvbmQgZ2Vub21pYyBzZXF1ZW5jZSJ9
+</div>
+Convert to character to inspect its content.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhcy5jaGFyYWN0ZXIoc2VxW1sxXV0pICJ9
+</div>
+The <code>length</code> function from base R is used to count the number of genomic sequences.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsZW5ndGgoc2VxKSJ9
+</div>
 <ul>
-<li>Names of the sequences</li>
+<li>Names of the sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJuYW1lcyhzZXEpIn0=
+</div></li>
+<li>view the first 6 sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkKHNlcSkifQ==
+</div></li>
+<li>Checking the reverse compliment of sequence
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXFfcmMgPSByZXZlcnNlQ29tcGxlbWVudChzZXFbWzFdXSlcbmhlYWQoc2VxX3JjKVxudGFpbChzZXFfcmMpXG5hcy5jaGFyYWN0ZXIoc2VxX3JjKSJ9
+</div></li>
+<li>Sequence composition -default - calculate the DNA composition
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjb21wb3NpdGlvbj1hbHBoYWJldEZyZXF1ZW5jeShzZXEpXG5wcmludChjb21wb3NpdGlvbikifQ==
+</div></li>
+<li>Specific composition - lets say we wanna look for A, T, G, C and N
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjb21wb3NpdGlvbjE9bGV0dGVyRnJlcXVlbmN5KHNlcSwgbGV0dGVycz1jKFwiQVwiLFwiVFwiLCBcIkdcIiwgXCJDXCIsIFwiTlwiKSlcbnByaW50KGNvbXBvc2l0aW9uMSkifQ==
+</div></li>
 </ul>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="bioconductor.html#cb460-1" tabindex="-1"></a><span class="fu">names</span>(seq)</span></code></pre></div>
-<pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;          &quot;Spike_SARS_CoV&quot;               
-## [3] &quot;Spike_Bat_coronavirus_RaTG13&quot;  &quot;Spike_Pangolin_coronavirus_GX&quot;
-## [5] &quot;Spike_Pangolin_coronavirus_GD&quot; &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
+Computing the GC Content
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnY19jb250ZW50IDwtIGxldHRlckZyZXF1ZW5jeShzZXEsIGxldHRlcnM9XCJHQ1wiLCBhcy5wcm9iPVRSVUUpXG5nY19jb250ZW50In0=
+</div>
+Calculate the mean of Gc content
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWFuKGdjX2NvbnRlbnQpIn0=
+</div>
 <ul>
-<li>view the first 6 sequences</li>
+<li>Standard deviation
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZChnY19jb250ZW50KSJ9
+</div></li>
 </ul>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="bioconductor.html#cb462-1" tabindex="-1"></a><span class="fu">head</span>(seq)</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 6:
-##     width seq                                               names               
-## [1]   844 MVVVSSCVNTTRTAYTNSTRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV2_2019
-## [2]   842 MTTSGSDDRCTTDDVANYTHTSS...KGACSCGSCCKDDDSVKGVKHYT Spike_SARS_CoV
-## [3]   841 MVVVSSCVNTTRTAYTNSSTRGV...KGCCSCGSCCKDDDSVKGVKHYT Spike_Bat_coronav...
-## [4]   834 MVVVSSCVNTTRTGGYTNSSTRG...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...
-## [5]   846 MHAVNSCVNTGRAASTNSSRGVY...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...
-## [6]   835 MKVVATVSSYTKCDDDRTANTSS...KGACSCGSCCKDDDSVKGVKHYT Spike_WIV1_Bat_Co...</code></pre>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyYW5nZShnY19jb250ZW50KSJ9
+</div>
 <ul>
-<li>Checking the reverse compliment of sequence</li>
+<li>Which GC has the maximum content
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXFbd2hpY2goZ2NfY29udGVudD09bWF4KGdjX2NvbnRlbnQpKV0ifQ==
+</div></li>
 </ul>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="bioconductor.html#cb464-1" tabindex="-1"></a>seq_rc <span class="ot">=</span> <span class="fu">reverseComplement</span>(seq[[<span class="dv">1</span>]])</span>
-<span id="cb464-2"><a href="bioconductor.html#cb464-2" tabindex="-1"></a><span class="fu">head</span>(seq_rc)</span></code></pre></div>
-<pre><code>## 6-letter DNAString object
-## seq: ARDMBC</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="bioconductor.html#cb466-1" tabindex="-1"></a><span class="fu">tail</span>(seq_rc)</span></code></pre></div>
-<pre><code>## 6-letter DNAString object
-## seq: SSBBBK</code></pre>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="bioconductor.html#cb468-1" tabindex="-1"></a><span class="fu">as.character</span>(seq_rc)</span></code></pre></div>
-<pre><code>## [1] &quot;ARDMBCMBSHHHMGGSCGSGGCMGSGGSAKGGKABKBTCTCWRWWMRRMCHSNNMTBNYHMNBBSTNCSHCHBHSADNMRMHMSHHRBANNBCBBHGNCSBANHAARNYABWDACNSBBCYDTMCHDGTTAANMTBRABDBBCDTSSKDRCMCGHBYMSCBGSKMATTNTSTYTTYABRASYCAYHBTBMHYSHNBSSTCNSSMBANTTNNBBHMCTSTASSSHMCTSNNTMNRBNABCCNYRTKKTTTCTCAWCSAACTTSARTKHABACNMTGHYTTHCGHCRMCTHTABMNHSYMSMSHSNCCHMAMRMBTBANMHBTCATYNAGSCRNSGASHCGRKAGHBSAMAKSBAABSANATSNNSRTBSNTCSKARTSSTBSYTYYSNAARSTGCTCHGRSNNBDTCGCTYABNSCASRBYWAAHTDTBBAGNBHRBTBNSANACABSBCCSGAHAHYBTHAAHTHYCMMNSABCACACNNNBGMNMBNASMMCGBATTDSBBBYRRCBCNACRSRGNCBCNGASCTRASHYMNSMYYRRNRNCCBMSHNNSNWTBGCAHHMRNRHTMCACTYBHCYBSHTRBNAGHNMASBCRGMASSTSNRBSRHTBGNSYMYNWTRBSTYATNBCGNANYBSABYNSARCMBASMAGMASHTGHBTHAACNNRMAYRCBRRTTTCTAWCSSSHCARSYDTAYANCHBTSCHYBNADMSRMRCHNMBYNMNCMCHKSBRAGNNTSSRBYSKWSMNNMDRRBCHNGGBMBBNATNNBSAMSHAACWCYNSMASTRBCHNBNHYMACNACSBDTDWABNSHASDBSSYBMHRRBCYASNARTAYAANBGSSBBBK&quot;</code></pre>
-<ul>
-<li>Sequence composition -default - calculate the DNA composition</li>
-</ul>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="bioconductor.html#cb470-1" tabindex="-1"></a>composition<span class="ot">=</span><span class="fu">alphabetFrequency</span>(seq)</span>
-<span id="cb470-2"><a href="bioconductor.html#cb470-2" tabindex="-1"></a><span class="fu">print</span>(composition)</span></code></pre></div>
-<pre><code>##       A  C  G   T  M  R  W   S  Y  K  V  H  D B  N - + .
-## [1,] 79 40 82  97 14 42 12  99 54 61 97 17 62 0 88 0 0 0
-## [2,] 84 39 78 100 20 39 11  96 54 60 91 15 74 0 81 0 0 0
-## [3,] 80 40 82  98 14 39 12  97 55 63 94 18 64 0 85 0 0 0
-## [4,] 76 40 85  98 15 41 12  94 55 61 97 17 61 0 82 0 0 0
-## [5,] 82 40 81  99 15 40 12 100 60 58 95 14 60 0 90 0 0 0
-## [6,] 82 39 77  93 17 42 11  98 50 60 93 15 72 0 86 0 0 0</code></pre>
-<ul>
-<li>Specific composition - lets say we wanna look for A, T, G, C and N</li>
-</ul>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="bioconductor.html#cb472-1" tabindex="-1"></a>composition1<span class="ot">=</span><span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;T&quot;</span>, <span class="st">&quot;G&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;N&quot;</span>))</span>
-<span id="cb472-2"><a href="bioconductor.html#cb472-2" tabindex="-1"></a><span class="fu">print</span>(composition1)</span></code></pre></div>
-<pre><code>##       A   T  G  C  N
-## [1,] 79  97 82 40 88
-## [2,] 84 100 78 39 81
-## [3,] 80  98 82 40 85
-## [4,] 76  98 85 40 82
-## [5,] 82  99 81 40 90
-## [6,] 82  93 77 39 86</code></pre>
-<p>Computing the GC Content</p>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="bioconductor.html#cb474-1" tabindex="-1"></a>gc_content <span class="ot">&lt;-</span> <span class="fu">letterFrequency</span>(seq, <span class="at">letters=</span><span class="st">&quot;GC&quot;</span>, <span class="at">as.prob=</span><span class="cn">TRUE</span>)</span>
-<span id="cb474-2"><a href="bioconductor.html#cb474-2" tabindex="-1"></a>gc_content</span></code></pre></div>
-<pre><code>##            G|C
-## [1,] 0.1445498
-## [2,] 0.1389549
-## [3,] 0.1450654
-## [4,] 0.1498801
-## [5,] 0.1430260
-## [6,] 0.1389222</code></pre>
-<p>Calculate the mean of Gc content</p>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="bioconductor.html#cb476-1" tabindex="-1"></a><span class="fu">mean</span>(gc_content)</span></code></pre></div>
-<pre><code>## [1] 0.1433997</code></pre>
-<ul>
-<li>Standard deviation</li>
-</ul>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="bioconductor.html#cb478-1" tabindex="-1"></a><span class="fu">sd</span>(gc_content)</span></code></pre></div>
-<pre><code>## [1] 0.004148188</code></pre>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="bioconductor.html#cb480-1" tabindex="-1"></a><span class="fu">range</span>(gc_content)</span></code></pre></div>
-<pre><code>## [1] 0.1389222 0.1498801</code></pre>
-<ul>
-<li>Which GC has the maximum content</li>
-</ul>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="bioconductor.html#cb482-1" tabindex="-1"></a>seq[<span class="fu">which</span>(gc_content<span class="sc">==</span><span class="fu">max</span>(gc_content))]</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 1:
-##     width seq                                               names               
-## [1]   834 MVVVSSCVNTTRTGGYTNSSTRG...KGCCSCGSCCKDDDSVKGVKHYT Spike_Pangolin_co...</code></pre>
 </div>
 <div id="searching-and-analyzing-the-strings" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Searching and Analyzing the strings<a href="bioconductor.html#searching-and-analyzing-the-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;
-- Search for substrings- in this case we search for <code>"GAATTC"</code> substring.</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="bioconductor.html#cb484-1" tabindex="-1"></a>ECoR1<span class="ot">=</span><span class="fu">vcountPattern</span>(<span class="st">&quot;GAATTC&quot;</span>, seq)</span>
-<span id="cb484-2"><a href="bioconductor.html#cb484-2" tabindex="-1"></a><span class="fu">print</span>(ECoR1)</span></code></pre></div>
-<pre><code>## [1] 0 0 0 0 0 0</code></pre>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="bioconductor.html#cb486-1" tabindex="-1"></a>HindIII <span class="ot">=</span> <span class="fu">vcountPattern</span>(<span class="st">&quot;AAGTT&quot;</span>, seq)</span>
-<span id="cb486-2"><a href="bioconductor.html#cb486-2" tabindex="-1"></a><span class="fu">print</span>(HindIII)</span></code></pre></div>
-<pre><code>## [1] 1 0 1 1 1 0</code></pre>
+A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;
+- Search for substrings- in this case we search for <code>"GAATTC"</code> substring.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJFQ29SMT12Y291bnRQYXR0ZXJuKFwiR0FBVFRDXCIsIHNlcSlcbnByaW50KEVDb1IxKVxuXG5IaW5kSUlJID0gdmNvdW50UGF0dGVybihcIkFBR1RUXCIsIHNlcSlcbnByaW50KEhpbmRJSUkpIn0=
+</div>
 <ul>
-<li>Finding the position of substrings</li>
+<li>Finding the position of substrings
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kSUlJX3Bvcz12bWF0Y2hQYXR0ZXJuKFwiQUFHQ1RcIiwgc2VxKVxucHJpbnQoSGluZElJSV9wb3MpIn0=
+</div></li>
+<li>Translate
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIHRyYW5zbGF0ZShzZXFbWzJdXSlcbiNDaGVjayBmdW5jdGlvbnMgYXZhaWxhYmxlXG5tZXRob2RzKGNsYXNzID0gXCJETkFTdHJpbmdTZXRcIikifQ==
+</div></li>
 </ul>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="bioconductor.html#cb488-1" tabindex="-1"></a>HindIII_pos<span class="ot">=</span><span class="fu">vmatchPattern</span>(<span class="st">&quot;AAGCT&quot;</span>, seq)</span>
-<span id="cb488-2"><a href="bioconductor.html#cb488-2" tabindex="-1"></a><span class="fu">print</span>(HindIII_pos)</span></code></pre></div>
-<pre><code>## MIndex object of length 6
-## $Spike_SARS_CoV2_2019
-## IRanges object with 0 ranges and 0 metadata columns:
-##        start       end     width
-##    &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;
-## 
-## $Spike_SARS_CoV
-## IRanges object with 0 ranges and 0 metadata columns:
-##        start       end     width
-##    &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;
-## 
-## $Spike_Bat_coronavirus_RaTG13
-## IRanges object with 0 ranges and 0 metadata columns:
-##        start       end     width
-##    &lt;integer&gt; &lt;integer&gt; &lt;integer&gt;
-## 
-## ...
-## &lt;3 more elements&gt;</code></pre>
-<ul>
-<li>Translate</li>
-</ul>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="bioconductor.html#cb490-1" tabindex="-1"></a><span class="co"># translate(seq[[2]])</span></span>
-<span id="cb490-2"><a href="bioconductor.html#cb490-2" tabindex="-1"></a><span class="co">#Check functions available</span></span>
-<span id="cb490-3"><a href="bioconductor.html#cb490-3" tabindex="-1"></a><span class="fu">methods</span>(<span class="at">class =</span> <span class="st">&quot;DNAStringSet&quot;</span>)</span></code></pre></div>
-<pre><code>##   [1] !                                     
-##   [2] !=                                    
-##   [3] [                                     
-##   [4] [[                                    
-##   [5] [[&lt;-                                  
-##   [6] [&lt;-                                   
-##   [7] %in%                                  
-##   [8] &lt;                                     
-##   [9] &lt;=                                    
-##  [10] ==                                    
-##  [11] &gt;                                     
-##  [12] &gt;=                                    
-##  [13] $                                     
-##  [14] $&lt;-                                   
-##  [15] aggregate                             
-##  [16] alphabetFrequency                     
-##  [17] anyDuplicated                         
-##  [18] anyNA                                 
-##  [19] append                                
-##  [20] as.character                          
-##  [21] as.complex                            
-##  [22] as.data.frame                         
-##  [23] as.env                                
-##  [24] as.factor                             
-##  [25] as.integer                            
-##  [26] as.list                               
-##  [27] as.logical                            
-##  [28] as.matrix                             
-##  [29] as.numeric                            
-##  [30] as.raw                                
-##  [31] as.vector                             
-##  [32] bindROWS                              
-##  [33] by                                    
-##  [34] c                                     
-##  [35] cbind                                 
-##  [36] chartr                                
-##  [37] coerce                                
-##  [38] compact                               
-##  [39] compareStrings                        
-##  [40] complement                            
-##  [41] consensusMatrix                       
-##  [42] consensusString                       
-##  [43] countOverlaps                         
-##  [44] countPattern                          
-##  [45] countPDict                            
-##  [46] dinucleotideFrequencyTest             
-##  [47] do.call                               
-##  [48] droplevels                            
-##  [49] duplicated                            
-##  [50] elementMetadata                       
-##  [51] elementMetadata&lt;-                     
-##  [52] elementNROWS                          
-##  [53] elementType                           
-##  [54] eval                                  
-##  [55] expand                                
-##  [56] expand.grid                           
-##  [57] extractAt                             
-##  [58] extractROWS                           
-##  [59] FactorToClass                         
-##  [60] Filter                                
-##  [61] findOverlaps                          
-##  [62] getListElement                        
-##  [63] hasOnlyBaseLetters                    
-##  [64] head                                  
-##  [65] ifelse2                               
-##  [66] intersect                             
-##  [67] is.na                                 
-##  [68] is.unsorted                           
-##  [69] isEmpty                               
-##  [70] isMatchingEndingAt                    
-##  [71] isMatchingStartingAt                  
-##  [72] lapply                                
-##  [73] length                                
-##  [74] lengths                               
-##  [75] letterFrequency                       
-##  [76] make_XStringSet_from_strings          
-##  [77] match                                 
-##  [78] matchPattern                          
-##  [79] matchPDict                            
-##  [80] mcols                                 
-##  [81] mcols&lt;-                               
-##  [82] merge                                 
-##  [83] mergeROWS                             
-##  [84] metadata                              
-##  [85] metadata&lt;-                            
-##  [86] mstack                                
-##  [87] names                                 
-##  [88] names&lt;-                               
-##  [89] nchar                                 
-##  [90] neditEndingAt                         
-##  [91] neditStartingAt                       
-##  [92] normalizeSingleBracketReplacementValue
-##  [93] nucleotideFrequencyAt                 
-##  [94] oligonucleotideFrequency              
-##  [95] order                                 
-##  [96] overlapsAny                           
-##  [97] PairwiseAlignments                    
-##  [98] PairwiseAlignmentsSingleSubject       
-##  [99] palindromeArmLength                   
-## [100] parallel_slot_names                   
-## [101] parallelVectorNames                   
-## [102] pcompare                              
-## [103] pcompareRecursively                   
-## [104] PDict                                 
-## [105] PWM                                   
-## [106] rank                                  
-## [107] rbind                                 
-## [108] Reduce                                
-## [109] relist                                
-## [110] relistToClass                         
-## [111] rename                                
-## [112] rep                                   
-## [113] rep.int                               
-## [114] replaceAt                             
-## [115] replaceLetterAt                       
-## [116] replaceROWS                           
-## [117] rev                                   
-## [118] revElements                           
-## [119] reverse                               
-## [120] reverseComplement                     
-## [121] sapply                                
-## [122] selfmatch                             
-## [123] seqinfo                               
-## [124] seqinfo&lt;-                             
-## [125] seqlevelsInUse                        
-## [126] seqtype                               
-## [127] seqtype&lt;-                             
-## [128] setdiff                               
-## [129] setequal                              
-## [130] setListElement                        
-## [131] shiftApply                            
-## [132] show                                  
-## [133] showAsCell                            
-## [134] sort                                  
-## [135] split                                 
-## [136] split&lt;-                               
-## [137] stack                                 
-## [138] stringDist                            
-## [139] strsplit                              
-## [140] subseq                                
-## [141] subseq&lt;-                              
-## [142] subset                                
-## [143] subsetByOverlaps                      
-## [144] summary                               
-## [145] table                                 
-## [146] tail                                  
-## [147] tapply                                
-## [148] threebands                            
-## [149] toString                              
-## [150] transform                             
-## [151] translate                             
-## [152] trimLRPatterns                        
-## [153] twoWayAlphabetFrequency               
-## [154] union                                 
-## [155] unique                                
-## [156] uniqueLetters                         
-## [157] unlist                                
-## [158] unname                                
-## [159] unsplit                               
-## [160] unstrsplit                            
-## [161] updateObject                          
-## [162] values                                
-## [163] values&lt;-                              
-## [164] vcountPattern                         
-## [165] vcountPDict                           
-## [166] vmatchPattern                         
-## [167] vwhichPDict                           
-## [168] which.isMatchingEndingAt              
-## [169] which.isMatchingStartingAt            
-## [170] whichPDict                            
-## [171] width                                 
-## [172] window                                
-## [173] window&lt;-                              
-## [174] windows                               
-## [175] with                                  
-## [176] within                                
-## [177] xtabs                                 
-## [178] xtfrm                                 
-## [179] xvcopy                                
-## [180] zipdown                               
-## see &#39;?methods&#39; for accessing help and source code</code></pre>
 </div>
 <div id="using-seqinr" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Using seqinr<a href="bioconductor.html#using-seqinr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Another useful library in sequence analysis is <code>seqinr</code>.
-After installing the library by invoking <code>install.packages("seqinr")</code> to the console, load it to the workspace</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="bioconductor.html#cb492-1" tabindex="-1"></a><span class="fu">library</span>(seqinr)</span></code></pre></div>
-<p>Reading the fasta file containing the protein sequence using the <code>read.fasta</code> function.</p>
-<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="bioconductor.html#cb493-1" tabindex="-1"></a>proseq <span class="ot">=</span> <span class="fu">read.fasta</span>(<span class="at">file=</span><span class="st">&quot;data/spike_multifasta.txt&quot;</span>, <span class="at">seqtype=</span><span class="st">&quot;AA&quot;</span>)</span>
-<span id="cb493-2"><a href="bioconductor.html#cb493-2" tabindex="-1"></a><span class="fu">str</span>(proseq)</span></code></pre></div>
-<pre><code>## List of 6
-##  $ Spike_SARS_CoV2_2019         : &#39;SeqFastaAA&#39; chr [1:1273] &quot;M&quot; &quot;F&quot; &quot;V&quot; &quot;F&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_SARS_CoV2_2019&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_SARS_CoV2_2019&quot;
-##  $ Spike_SARS_CoV               : &#39;SeqFastaAA&#39; chr [1:1255] &quot;M&quot; &quot;F&quot; &quot;I&quot; &quot;F&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_SARS_CoV&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_SARS_CoV&quot;
-##  $ Spike_Bat_coronavirus_RaTG13 : &#39;SeqFastaAA&#39; chr [1:1269] &quot;M&quot; &quot;F&quot; &quot;V&quot; &quot;F&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_Bat_coronavirus_RaTG13&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_Bat_coronavirus_RaTG13&quot;
-##  $ Spike_Pangolin_coronavirus_GX: &#39;SeqFastaAA&#39; chr [1:1269] &quot;M&quot; &quot;F&quot; &quot;V&quot; &quot;F&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_Pangolin_coronavirus_GX&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_Pangolin_coronavirus_GX&quot;
-##  $ Spike_Pangolin_coronavirus_GD: &#39;SeqFastaAA&#39; chr [1:1265] &quot;M&quot; &quot;L&quot; &quot;F&quot; &quot;F&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_Pangolin_coronavirus_GD&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_Pangolin_coronavirus_GD&quot;
-##  $ Spike_WIV1_Bat_Coronovirus   : &#39;SeqFastaAA&#39; chr [1:1256] &quot;M&quot; &quot;K&quot; &quot;L&quot; &quot;L&quot; ...
-##   ..- attr(*, &quot;name&quot;)= chr &quot;Spike_WIV1_Bat_Coronovirus&quot;
-##   ..- attr(*, &quot;Annot&quot;)= chr &quot;&gt;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
-<p>Count the number of sequences</p>
-<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="bioconductor.html#cb495-1" tabindex="-1"></a>num_seq <span class="ot">=</span> <span class="fu">length</span>(proseq)</span>
-<span id="cb495-2"><a href="bioconductor.html#cb495-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Number of sequences = &quot;</span>, num_seq))</span></code></pre></div>
-<pre><code>## [1] &quot;Number of sequences =  6&quot;</code></pre>
+Another useful library in sequence analysis is <code>seqinr</code>.
+After installing the library by invoking <code>install.packages("seqinr")</code> to the console, load it to the workspace
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KHNlcWlucikifQ==
+</div>
+Reading the fasta file containing the protein sequence using the <code>read.fasta</code> function.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwcm9zZXEgPSByZWFkLmZhc3RhKGZpbGU9XCJkYXRhL3NwaWtlX211bHRpZmFzdGEudHh0XCIsIHNlcXR5cGU9XCJBQVwiKVxuc3RyKHByb3NlcSkifQ==
+</div>
+Count the number of sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJudW1fc2VxID0gbGVuZ3RoKHByb3NlcSlcbnByaW50KHBhc3RlKFwiTnVtYmVyIG9mIHNlcXVlbmNlcyA9IFwiLCBudW1fc2VxKSkifQ==
+</div>
 <ul>
-<li>Names of the sequences</li>
+<li>Names of the sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJuYW1lcz1nZXROYW1lKHByb3NlcSlcbm5hbWVzICJ9
+</div></li>
+<li>Annotation of sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhbm5vdGF0aW9uIDwtIGdldEFubm90KHByb3NlcSlcbmFubm90YXRpb24ifQ==
+</div></li>
+<li>Length of individual sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsZW5fc2VxID0gZ2V0TGVuZ3RoKHByb3NlcSlcbmxlbl9zZXEifQ==
+</div></li>
+<li>Protein statistics
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJwcmludChBQXN0YXQocHJvc2VxW1sxXV0pKSJ9
+</div></li>
 </ul>
-<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="bioconductor.html#cb497-1" tabindex="-1"></a>names<span class="ot">=</span><span class="fu">getName</span>(proseq)</span>
-<span id="cb497-2"><a href="bioconductor.html#cb497-2" tabindex="-1"></a>names </span></code></pre></div>
-<pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;          &quot;Spike_SARS_CoV&quot;               
-## [3] &quot;Spike_Bat_coronavirus_RaTG13&quot;  &quot;Spike_Pangolin_coronavirus_GX&quot;
-## [5] &quot;Spike_Pangolin_coronavirus_GD&quot; &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
+It gives the type of proteins
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmb3IgKGkgaW4gMTpudW1fc2VxKVxue1xuICBwcmludChuYW1lc1tpXSlcbiAgcHJpbnQoQUFzdGF0KHByb3NlcVtbaV1dKSlcbn0ifQ==
+</div>
 <ul>
-<li>Annotation of sequences</li>
+<li>Show commands in seqinr
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsc2VxaW5yKCkifQ==
+</div></li>
 </ul>
-<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="bioconductor.html#cb499-1" tabindex="-1"></a>annotation <span class="ot">&lt;-</span> <span class="fu">getAnnot</span>(proseq)</span>
-<span id="cb499-2"><a href="bioconductor.html#cb499-2" tabindex="-1"></a>annotation</span></code></pre></div>
-<pre><code>## [[1]]
-## [1] &quot;&gt;Spike_SARS_CoV2_2019&quot;
-## 
-## [[2]]
-## [1] &quot;&gt;Spike_SARS_CoV&quot;
-## 
-## [[3]]
-## [1] &quot;&gt;Spike_Bat_coronavirus_RaTG13&quot;
-## 
-## [[4]]
-## [1] &quot;&gt;Spike_Pangolin_coronavirus_GX&quot;
-## 
-## [[5]]
-## [1] &quot;&gt;Spike_Pangolin_coronavirus_GD&quot;
-## 
-## [[6]]
-## [1] &quot;&gt;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
-<ul>
-<li>Length of individual sequences</li>
-</ul>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="bioconductor.html#cb501-1" tabindex="-1"></a>len_seq <span class="ot">=</span> <span class="fu">getLength</span>(proseq)</span>
-<span id="cb501-2"><a href="bioconductor.html#cb501-2" tabindex="-1"></a>len_seq</span></code></pre></div>
-<pre><code>## [1] 1273 1255 1269 1269 1265 1256</code></pre>
-<ul>
-<li>Protein statistics</li>
-</ul>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="bioconductor.html#cb503-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[<span class="dv">1</span>]]))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  79  40  62  48  77  82  17  76  61 108  14  88  58  62  42  99  97  97  12 
-##   Y 
-##  54 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3118617
-## 
-## $Prop$Small
-## [1] 0.5514533
-## 
-## $Prop$Aliphatic
-## [1] 0.2207384
-## 
-## $Prop$Aromatic
-## [1] 0.1256874
-## 
-## $Prop$Non.polar
-## [1] 0.5475255
-## 
-## $Prop$Polar
-## [1] 0.4524745
-## 
-## $Prop$Charged
-## [1] 0.1806756
-## 
-## $Prop$Basic
-## [1] 0.09426551
-## 
-## $Prop$Acidic
-## [1] 0.08641005
-## 
-## 
-## $Pi
-## [1] 6.236478</code></pre>
-<p>It gives the type of proteins</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="bioconductor.html#cb505-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>num_seq)</span>
-<span id="cb505-2"><a href="bioconductor.html#cb505-2" tabindex="-1"></a>{</span>
-<span id="cb505-3"><a href="bioconductor.html#cb505-3" tabindex="-1"></a>  <span class="fu">print</span>(names[i])</span>
-<span id="cb505-4"><a href="bioconductor.html#cb505-4" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">AAstat</span>(proseq[[i]]))</span>
-<span id="cb505-5"><a href="bioconductor.html#cb505-5" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;Spike_SARS_CoV2_2019&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  79  40  62  48  77  82  17  76  61 108  14  88  58  62  42  99  97  97  12 
-##   Y 
-##  54 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3118617
-## 
-## $Prop$Small
-## [1] 0.5514533
-## 
-## $Prop$Aliphatic
-## [1] 0.2207384
-## 
-## $Prop$Aromatic
-## [1] 0.1256874
-## 
-## $Prop$Non.polar
-## [1] 0.5475255
-## 
-## $Prop$Polar
-## [1] 0.4524745
-## 
-## $Prop$Charged
-## [1] 0.1806756
-## 
-## $Prop$Basic
-## [1] 0.09426551
-## 
-## $Prop$Acidic
-## [1] 0.08641005
-## 
-## 
-## $Pi
-## [1] 6.236478
-## 
-## [1] &quot;Spike_SARS_CoV&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-2.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  84  39  74  42  83  78  15  77  60  99  20  81  57  55  39  96 100  91  11 
-##   Y 
-##  54 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3163347
-## 
-## $Prop$Small
-## [1] 0.5577689
-## 
-## $Prop$Aliphatic
-## [1] 0.212749
-## 
-## $Prop$Aromatic
-## [1] 0.1298805
-## 
-## $Prop$Non.polar
-## [1] 0.5521912
-## 
-## $Prop$Polar
-## [1] 0.4478088
-## 
-## $Prop$Charged
-## [1] 0.1832669
-## 
-## $Prop$Basic
-## [1] 0.09083665
-## 
-## $Prop$Acidic
-## [1] 0.09243028
-## 
-## 
-## $Pi
-## [1] 5.510607
-## 
-## [1] &quot;Spike_Bat_coronavirus_RaTG13&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-3.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  80  40  64  47  75  82  18  79  63 109  14  85  58  60  39  97  98  94  12 
-##   Y 
-##  55 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3128448
-## 
-## $Prop$Small
-## [1] 0.5500394
-## 
-## $Prop$Aliphatic
-## [1] 0.2222222
-## 
-## $Prop$Aromatic
-## [1] 0.1260835
-## 
-## $Prop$Non.polar
-## [1] 0.5500394
-## 
-## $Prop$Polar
-## [1] 0.4499606
-## 
-## $Prop$Charged
-## [1] 0.1820331
-## 
-## $Prop$Basic
-## [1] 0.09456265
-## 
-## $Prop$Acidic
-## [1] 0.08747045
-## 
-## 
-## $Pi
-## [1] 6.11311
-## 
-## [1] &quot;Spike_Pangolin_coronavirus_GX&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-4.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  76  40  61  48  75  85  17  79  61 113  15  82  56  62  41  94  98  97  12 
-##   Y 
-##  55 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3096927
-## 
-## $Prop$Small
-## [1] 0.5429472
-## 
-## $Prop$Aliphatic
-## [1] 0.2277384
-## 
-## $Prop$Aromatic
-## [1] 0.1252955
-## 
-## $Prop$Non.polar
-## [1] 0.5539795
-## 
-## $Prop$Polar
-## [1] 0.4444444
-## 
-## $Prop$Charged
-## [1] 0.179669
-## 
-## $Prop$Basic
-## [1] 0.09377463
-## 
-## $Prop$Acidic
-## [1] 0.08589441
-## 
-## 
-## $Pi
-## [1] 6.235931
-## 
-## [1] &quot;Spike_Pangolin_coronavirus_GD&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-5.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  82  40  60  48  76  81  14  80  58 103  15  90  54  58  40 100  99  95  12 
-##   Y 
-##  60 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3177866
-## 
-## $Prop$Small
-## [1] 0.5541502
-## 
-## $Prop$Aliphatic
-## [1] 0.2197628
-## 
-## $Prop$Aromatic
-## [1] 0.1280632
-## 
-## $Prop$Non.polar
-## [1] 0.5517787
-## 
-## $Prop$Polar
-## [1] 0.4482213
-## 
-## $Prop$Charged
-## [1] 0.173913
-## 
-## $Prop$Basic
-## [1] 0.08853755
-## 
-## $Prop$Acidic
-## [1] 0.08537549
-## 
-## 
-## $Pi
-## [1] 5.900948
-## 
-## [1] &quot;Spike_WIV1_Bat_Coronovirus&quot;</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-6.png" width="672" /></p>
-<pre><code>## $Compo
-## 
-##   *   A   C   D   E   F   G   H   I   K   L   M   N   P   Q   R   S   T   V   W 
-##   0  82  39  72  43  83  77  15  77  60 102  17  86  62  54  42  98  93  93  11 
-##   Y 
-##  50 
-## 
-## $Prop
-## $Prop$Tiny
-## [1] 0.3097134
-## 
-## $Prop$Small
-## [1] 0.5589172
-## 
-## $Prop$Aliphatic
-## [1] 0.2165605
-## 
-## $Prop$Aromatic
-## [1] 0.1265924
-## 
-## $Prop$Non.polar
-## [1] 0.5517516
-## 
-## $Prop$Polar
-## [1] 0.4482484
-## 
-## $Prop$Charged
-## [1] 0.1847134
-## 
-## $Prop$Basic
-## [1] 0.09315287
-## 
-## $Prop$Acidic
-## [1] 0.09156051
-## 
-## 
-## $Pi
-## [1] 5.739146</code></pre>
-<ul>
-<li>Show commands in seqinr</li>
-</ul>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="bioconductor.html#cb513-1" tabindex="-1"></a><span class="fu">lseqinr</span>()</span></code></pre></div>
-<pre><code>##   [1] &quot;a&quot;                       &quot;aaa&quot;                    
-##   [3] &quot;AAstat&quot;                  &quot;acnucclose&quot;             
-##   [5] &quot;acnucopen&quot;               &quot;al2bp&quot;                  
-##   [7] &quot;alllistranks&quot;            &quot;alr&quot;                    
-##   [9] &quot;amb&quot;                     &quot;as.alignment&quot;           
-##  [11] &quot;as.matrix.alignment&quot;     &quot;as.SeqAcnucWeb&quot;         
-##  [13] &quot;as.SeqFastaAA&quot;           &quot;as.SeqFastadna&quot;         
-##  [15] &quot;as.SeqFrag&quot;              &quot;autosocket&quot;             
-##  [17] &quot;baselineabif&quot;            &quot;bma&quot;                    
-##  [19] &quot;c2s&quot;                     &quot;cai&quot;                    
-##  [21] &quot;cfl&quot;                     &quot;choosebank&quot;             
-##  [23] &quot;circle&quot;                  &quot;clfcd&quot;                  
-##  [25] &quot;clientid&quot;                &quot;closebank&quot;              
-##  [27] &quot;col2alpha&quot;               &quot;comp&quot;                   
-##  [29] &quot;computePI&quot;               &quot;con&quot;                    
-##  [31] &quot;consensus&quot;               &quot;count&quot;                  
-##  [33] &quot;countfreelists&quot;          &quot;countsubseqs&quot;           
-##  [35] &quot;crelistfromclientdata&quot;   &quot;css&quot;                    
-##  [37] &quot;dia.bactgensize&quot;         &quot;dia.db.growth&quot;          
-##  [39] &quot;dist.alignment&quot;          &quot;dotchart.uco&quot;           
-##  [41] &quot;dotPlot&quot;                 &quot;draw.oriloc&quot;            
-##  [43] &quot;draw.rearranged.oriloc&quot;  &quot;draw.recstat&quot;           
-##  [45] &quot;exseq&quot;                   &quot;extract.breakpoints&quot;    
-##  [47] &quot;extractseqs&quot;             &quot;fastacc&quot;                
-##  [49] &quot;gb2fasta&quot;                &quot;gbk2g2&quot;                 
-##  [51] &quot;gbk2g2.euk&quot;              &quot;GC&quot;                     
-##  [53] &quot;GC1&quot;                     &quot;GC2&quot;                    
-##  [55] &quot;GC3&quot;                     &quot;GCpos&quot;                  
-##  [57] &quot;get.db.growth&quot;           &quot;getAnnot&quot;               
-##  [59] &quot;getAnnot.default&quot;        &quot;getAnnot.list&quot;          
-##  [61] &quot;getAnnot.logical&quot;        &quot;getAnnot.qaw&quot;           
-##  [63] &quot;getAnnot.SeqAcnucWeb&quot;    &quot;getAnnot.SeqFastaAA&quot;    
-##  [65] &quot;getAnnot.SeqFastadna&quot;    &quot;getAttributsocket&quot;      
-##  [67] &quot;getFrag&quot;                 &quot;getFrag.character&quot;      
-##  [69] &quot;getFrag.default&quot;         &quot;getFrag.list&quot;           
-##  [71] &quot;getFrag.logical&quot;         &quot;getFrag.qaw&quot;            
-##  [73] &quot;getFrag.SeqAcnucWeb&quot;     &quot;getFrag.SeqFastaAA&quot;     
-##  [75] &quot;getFrag.SeqFastadna&quot;     &quot;getFrag.SeqFrag&quot;        
-##  [77] &quot;getKeyword&quot;              &quot;getKeyword.default&quot;     
-##  [79] &quot;getKeyword.list&quot;         &quot;getKeyword.logical&quot;     
-##  [81] &quot;getKeyword.qaw&quot;          &quot;getKeyword.SeqAcnucWeb&quot; 
-##  [83] &quot;getLength&quot;               &quot;getLength.character&quot;    
-##  [85] &quot;getLength.default&quot;       &quot;getLength.list&quot;         
-##  [87] &quot;getLength.logical&quot;       &quot;getLength.qaw&quot;          
-##  [89] &quot;getLength.SeqAcnucWeb&quot;   &quot;getLength.SeqFastaAA&quot;   
-##  [91] &quot;getLength.SeqFastadna&quot;   &quot;getLength.SeqFrag&quot;      
-##  [93] &quot;getlistrank&quot;             &quot;getliststate&quot;           
-##  [95] &quot;getLocation&quot;             &quot;getLocation.default&quot;    
-##  [97] &quot;getLocation.list&quot;        &quot;getLocation.logical&quot;    
-##  [99] &quot;getLocation.qaw&quot;         &quot;getLocation.SeqAcnucWeb&quot;
-## [101] &quot;getName&quot;                 &quot;getName.default&quot;        
-## [103] &quot;getName.list&quot;            &quot;getName.logical&quot;        
-## [105] &quot;getName.qaw&quot;             &quot;getName.SeqAcnucWeb&quot;    
-## [107] &quot;getName.SeqFastaAA&quot;      &quot;getName.SeqFastadna&quot;    
-## [109] &quot;getName.SeqFrag&quot;         &quot;getNumber.socket&quot;       
-## [111] &quot;getSequence&quot;             &quot;getSequence.character&quot;  
-## [113] &quot;getSequence.default&quot;     &quot;getSequence.list&quot;       
-## [115] &quot;getSequence.logical&quot;     &quot;getSequence.qaw&quot;        
-## [117] &quot;getSequence.SeqAcnucWeb&quot; &quot;getSequence.SeqFastaAA&quot; 
-## [119] &quot;getSequence.SeqFastadna&quot; &quot;getSequence.SeqFrag&quot;    
-## [121] &quot;getTrans&quot;                &quot;getTrans.character&quot;     
-## [123] &quot;getTrans.default&quot;        &quot;getTrans.list&quot;          
-## [125] &quot;getTrans.logical&quot;        &quot;getTrans.qaw&quot;           
-## [127] &quot;getTrans.SeqAcnucWeb&quot;    &quot;getTrans.SeqFastadna&quot;   
-## [129] &quot;getTrans.SeqFrag&quot;        &quot;getType&quot;                
-## [131] &quot;gfrag&quot;                   &quot;ghelp&quot;                  
-## [133] &quot;gln&quot;                     &quot;glr&quot;                    
-## [135] &quot;gls&quot;                     &quot;is.SeqAcnucWeb&quot;         
-## [137] &quot;is.SeqFastaAA&quot;           &quot;is.SeqFastadna&quot;         
-## [139] &quot;is.SeqFrag&quot;              &quot;isenum&quot;                 
-## [141] &quot;isn&quot;                     &quot;kaks&quot;                   
-## [143] &quot;kdb&quot;                     &quot;knowndbs&quot;               
-## [145] &quot;lseqinr&quot;                 &quot;modifylist&quot;             
-## [147] &quot;move&quot;                    &quot;mv&quot;                     
-## [149] &quot;n2s&quot;                     &quot;oriloc&quot;                 
-## [151] &quot;parser.socket&quot;           &quot;peakabif&quot;               
-## [153] &quot;permutation&quot;             &quot;pga&quot;                    
-## [155] &quot;plot.SeqAcnucWeb&quot;        &quot;plotabif&quot;               
-## [157] &quot;plotladder&quot;              &quot;plotPanels&quot;             
-## [159] &quot;pmw&quot;                     &quot;prepgetannots&quot;          
-## [161] &quot;prettyseq&quot;               &quot;print.qaw&quot;              
-## [163] &quot;print.SeqAcnucWeb&quot;       &quot;query&quot;                  
-## [165] &quot;quitacnuc&quot;               &quot;read.abif&quot;              
-## [167] &quot;read.alignment&quot;          &quot;read.fasta&quot;             
-## [169] &quot;readBins&quot;                &quot;readfirstrec&quot;           
-## [171] &quot;readPanels&quot;              &quot;readsmj&quot;                
-## [173] &quot;rearranged.oriloc&quot;       &quot;recstat&quot;                
-## [175] &quot;residuecount&quot;            &quot;reverse.align&quot;          
-## [177] &quot;rho&quot;                     &quot;rot13&quot;                  
-## [179] &quot;s2c&quot;                     &quot;s2n&quot;                    
-## [181] &quot;savelist&quot;                &quot;SEQINR.UTIL&quot;            
-## [183] &quot;setlistname&quot;             &quot;splitseq&quot;               
-## [185] &quot;stresc&quot;                  &quot;stutterabif&quot;            
-## [187] &quot;summary.SeqFastaAA&quot;      &quot;summary.SeqFastadna&quot;    
-## [189] &quot;swap&quot;                    &quot;syncodons&quot;              
-## [191] &quot;synsequence&quot;             &quot;tablecode&quot;              
-## [193] &quot;test.co.recstat&quot;         &quot;test.li.recstat&quot;        
-## [195] &quot;translate&quot;               &quot;trimSpace&quot;              
-## [197] &quot;uco&quot;                     &quot;ucoweight&quot;              
-## [199] &quot;where.is.this.acc&quot;       &quot;words&quot;                  
-## [201] &quot;words.pos&quot;               &quot;write.fasta&quot;            
-## [203] &quot;zscore&quot;</code></pre>
 </div>
 <div id="using-short-read" class="section level2 hasAnchor" number="7.4">
 <h2><span class="header-section-number">7.4</span> Using Short Read<a href="bioconductor.html#using-short-read" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This library can be installed by invoking the <code>BiocManager::install("ShortRead")</code> command to the console.</p>
-<p>load the library</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="bioconductor.html#cb515-1" tabindex="-1"></a><span class="fu">library</span>(ShortRead)</span></code></pre></div>
+load the library
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KFNob3J0UmVhZCkifQ==
+</div>
 <ul>
-<li>Reading the fastq sequences</li>
+<li>Reading the fastq sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmcSA9IHJlYWRGYXN0cShcImRhdGEvZmlsZTIuZmFzdHFcIilcbmZxIn0=
+</div></li>
+<li>Preview of first 3 sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmcVsxOjNdIn0=
+</div></li>
+<li>Sequence information
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzcmVhZChmcSkifQ==
+</div></li>
 </ul>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="bioconductor.html#cb516-1" tabindex="-1"></a>fq <span class="ot">=</span> <span class="fu">readFastq</span>(<span class="st">&quot;data/file2.fastq&quot;</span>)</span>
-<span id="cb516-2"><a href="bioconductor.html#cb516-2" tabindex="-1"></a>fq</span></code></pre></div>
-<pre><code>## class: ShortReadQ
-## length: 5 reads; width: 149..166 cycles</code></pre>
+Subset the sequence from second to fifth
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzcmVhZChmcVsyOjVdKSJ9
+</div>
+Inspect the quality of the sequence
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJxdWFsaXR5KGZxKSJ9
+</div>
 <ul>
-<li>Preview of first 3 sequences</li>
+<li>Number of sequence in the file
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsZW5ndGgoZnEpIn0=
+</div></li>
+<li>Length of reads
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyZWFkTGVuZ3RoID0gd2lkdGgoZnEpXG5yZWFkTGVuZ3RoIn0=
+</div></li>
+<li>generating the summary of fasta sequences
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmcV9yZWFkcyA9IHNyZWFkKGZxKVxuXG5pZF9vZl9yZWFkcz1pZChmcSlcbmlkX29mX3JlYWRzWzE6NV1cbmZxX3JlYWRzIn0=
+</div></li>
+<li>Seq length - we can generate the sequence lenght by converting it to a dataframe
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXFfbGVuZ3RoID0gYXMuZGF0YS5mcmFtZShmcV9yZWFkc0ByYW5nZXNAd2lkdGgpXG5zZXFfbGVuZ3RoIn0=
+</div></li>
+<li>Quality scores
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJxdWFsaXR5X3Njb3Jlcz1xdWFsaXR5KGZxKVxucXVhbGl0eV9zY29yZXNbMTo1XSJ9
+</div></li>
 </ul>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="bioconductor.html#cb518-1" tabindex="-1"></a>fq[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
-<pre><code>## class: ShortReadQ
-## length: 3 reads; width: 149 161 cycles</code></pre>
+Convert the scores to matrix and see as real numbers
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzY29yZXM9YXMocXVhbGl0eV9zY29yZXMsIFwibWF0cml4XCIpXG5zY29yZXMifQ==
+</div>
 <ul>
-<li>Sequence information</li>
+<li>Mean score for each sequence
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWFuX3Njb3JlX2Zvcl9lYWNoX3NlcXVlbmNlID0gcm93TWVhbnMoc2NvcmVzLCBuYS5ybT1UUlVFKVxubWVhbl9zY29yZV9mb3JfZWFjaF9zZXF1ZW5jZSJ9
+</div></li>
+<li>Mean score for each position
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWFuX3Njb3JlX2Zvcl9lYWNoX3Bvc2l0aW9uID0gcm93TWVhbnMoc2NvcmVzLCBuYS5ybT1UUlVFKVxubWVhbl9zY29yZV9mb3JfZWFjaF9wb3NpdGlvbiJ9
+</div></li>
 </ul>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="bioconductor.html#cb520-1" tabindex="-1"></a><span class="fu">sread</span>(fq)</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 5:
-##     width seq
-## [1]   149 CGCAAGCGAGTTAAGCAGTCTGTCCAAAGCATGT...TTATCCACATCTGTCATGACGATTTCGTTTGAT
-## [2]   161 CGTTATCAGAGAGCTCTTGTCGCAAGCGAGTTAA...CTACCAAGTTATCCACATCTGTCATGACGATTT
-## [3]   161 AGCGAGTTAAGCAGTCTGTCCAAAGCATGTGTAT...GACGATTTCGTTTGATTTTGCCTTAAAAAGAAA
-## [4]   166 GACCCCTTCTCATCAGGAAGGGTTAATCTTTAAA...TGGATTCGCCCTTTAGTAGCTGAAGAAGTAGAG
-## [5]   166 CCCCTTCTCATCAGGAAGGGTTAATCTTTAAATG...GATTCGCCCTTTAGTAGCTGAAGAAGTAGAGGG</code></pre>
-<p>Subset the sequence from second to fifth</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="bioconductor.html#cb522-1" tabindex="-1"></a><span class="fu">sread</span>(fq[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 4:
-##     width seq
-## [1]   161 CGTTATCAGAGAGCTCTTGTCGCAAGCGAGTTAA...CTACCAAGTTATCCACATCTGTCATGACGATTT
-## [2]   161 AGCGAGTTAAGCAGTCTGTCCAAAGCATGTGTAT...GACGATTTCGTTTGATTTTGCCTTAAAAAGAAA
-## [3]   166 GACCCCTTCTCATCAGGAAGGGTTAATCTTTAAA...TGGATTCGCCCTTTAGTAGCTGAAGAAGTAGAG
-## [4]   166 CCCCTTCTCATCAGGAAGGGTTAATCTTTAAATG...GATTCGCCCTTTAGTAGCTGAAGAAGTAGAGGG</code></pre>
-<p>Inspect the quality of the sequence</p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="bioconductor.html#cb524-1" tabindex="-1"></a><span class="fu">quality</span>(fq)</span></code></pre></div>
-<pre><code>## class: FastqQuality
-## quality:
-## BStringSet object of length 5:
-##     width seq
-## [1]   149 CCCC&gt;CHDBBC&lt;=8=DCCCDDDCB&gt;BG?GGEDB=...C@B==8=CDDDDDDDDDC==&lt;C@C8&lt;&lt;DD=BCE
-## [2]   161 &lt;CE:@C=&lt;&lt;=DDDCBBC&gt;&lt;&lt;&lt;CDD&gt;BCEHGI&gt;C&gt;...999929-39:&gt;BE&gt;BBA@ADEC?&gt;?AAA999C;
-## [3]   161 DDEDEEEAE@DD=&gt;=:==BB?BG&gt;FDEDCCBBBB...D&gt;///99*//::4:&lt;BBB6BD-2--555-5:::
-## [4]   166 CCCLL;E@DE&gt;&gt;=DDDAE@EEBE@@?CCEE?EE?...BB@DDAD8884;C&lt;CFGGE?@?C?CC=BDEEEA
-## [5]   166 666/6:::=BBCCBACADD6@:D@DDEE&gt;DD&gt;DE...&gt;BDAC58;6:D&gt;DDDDGEEBB&lt;CD@DDDEEED&gt;</code></pre>
-<ul>
-<li>Number of sequence in the file</li>
-</ul>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="bioconductor.html#cb526-1" tabindex="-1"></a><span class="fu">length</span>(fq)</span></code></pre></div>
-<pre><code>## [1] 5</code></pre>
-<ul>
-<li>Length of reads</li>
-</ul>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="bioconductor.html#cb528-1" tabindex="-1"></a>readLength <span class="ot">=</span> <span class="fu">width</span>(fq)</span>
-<span id="cb528-2"><a href="bioconductor.html#cb528-2" tabindex="-1"></a>readLength</span></code></pre></div>
-<pre><code>## [1] 149 161 161 166 166</code></pre>
-<ul>
-<li>generating the summary of fasta sequences</li>
-</ul>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="bioconductor.html#cb530-1" tabindex="-1"></a>fq_reads <span class="ot">=</span> <span class="fu">sread</span>(fq)</span>
-<span id="cb530-2"><a href="bioconductor.html#cb530-2" tabindex="-1"></a></span>
-<span id="cb530-3"><a href="bioconductor.html#cb530-3" tabindex="-1"></a>id_of_reads<span class="ot">=</span><span class="fu">id</span>(fq)</span>
-<span id="cb530-4"><a href="bioconductor.html#cb530-4" tabindex="-1"></a>id_of_reads[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## BStringSet object of length 5:
-##     width seq
-## [1]    17 OLVOG:01110:02677
-## [2]    17 OLVOG:01219:01823
-## [3]    17 OLVOG:01240:02825
-## [4]    17 OLVOG:02464:02160
-## [5]    17 OLVOG:02703:02334</code></pre>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="bioconductor.html#cb532-1" tabindex="-1"></a>fq_reads</span></code></pre></div>
-<pre><code>## DNAStringSet object of length 5:
-##     width seq
-## [1]   149 CGCAAGCGAGTTAAGCAGTCTGTCCAAAGCATGT...TTATCCACATCTGTCATGACGATTTCGTTTGAT
-## [2]   161 CGTTATCAGAGAGCTCTTGTCGCAAGCGAGTTAA...CTACCAAGTTATCCACATCTGTCATGACGATTT
-## [3]   161 AGCGAGTTAAGCAGTCTGTCCAAAGCATGTGTAT...GACGATTTCGTTTGATTTTGCCTTAAAAAGAAA
-## [4]   166 GACCCCTTCTCATCAGGAAGGGTTAATCTTTAAA...TGGATTCGCCCTTTAGTAGCTGAAGAAGTAGAG
-## [5]   166 CCCCTTCTCATCAGGAAGGGTTAATCTTTAAATG...GATTCGCCCTTTAGTAGCTGAAGAAGTAGAGGG</code></pre>
-<ul>
-<li>Seq length - we can generate the sequence lenght by converting it to a dataframe</li>
-</ul>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="bioconductor.html#cb534-1" tabindex="-1"></a>seq_length <span class="ot">=</span> <span class="fu">as.data.frame</span>(fq_reads<span class="sc">@</span>ranges<span class="sc">@</span>width)</span>
-<span id="cb534-2"><a href="bioconductor.html#cb534-2" tabindex="-1"></a>seq_length</span></code></pre></div>
-<pre><code>##   fq_reads@ranges@width
-## 1                   149
-## 2                   161
-## 3                   161
-## 4                   166
-## 5                   166</code></pre>
-<ul>
-<li>Quality scores</li>
-</ul>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="bioconductor.html#cb536-1" tabindex="-1"></a>quality_scores<span class="ot">=</span><span class="fu">quality</span>(fq)</span>
-<span id="cb536-2"><a href="bioconductor.html#cb536-2" tabindex="-1"></a>quality_scores[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
-<pre><code>## class: FastqQuality
-## quality:
-## BStringSet object of length 5:
-##     width seq
-## [1]   149 CCCC&gt;CHDBBC&lt;=8=DCCCDDDCB&gt;BG?GGEDB=...C@B==8=CDDDDDDDDDC==&lt;C@C8&lt;&lt;DD=BCE
-## [2]   161 &lt;CE:@C=&lt;&lt;=DDDCBBC&gt;&lt;&lt;&lt;CDD&gt;BCEHGI&gt;C&gt;...999929-39:&gt;BE&gt;BBA@ADEC?&gt;?AAA999C;
-## [3]   161 DDEDEEEAE@DD=&gt;=:==BB?BG&gt;FDEDCCBBBB...D&gt;///99*//::4:&lt;BBB6BD-2--555-5:::
-## [4]   166 CCCLL;E@DE&gt;&gt;=DDDAE@EEBE@@?CCEE?EE?...BB@DDAD8884;C&lt;CFGGE?@?C?CC=BDEEEA
-## [5]   166 666/6:::=BBCCBACADD6@:D@DDEE&gt;DD&gt;DE...&gt;BDAC58;6:D&gt;DDDDGEEBB&lt;CD@DDDEEED&gt;</code></pre>
-<p>Convert the scores to matrix and see as real numbers</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="bioconductor.html#cb538-1" tabindex="-1"></a>scores<span class="ot">=</span><span class="fu">as</span>(quality_scores, <span class="st">&quot;matrix&quot;</span>)</span>
-<span id="cb538-2"><a href="bioconductor.html#cb538-2" tabindex="-1"></a>scores</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-## [1,]   34   34   34   34   29   34   39   35   33    33    34    27    28    23
-## [2,]   27   34   36   25   31   34   28   27   27    28    35    35    35    34
-## [3,]   35   35   36   35   36   36   36   32   36    31    35    35    28    29
-## [4,]   34   34   34   43   43   26   36   31   35    36    29    29    28    35
-## [5,]   21   21   21   14   21   25   25   25   28    33    33    34    34    33
-##      [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26]
-## [1,]    28    35    34    34    34    35    35    35    34    33    29    33
-## [2,]    33    33    34    29    27    27    27    34    35    35    29    33
-## [3,]    28    25    28    28    33    33    30    33    38    29    37    35
-## [4,]    35    35    32    36    31    36    36    33    36    31    31    30
-## [5,]    32    34    32    35    35    21    31    25    35    31    35    35
-##      [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37] [,38]
-## [1,]    38    30    38    38    36    35    33    28    28    28    35    36
-## [2,]    34    36    39    38    40    29    34    29    34    37    28    28
-## [3,]    36    35    34    34    33    33    33    33    33    34    33    25
-## [4,]    34    34    36    36    30    36    36    30    35    35    27    27
-## [5,]    36    36    29    35    35    29    35    36    35    35    36    30
-##      [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49] [,50]
-## [1,]    38    38    38    26    37    34    34    34    34    34    33    34
-## [2,]    29    35    34    34    32    34    23    28    28    25    28    35
-## [3,]    33    35    35    35    35    35    35    34    34    28    28    28
-## [4,]    21    16    25    30    25    30    33    30    34    40    37    26
-## [5,]    36    36    32    36    36    31    36    36    36    26    35    36
-##      [,51] [,52] [,53] [,54] [,55] [,56] [,57] [,58] [,59] [,60] [,61] [,62]
-## [1,]    34    30    33    33    33    25    33    36    30    37    31    35
-## [2,]    35    36    36    34    33    33    33    33    33    33    33    25
-## [3,]    28    21    26    34    23    32    26    23    23    18    14    25
-## [4,]    33    30    30    36    36    36    36    27    20    27    35    36
-## [5,]    36    36    35    35    35    28    28    28    35    35    35    26
-##      [,63] [,64] [,65] [,66] [,67] [,68] [,69] [,70] [,71] [,72] [,73] [,74]
-## [1,]    35    36    30    35    35    28    27    27    23    27    35    28
-## [2,]    33    30    30    27    28    27    25    25    34    25    25    25
-## [3,]    33    25    25    25    14    15    28    21    28    27    28    21
-## [4,]    36    26    35    33    34    34    35    36    35    35    35    36
-## [5,]    35    34    35    35    35    36    35    35    35    37    36    36
-##      [,75] [,76] [,77] [,78] [,79] [,80] [,81] [,82] [,83] [,84] [,85] [,86]
-## [1,]    35    35    35    26    32    19    25    18    25    23    29    26
-## [2,]    25    14    25    25    14    25    26    32    32    36    30    34
-## [3,]    27     9    13     9    12    16    20     8    24    25    35    35
-## [4,]    35    35    30    36    32    35    35    35    35    35    35    35
-## [5,]    29    36    32    35    35    35    34    35    34    36    35    35
-##      [,87] [,88] [,89] [,90] [,91] [,92] [,93] [,94] [,95] [,96] [,97] [,98]
-## [1,]    34    35    36    37    33    33    33    34    32    37    40    38
-## [2,]    34    31    30    29    14    25    25    14    25    34    34    32
-## [3,]    35    35    34    35    29    34    34    33    19    31    31    24
-## [4,]    35    35    35    30    34    31    35    35    35    35    35    35
-## [5,]    35    30    34    31    35    35    35    35    34    34    31    36
-##      [,99] [,100] [,101] [,102] [,103] [,104] [,105] [,106] [,107] [,108]
-## [1,]    26     34     34     35     35     30     34     35     26     32
-## [2,]    34     17     24     24     13     24     17     24     28     34
-## [3,]    18     12     18     18     12     17     23     17     17     12
-## [4,]    32     36     35     35     35     34     34     30     34     36
-## [5,]    35     35     36     35     36     28     33     33     33     33
-##      [,109] [,110] [,111] [,112] [,113] [,114] [,115] [,116] [,117] [,118]
-## [1,]     32     25     25     25     23     28     33     35     34     31
-## [2,]     33     32     33     36     36     35     36     23     26     26
-## [3,]     17     16     23     23     25     32     33     33     26     21
-## [4,]     35     35     35     35     35     32     33     33     35     35
-## [5,]     34     32     32     32     34     34     34     35     35     28
-##      [,119] [,120] [,121] [,122] [,123] [,124] [,125] [,126] [,127] [,128]
-## [1,]     33     28     28     23     28     34     35     35     35     35
-## [2,]     26     12     24     31     30     29     24     30     29     23
-## [3,]     21     24     32     35     36     33     33     33     33     33
-## [4,]     35     30     34     34     35     35     35     35     29     36
-## [5,]     32     33     35     33     33     33     28     33     35     35
-##      [,129] [,130] [,131] [,132] [,133] [,134] [,135] [,136] [,137] [,138]
-## [1,]     35     35     35     35     35     34     28     28     27     34
-## [2,]     24     24     24     24     17     24     12     18     24     25
-## [3,]     35     29     14     14     14     24     24      9     14     14
-## [4,]     35     35     34     34     33     33     33     31     35     35
-## [5,]     35     35     35     33     33     29     33     35     32     34
-##      [,139] [,140] [,141] [,142] [,143] [,144] [,145] [,146] [,147] [,148]
-## [1,]     31     34     23     27     27     35     35     28     33     34
-## [2,]     29     33     36     29     33     33     32     31     32     35
-## [3,]     25     25     19     25     27     33     33     33     21     33
-## [4,]     32     35     23     23     23     19     26     34     27     34
-## [5,]     20     23     26     21     25     35     29     35     35     35
-##      [,149] [,150] [,151] [,152] [,153] [,154] [,155] [,156] [,157] [,158]
-## [1,]     36     NA     NA     NA     NA     NA     NA     NA     NA     NA
-## [2,]     36     34     30     29     30     32     32     32     24     24
-## [3,]     35     12     17     12     12     20     20     20     12     20
-## [4,]     37     38     38     36     30     31     30     34     30     34
-## [5,]     35     38     36     36     33     33     27     34     35     31
-##      [,159] [,160] [,161] [,162] [,163] [,164] [,165] [,166]
-## [1,]     NA     NA     NA     NA     NA     NA     NA     NA
-## [2,]     24     34     26     NA     NA     NA     NA     NA
-## [3,]     25     25     25     NA     NA     NA     NA     NA
-## [4,]     34     28     33     35     36     36     36     32
-## [5,]     35     35     35     36     36     36     35     29</code></pre>
-<ul>
-<li>Mean score for each sequence</li>
-</ul>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="bioconductor.html#cb540-1" tabindex="-1"></a>mean_score_for_each_sequence <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb540-2"><a href="bioconductor.html#cb540-2" tabindex="-1"></a>mean_score_for_each_sequence</span></code></pre></div>
-<pre><code>## [1] 32.00000 29.18012 26.57764 32.99398 32.71084</code></pre>
-<ul>
-<li>Mean score for each position</li>
-</ul>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="bioconductor.html#cb542-1" tabindex="-1"></a>mean_score_for_each_position <span class="ot">=</span> <span class="fu">rowMeans</span>(scores, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
-<span id="cb542-2"><a href="bioconductor.html#cb542-2" tabindex="-1"></a>mean_score_for_each_position</span></code></pre></div>
-<pre><code>## [1] 32.00000 29.18012 26.57764 32.99398 32.71084</code></pre>
-<p>Plot a boxplot for the scores</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="bioconductor.html#cb544-1" tabindex="-1"></a><span class="fu">boxplot</span>(scores, <span class="at">xlab=</span><span class="st">&quot;Position&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Phred score&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-234-1.png" width="672" /></p>
+Plot a boxplot for the scores
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJib3hwbG90KHNjb3JlcywgeGxhYj1cIlBvc2l0aW9uXCIsIHlsYWI9XCJQaHJlZCBzY29yZVwiKSJ9
+</div>
 
 </div>
 </div>
