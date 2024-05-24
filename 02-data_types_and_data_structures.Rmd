@@ -15,13 +15,13 @@ There are different kinds of values in R that can be manipulated in variables in
 
 - Numeric
 
-These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. Example:
+These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. The below code finds the data type of variable `a` which is assigned `23.5` and returns numeric. 
 ```{r}
 a=23.5
 class(a) #check the data type of a 
 ```
 
-a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. 
+a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. Run the code chunks below to inspect to find the code of each value
 ```{r}
 class(45)
 ```
@@ -38,6 +38,23 @@ class(0)
 class(73)
 ```
 
+*Activity*
+
+In the code cell below; 
+
+i. Find the data type of `98.03` using `class()` function.
+
+ii. Assign the value `98.03` to variable `height` and find its data type.
+```{r}
+# I. Find the data type of 98.03 using class() function
+# CODE HERE 
+
+
+# II. Assign the value `98.03` to variable `height` and find its data type
+# CODE HERE
+```
+
+
 - Integers
 
 They represent whole numbers without any any decimals and are a subclass of numeric. `L` is added at the end of a whole number to indicate that it is an integer. 
@@ -46,11 +63,28 @@ a=23L #add L to show it is an integer
 class(a)
 ```
 
-Lets store age as an integer. **Note the 'L' after the number 27**
+Lets store `age` as an integer. **Note the 'L' after the number 27**
 ```{r}
 age = 27L
 class(age)
 ```
+
+*Activity*
+
+In the code cell below; 
+
+i. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+ii. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+```{r}
+# I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+# CODE HERE 
+
+
+# II. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+# CODE HERE
+
+```
+
 
 - Characters
 
@@ -79,6 +113,29 @@ fullname = "Salman Khan"
 class(fullname)
 ```
 
+*Activity*
+
+In the code cell below; 
+
+i. Find the data type of the value `"school"` using the `class()` function. 
+ii. Assign your first name to a variable `firstname` and find its data type. **Remember to enclose it in quotation marks**
+iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;
+```
+full_name = "Vipin Patel"
+```
+and find its data type. **Remember to enclose the value in quotation marks since its a character data type**
+```{r}
+# I. Find the data type of the value `"school"
+# CODE HERE
+
+# Assign your first name to variable first name and find its data type
+# CODE HERE 
+
+# Assign your full names to a variable full_name
+# CODE HERE 
+```
+
+
 - Logical 
 
 They represent boolean values which has only distinct value; `TRUE` or `FALSE`.
@@ -93,6 +150,17 @@ changing it to `FALSE`
 b = FALSE
 class(b)
 ```
+
+*Activity*
+
+Assign a `TRUE` to a variable `grateful` and find the data type of the variable. 
+```{r}
+# Assign a `TRUE` to a variable `grateful` and find its data type
+## CODE HERE 
+
+
+```
+
 
 - Complex
 
@@ -138,7 +206,35 @@ print(h)
 class(h)
 ```
 
+*Activity*
+
+Find the data type of the following values; *One of them is a numeric element*
+
+i. `31 + 8`
+
+ii. `5 - i`
+
+iii. `4i`
+
+iv. `12`
+
+```{r}
+#i. 31 + 8
+# CODE HERE
+
+# ii. 5 - i
+# CODE HERE 
+
+# iii. 4i
+# CODE HERE 
+
+# iv. 12
+# CODE HERE
+
+```
+
 - Raw
+
 They represent a vector of bytes in their natural form. They are used in storing binary data. Example;
 
 ```{r}
@@ -163,6 +259,38 @@ Numeric can also be represented as raw vectors;
 age=as.raw(27)
 print(age)
 class(age)
+```
+
+*Activity*
+
+Convert the following values to raw data types; **Hint: ** use `charToRaw()` function for character data types and `as.raw()` to other data types.  
+
+i. `"Vipin"`
+
+ii. `27`
+
+iii. `69.0`
+
+iv. `FALSE`
+
+v. `12L`
+
+```{r}
+# i. "Vipin"
+# CODE HERE
+
+# ii. 27
+# CODE HERE
+
+
+# iii. 69.0
+# CODE HERE
+
+# iv. FALSE
+# CODE HERE
+
+# v. 12L
+# CODE HERE
 ```
 
 ## Data Structures 
