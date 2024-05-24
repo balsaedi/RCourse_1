@@ -43,7 +43,6 @@ class(73)
 In the code cell below; 
 
 i. Find the data type of `98.03` using `class()` function.
-
 ii. Assign the value `98.03` to variable `height` and find its data type.
 ```{r}
 # I. Find the data type of 98.03 using class() function
@@ -211,11 +210,8 @@ class(h)
 Find the data type of the following values; *One of them is a numeric element*
 
 i. `31 + 8`
-
 ii. `5 - i`
-
 iii. `4i`
-
 iv. `12`
 
 ```{r}
@@ -266,13 +262,9 @@ class(age)
 Convert the following values to raw data types; **Hint: ** use `charToRaw()` function for character data types and `as.raw()` to other data types.  
 
 i. `"Vipin"`
-
 ii. `27`
-
 iii. `69.0`
-
 iv. `FALSE`
-
 v. `12L`
 
 ```{r}
@@ -306,8 +298,18 @@ This is the organization of data into one or multiple data values in specific st
 A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a `c()` function, here is an example of a vector.
 ```{r}
 marks = c(23, 67, 98, 34, 98, 21)
-print(marks)
+print(marks) # print to the console
 ```
+
+*Activity*
+
+Create a vector named `ages` and insert the following values 21, 32, 22, 24, 27, 54, 20, 13 and print it out on the console
+```{r}
+# vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
+# CODE HERE 
+
+```
+
 
 The `class` function is utilized to determine the data types present within vector data values.
 ```{r}
@@ -330,14 +332,40 @@ dim(marks)
 length(marks)
 ```
 
+*Activity*
+
+Create a vector named `height` with its elements/values as 120.1, 118, 123.4, 130.8, 115.2 and the following;
+
+i. print it out to the console using `print()` function. 
+ii. find the data type of its elements using `class()` function
+iii. use `is.vector()` function to find if its really a vector
+iv. count the number of elements in the vector using `length()` function. 
+```{r}
+# print it out
+# CODE HERE 
+
+# find the data type of its elements
+# CODE HERE
+
+# find if its really a vector
+# CODE HERE
+
+# count the number of elements in the vector
+# CODE HERE 
+
+```
+
 Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
 ```{r}
 marks[3]
 ```
+
 value "98" is at index 3, or the third in the vector. The first value/element of a vector is indexed `1`, for instance if we find the first value in the vector `marks`.
+
 ```{r}
 marks[1] #returns the first value
 ```
+
 The sequence goes on, the second, third, fourth, fifth ... values are indexed as , `2`, `3`, `4`, `5`... respectively. i.e the n^th value is indexed as `n`. 
 
 Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
