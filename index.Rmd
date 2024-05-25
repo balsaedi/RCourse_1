@@ -249,4 +249,4 @@ You have to use Base R to solve the questions below;
 
 9.You have `b` rupees and spend 8 rupees on a book. How much money do you have left? 
 
-10. Evaluate `m=5 * (4 + 6) - 10` and print out `m` in the console. 
+10. Evaluate `m=5 * (4 + 6) - 10` and print out `m` to the console. 

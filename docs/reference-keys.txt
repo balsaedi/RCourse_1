@@ -26,6 +26,7 @@ data-frame
 loops
 for-loops
 while-loop
+code-challenge-1
 working-with-files
 xlsx-xls-files
 reading-a-file-to-a-dataframe
