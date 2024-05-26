@@ -50,6 +50,7 @@ group_by
 summarise
 chaining
 application-of-dplyr-on-microbiology
+code-challenge-2
 ggplot
 five-key-steps-to-ggplot
 prepare-the-data-for-plotting---data-assessment

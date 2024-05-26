@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-25" />
+<meta name="date" content="2024-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -136,6 +136,7 @@
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="dpyr-library.html"><a href="dpyr-library.html#chaining"><i class="fa fa-check"></i><b>5.2</b> Chaining</a></li>
 <li class="chapter" data-level="5.3" data-path="dpyr-library.html"><a href="dpyr-library.html#application-of-dplyr-on-microbiology"><i class="fa fa-check"></i><b>5.3</b> Application of Dplyr on Microbiology</a></li>
+<li class="chapter" data-level="5.4" data-path="dpyr-library.html"><a href="dpyr-library.html#code-challenge-2"><i class="fa fa-check"></i><b>5.4</b> CODE CHALLENGE</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ggplot.html"><a href="ggplot.html"><i class="fa fa-check"></i><b>6</b> GGPLOT</a>
 <ul>
@@ -179,13 +180,15 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="js/dcl.js"></script>
-<p><code>readxl</code> library has been used to read excel table into R and manipulate the data using R basic functions, now <code>dplyr</code> library will be used. This, <code>dplyr</code> library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some of the examples of dplyr verbs;
-- select
-- filter
-- arrange
-- mutate
-- group by
-- summarise</p>
+<p><code>readxl</code> library has been used to read excel table into R and manipulate the data using R basic functions, now <code>dplyr</code> library will be used. This, <code>dplyr</code> library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some of the examples of dplyr verbs;</p>
+<ul>
+<li>select</li>
+<li>filter</li>
+<li>arrange</li>
+<li>mutate</li>
+<li>group by</li>
+<li>summarise</li>
+</ul>
 <p>To install <code>dplyr</code>, run the below command on the console.</p>
 <pre><code>install.packages(&quot;dplyr&quot;)</code></pre>
 <p>Ensure your computer is connected to the internet when installing!</p>
@@ -429,6 +432,33 @@ Group by chromosomes and calculate the mean density
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZzY9aGc1ICU+JSBcbiAgZ3JvdXBfYnkoVHlwZSkgJT4lXG4gIHN1bW1hcmlzZShnZW5lX2RlbnNpdHk9bWVhbihHZW5lc19wZXJfTWIpKVxuaGc2In0=
 </div>
+</div>
+<div id="code-challenge-2" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> CODE CHALLENGE<a href="dpyr-library.html#code-challenge-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><code>ToothGrowth</code> is one of the freely available data sets in base R. Go on and;
+<ol style="list-style-type: lower-alpha">
+<li>Load the <code>ToothGrowth</code> data set.</li>
+<li>Display the first 5 records.</li>
+<li>Use the function <code>write.table</code> to write the data set to a local file.</li>
+</ol></li>
+<li>You will use the Palmer Archipelago(Antarctica) Penguin data set from kaggle to practice various data manipulation techniques using <code>dplyr</code> verbs in R. Ensure You load the data and necessary packages before working on the following questions below;
+<ol style="list-style-type: lower-alpha">
+<li>Using <code>select()</code> verb, create a new data set that contains only the columns <code>species, island, bill_length_mm</code>.</li>
+<li>Filter the Penguin data set to retain only the “Adelie” species that live in “Torgersen” island. Use <code>filter()</code> function.</li>
+<li>Arrange the Penguin data set according to <code>bill_lenghth_mm</code> in descending order. Use <code>arrange()</code> verb.</li>
+<li>Using the <code>mutate()</code> function, add a new column called <code>bill_length_cm</code> derived from <code>bill_length_mm</code> by 10.</li>
+<li>Group the data set according to <code>island</code>.</li>
+<li>For each species and island, calculate the mean <code>bill_length_mm</code> and the observations count.</li>
+</ol></li>
+<li>In this activity, you will chain at least four <code>dplyr</code> verbs to achieve the desired outcome.
+<ul>
+<li>Select the columns, <code>island, body_mass_g, species, bill_length_mm</code></li>
+<li>Filter the selected data set to include penguins that have a bill length greater than 40mm</li>
+<li>Create a new column/variable that will convert <code>bill_length_mm</code> to <code>bill_length_cm</code> i.e divide <code>bill_length_mm</code> by 10 to come up with <code>bill_length_cm</code>.</li>
+<li>Order the resulting data set by <code>body_mass_g</code> in descending order.</li>
+</ul></li>
+</ol>
 
 </div>
 </div>
