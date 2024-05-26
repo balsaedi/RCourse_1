@@ -175,6 +175,10 @@
             <section class="normal" id="section-">
 <div id="working-with-files" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Working with files<a href="working-with-files.html#working-with-files" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<script src="js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/dcl.js"></script>
 <div id="xlsx-xls-files" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> .XLSX, XLS files<a href="working-with-files.html#xlsx-xls-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="reading-a-file-to-a-dataframe" class="section level3 hasAnchor" number="4.1.1">
@@ -186,24 +190,24 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFk
 </div>
 The <code>readxl</code> library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZyA9IHJlYWRfZXhjZWwoXCJkYXRhL0h1bWFuX2dlbm9tZS54bHN4XCIpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKSJ9
 </div>
 View the data set
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdHIoaGcpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIFZpZXcgdGhlIGRhdGFzZXRcbnN0cihoZykifQ==
 </div>
 <p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.</p>
 Here’s how you can use them for this case;
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkKGhnKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIERpc3BsYXkgdGhlIGZpcnN0IDYgcmVjb3JkcyBvZiB0aGUgZGF0YSBzZXRcbmhlYWQoaGcpIn0=
 </div>
 The <code>head()</code> function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the <code>n</code> argument.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkKGhnLCBuPTEwKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIFNwZWNpZnkgdGhlIG51bWJlciBvZiB0aGUgZmlyc3Qgcm93cyB5b3Ugd2FudCB0byB2aWV3XG5oZWFkKGhnLCBuPTEwKSJ9
 </div>
 The tail argument can be used as;
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ0YWlsKGhnKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIFZpZXcgdGhlIGxhc3QgNiByb3dzIG9mIHRoZSBkYXRhc2V0LiBcbnRhaWwoaGcpIn0=
 </div>
 <p>to show the last 6 records while specifying <code>n</code> value will show the specified number of rows.</p>
 R identifies this type of data as table or data frame.
