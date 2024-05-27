@@ -13,17 +13,18 @@ knitr::opts_chunk$set(echo = TRUE,error=TRUE)
 `ggplot2` is a powerful data visualization package in R that allows you to create a wide variety of graphs and plots. It is based on the grammar of graphics, a structured approach to constructing plots that emphasizes the mapping of data to visual attributes.
 
 ## Five key steps to ggplot 
-There are 5 key steps in plotting in ggplot
-
-1.**The Setup** - Read the data set, define x and y axis 
-
-2. **The Labels** - Title, X and Y axis labels 
-
-3. **The Theme** - Default, Black and White, colored etc. 
-
-4. **The Facets** - Individual Graphs for each group in data with exactly same range
-
-5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
+There are 5 key steps in plotting in ggplot;
+<p>
+  1.**The Setup** - Read the data set, define x and y axis 
+  
+  2. **The Labels** - Title, X and Y axis labels 
+  
+  3. **The Theme** - Default, Black and White, colored etc. 
+  
+  4. **The Facets** - Individual Graphs for each group in data with exactly same range
+  
+  5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
+</p>
 
 To install `ggplot`, run the below command in the console.  
 ```

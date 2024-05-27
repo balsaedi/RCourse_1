@@ -104,6 +104,8 @@ The following examples will illustrates how to do simple arithmetic in R.
 10 * 3 #multiplication
 ```
 
+<span style="color: green;">*Activity*</span>
+
 Your turn! Multiply `12` by `7` 
 ```{r}
 # Multiply 12 by 7
@@ -114,6 +116,8 @@ Your turn! Multiply `12` by `7`
 ```{r}
 30/15 # division
 ```
+
+<span style="color: green;">*Activity*</span>
 
 Your turn! Divide `27` by `3`
 ```{r}
@@ -128,6 +132,8 @@ n = 30
 answer = m - n
 answer
 ```
+
+<span style="color: green;">*Activity*</span>
 
 Your turn! Assign `-5` to variable `m` and `20` to variable `n` and Add the two. Assign a variable `answer` to the sum of `m` and `n`. 
 ```{r}
@@ -154,7 +160,7 @@ The above expression is solved as follows;
 
 - finally, addition: `5 + 12` which is `17`.
 
-*Activity*
+<span style="color: green;">*Activity*</span>
 
 Workout the below three equations and find their solutions;
 ```
