@@ -149,6 +149,7 @@
 <li class="chapter" data-level="6.3.1" data-path="ggplot.html"><a href="ggplot.html#base-set-up"><i class="fa fa-check"></i><b>6.3.1</b> Base set up</a></li>
 </ul></li>
 <li class="chapter" data-level="6.4" data-path="ggplot.html"><a href="ggplot.html#working-with-inbuilt-iris-data"><i class="fa fa-check"></i><b>6.4</b> Working with inbuilt iris data</a></li>
+<li class="chapter" data-level="6.5" data-path="ggplot.html"><a href="ggplot.html#code-challenge-5"><i class="fa fa-check"></i><b>6.5</b> CODE CHALLENGE</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="bioconductor.html"><a href="bioconductor.html"><i class="fa fa-check"></i><b>7</b> Bioconductor</a>
 <ul>
@@ -323,6 +324,30 @@ the same can also be plotted to a violin plot
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJncmFwaD1nZ3Bsb3QoaXJpc19sb25nLCBhZXMoeD1TcGVjaWVzLHk9bWVhc3VyZW1lbnQpKStcbiAgbGFicyh4PVwiU3BlY2llc1wiLCB5PVwiTGVuZ3RoIGluIGNtXCIsIHRpdGxlID0gXCJ2YXJpYXRpb24gaW4gUGV0YWxzIGFuZCBTZXBhbHMgb2YgSXJpcyBTcGVjaWVzXCIpK1xuICB0aGVtZShheGlzLnRleHQgPSBlbGVtZW50X3RleHQoYW5nbGU9OTApKStcbiAgZmFjZXRfZ3JpZCh+dHlwZSkrXG4gIGFlcyhmaWxsPVNwZWNpZXMpK1xuICBnZW9tX3Zpb2xpbigpXG5cbnByaW50KGdyYXBoKSJ9
 </div>
+</div>
+<div id="code-challenge-5" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> CODE CHALLENGE<a href="ggplot.html#code-challenge-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>thyroid disease - <a href="https://www.kaggle.com/datasets/jainaru/thyroid-disease-data/data" class="uri">https://www.kaggle.com/datasets/jainaru/thyroid-disease-data/data</a></p>
+<p>HR analytics dataset - <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data" class="uri">https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data</a></p>
+<ol style="list-style-type: decimal">
+<li><p>You will be required to retrieve the HR analytics employee attrition data set from kaggle. Click <a href="https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data">here</a> to check out the data set. Read the data into an R data frame and answer the following questions using <code>read.csv</code> and <code>ggplot2</code> libraries.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Plot a histogram to show the distribution of age among the employees.</li>
+<li>Draw a boxplot to show the employees’ hourly rate in the sales department. Are there any outliers? What is the median employees’ hourly rate from the boxplot?</li>
+<li>How does age relate to monthly income? Are younger employees paid less? Plot a scatter plot to show the relationship between employees monthly income and age. <strong>Note</strong>:<em>Age should be in the x axis</em></li>
+<li>How many male and female employees are their in the company? Are female employees more than male employees. Plot a bar chart to show.</li>
+<li>Are male employees retained retained more than the female employees in the company. Filter to retrieve the retained employees(“Attrition=”No”) only.</li>
+<li>What is the marital status of the employees in the Sales department? Filter the data to retrieve the sales department then plot the value count of each marital status in the filtered data set on a pie chart.</li>
+<li>Finally plot a heatmap to show the correlation of numeric columns.</li>
+</ol></li>
+<li><p>You will be required to download the thyroid disease csv file from <a href="https://www.kaggle.com/datasets/jainaru/thyroid-disease-data/data">here</a>. It contains 13 clinicopathologic features aiming to predict recurrence of well differentiated thyroid cancer. The data set was collected in duration of 15 years and each patient was followed for at least 10 years. The data was procured from thyroid disease datasets provided by the UCI Machine Learning Repository. You will load the csv file into R data frame, <code>read.csv</code>, and solve the following questions.</p>
+<ol style="list-style-type: lower-alpha">
+<li>After the initial thyroid cancer treatment, has the disease recurred or not? Compare the two categories of patients (recurred and not recurred) using a bar chart.</li>
+<li>After physical examination of the thyroid gland and the surrounding structures, there were patients who had multinodular goiter, other single nodular gioters while rest of the patients had other complications. What are the composition of the patients? Plot a pie chart to show.</li>
+<li>Plot a grouped bar chart to show the average risk and age of thyroid disease between males and female patient. Risk and Age columns against gender.</li>
+<li>Plot a desnsity plot to show the distribution of age. Which age group is mostly affected by thyroid disease?</li>
+</ol></li>
+</ol>
 
 </div>
 </div>

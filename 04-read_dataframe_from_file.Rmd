@@ -303,6 +303,7 @@ csv data - https://www.kaggle.com/datasets/prasad22/vehicle-population-statistic
     e. Calculate the total null values in the `yahoo_data` using the `sum()` along with `is.na()` functions. 
     f. Find the total duplicated observations in the `yahoo_data` with `sum()` and `duplicated()` commands. 
 2. In this second part of the challenge, you will be required to download a kaggle data set - the vehicle population statistics csv file from [here](https://www.kaggle.com/datasets/prasad22/vehicle-population-statistics). You will use the data set to answer the following questions. 
+
     a. Read the data set to a data frame using the `read.csv` inbuilt function. Store the data frame in a variable `vehicle_data`. 
     b. Display the first 6 rows and the last 3 rows using the `head()` and `tail()` function. 
     c. Show the first 10 observations in the `"Scooters"` column. 

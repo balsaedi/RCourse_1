@@ -59,6 +59,7 @@ prepare-the-data-for-plotting---data-assessment
 plotting
 base-set-up
 working-with-inbuilt-iris-data
+code-challenge-5
 bioconductor
 installing-biocmanager-package
 searching-and-analyzing-the-strings
