@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-27" />
+<meta name="date" content="2024-05-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,6 +157,7 @@
 <li class="chapter" data-level="7.2" data-path="bioconductor.html"><a href="bioconductor.html#searching-and-analyzing-the-strings"><i class="fa fa-check"></i><b>7.2</b> Searching and Analyzing the strings</a></li>
 <li class="chapter" data-level="7.3" data-path="bioconductor.html"><a href="bioconductor.html#using-seqinr"><i class="fa fa-check"></i><b>7.3</b> Using seqinr</a></li>
 <li class="chapter" data-level="7.4" data-path="bioconductor.html"><a href="bioconductor.html#using-short-read"><i class="fa fa-check"></i><b>7.4</b> Using Short Read</a></li>
+<li class="chapter" data-level="7.5" data-path="bioconductor.html"><a href="bioconductor.html#code-challenge-6"><i class="fa fa-check"></i><b>7.5</b> CODE CHALLENGE</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -262,12 +263,12 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzZXFbd2hpY2goZ2NfY29udGVudD09bWF4KGdjX2NvbnRl
 </div>
 <div id="searching-and-analyzing-the-strings" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Searching and Analyzing the strings<a href="bioconductor.html#searching-and-analyzing-the-strings" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;
-- Search for substrings- in this case we search for <code>"GAATTC"</code> substring.
+<p>A biologist can search for specific substrings within the sequences and analyze their positions and characteristics for instance;</p>
+<ul>
+<li>Search for substrings- in this case we search for <code>"GAATTC"</code> substring.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJFQ29SMT12Y291bnRQYXR0ZXJuKFwiR0FBVFRDXCIsIHNlcSlcbnByaW50KEVDb1IxKVxuXG5IaW5kSUlJID0gdmNvdW50UGF0dGVybihcIkFBR1RUXCIsIHNlcSlcbnByaW50KEhpbmRJSUkpIn0=
-</div>
-<ul>
+</div></li>
 <li>Finding the position of substrings
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJIaW5kSUlJX3Bvcz12bWF0Y2hQYXR0ZXJuKFwiQUFHQ1RcIiwgc2VxKVxucHJpbnQoSGluZElJSV9wb3MpIn0=
@@ -391,6 +392,23 @@ Plot a boxplot for the scores
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJib3hwbG90KHNjb3JlcywgeGxhYj1cIlBvc2l0aW9uXCIsIHlsYWI9XCJQaHJlZCBzY29yZVwiKSJ9
 </div>
+</div>
+<div id="code-challenge-6" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> CODE CHALLENGE<a href="bioconductor.html#code-challenge-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this code challenge you will be required to installed the Bioconductor locally as guided above. Thereafter, you will install <code>MultiAssayExperiment</code> package that is part of the Bioconductor project. Below is the code to install the <code>MultiAssayExperiment</code> locally;</p>
+<pre><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
+    install.packages(&quot;BiocManager&quot;)
+BiocManager::install(&quot;MultiAssayExperiment&quot;)</code></pre>
+<p>You will load the package along with the ggplot2 library and work on the <code>genCov</code> data. <code>genCov</code> data is an inbuilt data set from <code>MultiAssayExperiment</code> that contains simulated data showcasing the integration and analysis of multiple types of data from different assays. Challenge yourself with the following activities to get a clear understanding of genomic coverage data;</p>
+<ol style="list-style-type: decimal">
+<li>Load the <code>genCov</code> using the code, <code>data("genCov", package = "MultiAssayExperiment")</code>.<br />
+</li>
+<li>Check the structure <code>str()</code> of the data set and calculate the descriptive statistics.</li>
+<li>Extract the coverage data with code <code>experiments(genCov)[["coverage"]]</code> and store in a variable <code>coverage_data</code>. Display the first 6 records of the the data.</li>
+<li>Extract and inspect the genomic ranges from <code>genCov</code> with <code>rowRanges()</code> command. Display the first 6 genomic ranges.</li>
+<li>Plot a line chart of the <code>"Coverage"</code> against the <code>"Genomic Position"</code>.</li>
+<li>Calculate the average coverage for each sample in the <code>coverageData</code> using <code>colMeans()</code> command. Display the result on a bar chart.</li>
+</ol>
 
 </div>
 </div>

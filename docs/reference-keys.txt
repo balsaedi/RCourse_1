@@ -65,3 +65,4 @@ installing-biocmanager-package
 searching-and-analyzing-the-strings
 using-seqinr
 using-short-read
+code-challenge-6

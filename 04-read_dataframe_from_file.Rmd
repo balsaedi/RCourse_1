@@ -167,7 +167,7 @@ titanic_df = read.csv("data/titanic_dataset.csv")
 
 #### Data Assessment
 
-- Structure of the dataset
+- Structure of the data set
 ```{r}
 str(titanic_df)
 ```
@@ -207,6 +207,9 @@ table(titanic_df$Pclass, titanic_df$Survived)
 ```
 
 Most passengers from ticket class 0 survived. 
+
+<span style="color: green;">*Activity*</span>
+
 
 ### IBM Employee Attrition data 
 This is a common data set used for HR analytics. It contains information about all IBM employees, who are still in the company and the ones who left. Analyzing this attrition data set will provide meaningful insights on employees' behavior and their engagement. HR can also find employee retention techniques with organizations. In this course section, we will briefly go through basic analysis after assessing the data. 

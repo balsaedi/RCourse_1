@@ -82,6 +82,8 @@ The following examples will illustrates how to do simple arithmetic in R.
 2+3 # addition
 ```
 
+<span style="color: green;">*Activity*</span>
+
 - Your turn! Add `2398` to `4653`
 ```{r}
 # Add 2398 to 4653 
@@ -92,6 +94,8 @@ The following examples will illustrates how to do simple arithmetic in R.
 ```{r}
 6-2 #subtraction
 ```
+
+<span style="color: green;">*Activity*</span>
 
 - Your turn! Subtract `15` from `30`
 ```{r}

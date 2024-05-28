@@ -118,10 +118,7 @@ In the code cell below;
 
 i. Find the data type of the value `"school"` using the `class()` function. 
 ii. Assign your first name to a variable `firstname` and find its data type. **Remember to enclose it in quotation marks**
-iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;
-```
-full_name = "Vipin Patel"
-```
+iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;`full_name = "Vipin Patel"`
 and find its data type. **Remember to enclose the value in quotation marks since its a character data type**
 ```{r}
 # I. Find the data type of the value `"school"
@@ -786,7 +783,7 @@ data
         ii. Subset the vector from the second to the fifth element and print it to the console. 
         iii. Exclude the fourth element and print the resultant vector to the console. 
         iv. Reverse the order elements in `my_vector`. 
-3. Create two vectors; `vector1` and `vector2` and answer the following questions. 
+3. Create two vectors; `vector1` and `vector2`that have the elements `12, 76, 45, 23, 64, 88` and `22, 87, 10, 5, 99, 54` respectively.Use the two vectors to answer the following questions. 
 
     a. Use `summarise()` function to find the descriptive statistics of`vector1`. 
     b. Add 7 to `vector1` and name it `vector3`.
