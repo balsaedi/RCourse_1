@@ -1,4 +1,15 @@
 # Working with files
+
+<script src="js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="js/dcl.js"></script>
+```{r include=FALSE}
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
 ## .XLSX, XLS files
 ### Reading a file to a dataframe 
 
@@ -12,11 +23,22 @@ library(readxl)
 
 The `readxl` library can read .xlsx, xls files to a data frame. For this case, Human genome excel file is read. 
 ```{r}
+# Import the library
+library(readxl)
+
+# Read the excel file
 hg = read_excel("data/Human_genome.xlsx")
 ```
 
 View the data set 
 ```{r}
+# Import the library
+library(readxl)
+
+# Read the excel file
+hg = read_excel("data/Human_genome.xlsx")
+
+# View the dataset
 str(hg)
 ```
 
@@ -24,15 +46,36 @@ In R, `head()` and `tail()` are functions used to view the first few rows or the
 
 Here's how you can use them for this case;
 ```{r}
+# Import the library
+library(readxl)
+
+# Read the excel file
+hg = read_excel("data/Human_genome.xlsx")
+
+# Display the first 6 records of the data set
 head(hg)
 ```
 
 The `head()` function displays the first few rows of a data frame or a vector. By default, it shows the first 6 rows, but you can specify the number of rows to display using the `n` argument.
 ```{r}
+# Import the library
+library(readxl)
+
+# Read the excel file
+hg = read_excel("data/Human_genome.xlsx")
+
+# Specify the number of the first rows you want to view
 head(hg, n=10)
 ```
 The tail argument can be used as;
 ```{r}
+# Import the library
+library(readxl)
+
+# Read the excel file
+hg = read_excel("data/Human_genome.xlsx")
+
+# View the last 6 rows of the dataset. 
 tail(hg)
 ```
 to show the last 6 records while specifying `n` value will show the specified number of rows. 
@@ -124,7 +167,7 @@ titanic_df = read.csv("data/titanic_dataset.csv")
 
 #### Data Assessment
 
-- Structure of the dataset
+- Structure of the data set
 ```{r}
 str(titanic_df)
 ```
@@ -164,6 +207,9 @@ table(titanic_df$Pclass, titanic_df$Survived)
 ```
 
 Most passengers from ticket class 0 survived. 
+
+<span style="color: green;">*Activity*</span>
+
 
 ### IBM Employee Attrition data 
 This is a common data set used for HR analytics. It contains information about all IBM employees, who are still in the company and the ones who left. Analyzing this attrition data set will provide meaningful insights on employees' behavior and their engagement. HR can also find employee retention techniques with organizations. In this course section, we will briefly go through basic analysis after assessing the data. 
@@ -246,5 +292,23 @@ table(attrition_df$AgeGroup, attrition_df$Attrition)
 
 Young employees below 30 years tend to leave the company than elder employees of above 40 years who are mostly retained by the company. 
 
+## CODE CHALLENGE
+excel data - https://www.kaggle.com/datasets/suruchiarora/yahoo-finance-dataset-2018-2023
 
+csv data - https://www.kaggle.com/datasets/prasad22/vehicle-population-statistics
 
+1. In this question you will be required to download kaggle data set, the Yahoo data 2018-2023 from [here](https://www.kaggle.com/datasets/suruchiarora/yahoo-finance-dataset-2018-2023). Follow the instructions below to work on the data set. 
+    
+    a. Install and load the `readxl` library. 
+    b. Read the excel file to a data frame using `readxl()` function. Store the data frame in a variable, `yahoo_data`. 
+    c. Use `str()` command to get a glimpse of the dataset. 
+    d. Show the first 4 records and the last 10 records of the `yahoo_data` using the `head()` and `tail()` command respectively. 
+    e. Calculate the total null values in the `yahoo_data` using the `sum()` along with `is.na()` functions. 
+    f. Find the total duplicated observations in the `yahoo_data` with `sum()` and `duplicated()` commands. 
+2. In this second part of the challenge, you will be required to download a kaggle data set - the vehicle population statistics csv file from [here](https://www.kaggle.com/datasets/prasad22/vehicle-population-statistics). You will use the data set to answer the following questions. 
+
+    a. Read the data set to a data frame using the `read.csv` inbuilt function. Store the data frame in a variable `vehicle_data`. 
+    b. Display the first 6 rows and the last 3 rows using the `head()` and `tail()` function. 
+    c. Show the first 10 observations in the `"Scooters"` column. 
+    d. What are the number of Jeeps per Region. Use table functions. **Hint**:*Refer from "What is the survival rate by gender?" in the content above*
+    e. What are the distinct categories in the `vehicle_data`.

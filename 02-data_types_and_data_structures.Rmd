@@ -1,16 +1,27 @@
 # Data Types and Data Structures
+
+<script src="js/dcl.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="js/dcl.js"></script>
+```{r include=FALSE}
+tutorial::go_interactive(greedy=TRUE)
+knitr::opts_chunk$set(echo = TRUE,error=TRUE)
+```
+
 ## Data types 
 There are different kinds of values in R that can be manipulated in variables in R. `class()`function is used to check the data type of a value or a variable. Different data types include;
 
 - Numeric
 
-These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. Example:
+These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. The below code finds the data type of variable `a` which is assigned `23.5` and returns numeric. 
 ```{r}
 a=23.5
 class(a) #check the data type of a 
 ```
 
-a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. 
+a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. Run the code chunks below to inspect to find the code of each value
 ```{r}
 class(45)
 ```
@@ -27,6 +38,22 @@ class(0)
 class(73)
 ```
 
+<span style="color: green;">*Activity*</span>
+
+In the code cell below; 
+
+i. Find the data type of `98.03` using `class()` function.
+ii. Assign the value `98.03` to variable `height` and find its data type.
+```{r}
+# I. Find the data type of 98.03 using class() function
+# CODE HERE 
+
+
+# II. Assign the value `98.03` to variable `height` and find its data type
+# CODE HERE
+```
+
+
 - Integers
 
 They represent whole numbers without any any decimals and are a subclass of numeric. `L` is added at the end of a whole number to indicate that it is an integer. 
@@ -35,11 +62,28 @@ a=23L #add L to show it is an integer
 class(a)
 ```
 
-Lets store age as an integer. **Note the 'L' after the number 27**
+Lets store `age` as an integer. **Note the 'L' after the number 27**
 ```{r}
 age = 27L
 class(age)
 ```
+
+<span style="color: green;">*Activity*</span>
+
+In the code cell below; 
+
+i. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+ii. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+```{r}
+# I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+# CODE HERE 
+
+
+# II. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+# CODE HERE
+
+```
+
 
 - Characters
 
@@ -68,6 +112,26 @@ fullname = "Salman Khan"
 class(fullname)
 ```
 
+<span style="color: green;">*Activity*</span>
+
+In the code cell below; 
+
+i. Find the data type of the value `"school"` using the `class()` function. 
+ii. Assign your first name to a variable `firstname` and find its data type. **Remember to enclose it in quotation marks**
+iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;`full_name = "Vipin Patel"`
+and find its data type. **Remember to enclose the value in quotation marks since its a character data type**
+```{r}
+# I. Find the data type of the value `"school"
+# CODE HERE
+
+# Assign your first name to variable first name and find its data type
+# CODE HERE 
+
+# Assign your full names to a variable full_name
+# CODE HERE 
+```
+
+
 - Logical 
 
 They represent boolean values which has only distinct value; `TRUE` or `FALSE`.
@@ -82,6 +146,17 @@ changing it to `FALSE`
 b = FALSE
 class(b)
 ```
+
+<span style="color: green;">*Activity*</span>
+
+Assign a `TRUE` to a variable `grateful` and find the data type of the variable. 
+```{r}
+# Assign a `TRUE` to a variable `grateful` and find its data type
+## CODE HERE 
+
+
+```
+
 
 - Complex
 
@@ -127,7 +202,32 @@ print(h)
 class(h)
 ```
 
+<span style="color: green;">*Activity*</span>
+
+Find the data type of the following values; *One of them is a numeric element*
+
+i. `31 + 8`
+ii. `5 - i`
+iii. `4i`
+iv. `12`
+
+```{r}
+#i. 31 + 8
+# CODE HERE
+
+# ii. 5 - i
+# CODE HERE 
+
+# iii. 4i
+# CODE HERE 
+
+# iv. 12
+# CODE HERE
+
+```
+
 - Raw
+
 They represent a vector of bytes in their natural form. They are used in storing binary data. Example;
 
 ```{r}
@@ -154,6 +254,34 @@ print(age)
 class(age)
 ```
 
+<span style="color: green;">*Activity*</span>
+
+Convert the following values to raw data types; **Hint: ** use `charToRaw()` function for character data types and `as.raw()` to other data types.  
+
+i. `"Vipin"`
+ii. `27`
+iii. `69.0`
+iv. `FALSE`
+v. `12L`
+
+```{r}
+# i. "Vipin"
+# CODE HERE
+
+# ii. 27
+# CODE HERE
+
+
+# iii. 69.0
+# CODE HERE
+
+# iv. FALSE
+# CODE HERE
+
+# v. 12L
+# CODE HERE
+```
+
 ## Data Structures 
 This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;
 
@@ -167,8 +295,18 @@ This is the organization of data into one or multiple data values in specific st
 A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a `c()` function, here is an example of a vector.
 ```{r}
 marks = c(23, 67, 98, 34, 98, 21)
-print(marks)
+print(marks) # print to the console
 ```
+
+<span style="color: green;">*Activity*</span>
+
+Create a vector named `ages` and insert the following values 21, 32, 22, 24, 27, 54, 20, 13 and print it out on the console
+```{r}
+# vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
+# CODE HERE 
+
+```
+
 
 The `class` function is utilized to determine the data types present within vector data values.
 ```{r}
@@ -191,14 +329,40 @@ dim(marks)
 length(marks)
 ```
 
+<span style="color: green;">*Activity*</span>
+
+Create a vector named `height` with its elements/values as 120.1, 118, 123.4, 130.8, 115.2 and the following;
+
+i. print it out to the console using `print()` function. 
+ii. find the data type of its elements using `class()` function
+iii. use `is.vector()` function to find if its really a vector
+iv. count the number of elements in the vector using `length()` function. 
+```{r}
+# print it out
+# CODE HERE 
+
+# find the data type of its elements
+# CODE HERE
+
+# find if its really a vector
+# CODE HERE
+
+# count the number of elements in the vector
+# CODE HERE 
+
+```
+
 Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
 ```{r}
 marks[3]
 ```
+
 value "98" is at index 3, or the third in the vector. The first value/element of a vector is indexed `1`, for instance if we find the first value in the vector `marks`.
+
 ```{r}
 marks[1] #returns the first value
 ```
+
 The sequence goes on, the second, third, fourth, fifth ... values are indexed as , `2`, `3`, `4`, `5`... respectively. i.e the n^th value is indexed as `n`. 
 
 Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
@@ -590,3 +754,40 @@ data$average_marks=rowMeans(data[, c(2, 3, 4, 5)])
 data
 ```
 
+## CODE CHALLENGE
+1. Solve the questions in R markdown;
+
+    a. Create a the following variables as instructed below;
+  
+        i. a variable `length` to store `61.2`.
+        ii. a variable `age` to store `76`.
+        iii. a variable `is_old` to store `TRUE`.
+        iv. a variable name to store `"Pradip"`.
+        v. a variable `comp_var` to store `2 + 3i`. 
+    b. Use `class()` function to find the data type of the variables created above.
+    c. Create another variable `width` to store `12.1` and perform the following operations;
+  
+        i. Add variable `length` to width`.
+        ii. Subtract `width` from `length`.
+        iii. Multiply `length` and `width`. Store the solution in a variable `area`.
+    d. Convert each of the created variable in "a" above to raw data type. 
+2. Create a vector, `my_vector` with the following values; `12, 54, 76, 71, 42, 75, 33` and perform the following operations; 
+
+    a. Find the:
+  
+        i. dimension of `my_vector` using `dim()` function.
+        ii. data type of its element using the `class()` function. 
+        iii. Use the `is.vector()` function to find its a vector. 
+    b. This part will require you to access and manipulate the vector elements of `my_vector`. 
+        i. Get the fourth value of `my_vector`. and print to the console. 
+        ii. Subset the vector from the second to the fifth element and print it to the console. 
+        iii. Exclude the fourth element and print the resultant vector to the console. 
+        iv. Reverse the order elements in `my_vector`. 
+3. Create two vectors; `vector1` and `vector2`that have the elements `12, 76, 45, 23, 64, 88` and `22, 87, 10, 5, 99, 54` respectively.Use the two vectors to answer the following questions. 
+
+    a. Use `summarise()` function to find the descriptive statistics of`vector1`. 
+    b. Add 7 to `vector1` and name it `vector3`.
+    c, Subtract 3 from `vector2` and name it `vector4`. 
+    d. Add `vector1` to `vector2`
+    e. Find the division of the `vector1` and `vector2`.
+  

@@ -8,6 +8,8 @@ basics
 bodmas-rule
 r-markdown
 installation-of-packages
+assignment
+code-challenge
 data-types-and-data-structures
 data-types
 data-structures
@@ -21,9 +23,11 @@ null-data-points-in-vectors
 matrix
 mathematical-operations-in-a-matrix
 data-frame
+code-challenge-1
 loops
 for-loops
 while-loop
+code-challenge-2
 working-with-files
 xlsx-xls-files
 reading-a-file-to-a-dataframe
@@ -37,6 +41,7 @@ ibm-employee-attrition-data
 reading-the-csv-file-1
 data-assessment-1
 data-analysis-1
+code-challenge-3
 dpyr-library
 dplyr-verbs
 select
@@ -47,14 +52,17 @@ group_by
 summarise
 chaining
 application-of-dplyr-on-microbiology
+code-challenge-4
 ggplot
 five-key-steps-to-ggplot
 prepare-the-data-for-plotting---data-assessment
 plotting
 base-set-up
 working-with-inbuilt-iris-data
+code-challenge-5
 bioconductor
 installing-biocmanager-package
 searching-and-analyzing-the-strings
 using-seqinr
 using-short-read
+code-challenge-6
