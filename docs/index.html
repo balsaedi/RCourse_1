@@ -54,6 +54,70 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -248,22 +312,23 @@
 </ol>
 <p>The following examples will illustrates how to do simple arithmetic in R.</p>
 <ul>
-<li><strong>Example</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIyKzMgIyBhZGRpdGlvbiJ9
-</div></li>
+<li><strong>Example</strong></li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span> <span class="co"># addition</span></span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
 <p><span style="color: green;"><em>Activity</em></span></p>
 <ul>
 <li>Your turn! Add <code>2398</code> to <code>4653</code>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEFkZCAyMzk4IHRvIDQ2NTMgXG4jIyBDb2RlIGhlcmUifQ==
 </div></li>
-<li><strong>Example</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI2LTIgI3N1YnRyYWN0aW9uIn0=
-</div></li>
 </ul>
+<p><span></span></p>
+<ul>
+<li><strong>Example</strong>
+dc_light_exercise_unnamed-chunk-5</li>
+</ul>
+<pre><code>## [1] 4</code></pre>
 <p><span style="color: green;"><em>Activity</em></span></p>
 <ul>
 <li>Your turn! Subtract <code>15</code> from <code>30</code>
@@ -271,10 +336,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI2LTIgI3N1YnRyYWN0aW9uIn0=
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFN1YnRyYWN0IDE1IGZyb20gMzBcbiMjIENvZGUgaGVyZSJ9
 </div></li>
 <li><strong>Example</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxMCAqIDMgI211bHRpcGxpY2F0aW9uIn0=
-</div></li>
+dc_light_exercise_unnamed-chunk-7</li>
 </ul>
+<pre><code>## [1] 30</code></pre>
 <p><span style="color: green;"><em>Activity</em></span></p>
 Your turn! Multiply <code>12</code> by <code>7</code>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
@@ -282,32 +346,28 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE11bHRpcGx5IDEyIGJ5IDdcbiMjIENvZGUgaGVyZSJ9
 </div>
 <ul>
 <li><strong>Example</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIzMC8xNSAjIGRpdmlzaW9uIn0=
-</div></li>
+dc_light_exercise_unnamed-chunk-9</li>
 </ul>
+<pre><code>## [1] 2</code></pre>
 <p><span style="color: green;"><em>Activity</em></span></p>
 Your turn! Divide <code>27</code> by <code>3</code>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpdmlkZSAyNyBieSAzXG4jIyBDb2RlIGhlcmUifQ==
 </div>
-Values can be assigned to variable names which will be instead of the values. For instance, in the example below, <code>30</code> is assigned to variable<code>m</code> and <code>15</code> is assigned to variable <code>n</code>. The solution of their difference is assigned to variable <code>answer</code>.
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtID0gMTVcbm4gPSAzMFxuYW5zd2VyID0gbSAtIG5cbmFuc3dlciJ9
-</div>
+<p>Values can be assigned to variable names which will be instead of the values. For instance, in the example below, <code>30</code> is assigned to variable<code>m</code> and <code>15</code> is assigned to variable <code>n</code>. The solution of their difference is assigned to variable <code>answer</code>.
+dc_light_exercise_unnamed-chunk-11</p>
+<pre><code>## [1] -15</code></pre>
 <p><span style="color: green;"><em>Activity</em></span></p>
-Your turn! Assign <code>-5</code> to variable <code>m</code> and <code>20</code> to variable <code>n</code> and Add the two. Assign a variable <code>answer</code> to the sum of <code>m</code> and <code>n</code>.
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtID0gLTVcbm4gPSAyMFxuYW5zd2VyID0gbSArIG5cbmFuc3dlciJ9
-</div>
+<p>Your turn! Assign <code>-5</code> to variable <code>m</code> and <code>20</code> to variable <code>n</code> and Add the two. Assign a variable <code>answer</code> to the sum of <code>m</code> and <code>n</code>.
+dc_light_exercise_unnamed-chunk-12</p>
+<pre><code>## [1] 15</code></pre>
 </div>
 <div id="bodmas-rule" class="section level3 hasAnchor" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> BODMAS rule<a href="index.html#bodmas-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If there is are multiple different operators in a single expression then the BODMAS(Brackets, Orders (i.e., powers and square roots, etc.), Division and Multiplication, Addition and Subtraction) rule will apply when solving.</p>
-<strong>Basic BODMAS</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhbnN3ZXIgPSA1ICsgMiAqICgxMCAtIDQpXG5hbnN3ZXIifQ==
-</div>
+<p><strong>Basic BODMAS</strong>
+dc_light_exercise_unnamed-chunk-13</p>
+<pre><code>## [1] 17</code></pre>
 <p>The above expression is solved as follows;</p>
 <ul>
 <li><p>evaluate the brackets: <code>(10 - 4)</code> which is <code>6</code>,</p></li>
@@ -323,10 +383,9 @@ Solve them here
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjV29ya291dCB0aGUgZXF1YXRpb25zIGhlcmVcbiMjIENvZGUgaGVyZSJ9
 </div>
-<strong>Including Exponentiation</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhbnN3ZXIgPSAoNiArIDQpIF4gMiAtIDMgKiA1XG5hbnN3ZXIifQ==
-</div>
+<p><strong>Including Exponentiation</strong>
+dc_light_exercise_unnamed-chunk-15</p>
+<pre><code>## [1] 85</code></pre>
 <p>The above equation is solved as follows;</p>
 <ul>
 <li><p>evaluate the brackets: <code>(6 + 4)</code> which is <code>10</code>.</p></li>
@@ -334,10 +393,9 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhbnN3ZXIgPSAoNiArIDQpIF4gMiAtIDMgKiA1XG5hbnN3
 <li><p>then, perform multiplication: <code>3 * 5</code> which is <code>15</code>.</p></li>
 <li><p>finally, subtraction: <code>100 - 15</code> which is <code>85</code>.</p></li>
 </ul>
-<strong>More Complex and Interesting BODMAS</strong>
-<div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhbnN3ZXIgPSAoMjAgLyA0KSArIDNeMiAqICgyICsgMSkgLSA1XG5hbnN3ZXIifQ==
-</div>
+<p><strong>More Complex and Interesting BODMAS</strong>
+dc_light_exercise_unnamed-chunk-16</p>
+<pre><code>## [1] 27</code></pre>
 <p>The above expression is solved as follows;</p>
 <ul>
 <li>evaluate the brackets: <code>(20 / 4)</code> which is <code>5</code> and <code>(2 + 1)</code> which is <code>3</code>.</li>
