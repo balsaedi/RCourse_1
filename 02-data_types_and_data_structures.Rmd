@@ -300,7 +300,7 @@ print(marks) # print to the console
 
 <span style="color: green;">*Activity*</span>
 
-Create a vector named `ages` and insert the following values 21, 32, 22, 24, 27, 54, 20, 13 and print it out on the console
+Create a vector named `ages` and insert the following values `21, 32, 22, 24, 27, 54, 20, 13` and print it out on the console
 ```{r}
 # vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
 # CODE HERE 
@@ -310,34 +310,42 @@ Create a vector named `ages` and insert the following values 21, 32, 22, 24, 27,
 
 The `class` function is utilized to determine the data types present within vector data values.
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 class(marks)
 ```
 The vector "marks" consist of only numeric values 
 
 `is.vector` function is used to check if the variable is a vector. It will return a Boolean value, `TRUE` if the variable in question is truly a vector while `FALSE` if otherwise. 
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 is.vector(marks)
 ```
 
 unlike matrix and data frame, vector has no dimension 
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 dim(marks)
 ```
 
 `length()` function is used to count number of elements in vectors. In our case vector marks, `marks = c(23, 67, 98, 34, 98, 21)` has six elements, therefore, `length()` command will return `6`. 
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 length(marks)
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
-Create a vector named `height` with its elements/values as 120.1, 118, 123.4, 130.8, 115.2 and the following;
+Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
 
-i. print it out to the console using `print()` function. 
-ii. find the data type of its elements using `class()` function
-iii. use `is.vector()` function to find if its really a vector
-iv. count the number of elements in the vector using `length()` function. 
+  i. print it out to the console using `print()` function. 
+  ii. find the data type of its elements using `class()` function
+  iii. use `is.vector()` function to find if its really a vector
+  iv. count the number of elements in the vector using `length()` function. 
+    
 ```{r}
+#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
+# CODE HERE 
+
 # print it out
 # CODE HERE 
 
@@ -354,12 +362,14 @@ iv. count the number of elements in the vector using `length()` function.
 
 Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 marks[3]
 ```
 
 value "98" is at index 3, or the third in the vector. The first value/element of a vector is indexed `1`, for instance if we find the first value in the vector `marks`.
 
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 marks[1] #returns the first value
 ```
 
@@ -367,18 +377,51 @@ The sequence goes on, the second, third, fourth, fifth ... values are indexed as
 
 Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 print(marks[2:4])
 is.vector(marks[2:4]) # confirm if the retrieved values are in a vector
 ```
 
 An element at a specific index in a vector can be excluded by adding a `-` sign before the index value. 
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 marks[-2] #exclude the element at index 2
 ```
 
 `rev()` command is used to reverse the order of elements in a vector
 ```{r}
+marks = c(23, 67, 98, 34, 98, 21)
 rev(marks)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`. Use it to answer the questions below. 
+    
+  i. Print out the vector `ages` to the console
+  ii. Store the third element in a variable called `ny_age` and print it out. 
+  iii. Extract the values from the second to the fifth element and print them out. 
+  iv. Exclude the third element
+  v. Reverse the order of the elements in the vector. 
+    
+```{r}
+# Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`
+# CODE HERE 
+
+# i. Print out the vector `ages` to the console
+# CODE HERE
+
+# ii. Store the third element in a variable called `ny_age` and print it out.
+# CODE HERE
+
+# iii. Extract the values from the second to the fifth element and print them out.
+# CODE HERE 
+
+# iv. Exclude the third element
+# CODE HERE
+
+# v. Reverse the order of the elements in the vector. 
+# CODE HERE
 ```
 
 #### Mathematical Operations in a vector 
