@@ -736,6 +736,7 @@ z
 ```
 
 <span style="color: green;">**Activity**</span>
+
 Create two vectors, `vector1`;`4, 6, 12, 7` and `vector2`:`7, 3, 5, 10`. Use the two vectors to solve the following questions.
 
   i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.
