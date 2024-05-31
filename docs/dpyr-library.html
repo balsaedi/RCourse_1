@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-05-30" />
+<meta name="date" content="2024-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,6 +257,11 @@ In this lesson, we will drop petal length, petal width and Species columns;
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyZW1haW5pbmdfaXJpc19kYXRhID0gc2VsZWN0KGlyaXMsXG4gICAgICAgICAgICAgICAgICAgICAgIC1QZXRhbC5MZW5ndGgsIC1QZXRhbC5XaWR0aCwgLVNwZWNpZXMpXG5cbiMgdmlldyB0aGUgZmlyc3QgZmV3IHJvd3Mgb2YgdGhlIHNlbGVjdGVkIGRhdGFcbmhlYWQocmVtYWluaW5nX2lyaXNfZGF0YSkifQ==
 </div>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>You will be required to use the <code>car_sales</code> data set from <a href="https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv.Read" class="uri">https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv.Read</a> the data using <code>read.csv</code> and select the <code>car, price, body, mileage, engV, engType, year, model</code>. Save the data frame from the selected columns as <code>selected_cars_df</code>. Show the first few rows of the <code>selected_cars_df</code>.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRwbHlyIGxpYnJhcnlcbiMgQ09ERSBIRVJFXG5cbiMgUmVhZCB0aGUgZGF0YSBcbiMgQ09ERSBIRVJFXG5cbiMgc2VsZWN0IHRoZSByZXF1aXJlZCBjb2x1bW5zIFxuIyBDT0RFIEhFUkVcblxuIyBTaG93IHRoZSBmaXJzdCBmZXcgcm93cyBvZiB0aGUgZGF0YSBmcmFtZVxuIyBDT0RFIEhFUkUiLCJzb2x1dGlvbiI6IiMgTG9hZCB0aGUgZHBseXIgbGlicmFyeVxubGlicmFyeShkcGx5cilcblxuIyBSZWFkIHRoZSBkYXRhIFxuZGF0YV9saW5rID0gXCJodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vaW5zYWlkMjAxOC9UZXJtLTEvbWFzdGVyL0RhdGEvUHJvamVjdHMvY2FyX3NhbGVzLmNzdlwiXG5jYXJfc2FsZXMgPSByZWFkLmNzdihkYXRhX2xpbmspXG5cbiMgc2VsZWN0IHRoZSByZXF1aXJlZCBjb2x1bW5zIFxuc2VsZWN0ZWRfY2Fyc19kZiA9IHNlbGVjdChjYXJfc2FsZXMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICBjYXIsIHByaWNlLCBib2R5LCBtaWxlYWdlLCBlbmdWLCBlbmdUeXBlLCB5ZWFyLCBtb2RlbClcblxuIyBTaG93IHRoZSBmaXJzdCBmZXcgcm93cyBvZiB0aGUgZGF0YSBmcmFtZSBcbmhlYWQoc2VsZWN0ZWRfY2Fyc19kZikifQ==
+</div>
 </div>
 <div id="filter" class="section level3 hasAnchor" number="5.1.2">
 <h3><span class="header-section-number">5.1.2</span> filter<a href="dpyr-library.html#filter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -273,6 +278,11 @@ Records with sepal width of more than 3.0 can be filtered. Here is how we achiev
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ3aWRlX3NlcGFsX2lyaXMgPSBmaWx0ZXIoaXJpcywgI3RoZSBkYXRhIGZyYW1lXG4gICAgICAgICAgICAgICAgICAgICAgICAgU2VwYWwuV2lkdGg+My4wICMgdGhlIGNvbmRpdGlvblxuICAgICAgICAgICAgICAgICAgICAgICAgIClcblxuaGVhZCh3aWRlX3NlcGFsX2lyaXMpIn0=
 </div>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>With the <code>car_sales</code> data set that you used above, use <code>filter()</code> function to get the cars that were sold from the year 2008 to present and name them <code>latest_car_sales</code>. Count the number of observations made and show the first few rows.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRwbHlyIGxpYnJhcnlcbmxpYnJhcnkoZHBseXIpXG5cbiMgUmVhZCB0aGUgZGF0YSBcbmRhdGFfbGluayA9IFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luc2FpZDIwMTgvVGVybS0xL21hc3Rlci9EYXRhL1Byb2plY3RzL2Nhcl9zYWxlcy5jc3ZcIlxuY2FyX3NhbGVzID0gcmVhZC5jc3YoZGF0YV9saW5rKVxuXG4jIEZpbHRlciB0byBmaW5kIGNhcnMgc29sZCBmcm9tIDIwMDhcbmxhdGVzdF9jYXJfc2FsZXMgPSBmaWx0ZXIoY2FyX3NhbGVzLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgeWVhcj49MjAwOClcblxuIyBDb3VudCB0aGUgb2JzZXJ2YXRpb25zIG1hZGUuIFVzZSBucm93cyBmdW5jdGlvblxubnJvd3MobGF0ZXN0X2Nhcl9zYWxlcylcblxuIyBTaG93IHRoZSBmaXJzdCBmZXcgcm93c1xuaGVhZChsYXRlc3RfY2FyX3NhbGVzKSJ9
+</div>
 </div>
 <div id="arrange" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> arrange<a href="dpyr-library.html#arrange" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -288,6 +298,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNvcnQgdGhlIGRhdGEgXG5ieV9wZXRhbF9sZW5ndGgg
 Lets repeat the same process but now we order the data in a descending order.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFNvcnQgdGhlIGRhdGEgXG5ieV9wZXRhbF9sZW5ndGggPSBhcnJhbmdlKGlyaXMsICMgZGF0YSBmcmFtZSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgZGVzYyhQZXRhbC5MZW5ndGgpICMgb3JkZXIgYnkgY29sdW1uXG4gICAgICAgICAgICAgICAgICAgICAgICAgIClcblxuIyBWaWV3IHRoZSBkYXRhIFxuaGVhZChieV9wZXRhbF9sZW5ndGgpIn0=
+</div>
+<p><span style="color: green;"><strong>Activity</strong></span>
+Arrange the columns in the <code>car_sales</code> data set according to <code>mileage</code> in descending order. Show the last few rows</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGRwbHlyIGxpYnJhcnlcbiMgQ09ERSBIRVJFIFxuXG4jIFJlYWQgdGhlIGRhdGEgaW50byBhIGRhdGEgZnJhbWVcbiMgQ09ERSBIRVJFIFxuXG4jIE9yZGVyIGFjY29yZGluZyB0byBtaWxlYWdlIGluIGRlc2NlbmRpbmcgb3JkZXJcbiMgQ09ERSBIRVJFIFxuXG4jIFNob3cgdGhlIGxhc3QgZmV3IHJvd3Mgb2YgdGhlIGRhdGEgc2V0XG4jIENPREUgSEVSRSIsInNvbHV0aW9uIjoiIyBMb2FkIHRoZSBkcGx5ciBsaWJyYXJ5XG5saWJyYXJ5KGRwbHlyKVxuXG4jIFJlYWQgdGhlIGRhdGEgaW50byBhIGRhdGEgZnJhbWVcbmRhdGFfbGluayA9IFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2luc2FpZDIwMTgvVGVybS0xL21hc3Rlci9EYXRhL1Byb2plY3RzL2Nhcl9zYWxlcy5jc3ZcIlxuY2FyX3NhbGVzID0gcmVhZC5jc3YoZGF0YV9saW5rKVxuXG4jIE9yZGVyIGFjY29yZGluZyB0byBtaWxlYWdlIGluIGRlc2NlbmRpbmcgb3JkZXJcbm1pbGVhZ2Vfb3JkZXIgPSBhcnJhbmdlKGNhcl9zYWxlcywgXG4gICAgICAgICAgICAgICAgICAgICAgICBkZXNjKG1pbGVhZ2UpKVxuXG4jIFNob3cgdGhlIGxhc3QgZmV3IHJvd3Mgb2YgdGhlIGRhdGEgc2V0XG50YWlsKG1pbGVhZ2Vfb3JkZXIpIn0=
 </div>
 </div>
 <div id="mutate" class="section level3 hasAnchor" number="5.1.4">
