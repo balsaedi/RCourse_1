@@ -159,6 +159,14 @@ print(graph_final)
 ```
 The `expression` is used to combine name italics and normal fonts - this helps biologists include botanical names in charts
 
+<span style="color: green;">**Activity**</span>
+
+```{r ex="activity-6a", type="sample-code"}
+```
+
+```{r ex="activity-6a", type="solution"}
+```
+
 ## Working with inbuilt iris data 
 We have worked with iris data set before. In this topic we shall ask some questions and plot them on a box plot to cement our understanding in `ggplot`
 
