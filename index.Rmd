@@ -82,12 +82,17 @@ The following examples will illustrates how to do simple arithmetic in R.
 2+3 # addition
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 - Your turn! Add `2398` to `4653`
-```{r}
+```{r ex="activity-1a", type="sample-code"}
 # Add 2398 to 4653 
 ## Code here
+```
+
+```{r ex="activity-1a", type="solution"}
+# Add 2398 to 4653 
+2398 + 4653
 ```
 
 - **Example**
@@ -95,12 +100,17 @@ The following examples will illustrates how to do simple arithmetic in R.
 6-2 #subtraction
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 - Your turn! Subtract `15` from `30`
-```{r}
+```{r ex="activity-1b", type="sample-code"}
 # Subtract 15 from 30
-## Code here
+# CODE HERE
+```
+
+```{r ex="activity-1b", type="solution"}
+# Subtract 15 from 30
+30 - 15
 ```
 
 - **Example**
@@ -108,12 +118,17 @@ The following examples will illustrates how to do simple arithmetic in R.
 10 * 3 #multiplication
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 Your turn! Multiply `12` by `7` 
-```{r}
+```{r ex="activity-1c", type="sample-code"}
 # Multiply 12 by 7
-## Code here
+# CODE HERE
+```
+
+```{r ex="activity-1c", type="solution"}
+# Multiply 12 by 7
+12 * 7
 ```
 
 - **Example**
@@ -121,12 +136,17 @@ Your turn! Multiply `12` by `7`
 30/15 # division
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 Your turn! Divide `27` by `3`
-```{r}
+```{r ex="activity-1d", type="sample-code"}
 # Divide 27 by 3
-## Code here
+# CODE HERE 
+```
+
+```{r ex="activity-1d", type="solution"}
+# Divide 27 by 3
+27/3
 ```
 
 Values can be assigned to variable names which will be instead of the values. For instance, in the example below, `30` is assigned to variable`m` and `15` is assigned to variable `n`.  The solution of their difference is assigned to variable `answer`. 
@@ -137,13 +157,35 @@ answer = m - n
 answer
 ```
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 Your turn! Assign `-5` to variable `m` and `20` to variable `n` and Add the two. Assign a variable `answer` to the sum of `m` and `n`. 
-```{r}
+
+```{r ex="activity-1e", type="sample-code"}
+# Assign -5 to m
+# CODE HERE 
+
+# Assign 20 to n
+# CODE HERE
+
+# Add the two and assign a variable `answer` to the solution
+# CODE HERE
+
+# print out the answer
+# CODE HERE
+```
+
+
+```{r ex="activity-1e", type="solution"}
+# Assign -5 to m
 m = -5
+# Assign 20 to n
 n = 20
+
+# Add the two and assign a variable `answer` to the solution
 answer = m + n
+
+# print out the answer
 answer
 ```
 
@@ -164,19 +206,34 @@ The above expression is solved as follows;
 
 - finally, addition: `5 + 12` which is `17`.
 
-<span style="color: green;">*Activity*</span>
+<span style="color: green;">**Activity**</span>
 
 Workout the below three equations and find their solutions;
-```
-q1 = 2+3-9/3+4*21-(21+14)
-q2 = 5-3*(10+2)+10/5
-q3 = 9/3*(2+3)+4
+  
+  i. `2+3-9/3+4*21-(21+14)`
+  ii. `5-3*(10+2)+10/5`
+  iii. `9/3*(2+3)+4`
+
+```{r ex="activity-1f", type="sample-code"}
+#i. `2+3-9/3+4*21-(21+14)`
+# CODE HERE
+
+#ii. `5-3*(10+2)+10/5`
+# CODE HERE
+
+#iii. `9/3*(2+3)+4`
+# CODE HERE
 ```
 
-Solve them here 
-```{r}
-#Workout the equations here
-## Code here
+```{r ex="activity-1f", type="solution"}
+#i. `2+3-9/3+4*21-(21+14)`
+2+3-9/3+4*21-(21+14)
+
+#ii. `5-3*(10+2)+10/5`
+5-3*(10+2)+10/5
+
+#iii. `9/3*(2+3)+4`
+9/3*(2+3)+4
 ```
 
 **Including Exponentiation**

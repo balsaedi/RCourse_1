@@ -121,6 +121,40 @@ remaining_iris_data = select(iris,
 head(remaining_iris_data)
 ```
 
+<span style="color: green;">**Activity**</span>
+
+You will be required to use the `car_sales` data set from https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv.Read the data using `read.csv` and select the `car, price, body, mileage, engV, engType, year, model`. Save the data frame from the selected columns as `selected_cars_df`. Show the first few rows of the `selected_cars_df`. 
+
+```{r ex="activity-5a", type="sample-code"}
+# Load the dplyr library
+# CODE HERE
+
+# Read the data 
+# CODE HERE
+
+# select the required columns 
+# CODE HERE
+
+# Show the first few rows of the data frame
+# CODE HERE
+```
+
+```{r ex="activity-5a", type="solution"}
+# Load the dplyr library
+library(dplyr)
+
+# Read the data 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# select the required columns 
+selected_cars_df = select(car_sales, 
+                          car, price, body, mileage, engV, engType, year, model)
+
+# Show the first few rows of the data frame 
+head(selected_cars_df)
+```
+
 ### filter
 Is a verb/function from `dplyr` used to filter records in a data frame based on a specific condition. It allows the analyst to retrieve the records he/she is interested in and work easier with the subset. 
 With `filter()`, the data frame and the condion are passed as a arguments;
@@ -146,6 +180,46 @@ wide_sepal_iris = filter(iris, #the data frame
                          )
 
 head(wide_sepal_iris)
+```
+
+<span style="color: green;">**Activity**</span>
+
+With the `car_sales` data set that you used above, use `filter()` function to get the cars that were sold from the year 2008 to present and name them `latest_car_sales`. Count the number of observations made and show the first few rows. 
+
+```{r ex="activity-5b", type="sample-code"}
+# Load the dplyr library
+# CODE HERE 
+
+# Read the data 
+# CODE HERE
+
+# Filter to find cars sold from 2008
+# CODE HERE 
+
+# Count the observations made. Use nrows function
+# CODE HERE 
+
+# Show the first few rows
+# CODE HERE 
+```
+
+```{r ex="activity-5b", type="sample-code"}
+# Load the dplyr library
+library(dplyr)
+
+# Read the data 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# Filter to find cars sold from 2008
+latest_car_sales = filter(car_sales, 
+                          year>=2008)
+
+# Count the observations made. Use nrow function
+nrow(latest_car_sales)
+
+# Show the first few rows
+head(latest_car_sales)
 ```
 
 ### arrange 
@@ -181,6 +255,41 @@ by_petal_length = arrange(iris, # data frame
 head(by_petal_length)
 ```
 
+<span style="color: green;">**Activity**</span>
+
+Arrange the columns in the `car_sales` data set according to `mileage` in descending order. Show the last few rows
+
+```{r ex="activity-5c", type="sample-code"}
+# Load the dplyr library
+# CODE HERE 
+
+# Read the data into a data frame
+# CODE HERE 
+
+# Order according to mileage in descending order
+# CODE HERE 
+
+# Show the last few rows of the data set
+# CODE HERE
+```
+
+```{r ex="activity-5c", type="solution"}
+# Load the dplyr library
+library(dplyr)
+
+# Read the data into a data frame
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# Order according to mileage in descending order
+mileage_order = arrange(car_sales, 
+                        desc(mileage))
+
+# Show the last few rows of the data set
+tail(mileage_order)
+```
+
+
 ### mutate
 `mutate()` is a dplyr verb used to modifying the existing variables or creating new variables in a data set. 
 In this case we can calculate the log off Sepal length in the iris data 
@@ -201,6 +310,40 @@ head(new_iris)
 
 The "Petal.Length.Width.Ratio" is found by dividing the Petal.Length and the Petal.Width variables. 
 
+<span style="color: green;">**Activity**</span>
+
+Using the `car_sales` data set, create a new column, `"distance_covered_km"`, calculated from the `mileage`. Just multiply `mileage` with `1.609`. Show the first few rows of the mutated data frame. 
+
+```{r ex="activity-5d", type="sample-code"}
+# Load the dplyr library
+# CODE HERE 
+
+# Read the data set 
+# CODE HERE 
+
+# Create new column "distance_covered_km
+# CODE HERE 
+
+# Show first few rows 
+# CODE HERE 
+```
+
+```{r ex="activity-5d", type="solution"}
+# Load the dplyr library
+library(dplyr)
+
+# Read the data set 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# Create new column "distance_covered_km
+mutated_car_sales = mutate(car_sales,
+                           distance_covered_km = mileage * 1.609)
+
+# Show first few rows 
+head(mutated_car_sales)
+```
+
 ### group_by 
 The `group_by()` is a function used to group records in a data frame by one or more variables. It allows the analyst to create a group based on a certain criteria. 
 
@@ -211,6 +354,40 @@ head(iris_groups)
 ```
 
 This groupings allow the analyst to retrieve insights at more base level and uncover more insights that could not have been possible when analyzing the entire data set
+
+<span style="color: green;">**Activity**</span>
+
+Use the `car_sales` data set provided before to work on this activity. Load the data and group the sales by `model` to get the sum of every quantitative feature/variable. Name the resultant data frame, `car_sales_by_model`. Display the resultant data frame. 
+
+```{r ex="actvity-5e", type="sample-code"}
+# Load the dplyr library
+# CODE HERE 
+
+# Load the car sales data 
+# CODE HERE 
+
+# Group the sales by model
+# CODE HERE 
+
+# Print out the dataframe 
+# CODE HERE 
+```
+
+```{r ex="actvity-5e", type="solution"}
+# Load the dplyr library
+library(dplyr)
+
+# Load the car sales data 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# Group the sales by model
+car_sales_by_model = group_by(car_sales, model)
+
+# Print out the dataframe 
+car_sales_by_model
+```
+
 
 ### Summarise
 To calculate summary statistics such as average, median and maximum the `summarise()` is used. This function collapses mutilple rows into a summary row. For instance calculating the mean Petal width;
@@ -226,6 +403,33 @@ To find the mean petal width for each iris species;
 grouped_iris = group_by(iris, Species)
 mean_petal_widths = summarise(grouped_iris, mean_value=mean(Petal.Width))
 mean_petal_widths
+```
+
+<span style="color: green;">**Activity**</span>
+
+You will be required to use the `car_sales` data set once again. Calculate the descriptive statistics using `summarise()` command. 
+
+```{r ex="activity-5f", type="sample-code"}
+# Load the dplyr library
+# CODE HERE 
+
+# Load the car sales data 
+# CODE HERE 
+
+# Calculate the summary statistics
+# CODE HERE
+```
+
+```{r ex="activity-5f", type="solution"}
+# Load the dplyr library
+library(dplyr)
+
+# Load the car sales data 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# Calculate the summary statistics
+summarise(car_sales)
 ```
 
 ## Chaining

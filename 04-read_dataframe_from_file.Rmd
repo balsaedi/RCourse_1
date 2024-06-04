@@ -292,6 +292,46 @@ table(attrition_df$AgeGroup, attrition_df$Attrition)
 
 Young employees below 30 years tend to leave the company than elder employees of above 40 years who are mostly retained by the company. 
 
+<span style="color: green;">**Activity**</span>
+
+data link: https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv
+
+In this activity we shall be reading a csv file directly from an online repository and provide the answers to the questions below;
+
+  i. Read the csv file to a data frame `car_sales`. **Hint**:*Use the data link above as a filepath*
+  ii. What are the columns in the data frame? Use `colnames()` function.
+  iii. How many records and columns are there in the data frame?
+  iv. Print the last five records in the `car_sales` data frame
+  
+```{r ex="activity-4b", type="sample-code"}
+# i. Read the csv file to a data frame `car_sales`. 
+# CODE HERE 
+
+# ii. What are the columns in the data frame? Use `colnames()` function.
+# CODE HERE 
+
+# iii. How many records and columns are there in the data frame?
+# CODE HERE 
+
+# iv. Print the last five records in the `car_sales` data frame
+# CODE HERE 
+```
+
+```{r ex="activity-4b", type="solution"}
+# i. Read the csv file to a data frame `car_sales`. 
+data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
+car_sales = read.csv(data_link)
+
+# ii. What are the columns in the data frame? 
+colnames(car_sales)
+
+# iii. How many records and columns are there in the data frame?
+dim(car_sales)
+
+# iv. Print the last five records in the `car_sales` data frame
+tail(car_sales, 5)
+```
+
 ## CODE CHALLENGE
 excel data - https://www.kaggle.com/datasets/suruchiarora/yahoo-finance-dataset-2018-2023
 
