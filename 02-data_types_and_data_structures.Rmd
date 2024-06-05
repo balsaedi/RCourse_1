@@ -1081,12 +1081,12 @@ data
         i. a variable `length` to store `61.2`.
         ii. a variable `age` to store `76`.
         iii. a variable `is_old` to store `TRUE`.
-        iv. a variable name to store `"Pradip"`.
+        iv. a variable `name` to store `"Pradip"`.
         v. a variable `comp_var` to store `2 + 3i`. 
     b. Use `class()` function to find the data type of the variables created above.
     c. Create another variable `width` to store `12.1` and perform the following operations;
   
-        i. Add variable `length` to width`.
+        i. Add variable `length` to width`. Let `length` be `22.5`.
         ii. Subtract `width` from `length`.
         iii. Multiply `length` and `width`. Store the solution in a variable `area`.
     d. Convert each of the created variable in "a" above to raw data type. 

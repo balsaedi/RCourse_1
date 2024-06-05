@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-06-04" />
+<meta name="date" content="2024-06-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -287,6 +287,17 @@ All of the above steps can be combined to come up with a decent graph from ggplo
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJteV90aXRsZSA9IGV4cHJlc3Npb24ocGFzdGUoXCJDeXN0b3NpbmUgZGlzdHJpYnV0aW9uIGluIFwiLCBpdGFsaWMoXCJBcmFiaWRvcGlzIHRoYWxpYW5hXCIpKSkjRGVmaW5lIHRoZSB0aXRsZSBcblxuZ3JhcGhfZmluYWwgPSBnZ3Bsb3QobWV0aHlsYXRlZF9jLCBhZXMoeD1DaHJvbW9zb21lLCB5PUNvdW50X2luX21pbGxpb25zKSkrXG4gIGxhYnMoeD1cIkNocm9tb3NvbWVzXCIsIHRpdGxlID0gbXlfdGl0bGUpICtcbiAgZmFjZXRfZ3JpZCh+Q29udGV4dCkgK1xuICBnZW9tX2NvbChwb3NpdGlvbj1cImRvZGdlXCIpK1xuICBhZXMoZmlsbD1Db250ZXh0KStzY2FsZV9maWxsX21hbnVhbCh2YWx1ZXMgPSBjKFwiYnJvd25cIiwgXCJibHVlXCIsIFwicmVkXCIpKStcbiAgdGhlbWVfYncoYmFzZV9zaXplID0gOSkrdGhlbWUocGFuZWwuYmFja2dyb3VuZCA9IGVsZW1lbnRfcmVjdChmaWxsPVwibGlnaHRibHVlXCIpKVxuXG5wcmludChncmFwaF9maW5hbCkifQ==
 </div>
 <p>The <code>expression</code> is used to combine name italics and normal fonts - this helps biologists include botanical names in charts</p>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>restaurant tips dataset - <a href="https://raw.githubusercontent.com/balsaedi/RCourse_1/main/data/tips.csv" class="uri">https://raw.githubusercontent.com/balsaedi/RCourse_1/main/data/tips.csv</a></p>
+<p>In this activity, you are required to use the restaurant tips dataset. The link to the dataset is provided above. Read the csv data to a data frame and plot the following graphs.</p>
+<ol style="list-style-type: lower-alpha">
+<li>A bar chart to compare the average tips from male and female customers</li>
+<li>A histogram to show the distribution of bills</li>
+<li>A scatter plot to show the relationship between bills and tips.</li>
+</ol>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIHJlcXVpcmVkIGxpYnJhcmllcyBcbiMgQ09ERSBIRVJFXG5cbiMgUmVhZCB0aGUgY3N2IGRhdGEgdG8gYSBkYXRhIGZyYW1lIGFuZCBwbG90IHRoZSBmb2xsb3dpbmcgZ3JhcGhzLiBcbiMgQ09ERSBIRVJFIFxuXG4jIyBhLiBBIGJhciBjaGFydCB0byBjb21wYXJlIHRoZSBhdmVyYWdlIHRpcHMgZnJvbSBtYWxlIGFuZCBmZW1hbGUgY3VzdG9tZXJzXG4jIENPREUgSEVSRVxuXG4jIyBiLiBBIGhpc3RvZ3JhbSB0byBzaG93IHRoZSBkaXN0cmlidXRpb24gb2YgYmlsbHMgXG4jIENPREUgSEVSRVxuXG4jIyBjLiBBIHNjYXR0ZXIgcGxvdCB0byBzaG93IHRoZSByZWxhdGlvbnNoaXAgYmV0d2VlbiBiaWxscyBhbmQgdGlwcy4gXG4jIENPREUgSEVSRSIsInNvbHV0aW9uIjoiIyBMb2FkIHRoZSByZXF1aXJlZCBsaWJyYXJpZXMgXG5saWJyYXJ5KGdncGxvdDIpXG5cbiMgUmVhZCB0aGUgY3N2IGRhdGEgdG8gYSBkYXRhIGZyYW1lIGFuZCBwbG90IHRoZSBmb2xsb3dpbmcgZ3JhcGhzLiBcbmRhdGFfbGluayA9IFwiaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2JhbHNhZWRpL1JDb3Vyc2VfMS9tYWluL2RhdGEvdGlwcy5jc3ZcIlxudGlwcyA9IHJlYWQuY3N2KGRhdGFfbGluaylcblxuIyMgYS4gQSBiYXIgY2hhcnQgdG8gY29tcGFyZSB0aGUgYXZlcmFnZSB0aXBzIGZyb20gbWFsZSBhbmQgZmVtYWxlIGN1c3RvbWVyc1xuIyBDT0RFIEhFUkVcblxuIyMgYi4gQSBoaXN0b2dyYW0gdG8gc2hvdyB0aGUgZGlzdHJpYnV0aW9uIG9mIGJpbGxzIFxuIyBDT0RFIEhFUkVcblxuIyMgYy4gQSBzY2F0dGVyIHBsb3QgdG8gc2hvdyB0aGUgcmVsYXRpb25zaGlwIGJldHdlZW4gYmlsbHMgYW5kIHRpcHMuIFxuIyBDT0RFIEhFUkUifQ==
+</div>
 </div>
 </div>
 <div id="working-with-inbuilt-iris-data" class="section level2 hasAnchor" number="6.4">
@@ -324,6 +335,11 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJncmFwaD1nZ3Bsb3QoaXJpc19sb25nLCBhZXMoeD1TcGVj
 the same can also be plotted to a violin plot
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJncmFwaD1nZ3Bsb3QoaXJpc19sb25nLCBhZXMoeD1TcGVjaWVzLHk9bWVhc3VyZW1lbnQpKStcbiAgbGFicyh4PVwiU3BlY2llc1wiLCB5PVwiTGVuZ3RoIGluIGNtXCIsIHRpdGxlID0gXCJ2YXJpYXRpb24gaW4gUGV0YWxzIGFuZCBTZXBhbHMgb2YgSXJpcyBTcGVjaWVzXCIpK1xuICB0aGVtZShheGlzLnRleHQgPSBlbGVtZW50X3RleHQoYW5nbGU9OTApKStcbiAgZmFjZXRfZ3JpZCh+dHlwZSkrXG4gIGFlcyhmaWxsPVNwZWNpZXMpK1xuICBnZW9tX3Zpb2xpbigpXG5cbnByaW50KGdyYXBoKSJ9
+</div>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>In this activity, you will be required to use the famous R inbuilt data set, <code>mtcars</code>. Load the data set using the command, <code>data(mtcars)</code> and plot atleast two graphs</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIExvYWQgdGhlIGdncGxvdDIgbGlicmFyeVxuIyBDT0RFIEhFUkUgXG5cbiMgTG9hZCB0aGUgZGF0YSBcbiMgQ09ERSBIRVJFIFxuXG4jIFBsb3QgQ2hhcnQgMVxuIyBDT0RFIEhFUkUgXG5cbiMgUGxvdCBDaGFydCAyXG4jIENPREUgSEVSRSAiLCJzb2x1dGlvbiI6IiMgTG9hZCB0aGUgZ2dwbG90MiBsaWJyYXJ5XG4jIENPREUgSEVSRSBcblxuIyBMb2FkIHRoZSBkYXRhIFxuIyBDT0RFIEhFUkUgXG5cbiMgUGxvdCBDaGFydCAxXG4jIENPREUgSEVSRSBcblxuIyBQbG90IENoYXJ0IDJcbiMgQ09ERSBIRVJFICJ9
 </div>
 </div>
 <div id="code-challenge-5" class="section level2 hasAnchor" number="6.5">
