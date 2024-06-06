@@ -70,24 +70,39 @@
 
 # head(modified_penguin_data, _)
 
-## e. Group the data set according to `island`. Name the resultant data set, `penguin_data_by_island` 
+## e. Group the data set according to `island`(count the number of records across each island). Name the resultant data set, `penguin_data_by_island` 
 #print the data(first 10 rows) to the console.
 # UNCOMMENT AND FILL CODE BELOW
 
-#penguin_data_by_island = group_by(_____________, # insert the data frame name
-#                                  ________) # the column to be grouped by
+#penguin_data_by_island = group_by(________________, # insert the data_frame name
+#                                  ____________) %>% # the column to be grouped by
+#  tally()
 
 # head(____________________, 10)
 
 
-
-## f. For each species and island, calculate the mean `bill_length_mm` and the 
-#observations count. 
-
-
 # 3. In this activity, you will chain at least four `dplyr` verbs to achieve the desired 
 #outcome. 
-## - Select the columns, `island, body_mass_g, species, bill_length_mm`
-## - Filter the selected data set to include penguins that have a bill length greater than 40mm
-## - Create a new column/variable that will convert `bill_length_mm` to `bill_length_cm` i.e divide `bill_length_mm` by 10 to come up with `bill_length_cm`. 
-## - Order the resulting data set by `body_mass_g` in descending order. 
+## - Select the columns, `island, Body.Mass..g., species, Flipper.Length..mm.`
+## - Filter the selected data set to include penguins that have a flipper length
+#greater than 195mm
+## - Create a new column/variable that will convert `Flipper.Length..mm.` to 
+#`Flipper.Length..cm.` i.e divide `Flipper.Length..mm.` by 10 to come up with 
+#`Flipper.Length..cm.`. 
+## - Order the resulting data set by `Body.Mass..g.` in descending order. 
+
+# **Name the resultant data set, "final_penguin_data**
+
+# UNCOMMENT AND FILL THE CODE HERE 
+
+#final_penguin_data = select(_____________, # insert name of the original penguin dataframe
+#                           ____, _____, ____, _____) %>% # insert the selected columns 
+#  filter(________>195) %>% # insert the flipper length column name 
+#  mutate(Flipper.Length..cm. = _____/10) %>% # insert the flipper length column name
+#  arrange(desc(_____)) # Insert body mass g column name
+
+
+
+
+
+
