@@ -306,7 +306,7 @@ thyroid disease - https://www.kaggle.com/datasets/jainaru/thyroid-disease-data/d
 
 HR analytics dataset - https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data
 
-1. You will be required to retrieve the HR analytics employee attrition data set from kaggle. Click [here](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data) to check out the data set. Read the data into an R data frame and answer the following questions using `read.csv` and `ggplot2` libraries. 
+1. You will be required to retrieve the HR analytics employee attrition data set from kaggle. Click [here](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data) to check out the data set. Read the data into an R data frame and answer the following questions using `read.csv` and `ggplot2`. 
 
     a. Plot a histogram to show the distribution of age among the employees. 
     b. Draw a boxplot to show the employees' hourly rate in the sales department. Are there any outliers? What is the median employees' hourly rate from the boxplot? 
