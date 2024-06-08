@@ -103,17 +103,72 @@ ggplot(data1,
 # UNCOMMENT AND FILL THE CODE BELOW
 
 
-#2. The thyroid disease contains 13 clinicopathologic features aiming to predict recurrence 
-#of well differentiated thyroid cancer. The data set was collected in duration of 15 years 
-# and each patient was followed for at least 10 years. The data was procured from 
-#thyroid disease datasets provided by the UCI Machine Learning Repository. 
-#You will load the csv file into R data frame, `read.csv`, and solve the following questions. 
+#2. The thyroid disease contains 13 clinicopathologic features aiming to predict
+#recurrence of well differentiated thyroid cancer. The data set was collected in
+#duration of 15 years and each patient was followed for at least 10 years. The
+#data was procured from thyroid disease data sets provided by the UCI Machine 
+#Learning Repository. You will load the csv file into R data frame, `read.csv`, 
+#and solve the following questions. 
+
+# UNCOMMENT THE CODE BELOW 
+#thyroid_data = read.csv("data/Thyroid_Diff.csv")
     
 ## a. After the initial thyroid cancer treatment, has the disease recurred or not? 
 #Compare the two categories of patients (recurred and not recurred) using a bar chart.
-## b. After physical examination of the thyroid gland and the surrounding structures, 
-#there were patients who had multinodular goiter, other single nodular gioters while rest of the patients had other complications. What are the composition of the patients? Plot a pie chart to show. 
+# UNCOMMENT AND FILL CODE BELOW
+
+# Data preparation 
+recurred_notrecurred_data = select(thyroid_data, Recurred) %>%
+  group_by(Recurred) %>%
+  tally()
+
+# Plotting
+ggplot(recurred_notrecurred_data,
+       aes(x=Recurred, y=n)) +
+  labs(x="Recurred", y="Count",
+       title="Has the disease recurred after the initial treatment?") +
+  geom_col(color="black", fill="purple")
+
+## b. After physical examination of the thyroid gland and the surrounding structures,
+#there were patients who had multinodular goiter, other single nodular gioters 
+#while rest of the patients had other complications. What are the composition of
+#the patients? Plot a pie chart to show. 
+# UNCOMMENT AND FILL CODE BELOW
+
+# Prepare the Sales department data 
+complications = select(thyroid_data,
+               Physical.Examination) %>%
+  group_by(Physical.Examination) %>%
+  tally()
+
+# Plot the data 
+ggplot(complications,
+       aes(x="", y=n, fill=Physical.Examination)) +
+  geom_bar(stat = "identity", width=1) +
+  labs(title="Composition of different complications from Physical Examination after treatment")+
+  coord_polar("y") +
+  theme_void() # to remove unnecessary axis and background
+
+
 ## c. Plot a grouped bar chart to show the average risk and age of thyroid disease 
-#between males and female patient. Risk and Age columns against gender. 
-## d. Plot a desnsity plot to show the distribution of age. Which age group is mostly 
+#between males and female patient. Risk and Age columns against gender.
+# UNCOMMENT AND FILL THE CODE BELOW
+
+    
+# Plotting the data
+ggplot(thyroid_data, 
+       aes(x=Gender, y=Age))+ #graph aesthetics
+  labs(x="Gender", y="Average age", 
+       title="Average age by gender for thyroid patients")+ #graph labels
+  geom_col(position="dodge")+aes(fill=Risk)
+
+
+## d. Plot a density plot to show the distribution of age. Which age group is mostly 
 #affected by thyroid disease? 
+# UNCOMMENT AND FILL CODE BELOW
+
+ggplot(thyroid_data, aes(x = Age)) +
+  geom_density(fill = "blue", alpha = 0.5) +
+  ggtitle("Distribution of Age among patients") +
+  xlab("Age") +
+  ylab("Density")
