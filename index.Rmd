@@ -312,8 +312,8 @@ You have to use Base R to solve the questions below;
     d. `8 * 3 - 2^2`
     e. `(10 + 5) * (2^2) / 4`
 
-8. You have `g` liters of juice. You want to pour the juice equally into the `h` bottles. How much juice will each bottle contain? `g=12`, `h=13`.
+8. You have `g` liters of juice. You want to pour the juice equally into the `h` bottles. How much juice will each bottle contain? `g=12`, `h=3`.
 
-9.You have `b` rupees and spend 8 rupees on a book. How much money do you have left? 
+9.You have `b` rupees and spend 8 rupees on a book. How much money do you have left? Let `b` be 25
 
 10. Evaluate `m=5 * (4 + 6) - 10` and print out `m` to the console. 

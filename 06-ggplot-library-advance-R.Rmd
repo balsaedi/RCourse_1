@@ -161,10 +161,47 @@ The `expression` is used to combine name italics and normal fonts - this helps b
 
 <span style="color: green;">**Activity**</span>
 
+restaurant tips dataset - https://raw.githubusercontent.com/balsaedi/RCourse_1/main/data/tips.csv
+
+In this activity, you are required to use the restaurant tips dataset. The link to the dataset is provided above. Read the csv data to a data frame and plot the following graphs. 
+
+  a. A bar chart to compare the average tips from male and female customers
+  b. A histogram to show the distribution of bills 
+  c. A scatter plot to show the relationship between bills and tips. 
+    
 ```{r ex="activity-6a", type="sample-code"}
+# Load the required libraries 
+# CODE HERE
+
+# Read the csv data to a data frame and plot the following graphs. 
+# CODE HERE 
+
+## a. A bar chart to compare the average tips from male and female customers
+# CODE HERE
+
+## b. A histogram to show the distribution of bills 
+# CODE HERE
+
+## c. A scatter plot to show the relationship between bills and tips. 
+# CODE HERE
 ```
 
 ```{r ex="activity-6a", type="solution"}
+# Load the required libraries 
+library(ggplot2)
+
+# Read the csv data to a data frame and plot the following graphs. 
+data_link = "https://raw.githubusercontent.com/balsaedi/RCourse_1/main/data/tips.csv"
+tips = read.csv(data_link)
+
+## a. A bar chart to compare the average tips from male and female customers
+# CODE HERE
+
+## b. A histogram to show the distribution of bills 
+# CODE HERE
+
+## c. A scatter plot to show the relationship between bills and tips. 
+# CODE HERE
 ```
 
 ## Working with inbuilt iris data 
@@ -232,12 +269,44 @@ graph=ggplot(iris_long, aes(x=Species,y=measurement))+
 print(graph)
 ```
 
+<span style="color: green;">**Activity**</span>
+
+In this activity, you will be required to use the famous R inbuilt data set, `mtcars`. Load the data set using the command, `data(mtcars)` and plot atleast two graphs
+
+```{r ex="activity-6b", type="sample-code"}
+# Load the ggplot2 library
+# CODE HERE 
+
+# Load the data 
+# CODE HERE 
+
+# Plot Chart 1
+# CODE HERE 
+
+# Plot Chart 2
+# CODE HERE 
+```
+
+```{r ex="activity-6b", type="solution"}
+# Load the ggplot2 library
+# CODE HERE 
+
+# Load the data 
+# CODE HERE 
+
+# Plot Chart 1
+# CODE HERE 
+
+# Plot Chart 2
+# CODE HERE 
+```
+
 ## CODE CHALLENGE
 thyroid disease - https://www.kaggle.com/datasets/jainaru/thyroid-disease-data/data
 
 HR analytics dataset - https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data
 
-1. You will be required to retrieve the HR analytics employee attrition data set from kaggle. Click [here](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data) to check out the data set. Read the data into an R data frame and answer the following questions using `read.csv` and `ggplot2` libraries. 
+1. You will be required to retrieve the HR analytics employee attrition data set from kaggle. Click [here](https://www.kaggle.com/datasets/pavansubhasht/ibm-hr-analytics-attrition-dataset/data) to check out the data set. Read the data into an R data frame and answer the following questions using `read.csv` and `ggplot2`. 
 
     a. Plot a histogram to show the distribution of age among the employees. 
     b. Draw a boxplot to show the employees' hourly rate in the sales department. Are there any outliers? What is the median employees' hourly rate from the boxplot? 

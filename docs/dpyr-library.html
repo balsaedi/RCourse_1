@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-06-04" />
+<meta name="date" content="2024-06-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -469,6 +469,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZzY9aGc1ICU+JSBcbiAgZ3JvdXBfYnkoVHlwZSkgJT4l
 </div>
 <div id="code-challenge-4" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> CODE CHALLENGE<a href="dpyr-library.html#code-challenge-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Palmer Archipelago(Antarctica) Penguin data - <a href="https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data" class="uri">https://www.kaggle.com/datasets/parulpandey/palmer-archipelago-antarctica-penguin-data</a></p>
 <ol style="list-style-type: decimal">
 <li><code>ToothGrowth</code> is one of the freely available data sets in base R. Go on and;
 <ol style="list-style-type: lower-alpha">
@@ -476,23 +477,23 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZzY9aGc1ICU+JSBcbiAgZ3JvdXBfYnkoVHlwZSkgJT4l
 <li>Display the first 5 records.</li>
 <li>Use the function <code>write.table</code> to write the data set to a local file.</li>
 </ol></li>
-<li>You will use the Palmer Archipelago(Antarctica) Penguin data set from kaggle to practice various data manipulation techniques using <code>dplyr</code> verbs in R. Ensure You load the data and necessary packages before working on the following questions below;
+<li>You will use the Palmer Archipelago(Antarctica) Penguin data set from kaggle to practice various data manipulation techniques using <code>dplyr</code> verbs in R. Ensure You load the data as <code>penguin_data</code> and necessary packages before working on the following questions below;
 <ol style="list-style-type: lower-alpha">
-<li>Using <code>select()</code> verb, create a new data set that contains only the columns <code>species, island, bill_length_mm</code>.</li>
-<li>Filter the Penguin data set to retain only the “Adelie” species that live in “Torgersen” island. Use <code>filter()</code> function.</li>
-<li>Arrange the Penguin data set according to <code>bill_lenghth_mm</code> in descending order. Use <code>arrange()</code> verb.</li>
-<li>Using the <code>mutate()</code> function, add a new column called <code>bill_length_cm</code> derived from <code>bill_length_mm</code> by 10.</li>
-<li>Group the data set according to <code>island</code>.</li>
-<li>For each species and island, calculate the mean <code>bill_length_mm</code> and the observations count.</li>
+<li>Using <code>select()</code> verb, create a new data set that contains only the columns <code>Species, Island, Flipper.Length..mm.</code> and name the data frame <code>selected_features</code>. Show the first 10 observations of <code>selected_features</code>.</li>
+<li>Filter the Penguin data set to retain only the “Adelie” species that live in “Torgersen” island. Use <code>filter()</code> function. Name the resultant data set <code>Adelie_data</code> and show its first 7 records.</li>
+<li>Arrange the Penguin data set according to <code>Flipper.Length..mm.</code> in descending order. Use <code>arrange()</code> verb. Name the resultant data frame, <code>ordered_penguin_data</code> and show the first five rows.</li>
+<li>Using the <code>mutate()</code> function, add a new column called <code>Flipper.Length..mm.</code> derived from <code>Flipper.Length..mm.</code> by 10. Name the data set, <code>modified_penguin_data</code>. and show the first rows</li>
+<li>Group the data set according to <code>island</code> (count the number of records across each island). Name the resultant data set, <code>penguin_data_by_island</code> and print the data(first 10 rows) to the console.</li>
 </ol></li>
 <li>In this activity, you will chain at least four <code>dplyr</code> verbs to achieve the desired outcome.
 <ul>
-<li>Select the columns, <code>island, body_mass_g, species, bill_length_mm</code></li>
-<li>Filter the selected data set to include penguins that have a bill length greater than 40mm</li>
-<li>Create a new column/variable that will convert <code>bill_length_mm</code> to <code>bill_length_cm</code> i.e divide <code>bill_length_mm</code> by 10 to come up with <code>bill_length_cm</code>.</li>
-<li>Order the resulting data set by <code>body_mass_g</code> in descending order.</li>
+<li>Select the columns, <code>island, Body.Mass..g., species, Flipper.Length..mm.</code></li>
+<li>Filter the selected data set to include penguins that have a flipper length greater than 195mm</li>
+<li>Create a new column/variable that will convert <code>Flipper.Length..mm.</code> to <code>Flipper.Length..cm.</code> i.e divide <code>Flipper.Length..mm.</code> by 10 to come up with <code>Flipper.Length..cm.</code>.</li>
+<li>Order the resulting data set by <code>Body.Mass..g.</code> in descending order.</li>
 </ul></li>
 </ol>
+<p><strong>Name the resultant data set, “final_penguin_data</strong></p>
 
 </div>
 </div>
