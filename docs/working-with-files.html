@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-06-06" />
+<meta name="date" content="2024-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -201,7 +201,7 @@ View the data set
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIFZpZXcgdGhlIGRhdGFzZXRcbnN0cihoZykifQ==
 </div>
-<p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a dataset.</p>
+<p>In R, <code>head()</code> and <code>tail()</code> are functions used to view the first few rows or the last few rows of a data frame respectively. These functions are particularly useful for quickly inspecting the structure and content of a data set.</p>
 Here’s how you can use them for this case;
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIERpc3BsYXkgdGhlIGZpcnN0IDYgcmVjb3JkcyBvZiB0aGUgZGF0YSBzZXRcbmhlYWQoaGcpIn0=
@@ -221,38 +221,38 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjbGFzcyhoZykifQ==
 </div>
 <code>str()</code> is used to find the nature of data such as column data types, number of rows and columns, column names , and first records in the dataframe
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdHIoaGcpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG5zdHIoaGcpIn0=
 </div>
 <code>is.na()</code> is used to check if there is null/blank values in the dataset. If there is it returns TRUE in place of the null point while it return FALSE in place of the value.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW0oaXMubmEoaGcpKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jQ291bnQgdGhlIG51bGwgdmFsdWVzIGluIHRoZSBkYXRhIGZyYW1lIFxuc3VtKGlzLm5hKGhnKSkifQ==
 </div>
 <p>The “hg” data frame has no null values.</p>
 <p>Lets dive into biology to solve some of the questions about genetics</p>
-<p><strong>Q1. Calculate the gene densityfor each chromosome</strong></p>
+<p><strong>Q1. Calculate the gene density for each chromosome</strong></p>
 The gene density is calculated in terms of genes per megabase
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJiYXNlX01iID0gaGckQmFzZV9QYWlycy8xMDAwMDAwXG5iYXNlX01iIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIENhbGN1bGF0aW5nIHRoZSBnZW5lIGRlbnNpdHkgZm9yIGVhY2ggY2hyb21vc29tZXMgXG5iYXNlX01iID0gaGckQmFzZV9QYWlycy8xMDAwMDAwXG5iYXNlX01iIn0=
 </div>
 To make the values more clear, the results can be rounded off to two decimal place.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyYmFzZV9NYj1yb3VuZChiYXNlX01iLCBkaWdpdHMgPSAyKVxucmJhc2VfTWIifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIENhbGN1bGF0aW5nIHRoZSBnZW5lIGRlbnNpdHkgZm9yIGVhY2ggY2hyb21vc29tZXMgXG5iYXNlX01iID0gaGckQmFzZV9QYWlycy8xMDAwMDAwXG5iYXNlX01iXG5cbnJiYXNlX01iPXJvdW5kKGJhc2VfTWIsIGRpZ2l0cyA9IDIpXG5yYmFzZV9NYiJ9
 </div>
 <p><strong>Q2. Calculate number of genes per megabase per chromosomes</strong></p>
 The protein coding genes are divided to the gene density.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJnZW5lc19wZXJfbWVnYWJhc2UgPSByb3VuZChoZyRQcm90ZWluX0NvZGluZ19nZW5lcy9iYXNlX01iLCBkaWdpdHMgPSAyKVxuZ2VuZXNfcGVyX21lZ2FiYXNlIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIENhbGN1bGF0aW5nIHRoZSBudW1iZXIgb2YgZ2VuZXMgcGVyIG1lZ2FiYXNlIHBlciBjaHJvbW9zb21lcyBcbmdlbmVzX3Blcl9tZWdhYmFzZSA9IHJvdW5kKGhnJFByb3RlaW5fQ29kaW5nX2dlbmVzL2Jhc2VfTWIsIGRpZ2l0cyA9IDIpXG5nZW5lc19wZXJfbWVnYWJhc2UifQ==
 </div>
 Lets create a new column to the dataframe to the dataset
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZ1tcImdlbmVzX3Blcl9NYlwiXT1nZW5lc19wZXJfbWVnYWJhc2VcbnN0cihoZykifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIENhbGN1bGF0aW5nIHRoZSBudW1iZXIgb2YgZ2VuZXMgcGVyIG1lZ2FiYXNlIHBlciBjaHJvbW9zb21lcyBcbmdlbmVzX3Blcl9tZWdhYmFzZSA9IHJvdW5kKGhnJFByb3RlaW5fQ29kaW5nX2dlbmVzL2Jhc2VfTWIsIGRpZ2l0cyA9IDIpXG5nZW5lc19wZXJfbWVnYWJhc2VcblxuIyBTdG9yZSB0aGUgcmVzdWx0IGFzIGEgY29sdW1uIHRvIHRoZSBkYXRhIGZyYW1lXG5oZ1tcImdlbmVzX3Blcl9NYlwiXT1nZW5lc19wZXJfbWVnYWJhc2VcbnN0cihoZykifQ==
 </div>
 </div>
 <div id="write-a-new-table-to-a-file-locally" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Write a new table to a file locally<a href="working-with-files.html#write-a-new-table-to-a-file-locally" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 The <code>write.table()</code> function is used to write table to file on a local machine. The file is saved by deault to the working directory unless the path is specified.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ3cml0ZS50YWJsZShoZywgXG4gICAgICAgICAgICBmaWxlPVwiZGF0YS9oZ19tb2RpZmllZFwiLCBcbiAgICAgICAgICAgIHF1b3RlPUZBTFNFLCBcbiAgICAgICAgICAgIHNlcD0nXFx0JywgXG4gICAgICAgICAgICByb3cubmFtZXM9RkFMU0UsIFxuICAgICAgICAgICAgY29sLm5hbWVzPVRSVUUpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEltcG9ydCB0aGUgbGlicmFyeVxubGlicmFyeShyZWFkeGwpXG5cbiMgUmVhZCB0aGUgZXhjZWwgZmlsZVxuaGcgPSByZWFkX2V4Y2VsKFwiZGF0YS9IdW1hbl9nZW5vbWUueGxzeFwiKVxuXG4jIENhbGN1bGF0aW5nIHRoZSBudW1iZXIgb2YgZ2VuZXMgcGVyIG1lZ2FiYXNlIHBlciBjaHJvbW9zb21lcyBcbmdlbmVzX3Blcl9tZWdhYmFzZSA9IHJvdW5kKGhnJFByb3RlaW5fQ29kaW5nX2dlbmVzL2Jhc2VfTWIsIGRpZ2l0cyA9IDIpXG5cbiMgU3RvcmUgdGhlIHJlc3VsdCBhcyBhIGNvbHVtbiB0byB0aGUgZGF0YSBmcmFtZVxuaGdbXCJnZW5lc19wZXJfTWJcIl09Z2VuZXNfcGVyX21lZ2FiYXNlXG5cbiMgV3JpdGUgdGhnZSBmaWxlcyBsb2NhbGx5XG53cml0ZS50YWJsZShoZywgXG4gICAgICAgICAgICBmaWxlPVwiZGF0YS9oZ19tb2RpZmllZFwiLCBcbiAgICAgICAgICAgIHF1b3RlPUZBTFNFLCBcbiAgICAgICAgICAgIHNlcD0nXFx0JywgXG4gICAgICAgICAgICByb3cubmFtZXM9RkFMU0UsIFxuICAgICAgICAgICAgY29sLm5hbWVzPVRSVUUpIn0=
 </div>
 <p>This file will be saved by default on the working directory unless the file path is changed.</p>
 <p>Checking if the new file is saved.</p>
@@ -282,22 +282,22 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBh
 <ul>
 <li>Structure of the data set
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdHIodGl0YW5pY19kZikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jIENoZWNrb3V0IHRoZSBuYXR1cmUgb2YgdGhlIGRhdGEgc2V0XG5zdHIodGl0YW5pY19kZikifQ==
 </div></li>
 <li>Show the first 6 records of the data set.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkKHRpdGFuaWNfZGYpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jIFNob3cgdGhlIGZpcnN0IGZpdmUgcm93cyBvZiB0aGUgZGF0YSBzZXRcbmhlYWQodGl0YW5pY19kZikifQ==
 </div></li>
 <li>Count the null values in the data
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW0oaXMubmEodGl0YW5pY19kZikpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jRmluZCBvdXQgdGhlIG51bGwgdmFsdWVzIGluIHRoZSBkYXRhIHNldFxuc3VtKGlzLm5hKHRpdGFuaWNfZGYpKSJ9
 </div></li>
 </ul>
 <p>The are 87 fields in the data that are null(empty)</p>
 <ul>
 <li>Calculate the descriptive statistics
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW1tYXJ5KHRpdGFuaWNfZGYpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jIENhbGN1bGF0ZSB0aGUgZGVzY3JpcHRpdmUgc3RhdGlzdGljcyBpbiB0aGUgZGF0YSBzZXQgXG5zdW1tYXJ5KHRpdGFuaWNfZGYpIn0=
 </div></li>
 </ul>
 </div>
@@ -307,14 +307,14 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW1tYXJ5KHRpdGFuaWNfZGYpIn0=
 <ul>
 <li><strong>What is the survival rate by gender?</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFN1cnZpdmFsIHJhdGUgYnkgZ2VuZGVyXG50YWJsZSh0aXRhbmljX2RmJFNleCwgdGl0YW5pY19kZiRTdXJ2aXZlZCkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jIFN1cnZpdmFsIHJhdGUgYnkgZ2VuZGVyXG50YWJsZSh0aXRhbmljX2RmJFNleCwgdGl0YW5pY19kZiRTdXJ2aXZlZCkifQ==
 </div></li>
 </ul>
 <p>From the table above, all males drowned but all females survived.</p>
 <ul>
 <li><strong>What is the survival rate by ticket class?</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFN1cnZpdmFsIHJhdGUgYnkgdGlja2V0IGNsYXNzXG50YWJsZSh0aXRhbmljX2RmJFBjbGFzcywgdGl0YW5pY19kZiRTdXJ2aXZlZCkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgZGF0YSBmcm9tIGEgQ1NWIGZpbGUgaW50byBhIGRhdGEgZnJhbWVcbnRpdGFuaWNfZGYgPSByZWFkLmNzdihcImRhdGEvdGl0YW5pY19kYXRhc2V0LmNzdlwiKVxuXG4jIFN1cnZpdmFsIHJhdGUgYnkgdGlja2V0IGNsYXNzXG50YWJsZSh0aXRhbmljX2RmJFBjbGFzcywgdGl0YW5pY19kZiRTdXJ2aXZlZCkifQ==
 </div></li>
 </ul>
 <p>Most passengers from ticket class 0 survived.</p>
@@ -335,32 +335,32 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhdHRyaXRpb25fZGYgPSByZWFkLmNzdihcImRhdGEvSFIt
 <ul>
 <li>Structure of the data
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdHIoYXR0cml0aW9uX2RmKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuI05hdHVyZSBvZiB0aGUgZGF0YSBzZXQgXG5zdHIoYXR0cml0aW9uX2RmKSJ9
 </div></li>
 </ul>
 <p>Most columns have character and integer values.</p>
 <ul>
 <li>Shape of the data set
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkaW0oYXR0cml0aW9uX2RmKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhdHRyaXRpb25fZGYgPSByZWFkLmNzdihcImRhdGEvSFItRW1wbG95ZWUtQXR0cml0aW9uLmNzdlwiKVxuXG4jIERpbWVuc2lvbiBvZiB0aGUgZGF0YSBzZXQgXG5kaW0oYXR0cml0aW9uX2RmKSJ9
 </div></li>
 </ul>
 There are 1470 rows and 35 variables in the data set. Lets now show the first few rows of the data to get the idea of how the data looks like.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkKGF0dHJpdGlvbl9kZikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJhdHRyaXRpb25fZGYgPSByZWFkLmNzdihcImRhdGEvSFItRW1wbG95ZWUtQXR0cml0aW9uLmNzdlwiKVxuXG4jU2hvdyB0aGUgZmlyc3QgZmV3IHJvd3NcbmhlYWQoYXR0cml0aW9uX2RmKSJ9
 </div>
 <p>It is also important when analyzing data to find the existence of null fields and duplicated records.</p>
 <ul>
 <li>Are there any null values?
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW0oaXMubmEoYXR0cml0aW9uX2RmKSkifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuIyBDb3VudCB0aGUgbnVsbCB2YWx1ZXMgaW4gdGhlIGRhdGFcbnN1bShpcy5uYShhdHRyaXRpb25fZGYpKSJ9
 </div></li>
 </ul>
 <p>The data is complete with no null values.</p>
 <ul>
 <li>Are there any duplicated rows?
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW0oZHVwbGljYXRlZChhdHRyaXRpb25fZGYpKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuI0NvdW50IHRoZSBkdXBsaWNhdGVkIG9ic2VydmF0aW9ucyBpbiB0aGUgZGF0YSBcbnN1bShkdXBsaWNhdGVkKGF0dHJpdGlvbl9kZikpIn0=
 </div></li>
 </ul>
 <p>Also, all the rows are unique and there is no duplicated row in the data.</p>
@@ -371,21 +371,21 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzdW0oZHVwbGljYXRlZChhdHRyaXRpb25fZGYpKSJ9
 <ul>
 <li><strong>What are the unique departments in the company?</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ1bmlxdWUoYXR0cml0aW9uX2RmJERlcGFydG1lbnQpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuIyBVbmlxdWUgZGVwYXJ0bWVudHMgaW4gdGhlIGNvbXBhbnlcbnVuaXF1ZShhdHRyaXRpb25fZGYkRGVwYXJ0bWVudCkifQ==
 </div></li>
 </ul>
 <p>There are three distinct departments in the company data; Human Resources, Sales, and Research &amp; Development.</p>
 <ul>
 <li><strong>Is there a difference in attrition rates between genders?</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFRhYmxlIG9mIGF0dHJpdGlvbiBieSBnZW5kZXJcbnRhYmxlKGF0dHJpdGlvbl9kZiRHZW5kZXIsIGF0dHJpdGlvbl9kZiRBdHRyaXRpb24pIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuIyBUYWJsZSBvZiBhdHRyaXRpb24gYnkgZ2VuZGVyXG50YWJsZShhdHRyaXRpb25fZGYkR2VuZGVyLCBhdHRyaXRpb25fZGYkQXR0cml0aW9uKSJ9
 </div></li>
 </ul>
 <p>From the table, we can see the number of males and females who have left the company (Attrition=Yes) and those who are still employed (Attrition=No)</p>
 <ul>
 <li><strong>What is the attrition rate among employees in different job roles?</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFRhYmxlIG9mIGF0dHJpdGlvbiBieSBqb2Igcm9sZVxudGFibGUoYXR0cml0aW9uX2RmJEpvYlJvbGUsIGF0dHJpdGlvbl9kZiRBdHRyaXRpb24pIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuIyBUYWJsZSBvZiBhdHRyaXRpb24gYnkgam9iIHJvbGVcbnRhYmxlKGF0dHJpdGlvbl9kZiRKb2JSb2xlLCBhdHRyaXRpb25fZGYkQXR0cml0aW9uKSJ9
 </div></li>
 </ul>
 <p>From the table above there is a high attrition rate among Laboratory technicians(62) and Sales Executives(57) while lowest attrition rate among Research directors(2) and Managers(5).</p>
@@ -394,7 +394,7 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFRhYmxlIG9mIGF0dHJpdGlvbiBieSBqb2Igcm9sZVxu
 </ul>
 To find a clear answer to this, the ages will be summarized into different groups and create a table comparing the attrition and retention rates among different age groups.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFRhYmxlIG9mIGF0dHJpdGlvbiBieSBhZ2UgZ3JvdXBcbmF0dHJpdGlvbl9kZiRBZ2VHcm91cCA8LSBjdXQoYXR0cml0aW9uX2RmJEFnZSwgYnJlYWtzID0gYygwLCAzMCwgNDAsIDUwLCA2MCwgNzApLCBsYWJlbHMgPSBjKFwiMC0zMFwiLCBcIjMxLTQwXCIsIFwiNDEtNTBcIiwgXCI1MS02MFwiLCBcIjYxLTcwXCIpKVxuXG4jIENyZWF0ZSBhIHRhYmxlXG50YWJsZShhdHRyaXRpb25fZGYkQWdlR3JvdXAsIGF0dHJpdGlvbl9kZiRBdHRyaXRpb24pIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIFJlYWQgdGhlIGNzdiBmaWxlIFxuYXR0cml0aW9uX2RmID0gcmVhZC5jc3YoXCJkYXRhL0hSLUVtcGxveWVlLUF0dHJpdGlvbi5jc3ZcIilcblxuIyBUYWJsZSBvZiBhdHRyaXRpb24gYnkgYWdlIGdyb3VwXG5hdHRyaXRpb25fZGYkQWdlR3JvdXAgPC0gY3V0KGF0dHJpdGlvbl9kZiRBZ2UsIGJyZWFrcyA9IGMoMCwgMzAsIDQwLCA1MCwgNjAsIDcwKSwgbGFiZWxzID0gYyhcIjAtMzBcIiwgXCIzMS00MFwiLCBcIjQxLTUwXCIsIFwiNTEtNjBcIiwgXCI2MS03MFwiKSlcblxuIyBDcmVhdGUgYSB0YWJsZVxudGFibGUoYXR0cml0aW9uX2RmJEFnZUdyb3VwLCBhdHRyaXRpb25fZGYkQXR0cml0aW9uKSJ9
 </div>
 <p>Young employees below 30 years tend to leave the company than elder employees of above 40 years who are mostly retained by the company.</p>
 <p><span style="color: green;"><strong>Activity</strong></span></p>

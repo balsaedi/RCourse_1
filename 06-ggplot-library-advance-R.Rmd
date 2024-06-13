@@ -34,40 +34,71 @@ install.packages("ggplot2")
 
 ## Prepare the data for plotting - Data Assessment
 Invoke the libraries 
-```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
+```
 library(ggplot2)
 library(data.table)
 ```
 
 Read the data using the fread function 
 ```{r}
+# Load the library 
+library(data.table)
+
 methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
 ```
 
 View the first five records of the data 
 ```{r}
+# Load the library 
+library(data.table)
+
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+# View the first few records
 head(methylated_c)
 ```
 
 Look at the nature of the data 
 ```{r}
+# Load the library 
+library(data.table)
+
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
 str(methylated_c)
 ```
 In the data set, there are numeric variables a well as character columns. There are 15 records in the data set
 
 Calculate the summary statistics 
 ```{r}
+# Load the library 
+library(data.table)
+
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
 summary(methylated_c)
 ```
 
 Do the data have null values?
 ```{r}
+# Load the library 
+library(data.table)
+
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+# Count the null values in the data 
 sum(is.na(methylated_c))
 ```
 
 This data does not have any null values. 
 
 ```{r}
+# Load the library 
+library(data.table)
+
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+# what type is the data?
 class(methylated_c)
 ```
 
@@ -83,6 +114,13 @@ Before plotting the data, you need to;
 - Define the labels. The labels make the visualizations informative and easy to understand for the user. 
 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
 graph=ggplot(methylated_c, 
              aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
   labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
@@ -108,12 +146,36 @@ print(graph)
 
 In this course we shall explore a few of them but the concepts applies to all of them. Now lets make our plot a bar chart. `geom()` function will be added to a variable `graph` defined above to plot a bar chart. 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
 graph1 = graph + geom_col() #plot a bar chart
 print(graph1)
 ```
 
 If you can remember our data, `methylated_c` has a column/variable "Context". In this step, the variable "Context" will be introduced to make a stacked bar chart, therefore, the C distribution in Chromosomes based on "Context" will be plotted to add some depth to the data. 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
+graph1 = graph + geom_col() #plot a bar chart
+
 graph2=graph1+aes(fill=Context)
 print(graph2)
 ```
@@ -121,6 +183,18 @@ print(graph2)
 To make it a grouped bar chart, a `position` argument is introduced. 
 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
+# Make it grouped bar chart
 graph3=graph+geom_col(position="dodge")+aes(fill=Context)
 print(graph3)
 ```
@@ -129,23 +203,78 @@ Faceted graphs - these are related data plotted separately on the same image/dia
 
 The `facet_grid()` function is added to the variable `graph3` to created faceted graphs based on the variable "Context". 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
+# Make it grouped bar chart
+graph3=graph+geom_col(position="dodge")+aes(fill=Context)
+
 graph4=graph3+facet_grid(~Context)
 print(graph4)
 ```
 
 GGPlot randomly select colors to paint the graph but the biologist/statistician can use predefined colors as below.
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
+# Make it grouped bar chart
+graph3=graph+geom_col(position="dodge")+aes(fill=Context)
+
+graph4=graph3+facet_grid(~Context)
+
 graph5=graph4+scale_fill_manual(values=c("brown", "blue", "red"))
 print(graph5)
 ```
 
 - The background color can be modified to ones aesthetic taste. The `theme()` function along with relevant arguments to make the background color of your choice, in this its light blue. 
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
+graph=ggplot(methylated_c, 
+             aes(x=Chromosome, y=Count_in_millions))+ #graph aesthetics
+  labs(x="Chromosomes", y="Cytosine count in millions", title="C distribution in A thaliana") #graph labels
+
+# Make it grouped bar chart
+graph3=graph+geom_col(position="dodge")+aes(fill=Context)
+
+graph4=graph3+facet_grid(~Context)
+
+graph5=graph4+scale_fill_manual(values=c("brown", "blue", "red"))
+
 graph5+theme_bw(base_size=9)+theme(panel.background = element_rect(fill="lightblue"))
 ```
 
 All of the above steps can be combined to come up with a decent graph from ggplot library.
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
 my_title = expression(paste("Cystosine distribution in ", italic("Arabidopis thaliana")))#Define the title 
 
 graph_final = ggplot(methylated_c, aes(x=Chromosome, y=Count_in_millions))+
@@ -209,6 +338,13 @@ We have worked with iris data set before. In this topic we shall ask some questi
 
 - **Plot a box plot to compare the sepal length in different iris species**
 ```{r}
+# Load the library 
+library(gplot2)
+library(data.table)
+
+#Load the data using fread
+methylated_c = fread("data/R_WORKSHOP.csv", header=T, sep=",")
+
 graph = ggplot(iris, aes(x=Species, y=Sepal.Length))+ # the graph skeleton
   geom_boxplot()+aes(fill=Species) # aesthetics
 
@@ -232,7 +368,7 @@ install.packages("tidyr")
 This package is a part of the tidyverse collection designed to make data cleaning and reshaping easy. It has multiple functions for instance `gather()`, `spread()`, `pivot_wider()`, `pivot_longer()`, `separate()`, `unite()` and `fill()`. In this section we shall not dive deep to explore tidyr package but we will borrow one of its important functions, `gather()` to manipulate iris data when plotting. This function, `gather()` is used to reshape data especially from a long format to a short format.
 
 Invoke the library
-```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
+```
 library(tidyr) # can be used to convert from short format to long format
 ```
 
@@ -240,6 +376,9 @@ library(tidyr) # can be used to convert from short format to long format
 
 `gather` command is used to convert data into fewer columns. The columns from sepal length to petal width are to be merged to a single column called measurements
 ```{r}
+library(tidyr) # can be used to convert from short format to long format
+
+data(iris)
 #Gather from sepal length to petal width column into type and measurement column 
 iris_long = gather(iris, type, measurement, Sepal.Length:Petal.Width, factor_key = TRUE)
 tail(iris_long)
@@ -247,6 +386,14 @@ tail(iris_long)
 
 Lets plot the data to a box plot 
 ```{r}
+library(tidyr) # can be used to convert from short format to long format
+library(ggplot2)
+
+data(iris)
+
+#Gather from sepal length to petal width column into type and measurement column 
+iris_long = gather(iris, type, measurement, Sepal.Length:Petal.Width, factor_key = TRUE)
+
 graph=ggplot(iris_long, aes(x=Species,y=measurement))+
   labs(x="Species", y="Length in cm", title = "variation in Petals and Sepals of Iris Species")+
   theme(axis.text = element_text(angle=90))+
@@ -259,6 +406,14 @@ print(graph)
 
 the same can also be plotted to a violin plot 
 ```{r}
+library(tidyr) # can be used to convert from short format to long format
+library(ggplot2)
+
+data(iris)
+
+#Gather from sepal length to petal width column into type and measurement column 
+iris_long = gather(iris, type, measurement, Sepal.Length:Petal.Width, factor_key = TRUE)
+
 graph=ggplot(iris_long, aes(x=Species,y=measurement))+
   labs(x="Species", y="Length in cm", title = "variation in Petals and Sepals of Iris Species")+
   theme(axis.text = element_text(angle=90))+

@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-06-06" />
+<meta name="date" content="2024-06-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -626,73 +626,73 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQg
 <p>A vector of values 1 to 9 is being converted to a matrix where the values are being arranged column wise by default.</p>
 A matrix has a multiple dimensions, the most common type of matrix is two dimesnional.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkaW0oZGF0YTEpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuIyBmaW5kIHRoZSBkaW1lbnNpb24gb2YgdGhlIHZlY3RvclxuZGltKGRhdGExKSJ9
 </div>
 <code>is.matrix()</code> function is used to confirm if a given variable is a matrix and it return a boolean value.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpcy5tYXRyaXgoZGF0YTEpIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuIyBjb25maXJtIGlmIGBkYXRhMWAgaXMgcmVhbGx5IGEgbWF0cml4XG5pcy5tYXRyaXgoZGF0YTEpIn0=
 </div>
 A matrix can also be created row-wise from a vector.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyBjcmVhdGUgYnkgcm93IFxuZGF0YTI9bWF0cml4KHZlY3RvcjEsIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGEyICMgaXMgYSB0cmFuc3Bvc2Ugb2YgZGF0YTEifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIyBjcmVhdGUgYSBtYXRyaXggYnkgcm93IFxuZGF0YTI9bWF0cml4KHZlY3RvcjEsIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGEyICMgaXMgYSB0cmFuc3Bvc2Ugb2YgZGF0YTEifQ==
 </div>
 Matrix is recognized either as a matrix or array by R
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJjbGFzcyhkYXRhMSkgIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuIyBmaW5kIHRoZSBkYXRhIHR5cGUgb2YgYGRhdGExYFxuY2xhc3MoZGF0YTEpICJ9
 </div>
 To access a specific data point in a matrix, the matrix is indexed by row then column for instance <code>matrix_data[row_index, column_index]</code>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVszLCAyXSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuIyByZXRyaWV2ZSB0aGUgdmFsdWUgaW4gdGhlIHRoaXJkIHJvdyBzZWNvbmQgY29sdW1uIGluIGBkYXRhMWBcbmRhdGExWzMsIDJdIn0=
 </div>
 To access a single row, in this case we find the second row which will be returned as a vector
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVxucm93MiA9IGRhdGExWzIsXSAjIGFjY2VzcyByb3cgMiBcbmlzLnZlY3Rvcihyb3cyKSAjY2FuIGJlIGFjY2Vzc2VkIGJ5IHJvdyAyIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9Mylcblxucm93MiA9IGRhdGExWzIsXSAjIGFjY2VzcyByb3cgMiBcbmlzLnZlY3Rvcihyb3cyKSAjY2FuIGJlIGFjY2Vzc2VkIGJ5IHJvdyAyIn0=
 </div>
 To access a single column
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVxuY29sMz1kYXRhMVssM10gIyBhY2Nlc3MgY29sdW1uIDNcbmlzLnZlY3Rvcihjb2wzKSAjY2FuIGJlIGFjY2Vzc2VkIGJ5IGNvbHVtbiAzIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuY29sMz1kYXRhMVssM10gIyBhY2Nlc3MgY29sdW1uIDNcbmlzLnZlY3Rvcihjb2wzKSAjY2FuIGJlIGFjY2Vzc2VkIGJ5IGNvbHVtbiAzIn0=
 </div>
 Count the number of rows in a matrix
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJucm93KGRhdGExKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxubnJvdyhkYXRhMSkifQ==
 </div>
 <p><code>data1</code> has 3 rows</p>
 Count the number of columns in a matrix
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJuY29sKGRhdGExKSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxubmNvbChkYXRhMSkifQ==
 </div>
 <div id="mathematical-operations-in-a-matrix" class="section level4 hasAnchor" number="2.2.2.1">
 <h4><span class="header-section-number">2.2.2.1</span> Mathematical Operations in a matrix<a href="data-types-and-data-structures.html#mathematical-operations-in-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <strong>Matrix Addition</strong>
 Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVxuZGF0YTIgPSBkYXRhMSArIDNcbmRhdGEyIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gc2VxKDEsIDkpIFxuXG4jIENvbnZlcnQgdG8gbWF0cml4XG4jIyBjcmVhdGUgYnkgY29sdW1uIFxuZGF0YTE9bWF0cml4KHZlY3RvcjEsIG5jb2w9MylcblxuZGF0YTIgPSBkYXRhMSArIDNcbmRhdGEyIn0=
 </div>
 For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbnByaW50KGRhdGExKVxuZGF0YTIgPSBtYXRyaXgoc2VxKDEsIDE4LCAyKSwgbmNvbD0zLCBieXJvdz1UUlVFKVxucHJpbnQoZGF0YTIpXG5cbiMgQWRkIGRhdGExIHRvIGRhdGEyXG5yZXN1bHRhbnRfbWF0cml4ID0gZGF0YTEgKyBkYXRhMlxucmVzdWx0YW50X21hdHJpeCJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbnByaW50KGRhdGExKVxuXG5kYXRhMiA9IG1hdHJpeChzZXEoMSwgMTgsIDIpLCBuY29sPTMsIGJ5cm93PVRSVUUpXG5wcmludChkYXRhMilcblxuIyBBZGQgZGF0YTEgdG8gZGF0YTJcbnJlc3VsdGFudF9tYXRyaXggPSBkYXRhMSArIGRhdGEyXG5yZXN1bHRhbnRfbWF0cml4In0=
 </div>
 <strong>Matrix Subtraction</strong>
 The same concept of matrix addition applies to matrix subtraction as well.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMyA9IGRhdGExLTEgI3JlZHVjZSBlYWNoIHZhbHVlIGJ5IDFcbmRhdGEzIn0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcblxuZGF0YTMgPSBkYXRhMS0xICNyZWR1Y2UgZWFjaCB2YWx1ZSBieSAxXG5kYXRhMyJ9
 </div>
 Subtracting 1 to <code>data1</code> subtract each value in the matrix by 1. Lets now subtract data1 from data2.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVxuZGF0YTJcbnJlc3VsdGFudF9tYXRyaXggPSBkYXRhMi1kYXRhMVxucmVzdWx0YW50X21hdHJpeCJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGExXG5cbmRhdGEyID0gbWF0cml4KHNlcSgxLCAxOCwgMiksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGEyXG5yZXN1bHRhbnRfbWF0cml4ID0gZGF0YTItZGF0YTFcbnJlc3VsdGFudF9tYXRyaXgifQ==
 </div>
 <strong>Matrix Multiplication(scalar)</strong>
 A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhNCA9IGRhdGExKjVcbmRhdGE0In0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGExXG5cbmRhdGE0ID0gZGF0YTEqNVxuZGF0YTQifQ==
 </div>
 <p>Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product.</p>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMVxuZGF0YTJcbnByb2R1Y3RfbWF0cml4ID0gZGF0YTEgKiBkYXRhMlxucHJvZHVjdF9tYXRyaXgifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGExXG5cbmRhdGEyID0gbWF0cml4KHNlcSgxLCAxOCwgMiksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGEyXG5cbiMgRmluZCB0aGUgcHJvZHVjdCBvZiB0aGUgdHdvIG1hdHJpY2VzXG5wcm9kdWN0X21hdHJpeCA9IGRhdGExICogZGF0YTJcbnByb2R1Y3RfbWF0cml4In0=
 </div>
 <strong>Matrix division</strong>
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhNSA9IGRhdGExLzJcbmRhdGE1In0=
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhMSA9IG1hdHJpeChzZXEoMSwgOSksIG5jb2w9MywgYnlyb3c9VFJVRSlcbmRhdGExXG5cbiMgRGl2aWRlIGBkYXRhMWAgbWF0cml4IGJ5IDJcbmRhdGE1ID0gZGF0YTEvMlxuZGF0YTUifQ==
 </div>
 </div>
 </div>
@@ -705,15 +705,15 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gYygxOjEyKVxubWF0cml4MSA9IG1hdHJp
 </div>
 The above data shows scores of different students in different subjects. The column names are automatically generated by R, however, the column names can be added as below.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJoZWFkZXJzPWMoXCJTdHVkZW50c1wiLCBcIkdlb25vbWljc1wiLCBcIlByb3Rlb21pY3NcIiwgXCJNaWNyb2Jpb2xvZ3lcIiwgXCJCaW9zdGF0aXN0aWNzXCIpXG5jb2xuYW1lcyhkYXRhKT1oZWFkZXJzICNhZGQgY29sdW1uIG5hbWVzIFxuZGF0YSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gYygxOjEyKVxubWF0cml4MSA9IG1hdHJpeCh2ZWN0b3IxLCBuY29sPTQpICNjcmVhdGUgYSBtYXRyaXggZnJvbSB0aGUgdmVjdG9yIFxuXG4jIEFkZGluZyBhIGNvbHVtbiBzdHVkZW50IFxuU3R1ZGVudHM9YyhcIlByYWd5YVwiLCBcIkRlZXBpa2FcIiwgXCJDaGFuZHJhblwiKVxuZGF0YSA9IGRhdGEuZnJhbWUoU3R1ZGVudHMsIG1hdHJpeDEpIFxuZGF0YVxuXG4jIENyZWF0ZSBjb2x1bW4gbmFtZXNcbmhlYWRlcnM9YyhcIlN0dWRlbnRzXCIsIFwiR2Vvbm9taWNzXCIsIFwiUHJvdGVvbWljc1wiLCBcIk1pY3JvYmlvbG9neVwiLCBcIkJpb3N0YXRpc3RpY3NcIilcbmNvbG5hbWVzKGRhdGEpPWhlYWRlcnMgI2FkZCBjb2x1bW4gbmFtZXMgXG5kYXRhIn0=
 </div>
 A row wise addition can be performed on a data frame to find the total scores for each student in the four units
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIyBBZGQgYSBuZXcgY29sdW1uIHdpdGggdG90YWwgbWFya3Mgb2J0YWluZWQgXG5kYXRhJHRvdGFsX21hcmtzPXJvd1N1bXMoZGF0YVssIGMoMiwgMywgNCwgNSldKSAjYWRkIGZyb20gc2Vjb25kIHRvIGZpZnRoIGNvbHVtbiBcbmRhdGEifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gYygxOjEyKVxubWF0cml4MSA9IG1hdHJpeCh2ZWN0b3IxLCBuY29sPTQpICNjcmVhdGUgYSBtYXRyaXggZnJvbSB0aGUgdmVjdG9yIFxuXG4jIEFkZGluZyBhIGNvbHVtbiBzdHVkZW50IFxuU3R1ZGVudHM9YyhcIlByYWd5YVwiLCBcIkRlZXBpa2FcIiwgXCJDaGFuZHJhblwiKVxuZGF0YSA9IGRhdGEuZnJhbWUoU3R1ZGVudHMsIG1hdHJpeDEpIFxuZGF0YVxuXG4jIyBBZGQgYSBuZXcgY29sdW1uIHdpdGggdG90YWwgbWFya3Mgb2J0YWluZWQgXG5kYXRhJHRvdGFsX21hcmtzPXJvd1N1bXMoZGF0YVssIGMoMiwgMywgNCwgNSldKSAjYWRkIGZyb20gc2Vjb25kIHRvIGZpZnRoIGNvbHVtbiBcbmRhdGEifQ==
 </div>
 Find the average score for each student.<code>rowMeans()</code> is used the average of each row/record.
 <div data-datacamp-exercise="" data-height="300" data-encoded="true">
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYXRhJGF2ZXJhZ2VfbWFya3M9cm93TWVhbnMoZGF0YVssIGMoMiwgMywgNCwgNSldKVxuZGF0YSJ9
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ2ZWN0b3IxID0gYygxOjEyKVxubWF0cml4MSA9IG1hdHJpeCh2ZWN0b3IxLCBuY29sPTQpICNjcmVhdGUgYSBtYXRyaXggZnJvbSB0aGUgdmVjdG9yIFxuXG4jIEFkZGluZyBhIGNvbHVtbiBzdHVkZW50IFxuU3R1ZGVudHM9YyhcIlByYWd5YVwiLCBcIkRlZXBpa2FcIiwgXCJDaGFuZHJhblwiKVxuZGF0YSA9IGRhdGEuZnJhbWUoU3R1ZGVudHMsIG1hdHJpeDEpIFxuZGF0YVxuXG5kYXRhJGF2ZXJhZ2VfbWFya3M9cm93TWVhbnMoZGF0YVssIGMoMiwgMywgNCwgNSldKVxuZGF0YSAjIGNvbmZpcm0gaWYgdGhlIG5ldyBjb2x1bW4gaXMgYWRkZWQifQ==
 </div>
 </div>
 </div>
