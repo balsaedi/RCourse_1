@@ -26,7 +26,7 @@ install.packages("dplyr")
 Ensure your computer is connected to the internet when installing!
 
 To invoke the libraries to the program run;
-```{r echo=TRUE, error=FALSE, warning=FALSE, message=FALSE}
+```
 library(dplyr)
 library(readxl)
 ```
@@ -35,17 +35,17 @@ Before working on the data, it need to imported first. The `readxl` library will
 
 
 Apart from data retrieved from excel tables, there are some inbuilt freely available datasets in R that a student can use for practice. `data()` function can be used to view some of the freely available datasets in R. 
-```{r}
+```
 data()
 ```
 
 This will show all data sets including both the inbuilt and the previously imported ones. Alternatively the code below will show only the inbuilt R data sets.
-```{r}
+```
 ls("package:datasets")
 ```
 
 Some libraries come with their own inbuilt data sets which can be explored by the command;
-```{r}
+```
 data(package=.packages(all.available = TRUE))
 ```
 
@@ -60,23 +60,30 @@ head(iris)
 
 Calculating the summary statistics
 ```{r}
+# Load data 
+data("iris")
+
+# Calculate the summary statistics 
 summary(iris)
 ```
 
 Lets write this data set locally to a file. 
-```{r}
+```
+# Load data 
+data("iris")
+
 write.table(iris, "data/iris_dataset.txt", append = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
 or to remove quotes next to values 
-```{r}
+```
 write.table(iris, "data/iris_dataset.txt", append = FALSE, quote = FALSE)
 file.show("data/iris_dataset.txt")
 ```
 
 or to remove quotes and row names
-```{r}
+```
 write.table(iris, "data/iris_dataset.txt", append = FALSE, quote=FALSE, row.names = FALSE)
 file.show("data/iris_dataset.txt")
 ```
@@ -86,6 +93,8 @@ file.show("data/iris_dataset.txt")
 
 This dplyr verb is used when selecting or dropping specific columns. In this lesson we will find the iris column names and select two of them using `select`. 
 ```{r}
+data(iris)
+
 # Find the column names 
 colnames(iris)
 ```
@@ -99,6 +108,12 @@ selected_data = select(data_frame, col1, col2, col3)
 Therefore, we will select the columns; Species, Petal length and petal width. 
 
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
 selected_iris_data = select(iris,
                        Petal.Length, Petal.Width, Species)
 
@@ -114,6 +129,13 @@ remaining_data = select(data_frame, -col1_to_drop, -col2_to_drop)
 ```
 In this lesson, we will drop petal length, petal width and Species columns;
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Drop some columns 
 remaining_iris_data = select(iris,
                        -Petal.Length, -Petal.Width, -Species)
 
@@ -166,6 +188,13 @@ column_name > 5 # This is the condition)
 
 Lets select the species 'setosa' from the iris data set 
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Filter to select Setosa 
 setosa_iris = filter(iris, # the data frame
                      Species == "setosa" # the condition
                      )
@@ -175,6 +204,13 @@ head(setosa_iris)
 
 Records with sepal width of more than 3.0 can be filtered. Here is how we achieve such a subset
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Filtered to select records with more than 3.0 sepal width
 wide_sepal_iris = filter(iris, #the data frame
                          Sepal.Width>3.0 # the condition
                          )
@@ -235,6 +271,12 @@ arranged_data = arrange(data_frame, desc(column_name))
 
 Now lets order the iris data in an ascending order based on Petal length and view the first 6 records with the shortest petal. 
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
 # Sort the data 
 by_petal_length = arrange(iris, # data frame 
                           Petal.Length # order by column
@@ -294,6 +336,12 @@ tail(mileage_order)
 `mutate()` is a dplyr verb used to modifying the existing variables or creating new variables in a data set. 
 In this case we can calculate the log off Sepal length in the iris data 
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
 # modify Sepal.Length
 new_iris = mutate(iris, Sepal.Length=log(Sepal.Length))
 
@@ -302,6 +350,13 @@ head(new_iris)
 
 Additionally, we can create an entirely new variable by `mutate()`. In this case we will find the ratio between petal length and petal width. The new variable will be called "Petal.Length.Width.Ratio"
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Create a new column in the data set 
 new_iris = mutate(iris,
                   Petal.Length.Width.Ratio = Petal.Length/Petal.Width)
 
@@ -349,6 +404,13 @@ The `group_by()` is a function used to group records in a data frame by one or m
 
 Lets group the iris data based on the Species variable;
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Group the iris based on their Species 
 iris_groups = group_by(iris, Species)
 head(iris_groups)
 ```
@@ -392,6 +454,13 @@ car_sales_by_model
 ### Summarise
 To calculate summary statistics such as average, median and maximum the `summarise()` is used. This function collapses mutilple rows into a summary row. For instance calculating the mean Petal width;
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# Calculate the mean petal width
 summarise(iris, 
           mean_petal_width=mean(Petal.Width))
 ```
@@ -400,6 +469,15 @@ To find the mean petal width for each iris species;
 - the iris data will be grouped by species
 - a mean value for each group will be calculated
 ```{r}
+# Load the required libraries 
+library(dplyr)
+
+# Load the iris data 
+data(iris)
+
+# To find the mean petal width for each iris species;
+# - the iris data will be grouped by species
+# - a mean value for each group will be calculated
 grouped_iris = group_by(iris, Species)
 mean_petal_widths = summarise(grouped_iris, mean_value=mean(Petal.Width))
 mean_petal_widths
@@ -455,6 +533,13 @@ head(mtcars)
 
 Lets `select` 6 most important columns in this analysis
 ```{r}
+# Load the library
+library(dplyr)
+
+# Load the data
+data(mtcars)
+
+# Lets `select` 6 most important columns in this analysis
 cars1 = mtcars %>% select(mpg, cyl, disp, hp, qsec, am)
 
 head(cars1)
@@ -462,6 +547,13 @@ head(cars1)
 
 Lets now `filter` to find vehicles with an automatic transmission type. The `filter` verb will be chained to `select` verb with `%>%`. 
 ```{r}
+# Load the library
+library(dplyr)
+
+# Load the data
+data(mtcars)
+
+# Selct and filter chained together
 cars2 = mtcars %>%select(mpg, cyl, disp, hp, qsec, am) %>%
   filter(am==0)
 head(cars2)
@@ -469,6 +561,13 @@ head(cars2)
 
 All these vehicles are of automatic transmission type, lets rank them according to the horsepower in descending order. 
 ```{r}
+# Load the library
+library(dplyr)
+
+# Load the data
+data(mtcars)
+
+# Select, filter and arrange chained together
 cars3= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
   filter(am==0) %>%
   arrange(desc(hp))
@@ -478,6 +577,13 @@ head(cars3)
 
 A new column of weight in 1000kgs (wt_1000kgs) can be created by diving weight in 1000lbs by 2.20462. `mutate` verb will be chained also.
 ```{r}
+# Load the library
+library(dplyr)
+
+# Load the data
+data(mtcars)
+
+# Multiple chains 
 cars4= mtcars %>%select(mpg, cyl, disp, hp, qsec, am, wt) %>%
   filter(am==0) %>%
   arrange(desc(hp)) %>%
@@ -493,27 +599,65 @@ Genetics composition of an organism can be analyzed using `dplyr`, in this cours
 
 - Read the data set from a file into a data frame
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
 hg = read_excel("data/Human_genome.xlsx")
+
 class(hg)
 ```
 
 review the first six records of the data set 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# First few records of the data sets
 head(hg)
 ```
  
  the last six records of the data set
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Last few records of the data set 
 tail(hg)
 ```
  
 `sample_n()` command is used to randomly sample fixed number of rows from the data frame. Lets sample five rows randomly
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Randomly sample 
 hg %>% sample_n(5)
 ```
  
 `sample_fra()` command can also be used to extract a percent of rows randomly. Lets samople 25% of the rows 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Sample by fraction
 hg %>% sample_frac(0.25, replace = FALSE)
 ```
 
@@ -531,6 +675,13 @@ All these processes will be chained to run progressively from process 1 to 3.
 
 All the above steps should be piped
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
 hg1 = hg %>% #transfer the data to a new variable
   select(Chromosome, Base_Pairs) %>% # select the required columns 
            arrange(desc(Base_Pairs)) %>% #order in descending order
@@ -545,6 +696,14 @@ The human genome data frame will be filtered to find the Chromosomes with more t
 `&` condition is used in the filter 
 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Filter by pseudogenes
 hg2=hg%>%
   filter(Pseudogenes>500 & Protein_Coding_genes>1000)
 hg2
@@ -557,6 +716,14 @@ The human genome dator more than 1000 protein coding genes and mtRNA more than 1
 
 The `&` and `|` conditions will be used in place of "and" and "or" respectively.
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Filtering 
 hg2=hg %>% 
   filter((Pseudogenes>500|Protein_Coding_genes>1000) & miRNA>100)
 hg2
@@ -568,6 +735,14 @@ hg2
 
 Lets create a column of genes per megabase where a megabase is 1000000 base pairs
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Mutation 
 hg3=hg %>%
   mutate(Genes_per_Mb=round((Protein_Coding_genes/(Base_Pairs/100000)),
                             digit=2))
@@ -576,6 +751,14 @@ hg3
 
 then order the data according to genes per megabse column (`Genes_per_mb`) in descending order and select the first 10 rows using `arrange` and `select` commands. 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+#Chaining the verbs/functions 
 hg4=hg3 %>%
   arrange(desc(Genes_per_Mb)) %>% # order in descending order 
   select(Chromosome, Genes_per_Mb) %>% # select the required columns 
@@ -587,10 +770,25 @@ hg4
 **Q5. Calculate the mean of gene density for autosomes, sex chromosomes and mitochondrial genes**
 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Create a vector with similar gene strings 
 autosomes=rep("A", 22) #create a vector with 22 As
 print(autosomes)
 chr_class=c(autosomes, "S", "S", "M")
 chr_class
+
+
+# Mutation 
+hg3=hg %>%
+  mutate(Genes_per_Mb=round((Protein_Coding_genes/(Base_Pairs/100000)),
+                            digit=2))
+
 hg5= hg3 %>%
   mutate(Type=chr_class)
 
@@ -599,6 +797,28 @@ hg5 # confirm the new column "Type" is added
 
 Group by chromosomes and calculate the mean density 
 ```{r}
+# Load the library
+library(readxl)
+library(dplyr)
+
+# Load the data 
+hg = read_excel("data/Human_genome.xlsx")
+
+# Create a vector with similar gene strings 
+autosomes=rep("A", 22) #create a vector with 22 As
+print(autosomes)
+chr_class=c(autosomes, "S", "S", "M")
+chr_class
+
+
+# Mutation 
+hg3=hg %>%
+  mutate(Genes_per_Mb=round((Protein_Coding_genes/(Base_Pairs/100000)),
+                            digit=2))
+
+hg5= hg3 %>%
+  mutate(Type=chr_class)
+
 hg6=hg5 %>% 
   group_by(Type) %>%
   summarise(gene_density=mean(Genes_per_Mb))
