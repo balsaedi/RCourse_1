@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-06-13" />
+<meta name="date" content="2024-06-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -157,7 +157,10 @@
 <li class="chapter" data-level="7.2" data-path="bioconductor.html"><a href="bioconductor.html#searching-and-analyzing-the-strings"><i class="fa fa-check"></i><b>7.2</b> Searching and Analyzing the strings</a></li>
 <li class="chapter" data-level="7.3" data-path="bioconductor.html"><a href="bioconductor.html#using-seqinr"><i class="fa fa-check"></i><b>7.3</b> Using seqinr</a></li>
 <li class="chapter" data-level="7.4" data-path="bioconductor.html"><a href="bioconductor.html#using-short-read"><i class="fa fa-check"></i><b>7.4</b> Using Short Read</a></li>
-<li class="chapter" data-level="7.5" data-path="bioconductor.html"><a href="bioconductor.html#code-challenge-6"><i class="fa fa-check"></i><b>7.5</b> CODE CHALLENGE</a></li>
+<li class="chapter" data-level="7.5" data-path="bioconductor.html"><a href="bioconductor.html#genomic-ranges"><i class="fa fa-check"></i><b>7.5</b> Genomic Ranges</a></li>
+<li class="chapter" data-level="7.6" data-path="bioconductor.html"><a href="bioconductor.html#using-deseq-package"><i class="fa fa-check"></i><b>7.6</b> Using `DESeq package</a></li>
+<li class="chapter" data-level="7.7" data-path="bioconductor.html"><a href="bioconductor.html#network-analysis-of-genomic-data"><i class="fa fa-check"></i><b>7.7</b> Network Analysis of Genomic Data</a></li>
+<li class="chapter" data-level="7.8" data-path="bioconductor.html"><a href="bioconductor.html#code-challenge-6"><i class="fa fa-check"></i><b>7.8</b> CODE CHALLENGE</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -393,8 +396,50 @@ Plot a boxplot for the scores
 eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJib3hwbG90KHNjb3JlcywgeGxhYj1cIlBvc2l0aW9uXCIsIHlsYWI9XCJQaHJlZCBzY29yZVwiKSJ9
 </div>
 </div>
-<div id="code-challenge-6" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> CODE CHALLENGE<a href="bioconductor.html#code-challenge-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="genomic-ranges" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Genomic Ranges<a href="bioconductor.html#genomic-ranges" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>GenomicRanges</code> and <code>IRanges</code> packages are used in the calculations. These packages are masked in the biostrings.</p>
+<ul>
+<li><code>Genomic Ranges</code> are representing and manipulating genomic intervals and variables defined along a genome.</li>
+<li><code>IRanges</code> used to provide an efficient handling of integer ranges, a fundamental data structure for representing genomic data.</li>
+</ul>
+Lets inspect a scenario where the libraries are used. The <code>IRanges</code> object will be randomly created.
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KEdlbm9taWNSYW5nZXMpXG5saWJyYXJ5KElSYW5nZXMpXG5cbiMgQ3JlYXRpbmcgSVJhbmdlcyBvYmplY3RcbmlyIDwtIElSYW5nZXMoc3RhcnQ9YygxLDYsMTApLCBlbmQ9Yyg1LDgsMTIpKVxucHJpbnQoaXIpIn0=
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KEdlbm9taWNSYW5nZXMpXG5saWJyYXJ5KElSYW5nZXMpXG5cbiMgQ3JlYXRpbmcgR2Vub21pY1JhbmdlcyBvYmplY3RcbmdyIDwtIEdSYW5nZXMoc2VxbmFtZXM9XCJjaHIxXCIsIHJhbmdlcz1JUmFuZ2VzKHN0YXJ0PWMoMSw2LDEwKSwgZW5kPWMoNSw4LDEyKSkpXG5wcmludChncikifQ==
+</div>
+<p>Genomic Ranges objects can be created from the IRanges. Lets now find the overlap in the genomic ranges created.</p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KEdlbm9taWNSYW5nZXMpXG5saWJyYXJ5KElSYW5nZXMpXG5cbiMgRmluZGluZyBvdmVybGFwc1xucXVlcnkgPC0gR1JhbmdlcyhzZXFuYW1lcz1cImNocjFcIiwgcmFuZ2VzPUlSYW5nZXMoc3RhcnQ9Yyg0LDcpLCBlbmQ9Yyg4LDEwKSkpXG5vdmVybGFwIDwtIGZpbmRPdmVybGFwcyhxdWVyeSwgZ3IpXG5wcmludChvdmVybGFwKSJ9
+</div>
+</div>
+<div id="using-deseq-package" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> Using `DESeq package<a href="bioconductor.html#using-deseq-package" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>DESeq</code> package is used to analyze the RNA-Seq data from the genome to find the gene expression. <code>EdgeR</code> can also be used especially where differential analysis of RNA data is required however in this section the <code>DESeq2</code> package will be used.</p>
+Lets’ create a random data to work on the task
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KERFU2VxMilcblxuIyBMb2FkIGV4YW1wbGUgZGF0YVxuZGF0YSA8LSBtYXRyaXgocm5vcm0oMTAwMCksIG5jb2w9NSlcbmNvbERhdGEgPC0gZGF0YS5mcmFtZShjb25kaXRpb249cmVwKGMoXCJjb250cm9sXCIsIFwidHJlYXRlZFwiKSwgZWFjaD0yKSlcbmNvbERhdGEifQ==
+</div>
+Lets now use the randomly generated data to create DESeqDataSet
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsaWJyYXJ5KERFU2VxMilcblxuIyBMb2FkIGV4YW1wbGUgZGF0YVxuZGF0YSA8LSBtYXRyaXgocm5vcm0oMTAwMCksIG5jb2w9NSlcbmNvbERhdGEgPC0gZGF0YS5mcmFtZShjb25kaXRpb249cmVwKGMoXCJjb250cm9sXCIsIFwidHJlYXRlZFwiKSwgZWFjaD0yKSlcblxuIyBDcmVhdGUgREVTZXFEYXRhU2V0XG5kZHMgPC0gREVTZXFEYXRhU2V0RnJvbU1hdHJpeChjb3VudERhdGE9ZGF0YSwgY29sRGF0YT1jb2xEYXRhLCBkZXNpZ249fmNvbmRpdGlvbilcblxuIyBSdW4gREVTZXEgcGlwZWxpbmVcbmRkcyA8LSBERVNlcShkZHMpXG5yZXN1bHRzIDwtIHJlc3VsdHMoZGRzKVxuXG4jIFN1bW1hcml6ZSByZXN1bHRzXG5zdW1tYXJ5KHJlc3VsdHMpIn0=
+</div>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJpZiAoIXJlcXVpcmVOYW1lc3BhY2UoXCJCaW9jTWFuYWdlclwiLCBxdWlldGx5ID0gVFJVRSkpXG4gICAgaW5zdGFsbC5wYWNrYWdlcyhcIkJpb2NNYW5hZ2VyXCIpXG5CaW9jTWFuYWdlcjo6aW5zdGFsbChcIkRFU2VxMlwiKVxuXG4jIENoZWNrIGRpbWVuc2lvbnMgb2YgZGF0YSBhbmQgY29sRGF0YVxucHJpbnQoZGltKGRhdGEpKVxucHJpbnQoZGltKGNvbERhdGEpKVxuXG4jIENoZWNrIGEgZmV3IHJvd3Mgb2YgY29sRGF0YVxucHJpbnQoaGVhZChjb2xEYXRhKSlcblxuIyBDaGVjayBpZiByb3cgbmFtZXMgYXJlIHNldCBjb3JyZWN0bHkgaW4gZGF0YVxucHJpbnQocm93bmFtZXMoZGF0YSkpXG5cbiMgVHJ5IHNldHRpbmcgcm93IG5hbWVzIGlmIHRoZXkgYXJlIG1pc3NpbmdcbmlmIChpcy5udWxsKHJvd25hbWVzKGRhdGEpKSkge1xuICByb3duYW1lcyhkYXRhKSA8LSBwYXN0ZTAoXCJHZW5lXCIsIHNlcV9sZW4obnJvdyhkYXRhKSkpXG59XG5cbiMgTG9hZCBERVNlcTIgbGlicmFyeVxubGlicmFyeShERVNlcTIpXG5cbiMgQ3JlYXRlIERFU2VxRGF0YVNldFxuZGRzIDwtIERFU2VxRGF0YVNldEZyb21NYXRyaXgoY291bnREYXRhID0gZGF0YSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbERhdGEgPSBjb2xEYXRhLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGVzaWduID0gfiBjb25kaXRpb24pIn0=
+</div>
+</div>
+<div id="network-analysis-of-genomic-data" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> Network Analysis of Genomic Data<a href="bioconductor.html#network-analysis-of-genomic-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>“MarkovChain” is installed by <code>install.packages("markovchain")</code></p>
+<div data-datacamp-exercise="" data-height="300" data-encoded="true">
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIEV4YW1wbGUgb2YgY3JlYXRpbmcgYSBNYXJrb3YgY2hhaW4gb2JqZWN0IHdpdGggbWFya292Y2hhaW5cbmxpYnJhcnkobWFya292Y2hhaW4pXG5cbiMgRGVmaW5lIHN0YXRlcyBhbmQgdHJhbnNpdGlvbiBtYXRyaXggKHJlcGxhY2Ugd2l0aCBhY3R1YWwgZGF0YSlcbnN0YXRlcyA8LSBjKFwiVXAtcmVndWxhdGVkXCIsIFwiRG93bi1yZWd1bGF0ZWRcIiwgXCJObyBjaGFuZ2VcIilcbnRyYW5zaXRpb25fbWF0cml4IDwtIG1hdHJpeChjKDAuNywgMC4xLCAwLjIsXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAwLjIsIDAuNiwgMC4yLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMC4xLCAwLjMsIDAuNiksIGJ5cm93ID0gVFJVRSwgbnJvdyA9IDMsIGRpbW5hbWVzID0gbGlzdChzdGF0ZXMsIHN0YXRlcykpXG5cbiMgQ3JlYXRlIGEgTWFya292IGNoYWluIG9iamVjdFxubWMgPC0gbmV3KFwibWFya292Y2hhaW5cIiwgc3RhdGVzID0gc3RhdGVzLCB0cmFuc2l0aW9uTWF0cml4ID0gdHJhbnNpdGlvbl9tYXRyaXgpXG5cbiMgRXhhbXBsZSBvZiBjb25zdHJ1Y3RpbmcgYW5kIGFuYWx5emluZyBhIGdlbmUgcmVndWxhdG9yeSBuZXR3b3JrIHdpdGggaWdyYXBoXG5saWJyYXJ5KGlncmFwaClcblxuIyBHZW5lcmF0ZSBleGFtcGxlIGRhdGEgKHJlcGxhY2Ugd2l0aCBhY3R1YWwgZGF0YSlcbmdlbmVzIDwtIGMoXCJHZW5lMVwiLCBcIkdlbmUyXCIsIFwiR2VuZTNcIiwgXCJHZW5lNFwiKVxuZWRnZXMgPC0gZGF0YS5mcmFtZShmcm9tID0gYyhcIkdlbmUxXCIsIFwiR2VuZTFcIiwgXCJHZW5lMlwiLCBcIkdlbmUzXCIpLFxuICAgICAgICAgICAgICAgICAgICB0byA9IGMoXCJHZW5lMlwiLCBcIkdlbmUzXCIsIFwiR2VuZTRcIiwgXCJHZW5lMVwiKSlcblxuIyBDcmVhdGUgYSBncmFwaCBvYmplY3RcbmcgPC0gZ3JhcGhfZnJvbV9kYXRhX2ZyYW1lKGVkZ2VzLCBkaXJlY3RlZCA9IFRSVUUsIHZlcnRpY2VzID0gZ2VuZXMpXG5cbiMgQW5hbHl6ZSB0aGUgZ3JhcGhcbnByaW50KHN1bW1hcnkoZykpXG5wbG90KGcsIGxheW91dCA9IGxheW91dC5jaXJjbGUpIn0=
+</div>
+<p>The generate data was fed into DESeq pipeline.</p>
+</div>
+<div id="code-challenge-6" class="section level2 hasAnchor" number="7.8">
+<h2><span class="header-section-number">7.8</span> CODE CHALLENGE<a href="bioconductor.html#code-challenge-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this code challenge you will be required to installed the Bioconductor locally as guided above. Thereafter, you will install <code>MultiAssayExperiment</code> package that is part of the Bioconductor project. Below is the code to install the <code>MultiAssayExperiment</code> locally;</p>
 <pre><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
     install.packages(&quot;BiocManager&quot;)

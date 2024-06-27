@@ -65,4 +65,7 @@ installing-biocmanager-package
 searching-and-analyzing-the-strings
 using-seqinr
 using-short-read
+genomic-ranges
+using-deseq-package
+network-analysis-of-genomic-data
 code-challenge-6

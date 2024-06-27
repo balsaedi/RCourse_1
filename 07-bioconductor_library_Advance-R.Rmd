@@ -279,6 +279,141 @@ Plot a boxplot for the scores
 boxplot(scores, xlab="Position", ylab="Phred score")
 ```
 
+## Genomic Ranges
+`GenomicRanges` and `IRanges` packages are used in the calculations. These packages are masked in the biostrings. 
+
+- `Genomic Ranges` are representing and manipulating genomic intervals and variables defined along a genome.
+- `IRanges` used to provide an efficient handling of integer ranges, a fundamental data structure for representing genomic data.
+
+Lets inspect a scenario where the libraries are used. The `IRanges` object will be randomly created. 
+```{r}
+library(GenomicRanges)
+library(IRanges)
+
+# Creating IRanges object
+ir <- IRanges(start=c(1,6,10), end=c(5,8,12))
+print(ir)
+```
+
+
+```{r}
+library(GenomicRanges)
+library(IRanges)
+
+# Creating GenomicRanges object
+gr <- GRanges(seqnames="chr1", ranges=IRanges(start=c(1,6,10), end=c(5,8,12)))
+print(gr)
+```
+
+Genomic Ranges objects can be created from the IRanges. Lets now find the overlap in the genomic ranges created.
+
+```{r}
+library(GenomicRanges)
+library(IRanges)
+
+# Finding overlaps
+query <- GRanges(seqnames="chr1", ranges=IRanges(start=c(4,7), end=c(8,10)))
+overlap <- findOverlaps(query, gr)
+print(overlap)
+```
+
+## Using `DESeq package
+
+The `DESeq` package is used to analyze the RNA-Seq data from the genome to find the gene expression. `EdgeR` can also be used especially where differential analysis of RNA data is required however in this section the `DESeq2` package will be used. 
+
+Lets' create a random data to work on the task
+```{r}
+library(DESeq2)
+
+# Load example data
+data <- matrix(rnorm(1000), ncol=5)
+colData <- data.frame(condition=rep(c("control", "treated"), each=2))
+colData
+```
+
+Lets now use the randomly generated data to create DESeqDataSet
+```{r}
+library(DESeq2)
+
+# Load example data
+data <- matrix(rnorm(1000), ncol=5)
+colData <- data.frame(condition=rep(c("control", "treated"), each=2))
+
+# Create DESeqDataSet
+dds <- DESeqDataSetFromMatrix(countData=data, colData=colData, design=~condition)
+
+# Run DESeq pipeline
+dds <- DESeq(dds)
+results <- results(dds)
+
+# Summarize results
+summary(results)
+```
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("DESeq2")
+
+# Check dimensions of data and colData
+print(dim(data))
+print(dim(colData))
+
+# Check a few rows of colData
+print(head(colData))
+
+# Check if row names are set correctly in data
+print(rownames(data))
+
+# Try setting row names if they are missing
+if (is.null(rownames(data))) {
+  rownames(data) <- paste0("Gene", seq_len(nrow(data)))
+}
+
+# Load DESeq2 library
+library(DESeq2)
+
+# Create DESeqDataSet
+dds <- DESeqDataSetFromMatrix(countData = data,
+                              colData = colData,
+                              design = ~ condition)
+```
+
+## Network Analysis of Genomic Data 
+
+"MarkovChain" is installed by `install.packages("markovchain")`
+
+```{r}
+# Example of creating a Markov chain object with markovchain
+library(markovchain)
+
+# Define states and transition matrix (replace with actual data)
+states <- c("Up-regulated", "Down-regulated", "No change")
+transition_matrix <- matrix(c(0.7, 0.1, 0.2,
+                              0.2, 0.6, 0.2,
+                              0.1, 0.3, 0.6), byrow = TRUE, nrow = 3, dimnames = list(states, states))
+
+# Create a Markov chain object
+mc <- new("markovchain", states = states, transitionMatrix = transition_matrix)
+
+# Example of constructing and analyzing a gene regulatory network with igraph
+library(igraph)
+
+# Generate example data (replace with actual data)
+genes <- c("Gene1", "Gene2", "Gene3", "Gene4")
+edges <- data.frame(from = c("Gene1", "Gene1", "Gene2", "Gene3"),
+                    to = c("Gene2", "Gene3", "Gene4", "Gene1"))
+
+# Create a graph object
+g <- graph_from_data_frame(edges, directed = TRUE, vertices = genes)
+
+# Analyze the graph
+print(summary(g))
+plot(g, layout = layout.circle)
+```
+
+The generate data was fed into DESeq pipeline. 
+
 ## CODE CHALLENGE
 In this code challenge you will be required to installed the Bioconductor locally as guided above. Thereafter, you will install `MultiAssayExperiment` package that is part of the Bioconductor project. Below is the code to install the `MultiAssayExperiment` locally;
 
