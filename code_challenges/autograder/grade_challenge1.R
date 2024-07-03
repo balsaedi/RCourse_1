@@ -3,7 +3,7 @@ source("code_challenges/submissions/cc1/11876.R")
 total_questions = 0
 correct_answers = 0
 
-# Function to check the value of total_apples
+# Function to grade function 1
 grade_quiz <- function() {
   
   # QUESTION 1

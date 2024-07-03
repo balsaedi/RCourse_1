@@ -72,42 +72,57 @@ is.vector(my_vector)
 
 ## b. This part will require you to access and manipulate the vector elements of `my_vector`. 
 
-### i. Get the fourth value of `my_vector`. and print to the console. 
+### i. Get the fourth value of `my_vector`. and print to the console. Name it `b4`. 
 # FILL THE CODE BELOW HERE
+b4 = my_vector[4]
 
 ### ii. Subset the vector from the second to the fifth element and print it to 
-###  the console. 
+###  the console. Name it `my_vector_1`.
 # FILL THE CODE BELOW HERE
+my_vector_1 = my_vector[2:5]
 
-### iii. Exclude the fourth element and print the resultant vector to the console. 
+### iii. Exclude the fourth element and print the resultant vector to the console. Name it  `my_vector_2`.
 # FILL THE CODE BELOW HERE
+my_vector_2 = my_vector[-4]
 
-### iv. Reverse the order elements in `my_vector`. 
+### iv. Reverse the order elements in `my_vector`. Name it `reversed_vector`
 # FILL THE CODE BELOW HERE
+reversed_vector = rev(my_vector)
 
 # 3. Create two vectors; `vector1` and `vector2`that have the elements `12, 76, 45, 23, 64, 88` and `22, 87, 10, 5, 99, 54` respectively.Use the two vectors to answer the following questions. 
 # UNCOMMENT AND FILL THE CODE BELOW HERE
 # vector1 = c(__,__,___)
+vector1 = c(12, 76, 45, 23, 64, 88)
 # vector2 = c(__,__,___)
+vector2 = c(22, 87, 10, 5, 99, 54)
 
-## a. Use `summarise()` function to find the descriptive statistics of`vector1`. 
+## a. Use `summary()` function to find the descriptive statistics of`vector1`. Name it `summary1` 
 # UNCOMMENT AND FILL THE CODE BELOW HERE
-#summarise(____)
+#summary(____)
+summary1 = summarise(vector1)
 
 ## b. Add 7 to `vector1` and name it `vector3`.
 # UNCOMMENT AND FILL THE CODE BELOW HERE
 #vector3 = _____ + 7
 #vector3
+vector3 = vector1 + 7
+vector3
 
 ## c. Subtract 3 from `vector2` and name it `vector4`. 
 # UNCOMMENT AND FILL THE CODE BELOW HERE
 #vector4 = _____ - 3
 #vector4
+vector4 = vector2 - 3
+vector4
 
-## d. Add `vector1` to `vector2`
+## d. Add `vector1` to `vector2`. Name it `vector5`.
 # UNCOMMENT AND FILL THE CODE BELOW HERE
-# _____ + ______
+# vector5 = _____ + ______
+
+vector5 = vector1 + vector2
 
 ## e. Find the division of the `vector1` and `vector2`.
 # UNCOMMENT AND FILL THE CODE BELOW HERE
-# _______ / ______
+# vector6 = _______ / ______
+vector6 = vector1/vector2
+vector6
