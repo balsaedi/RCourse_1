@@ -12,8 +12,6 @@
 
 #install.packages("ggplot2")
 #library(_____) # load the ggplot2 library
-library(ggplot2)
-library(dplyr)
 
 #hr_data = read.csv("data/HR-Employee-Attrition.csv")
 

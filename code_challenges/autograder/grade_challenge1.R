@@ -1,16 +1,17 @@
-source("code_challenges/submissions/cc1/11876.R")
-
-total_questions = 0
-correct_answers = 0
+#source("code_challenges/submissions/cc1/11876.R")
+#source("code_challenges/submissions/cc1/challenge_05.R")
 
 # Function to grade function 1
 grade_quiz <- function() {
+  total_questions = 0
+  correct_answers = 0
   
   # QUESTION 1
   if (exists("total_apples")) {
     if (total_apples == 8) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
+      #rm(total_apples)
     } else {
       message("Quiz 1 is incorrect!")
     }
@@ -245,11 +246,38 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # THE FINAL GRADE
+  message(paste("Total Graded Questions: ", total_questions))
+  message(paste("Correct Answers: ", correct_answers))
   message(paste(correct_answers/total_questions * 100, "%"))
+  
+  total_questions = 0
+  correct_answers = 0
   
 }
 
-# Grade the quiz
-grade_quiz()
+
+# Define the directory to walk through the said directory
+directory <- "code_challenges/submissions/cc1"  
+
+# List all files recursively
+all_files <- list.files(path = directory, recursive = TRUE, full.names = TRUE)
+
+quiz = 0
+# Print all filenames
+for (file in all_files) {
+  print(paste("Assessing... ", file))
+  
+  source(file)
+  
+  # Grade the quiz
+  grade_quiz()
+  
+  quiz = quiz + 1
+  print(paste("Graded Quiz: ", quiz))
+}
+
+# Optionally, save the list to a file
+# writeLines(all_files, "all_filenames.txt")
+
 
 
