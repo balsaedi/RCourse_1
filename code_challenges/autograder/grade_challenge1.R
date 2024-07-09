@@ -2,13 +2,28 @@
 #source("code_challenges/submissions/cc1/challenge_05.R")
 
 # Function to grade function 1
-grade_quiz <- function() {
+grade_quiz <- function(filename) {
   total_questions = 0
   correct_answers = 0
   
+  # Create a local environment to source the file into
+  env <- new.env()
+  
+  # Source the student's quiz script
+  tryCatch({
+    source(filename, local = env)
+    print(ls(env))
+  }, error = function(e) {
+    # Handle any errors that occur during sourcing
+    return(paste(filename, "Error in script -", e$message))
+  })
+  
+  # print(paste("ENVIRONMENT VALUE: ", env$total_apples))
+  
   # QUESTION 1
-  if (exists("total_apples")) {
-    if (total_apples == 8) {
+  # "total_apples" %in% as.vector(ls(env))
+  if (exists("total_apples", envir = env)) {
+    if (env$total_apples == 8) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
       #rm(total_apples)
@@ -22,8 +37,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 2
-  if (exists("total_candies")) {
-    if (total_candies == 6) {
+  if (exists("total_candies", envir = env)) {
+    if (env$total_candies == 6) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -36,8 +51,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 3
-  if (exists("total_cost")) {
-    if (total_cost == 7 * 2) {
+  if (exists("total_cost", envir = env)) {
+    if (env$total_cost == 7 * 2) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -50,8 +65,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 4.a
-  if (exists("b4")) {
-    if (b4 == 88) {
+  if (exists("b4", envir = env)) {
+    if (env$b4 == 88) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -64,8 +79,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 4.b
-  if (exists("m4")) {
-    if (m4 == 76 - 10) {
+  if (exists("m4", envir = env)) {
+    if (env$m4 == 76 - 10) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -78,8 +93,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 4.c
-  if (exists("p4")) {
-    if (p4 == 25 * 25) {
+  if (exists("p4", envir = env)) {
+    if (env$p4 == 25 * 25) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -92,8 +107,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 4.d
-  if (exists("h4")) {
-    if (h4 == 42/14) {
+  if (exists("h4", envir = env)) {
+    if (env$h4 == 42/14) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -106,8 +121,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 5
-  if (exists("area")) {
-    if (area == 8 * 5) {
+  if (exists("area", envir = env)) {
+    if (env$area == 8 * 5) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -120,8 +135,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 6
-  if (exists("distance")) {
-    if (distance == 3 * 60) {
+  if (exists("distance", envir = env)) {
+    if (env$distance == 3 * 60) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -134,8 +149,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 7.a
-  if (exists("z")) {
-    if (z == 5 + 3 * 2) {
+  if (exists("z", envir = env)) {
+    if (env$z == 5 + 3 * 2) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -148,8 +163,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 7.b
-  if (exists("g7")) {
-    if (g7 == (8 + 2) * (5 - 3)) {
+  if (exists("g7", envir = env)) {
+    if (env$g7 == (8 + 2) * (5 - 3)) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -162,8 +177,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 7.c
-  if (exists("f7")) {
-    if (f7 == 9 + (6 - 2) * 3) {
+  if (exists("f7", envir = env)) {
+    if (env$f7 == 9 + (6 - 2) * 3) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -176,8 +191,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 7.d
-  if (exists("d7")) {
-    if (d7 == 8 * 3 - 2^2) {
+  if (exists("d7", envir = env)) {
+    if (env$d7 == 8 * 3 - 2^2) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -190,8 +205,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 7.e
-  if (exists("k7")) {
-    if (k7 == (10 + 5) * (2^2) / 4) {
+  if (exists("k7", envir = env)) {
+    if (env$k7 == (10 + 5) * (2^2) / 4) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -204,8 +219,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 8
-  if (exists("h8")) {
-    if (h8==12/3) {
+  if (exists("h8", envir = env)) {
+    if (env$h8==12/3) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -218,8 +233,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 9
-  if (exists("m9")) {
-    if (m9==25 - 8) {
+  if (exists("m9", envir = env)) {
+    if (env$m9==25 - 8) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -232,8 +247,8 @@ grade_quiz <- function() {
   total_questions = total_questions + 1
   
   # QUESTION 10
-  if (exists("m10")) {
-    if (m10==5 * (4 + 6) - 10) {
+  if (exists("m10", envir = env)) {
+    if (env$m10==5 * (4 + 6) - 10) {
       correct_answers = correct_answers + 1
       # message("Quiz is correct: total apples is equal to 8.")
     } else {
@@ -250,8 +265,8 @@ grade_quiz <- function() {
   message(paste("Correct Answers: ", correct_answers))
   message(paste(correct_answers/total_questions * 100, "%"))
   
-  total_questions = 0
-  correct_answers = 0
+  #total_questions = 0
+  #correct_answers = 0
   
 }
 
@@ -267,10 +282,8 @@ quiz = 0
 for (file in all_files) {
   print(paste("Assessing... ", file))
   
-  source(file)
-  
   # Grade the quiz
-  grade_quiz()
+  grade_quiz(filename = file)
   
   quiz = quiz + 1
   print(paste("Graded Quiz: ", quiz))
