@@ -120,6 +120,7 @@ vector4
 # vector5 = _____ + ______
 
 vector5 = vector1 + vector2
+vector5
 
 ## e. Find the division of the `vector1` and `vector2`.
 # UNCOMMENT AND FILL THE CODE BELOW HERE
