@@ -99,7 +99,7 @@ vector2 = c(22, 87, 10, 5, 99, 54)
 ## a. Use `summary()` function to find the descriptive statistics of`vector1`. Name it `summary1` 
 # UNCOMMENT AND FILL THE CODE BELOW HERE
 #summary(____)
-summary1 = summarise(vector1)
+summary1 = summary(vector1)
 
 ## b. Add 7 to `vector1` and name it `vector3`.
 # UNCOMMENT AND FILL THE CODE BELOW HERE
