@@ -173,7 +173,20 @@ grade_quiz <- function(filename) {
   message(paste(round(correct_answers/total_questions * 100, 0), "%"))
 }
 
-# Test the grader 
-filename = "code_challenges/submissions/cc4/examiners_04.R"
+# Define the directory to walk through the said directory
+directory <- "code_challenges/submissions/cc4"  
 
-grade_quiz(filename)
+# List all files recursively
+all_files <- list.files(path = directory, recursive = TRUE, full.names = TRUE)
+
+quiz = 0
+# Print all filenames
+for (file in all_files) {
+  print(paste("Assessing... ", file))
+  
+  # Grade the quiz
+  grade_quiz(filename = file)
+  
+  quiz = quiz + 1
+  print(paste("Graded Quiz: ", quiz))
+}
