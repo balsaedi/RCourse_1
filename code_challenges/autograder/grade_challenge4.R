@@ -41,7 +41,7 @@ grade_quiz <- function(filename) {
   
   ## Mark the script
   ### First
-  if (exists("head_yahoo_data_marker", envir = env)) {
+  if (exists("head_yahoo_data", envir = env)) {
     if (identical(env$head_yahoo_data, head_yahoo_data_marker)) {
       correct_answers = correct_answers + 1
     } else {
@@ -66,6 +66,105 @@ grade_quiz <- function(filename) {
   
   total_questions = total_questions + 1
   
+  # QUESTION 1.f
+  ## Marker
+  total_duplicates_marker = sum(duplicated(env$yahoo_data))
+  
+  ## Mark the script 
+  if (exists("total_duplicates", envir = env)) {
+    if (identical(env$total_duplicates, total_duplicates_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 1.f is incorrect!")
+    }
+  } else {
+    message("Quiz 1.f is incorrect: total_duplicates is not defined.")
+  }
+  
+  total_questions = total_questions + 1
+  
+  # QUESTION 2.a
+  ## Marker
+  vehicle_data_marker = read.csv("data/Vehicle Population Statistics.csv")
+  
+  ## Mark the script
+  if (exists("vehicle_data", envir = env)) {
+    if (identical(env$vehicle_data, vehicle_data_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 2.a is incorrect!")
+    }
+  } else {
+    message("Quiz 2.a is incorrect: vehicle_data is not defined.")
+  }
+  
+  total_questions = total_questions + 1
+  
+  # QUESTION 2.b
+  ## Script Marker
+  head_vehicle_data_marker = head(vehicle_data_marker, 6)
+  tail_vehicle_data_marker = tail(vehicle_data_marker, 3)
+  
+  ## Mark the script
+  ### First
+  if (exists("head_vehicle_data", envir = env)) {
+    if (identical(env$head_vehicle_data, head_vehicle_data_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 2.b 1 is incorrect!")
+    }
+  } else {
+    message("Quiz 1.d 1 is incorrect: head_vehicle_data is not defined.")
+  }
+  
+  total_questions = total_questions + 1
+  
+  ### Second
+  if (exists("tail_vehicle_data", envir = env)) {
+    if (identical(env$tail_vehicle_data, tail_vehicle_data_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 2.b2 is incorrect!")
+    }
+  } else {
+    message("Quiz 2.b2 is incorrect: tail_vehicle_data is not defined.")
+  }
+  
+  total_questions = total_questions + 1
+  
+  # QUESTION 2.c
+  ## Marker
+  scooters_top_10_marker = vehicle_data_marker$Scooters[1:10]
+  
+  ## Mark the script
+  if (exists("scooters_top_10", envir = env)) {
+    if (identical(env$scooters_top_10, scooters_top_10_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 2.c is incorrect!")
+    }
+  } else {
+    message("Quiz 2.c is incorrect: scooters_top_10 is not defined.")
+  }
+  
+  total_questions = total_questions + 1
+  
+  # QUESTION 2.e
+  ## Marker
+  distinct_categories_marker = unique(vehicle_data_marker$Category)
+  
+  ## Mark the script
+  if (exists("distinct_categories", envir = env)) {
+    if (identical(env$distinct_categories, distinct_categories_marker)) {
+      correct_answers = correct_answers + 1
+    } else {
+      message("Quiz 2.e is incorrect!")
+    }
+  } else {
+    message("Quiz 2.e is incorrect: distinct_categories is not defined.")
+  }
+  
+  total_questions = total_questions + 1
   
   
   # THE FINAL GRADE
