@@ -1,16 +1,5 @@
 # Loops
 
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
-
 A loop is a sequence of instructions that are executed iterative until a condition is met. They are two types of loops in R, they are;
 - for loops
 - while loops 
@@ -63,7 +52,7 @@ Using a for-loop, print each number from 10 to 20 alliteratively
 # CODE HERE
 ```
 
-```{r ex="activity-3a", type="solution"}
+```{r ex="activity-3a", type="solution", include=FALSE}
 # loop from 10 to 20
 for (i in 10:20)
 {
@@ -113,7 +102,7 @@ Create a vector variable `cars` and store the following values; `"Mazda", "Toyot
 # CODE HERE 
 ```
 
-```{r ex="activity-3b", type="solution"}
+```{r ex="activity-3b", type="solution", include=FALSE}
 # Create a vector cars
 cars = c("Mazda", "Toyota", "Ford", "Ferrari","Isuzu")
 
@@ -221,7 +210,7 @@ for (n in 1:length(num))
 # CODE HERE 
 ```
 
-```{r ex="activity-3c", type="solution"}
+```{r ex="activity-3c", type="solution", include=FALSE}
 # Create a sequence of numbers from 1 to 3 and store it in a variable `x`.
 x = seq(1:3)
 
@@ -280,7 +269,7 @@ for (n in num)
 # CODE HERE 
 ```
 
-```{r ex="activity-3d", type="solution"}
+```{r ex="activity-3d", type="solution", include=FALSE}
 # Create a vector fruits 
 fruits = c("mango", "avocado" , "pineapple" , "peach", "banana", "orange")
 
@@ -356,7 +345,7 @@ Learn how to use a `while` loop to repeatedly perform an operation as long as a 
 # CODE HERE 
 ```
 
-```{r ex="activity-3e", type="solution"}
+```{r ex="activity-3e", type="solution", include=FALSE}
 # Create a variable `b` and assign it the value 5
 b = 5
 

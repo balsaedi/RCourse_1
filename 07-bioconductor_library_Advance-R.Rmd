@@ -1,15 +1,5 @@
 # Bioconductor
 
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
 Bioconductor is a repository for high-quality, peer-reviewed software packages for the analysis and comprehension of high-throughput genomic data. It contained specific tools that handle, analyze and visualize data from high-throughput assays for instance ChIP-Seq, single-cell RNA-Seq and RNA-Seq. It provides data structures such as `ExpressionSet`,`SummarizedExperiment`, and `GenomicRanges`that store and manipulate large scale genomic data. It also consists over 2000 packages just for data pre-processing, normalization, data analysis and visualization. Here are some of the popular packages in `BioConductor` has to offer;
 
 - **`Biostrings`**: For efficient manipulation of large biological sequences.
@@ -322,7 +312,7 @@ print(overlap)
 The `DESeq` package is used to analyze the RNA-Seq data from the genome to find the gene expression. `EdgeR` can also be used especially where differential analysis of RNA data is required however in this section the `DESeq2` package will be used. 
 
 Lets' create a random data to work on the task
-```{r}
+```
 library(DESeq2)
 
 # Load example data
@@ -332,7 +322,7 @@ colData
 ```
 
 Lets now use the randomly generated data to create DESeqDataSet
-```{r}
+```
 library(DESeq2)
 
 # Load example data
@@ -350,7 +340,7 @@ results <- results(dds)
 summary(results)
 ```
 
-```{r}
+```
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("DESeq2")
@@ -383,7 +373,7 @@ dds <- DESeqDataSetFromMatrix(countData = data,
 
 "MarkovChain" is installed by `install.packages("markovchain")`
 
-```{r}
+```
 # Example of creating a Markov chain object with markovchain
 library(markovchain)
 

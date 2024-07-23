@@ -1,15 +1,5 @@
 # Working with files
 
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
 ## .XLSX, XLS files
 ### Reading a file to a dataframe 
 
@@ -291,8 +281,6 @@ table(titanic_df$Pclass, titanic_df$Survived)
 
 Most passengers from ticket class 0 survived. 
 
-<span style="color: green;">*Activity*</span>
-
 
 ### IBM Employee Attrition data 
 This is a common data set used for HR analytics. It contains information about all IBM employees, who are still in the company and the ones who left. Analyzing this attrition data set will provide meaningful insights on employees' behavior and their engagement. HR can also find employee retention techniques with organizations. In this course section, we will briefly go through basic analysis after assessing the data. 
@@ -431,7 +419,7 @@ In this activity we shall be reading a csv file directly from an online reposito
 # CODE HERE 
 ```
 
-```{r ex="activity-4b", type="solution"}
+```{r ex="activity-4b", type="solution", include=FALSE}
 # i. Read the csv file to a data frame `car_sales`. 
 data_link = "https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv"
 car_sales = read.csv(data_link)

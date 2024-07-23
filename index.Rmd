@@ -6,16 +6,6 @@ site: bookdown::bookdown_site
 ---
 # R - Introduction
 
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
 ![](images/R-logo.jpeg)
 
 ## R - Basic Concepts and applications 
@@ -90,7 +80,7 @@ The following examples will illustrates how to do simple arithmetic in R.
 ## Code here
 ```
 
-```{r ex="activity-1a", type="solution"}
+```{r ex="activity-1a", type="solution", include=FALSE}
 # Add 2398 to 4653 
 2398 + 4653
 ```
@@ -108,7 +98,7 @@ The following examples will illustrates how to do simple arithmetic in R.
 # CODE HERE
 ```
 
-```{r ex="activity-1b", type="solution"}
+```{r ex="activity-1b", type="solution", include=FALSE}
 # Subtract 15 from 30
 30 - 15
 ```
@@ -126,7 +116,7 @@ Your turn! Multiply `12` by `7`
 # CODE HERE
 ```
 
-```{r ex="activity-1c", type="solution"}
+```{r ex="activity-1c", type="solution", include=FALSE}
 # Multiply 12 by 7
 12 * 7
 ```
@@ -144,7 +134,7 @@ Your turn! Divide `27` by `3`
 # CODE HERE 
 ```
 
-```{r ex="activity-1d", type="solution"}
+```{r ex="activity-1d", type="solution", include=FALSE}
 # Divide 27 by 3
 27/3
 ```
@@ -176,7 +166,7 @@ Your turn! Assign `-5` to variable `m` and `20` to variable `n` and Add the two.
 ```
 
 
-```{r ex="activity-1e", type="solution"}
+```{r ex="activity-1e", type="solution", include=FALSE}
 # Assign -5 to m
 m = -5
 # Assign 20 to n
@@ -225,7 +215,7 @@ Workout the below three equations and find their solutions;
 # CODE HERE
 ```
 
-```{r ex="activity-1f", type="solution"}
+```{r ex="activity-1f", type="solution", include=FALSE}
 #i. `2+3-9/3+4*21-(21+14)`
 2+3-9/3+4*21-(21+14)
 

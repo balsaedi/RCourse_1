@@ -1,15 +1,4 @@
 # Dpyr library
-
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
 `readxl` library has been used to read excel table into R and manipulate the data using R basic functions, now `dplyr` library will be used. This, `dplyr` library is an advanced package that has functions used to manipulate data. The functions are referred to as dplyr verbs. This are some of the examples of dplyr verbs;
 
 - select
@@ -145,7 +134,7 @@ head(remaining_iris_data)
 
 <span style="color: green;">**Activity**</span>
 
-You will be required to use the `car_sales` data set from https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv.Read the data using `read.csv` and select the `car, price, body, mileage, engV, engType, year, model`. Save the data frame from the selected columns as `selected_cars_df`. Show the first few rows of the `selected_cars_df`. 
+You will be required to use the `car_sales` data set from https://raw.githubusercontent.com/insaid2018/Term-1/master/Data/Projects/car_sales.csv. Read the data using `read.csv` and select the `car, price, body, mileage, engV, engType, year, model`. Save the data frame from the selected columns as `selected_cars_df`. Show the first few rows of the `selected_cars_df`. 
 
 ```{r ex="activity-5a", type="sample-code"}
 # Load the dplyr library
@@ -161,7 +150,7 @@ You will be required to use the `car_sales` data set from https://raw.githubuser
 # CODE HERE
 ```
 
-```{r ex="activity-5a", type="solution"}
+```{r ex="activity-5a", type="solution", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 
@@ -239,7 +228,7 @@ With the `car_sales` data set that you used above, use `filter()` function to ge
 # CODE HERE 
 ```
 
-```{r ex="activity-5b", type="sample-code"}
+```{r ex="activity-5b", type="sample-code", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 
@@ -315,7 +304,7 @@ Arrange the columns in the `car_sales` data set according to `mileage` in descen
 # CODE HERE
 ```
 
-```{r ex="activity-5c", type="solution"}
+```{r ex="activity-5c", type="solution", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 
@@ -383,7 +372,7 @@ Using the `car_sales` data set, create a new column, `"distance_covered_km"`, ca
 # CODE HERE 
 ```
 
-```{r ex="activity-5d", type="solution"}
+```{r ex="activity-5d", type="solution", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 
@@ -435,7 +424,7 @@ Use the `car_sales` data set provided before to work on this activity. Load the 
 # CODE HERE 
 ```
 
-```{r ex="actvity-5e", type="solution"}
+```{r ex="actvity-5e", type="solution", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 
@@ -498,7 +487,7 @@ You will be required to use the `car_sales` data set once again. Calculate the d
 # CODE HERE
 ```
 
-```{r ex="activity-5f", type="solution"}
+```{r ex="activity-5f", type="solution", include=FALSE}
 # Load the dplyr library
 library(dplyr)
 

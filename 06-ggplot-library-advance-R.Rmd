@@ -1,15 +1,5 @@
 # GGPLOT
 
-<script src="js/dcl.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<script src="js/dcl.js"></script>
-```{r include=FALSE}
-tutorial::go_interactive(greedy=TRUE)
-knitr::opts_chunk$set(echo = TRUE,error=TRUE)
-```
-
 `ggplot2` is a powerful data visualization package in R that allows you to create a wide variety of graphs and plots. It is based on the grammar of graphics, a structured approach to constructing plots that emphasizes the mapping of data to visual attributes.
 
 ## Five key steps to ggplot 
@@ -115,7 +105,7 @@ Before plotting the data, you need to;
 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -147,7 +137,7 @@ print(graph)
 In this course we shall explore a few of them but the concepts applies to all of them. Now lets make our plot a bar chart. `geom()` function will be added to a variable `graph` defined above to plot a bar chart. 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -164,7 +154,7 @@ print(graph1)
 If you can remember our data, `methylated_c` has a column/variable "Context". In this step, the variable "Context" will be introduced to make a stacked bar chart, therefore, the C distribution in Chromosomes based on "Context" will be plotted to add some depth to the data. 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -184,7 +174,7 @@ To make it a grouped bar chart, a `position` argument is introduced.
 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -204,7 +194,7 @@ Faceted graphs - these are related data plotted separately on the same image/dia
 The `facet_grid()` function is added to the variable `graph3` to created faceted graphs based on the variable "Context". 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -224,7 +214,7 @@ print(graph4)
 GGPlot randomly select colors to paint the graph but the biologist/statistician can use predefined colors as below.
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -246,7 +236,7 @@ print(graph5)
 - The background color can be modified to ones aesthetic taste. The `theme()` function along with relevant arguments to make the background color of your choice, in this its light blue. 
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -269,7 +259,7 @@ graph5+theme_bw(base_size=9)+theme(panel.background = element_rect(fill="lightbl
 All of the above steps can be combined to come up with a decent graph from ggplot library.
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -315,7 +305,7 @@ In this activity, you are required to use the restaurant tips dataset. The link 
 # CODE HERE
 ```
 
-```{r ex="activity-6a", type="solution"}
+```{r ex="activity-6a", type="solution", include=FALSE}
 # Load the required libraries 
 library(ggplot2)
 
@@ -339,7 +329,7 @@ We have worked with iris data set before. In this topic we shall ask some questi
 - **Plot a box plot to compare the sepal length in different iris species**
 ```{r}
 # Load the library 
-library(gplot2)
+library(ggplot2)
 library(data.table)
 
 #Load the data using fread
@@ -442,7 +432,7 @@ In this activity, you will be required to use the famous R inbuilt data set, `mt
 # CODE HERE 
 ```
 
-```{r ex="activity-6b", type="solution"}
+```{r ex="activity-6b", type="solution", include=FALSE}
 # Load the ggplot2 library
 # CODE HERE 
 
